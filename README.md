@@ -11,11 +11,16 @@ enhancing what Rocketdock provided. The idea is that this will make the utility
 quite familiar to Rocketdock users. It operates with Steamydock, my open source 
 replacement for Rocketdock.
 
+![themes](https://github.com/yereverluvinunclebert/dockSettings/assets/2788342/f181ab5e-2838-4548-bf1f-55d75c04f4ca)
+
+
 NOTE: The dock settings tool is Beta-grade software, under development, not yet 
 ready to use on a production system - use at your own risk.
 
 NOTE: This tool and the build instructions are being overhauled, do not expect 
 it to load without flaws until this message is removed.
+
+![dockS-aboutPane](https://github.com/yereverluvinunclebert/dockSettings/assets/2788342/b0da7f63-3802-47ee-9a70-a44e41444d59)
 
 BUILD: The program runs without any additional Microsoft plugins.
 
@@ -62,7 +67,7 @@ an adjacent folder as some of the BAS modules are common and shared.
 
 Example folder structure:
 	
-	E:\VB6\steamydock	  ! https://github.com/yereverluvinunclebert/SteamyDock
+	E:\VB6\steamydock   ! https://github.com/yereverluvinunclebert/SteamyDock
 	E:\VB6\docksettings ! this repo.
 	E:\VB6\rocketdock   ! from https://github.com/yereverluvinunclebert/rocketdock
 
@@ -121,3 +126,5 @@ permission. In all other non-commercial cases I require a credit to the
 original artist using my name or one of my pseudonyms and a link to my site.
 With regard to the commercial use of incorporated images, permission and a
 licence would need to be obtained from the original owner and creator, ie. me.
+
+![Uploading dockS-fullscreen.png…]()
