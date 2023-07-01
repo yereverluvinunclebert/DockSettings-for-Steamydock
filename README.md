@@ -127,4 +127,6 @@ original artist using my name or one of my pseudonyms and a link to my site.
 With regard to the commercial use of incorporated images, permission and a
 licence would need to be obtained from the original owner and creator, ie. me.
 
-![Uploading dockS-fullscreen.png…]()
+
+![crystal](https://github.com/yereverluvinunclebert/dockSettings/assets/2788342/0f7e336d-d360-4813-8498-ce79dafd4f3f)
+
