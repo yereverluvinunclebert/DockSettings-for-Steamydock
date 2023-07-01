@@ -4092,6 +4092,8 @@ Attribute VB_Exposed = False
 ' ==================
 '
 ' frmMessage msgbox error during compilation as per steamydock
+
+' resource file for the ocx as per rocketdock
 '
 ' Define any key to toggle hiding not just function keys - at the moment it is much more sensible to have a single key defined
 '   Using this code it can be done - https://www.developerfusion.com/code/271/create-a-hot-key/

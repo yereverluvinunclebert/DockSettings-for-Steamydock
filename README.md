@@ -51,21 +51,32 @@ Tested on :
 
 Dependencies:
 
-Requires the SteamyDock program to be installed.
+o A windows-alike o/s such as Windows XP, 7-11 or ReactOS.
 
-The program runs without any additional Microsoft plugins.
+o Microsoft VB6 IDE installed with its runtime components. The program runs 
+without any additional Microsoft OCX components, just the basic controls that 
+ship with VB6.
 
-Krools replacement for the Microsoft Windows Common Controls found in
+o Requires the SteamyDock program source code to be downloaded and available in 
+an adjacent folder as some of the BAS modules are common and shared.
+
+Example folder structure:
+	
+	E:\VB6\steamydock
+	E:\VB6\docksettings
+	E:\VB6\rocketdock
+
+o Krools replacement for the Microsoft Windows Common Controls found in
 mscomctl.ocx (treeview, slider) are replicated by the addition of one
 dedicated OCX file that is shipped with this package.
 
-  CCRSlider.ocx
+o  CCRSlider.ocx
 
 This OCX will reside in the program folder. The program reference to this OCX is 
 contained within the supplied resource file Panzer Earth Gauge.RES. It is 
 compiled into the binary.
 
-In the VB6 IDE - project - references - browse - select the OLEEXP.tlb
+o In the VB6 IDE - project - references - browse - select the OLEEXP.tlb
 
 Project References:
 VisualBasic for Applications  

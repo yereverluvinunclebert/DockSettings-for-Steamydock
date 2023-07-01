@@ -1,9 +1,9 @@
 Type=Exe
-Form=dockSettings.frm
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
+Object={13E244CC-5B1A-45EA-A5BC-D3906B9ABB79}#1.0#0; CCRSlider.ocx
+Form=dockSettings.frm
 Module=mdlMain; rocketdock1.bas
 Form=licence.frm
-Object={13E244CC-5B1A-45EA-A5BC-D3906B9ABB79}#1.0#0; CCRSlider.ocx
 Form=about.frm
 Module=modDebugPrint; debugPrint.bas
 Module=mdlDeadCode; mdlDeadCode.bas
