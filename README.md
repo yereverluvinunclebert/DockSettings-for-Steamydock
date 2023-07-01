@@ -1,4 +1,4 @@
-# DockSetting
+# DockSettings for Steamydock
 
 DOCK SETTINGS for Steamydock, written in VB6. A WoW64 dock settings
 utility for Reactos, XP, Win7, 8 and 10+.
