@@ -11,11 +11,15 @@ enhancing what Rocketdock provided. The idea is that this will make the utility
 quite familiar to Rocketdock users. It operates with Steamydock, my open source 
 replacement for Rocketdock.
 
+![themes](https://github.com/yereverluvinunclebert/dockSettings/assets/2788342/25b8e695-b762-4450-bf15-eaf1fc6ae2c3)
+
 NOTE: The dock settings tool is Beta-grade software, under development, not yet 
 ready to use on a production system - use at your own risk.
 
 NOTE: This tool and the build instructions are being overhauled, do not expect 
 it to load without flaws until this message is removed.
+
+![dockS-aboutPane](https://github.com/yereverluvinunclebert/dockSettings/assets/2788342/a162ea1e-220e-4b02-97a2-a7a8d09cc741)
 
 BUILD: The program runs without any additional Microsoft plugins.
 
@@ -121,3 +125,5 @@ permission. In all other non-commercial cases I require a credit to the
 original artist using my name or one of my pseudonyms and a link to my site.
 With regard to the commercial use of incorporated images, permission and a
 licence would need to be obtained from the original owner and creator, ie. me.
+
+![crystal](https://github.com/yereverluvinunclebert/dockSettings/assets/2788342/b824d00a-c20d-4312-9914-d6a6fdb38904)
