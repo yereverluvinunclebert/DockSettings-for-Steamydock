@@ -17,7 +17,7 @@ ready to use on a production system - use at your own risk.
 NOTE: This tool and the build instructions are being overhauled, do not expect 
 it to load without flaws until this message is removed.
 
-BUILD: The program runs without any Microsoft plugins.
+BUILD: The program runs without any additional Microsoft plugins.
 
 Built using: VB6, MZ-TOOLS 3.0, VBAdvance, CodeHelp Core IDE Extender
 Framework 2.2 & Rubberduck 2.4.1
@@ -50,6 +50,8 @@ Tested on :
 	Windows 11 64bit on Intel
 
 Dependencies:
+
+Requires the SteamyDock program to be installed.
 
 The program runs without any additional Microsoft plugins.
 
