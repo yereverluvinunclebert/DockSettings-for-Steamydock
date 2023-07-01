@@ -34,20 +34,9 @@ Links:
 	La Volpe http://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=67466&lngWId=1  
 	PrivateExtractIcons code http://www.activevb.de/rubriken/  
 	Persistent debug code http://www.vbforums.com/member.php?234143-Elroy  
+	Elroy on the VBForums for the balloon tooltips
 	Open File common dialog code without dependent OCX - http://forums.codeguru.com/member.php?92278-rxbagain  
-   Elroy on the VBForums for the balloon tooltips
 
-
-LICENCE AGREEMENTS:
-
-Copyright 2023 Dean Beedell
-
-In addition to the GNU General Public Licence please be aware that you may use
-any of my own imagery in your own creations but commercially only with my
-permission. In all other non-commercial cases I require a credit to the
-original artist using my name or one of my pseudonyms and a link to my site.
-With regard to the commercial use of incorporated images, permission and a
-licence would need to be obtained from the original owner and creator, ie. me.
 
 Tested on :
 
@@ -108,3 +97,14 @@ OCX http://forums.codeguru.com/member.php?92278-rxbagain
 si_the_geek for his special folder code
 
 
+
+LICENCE AGREEMENTS:
+
+Copyright 2023 Dean Beedell
+
+In addition to the GNU General Public Licence please be aware that you may use
+any of my own imagery in your own creations but commercially only with my
+permission. In all other non-commercial cases I require a credit to the
+original artist using my name or one of my pseudonyms and a link to my site.
+With regard to the commercial use of incorporated images, permission and a
+licence would need to be obtained from the original owner and creator, ie. me.
