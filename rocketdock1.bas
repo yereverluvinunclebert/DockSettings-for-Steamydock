@@ -77,7 +77,7 @@ End Type
 
 Private Type FONTSTRUC
   lStructSize As Long
-  hWnd As Long
+  hwnd As Long
   hdc As Long
   lpLogFont As Long
   iPointSize As Long
@@ -131,7 +131,7 @@ Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
 (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
 Private Declare Function GetDeviceCaps Lib "gdi32" _
   (ByVal hdc As Long, ByVal nIndex As Long) As Long
-Private Declare Function GetDC Lib "user32" (ByVal hWnd As Long) As Long
+Private Declare Function GetDC Lib "user32" (ByVal hwnd As Long) As Long
 Private Declare Function FindWindow Lib "user32.dll" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
 Private Declare Function ChooseColor Lib "comdlg32.dll" Alias "ChooseColorA" _
     (lpChoosecolor As ChooseColorStruct) As Long
@@ -275,12 +275,12 @@ Function test_DialogFont(ctl As Control) As Boolean
     Call DialogFont(f)
     
     With f
-'        DebugPrint "Font Name: "; .Name
-'        DebugPrint "Font Size: "; .Height
-'        DebugPrint "Font Weight: "; .Weight
-'        DebugPrint "Font Italics: "; .Italic
-'        DebugPrint "Font Underline: "; .UnderLine
-'        DebugPrint "Font Color: "; .Color
+'        debug.print "Font Name: "; .Name
+'        debug.print "Font Size: "; .Height
+'        debug.print "Font Weight: "; .Weight
+'        debug.print "Font Italics: "; .Italic
+'        debug.print "Font Underline: "; .UnderLine
+'        debug.print "Font Color: "; .Color
         
         ctl.FontName = .Name
         ctl.FontSize = .Height

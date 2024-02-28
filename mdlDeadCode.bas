@@ -236,7 +236,7 @@ Attribute VB_Name = "mdlDeadCode"
 '
 '    ProgramFilesDir = strString
 '    If ProgramFilesDir = vbNullString Then ProgramFilesDir = "c:\program files (x86)" ' 64bit systems
-'    If Not DirExists(ProgramFilesDir) Then
+'    If Not fDirExists(ProgramFilesDir) Then
 '        ProgramFilesDir = "c:\program files" ' 32 bit systems
 '    End If
 '
@@ -258,9 +258,9 @@ Attribute VB_Name = "mdlDeadCode"
 
 
 ''----------------------------------------
-''Name: FExists
+''Name: fFExists
 ''----------------------------------------
-'Public Function FExists(OrigFile As String)
+'Public Function fFExists(OrigFile As String)
 '
 '    ' variables declared
 '    Dim FS As Object
@@ -268,13 +268,13 @@ Attribute VB_Name = "mdlDeadCode"
 '    'initialise the dimensioned variables
 '
 '    Set FS = CreateObject("Scripting.FileSystemObject")
-'    FExists = FS.FileExists(OrigFile)
+'    fFExists = FS.FileExists(OrigFile)
 'End Function
 '
 ''----------------------------------------
-''Name: DirExists
+''Name: fDirExists
 ''----------------------------------------
-'Public Function DirExists(OrigFile As String)
+'Public Function fDirExists(OrigFile As String)
 '
 '    ' variables declared
 '    Dim FS As Object
@@ -284,7 +284,7 @@ Attribute VB_Name = "mdlDeadCode"
 '
 '
 '    Set FS = CreateObject("Scripting.FileSystemObject")
-'    DirExists = FS.FolderExists(OrigFile)
+'    fDirExists = FS.FolderExists(OrigFile)
 'End Function
 
 
@@ -363,7 +363,7 @@ Attribute VB_Name = "mdlDeadCode"
 '    Exit Function
 '
 'HandleError:
-'    DebugPrint Err.Number & " " & Err.Description
+'    debug.print Err.Number & " " & Err.Description
 '
 '   On Error GoTo 0
 '   Exit Function
@@ -461,10 +461,10 @@ Attribute VB_Name = "mdlDeadCode"
 '        sDrv = sDrives(cnt)
 '        ' on 32bit windows the folder is "Program Files\Rocketdock"
 '        folderString = sDrv & folder
-'        If DirExists(folderString) = True Then
+'        If fDirExists(folderString) = True Then
 '           'test for the yahoo widgets binary
 '            testAppPath = folderString
-'            If FExists(testAppPath & "\" & filename) Then
+'            If fFExists(testAppPath & "\" & filename) Then
 '                'MsgBox "YWE folder exists"
 '                driveCheck = testAppPath
 '                Exit Function
@@ -1129,7 +1129,7 @@ Attribute VB_Name = "mdlDeadCode"
 '    s = ""
 '
 '    On Error GoTo LoadFileToTB_Error
-'    If debugflg = 1 Then DebugPrint "%" & "LoadFileToTB"
+'    If debugflg = 1 Then debug.print "%" & "LoadFileToTB"
 '
 '    If Dir(FilePath) = "" Then Exit Function
 '
@@ -1148,7 +1148,7 @@ Attribute VB_Name = "mdlDeadCode"
 '    On Error GoTo readSettingsFile_Error
 '    If debugflg = 1 Then Debug.Print "%readSettingsFile"
 '
-'    If FExists(dockSettingsFile) Then
+'    If fFExists(dockSettingsFile) Then
 '        rDGeneralReadConfig = GetINISetting("Software\SteamyDock\DockSettings", "GeneralReadConfig", dockSettingsFile)
 '        rDGeneralWriteConfig = GetINISetting("Software\SteamyDock\DockSettings", "GeneralWriteConfig", dockSettingsFile)
 '        rDRunAppInterval = GetINISetting("Software\SteamyDock\DockSettings", "RunAppInterval", dockSettingsFile)

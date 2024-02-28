@@ -202,7 +202,7 @@ Public Property Let propButtonVal(ByVal buttonVal As Integer)
         
         ' .86 DAEB 06/06/2022 rDIConConfig.frm Add a sound to the msgbox for critical and exclamations? ting and belltoll.wav files
         fileToPlay = "ting.wav"
-        If FExists(App.Path & "\resources\sounds\" & fileToPlay) Then
+        If fFExists(App.Path & "\resources\sounds\" & fileToPlay) Then
             PlaySound App.Path & "\resources\sounds\" & fileToPlay, ByVal 0&, SND_FILENAME Or SND_ASYNC
         End If
     ElseIf buttonVal >= 32 Then '    vbQuestion
@@ -214,7 +214,7 @@ Public Property Let propButtonVal(ByVal buttonVal As Integer)
         
         ' .86 DAEB 06/06/2022 rDIConConfig.frm Add a sound to the msgbox for critical and exclamations? ting and belltoll.wav files
         fileToPlay = "belltoll01.wav"
-        If FExists(App.Path & "\resources\sounds\" & fileToPlay) Then
+        If fFExists(App.Path & "\resources\sounds\" & fileToPlay) Then
             PlaySound App.Path & "\resources\sounds\" & fileToPlay, ByVal 0&, SND_FILENAME Or SND_ASYNC
         End If
     End If
@@ -226,8 +226,10 @@ Public Property Let propButtonVal(ByVal buttonVal As Integer)
         btnButtonOne.Caption = "Abort"
         btnButtonOne.Caption = "Retry"
         'btnButtonThree.Caption = "Ignore"
+        picVBQuestion.Visible = True
     End If
     If buttonVal = 0 Then '    vbOKOnly 0
+        picVBInformation.Visible = True
         btnButtonOne.Visible = True
         btnButtonTwo.Visible = False
         btnButtonOne.Caption = "OK"
@@ -238,12 +240,14 @@ Public Property Let propButtonVal(ByVal buttonVal As Integer)
         btnButtonTwo.Visible = True
         btnButtonOne.Caption = "OK"
         btnButtonTwo.Caption = "Cancel"
+        picVBQuestion.Visible = True
     End If
     If buttonVal = 2 Then '    vbCancel 2
         btnButtonOne.Visible = False
         btnButtonTwo.Visible = True
         btnButtonOne.Caption = ""
         btnButtonTwo.Caption = "Cancel"
+        picVBInformation.Visible = True
     End If
     If buttonVal = 3 Then '    vbYesNoCancel 3
         btnButtonOne.Visible = True
@@ -252,18 +256,21 @@ Public Property Let propButtonVal(ByVal buttonVal As Integer)
         btnButtonOne.Caption = "Yes"
         btnButtonTwo.Caption = "No"
         'btnButtonThree.Caption = "Cancel"
+        picVBQuestion.Visible = True
     End If
     If buttonVal = 4 Then '    vbYesNo 4
         btnButtonOne.Visible = True
         btnButtonTwo.Visible = True
         btnButtonOne.Caption = "Yes"
         btnButtonTwo.Caption = "No"
+        picVBQuestion.Visible = True
     End If
     If buttonVal = 5 Then '    vbRetryCancel 5
         btnButtonOne.Visible = True
         btnButtonTwo.Visible = True
         btnButtonOne.Caption = "Retry"
         btnButtonTwo.Caption = "Cancel"
+        picVBQuestion.Visible = True
     End If
 
         
@@ -286,7 +293,7 @@ Private Sub Form_Load()
     ' .TBD DAEB 05/05/2021 frmMessage.frm Added the font mod. here instead of within the changeFont tool
     '                       as each instance of the form is new, the font modification must be here.
     For Each Ctrl In Controls
-         If (TypeOf Ctrl Is CommandButton) Or (TypeOf Ctrl Is Textbox) Or (TypeOf Ctrl Is FileListBox) Or (TypeOf Ctrl Is Label) Or (TypeOf Ctrl Is ComboBox) Or (TypeOf Ctrl Is CheckBox) Or (TypeOf Ctrl Is OptionButton) Or (TypeOf Ctrl Is Frame) Or (TypeOf Ctrl Is ListBox) Then
+         If (TypeOf Ctrl Is CommandButton) Or (TypeOf Ctrl Is TextBox) Or (TypeOf Ctrl Is FileListBox) Or (TypeOf Ctrl Is Label) Or (TypeOf Ctrl Is ComboBox) Or (TypeOf Ctrl Is CheckBox) Or (TypeOf Ctrl Is OptionButton) Or (TypeOf Ctrl Is Frame) Or (TypeOf Ctrl Is ListBox) Then
            If rDFontName <> "" Then Ctrl.Font.Name = rDFontName
            If Val(Abs(rDFontSize)) > 0 Then Ctrl.Font.Size = Val(Abs(rDFontSize))
                        'Ctrl.Font.Italic = CBool(SDSuppliedFontItalics) TBD
