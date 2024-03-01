@@ -487,33 +487,146 @@ Begin VB.Form dockSettings
       ToolTipText     =   "These are the main settings for the dock"
       Top             =   15
       Width           =   6930
-      Begin VB.TextBox txtDefaultEditor 
-         Height          =   315
-         Left            =   2115
-         TabIndex        =   237
-         Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-         Top             =   7170
-         Width           =   3585
-      End
-      Begin VB.ComboBox cmbDebug 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         ItemData        =   "dockSettings.frx":5ABC
-         Left            =   2130
-         List            =   "dockSettings.frx":5AC6
+      Begin VB.Frame fraEditors 
+         BorderStyle     =   0  'None
+         Height          =   1665
+         Left            =   855
          TabIndex        =   235
-         Text            =   "Debug ON"
-         ToolTipText     =   "Choose to set debug mode."
-         Top             =   6720
-         Width           =   1920
+         Top             =   6750
+         Width           =   5370
+         Begin VB.CommandButton Command3 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            TabIndex        =   245
+            ToolTipText     =   "Select the folder location of Rocketdock here"
+            Top             =   1260
+            Visible         =   0   'False
+            Width           =   300
+         End
+         Begin VB.CommandButton Command2 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            TabIndex        =   244
+            ToolTipText     =   "Select the folder location of Rocketdock here"
+            Top             =   810
+            Visible         =   0   'False
+            Width           =   300
+         End
+         Begin VB.CommandButton Command1 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            TabIndex        =   243
+            ToolTipText     =   "Select the folder location of Rocketdock here"
+            Top             =   330
+            Visible         =   0   'False
+            Width           =   300
+         End
+         Begin VB.TextBox Text2 
+            Height          =   315
+            Left            =   1200
+            TabIndex        =   240
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   1275
+            Width           =   3585
+         End
+         Begin VB.TextBox Text1 
+            Height          =   315
+            Left            =   1200
+            TabIndex        =   238
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   795
+            Width           =   3585
+         End
+         Begin VB.TextBox txtDefaultEditor 
+            Height          =   315
+            Left            =   1200
+            TabIndex        =   236
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   345
+            Width           =   3585
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "VB6 Editor VBP file locations:"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   5
+            Left            =   90
+            TabIndex        =   242
+            ToolTipText     =   $"dockSettings.frx":5ABC
+            Top             =   15
+            Width           =   2190
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Icon Settings :"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   1
+            Left            =   90
+            TabIndex        =   241
+            ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
+            Top             =   1290
+            Width           =   1530
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Dock Settings :"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   0
+            Left            =   90
+            TabIndex        =   239
+            ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
+            Top             =   840
+            Width           =   1530
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Dock :"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   6
+            Left            =   90
+            TabIndex        =   237
+            ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
+            Top             =   390
+            Width           =   1530
+         End
       End
       Begin VB.CheckBox genChkShowIconSettings 
          Caption         =   "Automatically display Icon Settings after adding an icon to the dock"
@@ -674,7 +787,7 @@ Begin VB.Form dockSettings
          Height          =   360
          Left            =   930
          TabIndex        =   14
-         ToolTipText     =   $"dockSettings.frx":5AE2
+         ToolTipText     =   $"dockSettings.frx":5B86
          Top             =   2880
          Width           =   2985
       End
@@ -746,9 +859,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":5B81
+         ItemData        =   "dockSettings.frx":5C25
          Left            =   2085
-         List            =   "dockSettings.frx":5B8B
+         List            =   "dockSettings.frx":5C2F
          TabIndex        =   76
          Text            =   "Rocketdock"
          ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock, these utilities are compatible with both"
@@ -813,7 +926,7 @@ Begin VB.Form dockSettings
             Height          =   225
             Left            =   390
             TabIndex        =   164
-            ToolTipText     =   $"dockSettings.frx":5BA7
+            ToolTipText     =   $"dockSettings.frx":5C4B
             Top             =   15
             Width           =   5325
          End
@@ -857,7 +970,7 @@ Begin VB.Form dockSettings
             Height          =   225
             Left            =   360
             TabIndex        =   146
-            ToolTipText     =   $"dockSettings.frx":5C3C
+            ToolTipText     =   $"dockSettings.frx":5CE0
             Top             =   465
             Width           =   5500
          End
@@ -875,7 +988,7 @@ Begin VB.Form dockSettings
             Height          =   225
             Left            =   360
             TabIndex        =   145
-            ToolTipText     =   $"dockSettings.frx":5CFF
+            ToolTipText     =   $"dockSettings.frx":5DA3
             Top             =   780
             Width           =   5565
          End
@@ -899,44 +1012,6 @@ Begin VB.Form dockSettings
          End
       End
       Begin VB.Label lblGenLabel 
-         Caption         =   "Default Editor :"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   6
-         Left            =   945
-         TabIndex        =   238
-         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
-         Top             =   7215
-         Width           =   1530
-      End
-      Begin VB.Label lblGenLabel 
-         Caption         =   "Debug :"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   5
-         Left            =   945
-         TabIndex        =   236
-         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
-         Top             =   6765
-         Width           =   1530
-      End
-      Begin VB.Label lblGenLabel 
          Caption         =   "Dock Folder Location"
          BeginProperty Font 
             Name            =   "Arial"
@@ -951,7 +1026,7 @@ Begin VB.Form dockSettings
          Index           =   4
          Left            =   915
          TabIndex        =   107
-         ToolTipText     =   $"dockSettings.frx":5D94
+         ToolTipText     =   $"dockSettings.frx":5E38
          Top             =   5190
          Width           =   1695
       End
@@ -1004,9 +1079,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":5E5E
+         ItemData        =   "dockSettings.frx":5F02
          Left            =   2190
-         List            =   "dockSettings.frx":5E6B
+         List            =   "dockSettings.frx":5F0F
          TabIndex        =   234
          Text            =   "None"
          Top             =   6150
@@ -1058,9 +1133,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":5E8F
+         ItemData        =   "dockSettings.frx":5F33
          Left            =   2190
-         List            =   "dockSettings.frx":5EBA
+         List            =   "dockSettings.frx":5F5E
          TabIndex        =   217
          Text            =   "F11"
          ToolTipText     =   "This is the key sequence that is used to hide or restore Steamydock"
@@ -1184,9 +1259,9 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":5EFB
+            ItemData        =   "dockSettings.frx":5F9F
             Left            =   1770
-            List            =   "dockSettings.frx":5F08
+            List            =   "dockSettings.frx":5FAC
             TabIndex        =   209
             Text            =   "Fade"
             ToolTipText     =   "The type of auto-hide, fade, instant or a slide like Rocketdock"
@@ -1222,12 +1297,12 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":5F22
+            ItemData        =   "dockSettings.frx":5FC6
             Left            =   1770
-            List            =   "dockSettings.frx":5F2F
+            List            =   "dockSettings.frx":5FD3
             TabIndex        =   206
             Text            =   "Bounce"
-            ToolTipText     =   $"dockSettings.frx":5F53
+            ToolTipText     =   $"dockSettings.frx":5FF7
             Top             =   0
             Width           =   2620
          End
@@ -1247,7 +1322,7 @@ Begin VB.Form dockSettings
             Left            =   90
             LinkItem        =   "150"
             TabIndex        =   207
-            ToolTipText     =   $"dockSettings.frx":5FE7
+            ToolTipText     =   $"dockSettings.frx":608B
             Top             =   45
             Width           =   1605
          End
@@ -1585,7 +1660,7 @@ Begin VB.Form dockSettings
             Height          =   315
             Left            =   1890
             TabIndex        =   166
-            ToolTipText     =   $"dockSettings.frx":6079
+            ToolTipText     =   $"dockSettings.frx":611D
             Top             =   285
             Width           =   2775
             _ExtentX        =   4895
@@ -1761,7 +1836,7 @@ Begin VB.Form dockSettings
          Width           =   1440
       End
       Begin VB.Label lblBehaviourLabel 
-         Caption         =   $"dockSettings.frx":6108
+         Caption         =   $"dockSettings.frx":61AC
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -1818,7 +1893,7 @@ Begin VB.Form dockSettings
       Begin VB.PictureBox picThemeSample 
          Height          =   2070
          Left            =   630
-         Picture         =   "dockSettings.frx":619A
+         Picture         =   "dockSettings.frx":623E
          ScaleHeight     =   2010
          ScaleWidth      =   5265
          TabIndex        =   171
@@ -2099,7 +2174,7 @@ Begin VB.Form dockSettings
          ScaleHeight     =   675
          ScaleWidth      =   5280
          TabIndex        =   61
-         ToolTipText     =   $"dockSettings.frx":99F3
+         ToolTipText     =   $"dockSettings.frx":9A97
          Top             =   4440
          Width           =   5340
          Begin VB.Label lblPreviewFont 
@@ -2264,9 +2339,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":9A7D
+         ItemData        =   "dockSettings.frx":9B21
          Left            =   2205
-         List            =   "dockSettings.frx":9A7F
+         List            =   "dockSettings.frx":9B23
          TabIndex        =   50
          ToolTipText     =   "The dock background theme can be selected here"
          Top             =   405
@@ -2598,7 +2673,7 @@ Begin VB.Form dockSettings
          BorderStyle     =   0  'None
          Height          =   4800
          Left            =   150
-         Picture         =   "dockSettings.frx":9A81
+         Picture         =   "dockSettings.frx":9B25
          ScaleHeight     =   4800
          ScaleWidth      =   3495
          TabIndex        =   108
@@ -2616,9 +2691,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":1164C
+         ItemData        =   "dockSettings.frx":116F0
          Left            =   2190
-         List            =   "dockSettings.frx":11659
+         List            =   "dockSettings.frx":116FD
          TabIndex        =   47
          Text            =   "Always Below"
          ToolTipText     =   "Should the dock appear on top of other windows or underneath?"
@@ -2636,9 +2711,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":11682
+         ItemData        =   "dockSettings.frx":11726
          Left            =   2205
-         List            =   "dockSettings.frx":11698
+         List            =   "dockSettings.frx":1173C
          TabIndex        =   36
          Text            =   "Monitor 1"
          ToolTipText     =   "Here you can determine upon which monitor the dock will appear"
@@ -2656,9 +2731,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":116DE
+         ItemData        =   "dockSettings.frx":11782
          Left            =   2190
-         List            =   "dockSettings.frx":116EE
+         List            =   "dockSettings.frx":11792
          TabIndex        =   35
          Text            =   "Bottom"
          ToolTipText     =   "Place the dock at your preferred location. Steamydock only supports top and bottom positions"
@@ -2695,7 +2770,7 @@ Begin VB.Form dockSettings
          BorderStyle     =   0  'None
          Height          =   2970
          Left            =   3645
-         Picture         =   "dockSettings.frx":1170C
+         Picture         =   "dockSettings.frx":117B0
          ScaleHeight     =   2970
          ScaleWidth      =   3015
          TabIndex        =   85
@@ -3226,12 +3301,12 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":15488
+         ItemData        =   "dockSettings.frx":1552C
          Left            =   2160
-         List            =   "dockSettings.frx":15495
+         List            =   "dockSettings.frx":15539
          TabIndex        =   89
          Text            =   "Low quality (Faster)"
-         ToolTipText     =   $"dockSettings.frx":154D7
+         ToolTipText     =   $"dockSettings.frx":1557B
          Top             =   390
          Width           =   2520
       End
@@ -3298,9 +3373,9 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":15595
+            ItemData        =   "dockSettings.frx":15639
             Left            =   1995
-            List            =   "dockSettings.frx":155A8
+            List            =   "dockSettings.frx":1564C
             TabIndex        =   135
             Text            =   "None"
             ToolTipText     =   "The zoom effect to apply"
@@ -3646,7 +3721,7 @@ Begin VB.Form dockSettings
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
          TabIndex        =   230
-         Text            =   "dockSettings.frx":155E8
+         Text            =   "dockSettings.frx":1568C
          Top             =   2235
          Width           =   6660
       End
@@ -4412,7 +4487,7 @@ Private Sub chkToggleDialogs_Click()
        sdChkToggleDialogs = "1"
     End If
     
-    PutINISetting "Software\SteamyDockSettings", "sdChkToggleDialogs", sdChkToggleDialogs, toolSettingsFile
+    PutINISetting "Software\DockSettings", "sdChkToggleDialogs", sdChkToggleDialogs, toolSettingsFile
 
     Call setToolTips
 End Sub
@@ -4718,7 +4793,7 @@ Private Sub Form_Load()
     ' set the theme on startup
     Call setThemeSkin
     
-    sdChkToggleDialogs = GetINISetting("Software\SteamyDockSettings", "sdChkToggleDialogs", toolSettingsFile)
+    sdChkToggleDialogs = GetINISetting("Software\DockSettings", "sdChkToggleDialogs", toolSettingsFile)
     
     If sdChkToggleDialogs = "" Then sdChkToggleDialogs = "1" ' validate
     If sdChkToggleDialogs = "1" Then ' set
@@ -4775,8 +4850,8 @@ Private Sub makeVisibleFormElements()
 '    End If
 
     ' read the form's saved X/Y params from the toolSettings.ini in twips and convert to pixels
-    formLeftPixels = Val(GetINISetting("Software\SteamyDockSettings", "dockSettingsXPos", toolSettingsFile)) / screenTwipsPerPixelX
-    formTopPixels = Val(GetINISetting("Software\SteamyDockSettings", "dockSettingsYPos", toolSettingsFile)) / screenTwipsPerPixelY
+    formLeftPixels = Val(GetINISetting("Software\DockSettings", "dockSettingsXPos", toolSettingsFile)) / screenTwipsPerPixelX
+    formTopPixels = Val(GetINISetting("Software\DockSettings", "dockSettingsYPos", toolSettingsFile)) / screenTwipsPerPixelY
 
     Call adjustFormPositionToCorrectMonitor(Me.hwnd, formLeftPixels, formTopPixels)
         
@@ -5069,11 +5144,13 @@ Private Sub mnuEditWidget_Click()
     If rDDefaultEditor = vbNullString Then
         MsgBox "Select the .VBP file that is associated with the Icon Settings VB6 program."
         rDDefaultEditor = addTargetProgram("")
-        If fFExists(rDDefaultEditor) Then PutINISetting "Software\SteamyDock\DockSettings", "defaultEditor", rDDefaultEditor, toolSettingsFile
+        If fFExists(rDDefaultEditor) Then
+            PutINISetting "Software\DockSettings", "defaultEditor", rDDefaultEditor, toolSettingsFile
+            mnuEditWidget.Caption = "Edit Program using " & rDDefaultEditor
+        End If
     End If
     
     If fFExists(rDDefaultEditor) Then
-        
         ' run the selected program
         execStatus = ShellExecute(Me.hwnd, "open", rDDefaultEditor, vbNullString, vbNullString, 1)
         If execStatus <= 32 Then MsgBox "Attempt to open the IDE for this widget failed."
@@ -5382,7 +5459,7 @@ Private Sub checkDefaultDock()
     txtGeneralRdLocation.Text = dockAppPath
     defaultDock = 1
     ' write the default dock to the SteamyDock settings file
-    PutINISetting "Software\SteamyDockSettings", "defaultDock", defaultDock, toolSettingsFile
+    PutINISetting "Software\DockSettings", "defaultDock", defaultDock, toolSettingsFile
                 
 '    If steamyDockInstalled = True And rocketDockInstalled = True Then
 '        If chkGenAlwaysAsk.Value = 1 Then  ' depends upon being able to read the new configuration file in the user data area
@@ -7766,8 +7843,8 @@ Private Sub Form_Unload(Cancel As Integer)
     dockSettingsYPos = dockSettings.Top
     
     ' now write those params to the toolSettings.ini
-    PutINISetting "Software\SteamyDockSettings", "dockSettingsXPos", dockSettingsXPos, toolSettingsFile
-    PutINISetting "Software\SteamyDockSettings", "dockSettingsYPos", dockSettingsYPos, toolSettingsFile
+    PutINISetting "Software\DockSettings", "dockSettingsXPos", dockSettingsXPos, toolSettingsFile
+    PutINISetting "Software\DockSettings", "dockSettingsYPos", dockSettingsYPos, toolSettingsFile
     
     'this was initially commented out as it caused a crash on exit in Win 7 (only) subsequent to the two Krool's
     'controls being added or perhaps it was the failure to close GDI properly
@@ -8083,7 +8160,7 @@ Private Sub setThemeShade(redC As Integer, greenC As Integer, blueC As Integer)
     sliIconsDuration.BackColor = RGB(redC, greenC, blueC)
 
     
-    PutINISetting "Software\SteamyDockSettings", "SkinTheme", rDSkinTheme, toolSettingsFile ' now saved to the toolsettingsfile
+    PutINISetting "Software\DockSettings", "SkinTheme", rDSkinTheme, toolSettingsFile ' now saved to the toolsettingsfile
 
     End Sub
 '---------------------------------------------------------------------------------------
@@ -8298,7 +8375,7 @@ Private Sub picIcon_Click(Index As Integer)
 '    Else
         'CFG - write the current open tab to the 3rd config settings
         ' .20 DAEB 07/09/2022 docksettings tab selection fixed
-        PutINISetting "Software\SteamyDock\DockSettings", "OptionsTabIndex", rDOptionsTabIndex, toolSettingsFile
+        PutINISetting "Software\DockSettings", "OptionsTabIndex", rDOptionsTabIndex, toolSettingsFile
         
 '    End If
     
@@ -8637,11 +8714,11 @@ Private Sub readAndSetUtilityFont()
     On Error GoTo readAndSetUtilityFont_Error
     
     ' set the tool's default font
-    suppliedFont = GetINISetting("Software\SteamyDockSettings", "defaultFont", toolSettingsFile)
-    suppliedSize = Val(GetINISetting("Software\SteamyDockSettings", "defaultSize", toolSettingsFile))
-    suppliedWeight = Val(GetINISetting("Software\SteamyDockSettings", "defaultStrength", toolSettingsFile))
-    suppliedStyle = GetINISetting("Software\SteamyDockSettings", "defaultStyle", toolSettingsFile)
-    rDSkinTheme = GetINISetting("Software\SteamyDockSettings", "SkinTheme", toolSettingsFile)
+    suppliedFont = GetINISetting("Software\DockSettings", "defaultFont", toolSettingsFile)
+    suppliedSize = Val(GetINISetting("Software\DockSettings", "defaultSize", toolSettingsFile))
+    suppliedWeight = Val(GetINISetting("Software\DockSettings", "defaultStrength", toolSettingsFile))
+    suppliedStyle = GetINISetting("Software\DockSettings", "defaultStyle", toolSettingsFile)
+    rDSkinTheme = GetINISetting("Software\DockSettings", "SkinTheme", toolSettingsFile)
         
         
     If Not suppliedFont = "" Then
@@ -9514,10 +9591,10 @@ Private Sub mnuFont_Click()
     If fontSelected = False Then Exit Sub
 
     If fFExists(toolSettingsFile) Then ' does the tool's own settings.ini exist?
-        PutINISetting "Software\SteamyDockSettings", "defaultFont", suppliedFont, toolSettingsFile
-        PutINISetting "Software\SteamyDockSettings", "defaultSize", suppliedSize, toolSettingsFile
-        PutINISetting "Software\SteamyDockSettings", "defaultStrength", suppliedWeight, toolSettingsFile
-        PutINISetting "Software\SteamyDockSettings", "defaultStyle", suppliedStyle, toolSettingsFile
+        PutINISetting "Software\DockSettings", "defaultFont", suppliedFont, toolSettingsFile
+        PutINISetting "Software\DockSettings", "defaultSize", suppliedSize, toolSettingsFile
+        PutINISetting "Software\DockSettings", "defaultStrength", suppliedWeight, toolSettingsFile
+        PutINISetting "Software\DockSettings", "defaultStyle", suppliedStyle, toolSettingsFile
     End If
 
     If suppliedWeight > 700 Then
@@ -9946,14 +10023,17 @@ Private Sub mnuDebug_Click()
         mnuDebug.Caption = "Turn Debugging OFF"
         mnuAppFolder.Visible = True
         mnuEditWidget.Visible = True
+        fraEditors.Visible = True
     Else
         debugflg = 0
         mnuDebug.Caption = "Turn Debugging ON"
         mnuAppFolder.Visible = False
         mnuEditWidget.Visible = False
+        fraEditors.Visible = False
     End If
 
-    PutINISetting "Software\SteamyDock\DockSettings", "debugFlg", debugflg, toolSettingsFile
+    rDDebugFlg = CStr(debugflg)
+    PutINISetting "Software\SteamyDock\DockSettings", "debugFlg", rDDebugFlg, toolSettingsFile
 
    On Error GoTo 0
    Exit Sub
@@ -11224,8 +11304,8 @@ Private Sub positionTimer_Timer()
     dockSettingsYPos = dockSettings.Top
     
     ' now write those params to the toolSettings.ini
-    PutINISetting "Software\SteamyDockSettings", "IconConfigFormXPos", dockSettingsXPos, toolSettingsFile
-    PutINISetting "Software\SteamyDockSettings", "IconConfigFormYPos", dockSettingsYPos, toolSettingsFile
+    PutINISetting "Software\DockSettings", "IconConfigFormXPos", dockSettingsXPos, toolSettingsFile
+    PutINISetting "Software\DockSettings", "IconConfigFormYPos", dockSettingsYPos, toolSettingsFile
 End Sub
 
 Private Sub mnuBringToCentre_click()
@@ -11250,10 +11330,12 @@ Public Sub adjustMainControls()
         mnuDebug.Caption = "Turn Debugging OFF"
         mnuAppFolder.Visible = True
         mnuEditWidget.Visible = True
+        fraEditors.Visible = True
     Else
         mnuDebug.Caption = "Turn Debugging ON"
         mnuAppFolder.Visible = False
         mnuEditWidget.Visible = False
+        fraEditors.Visible = False
     End If
     
    On Error GoTo 0
@@ -11378,8 +11460,8 @@ Public Sub readSettingsFile() '(ByVal location As String, ByVal PzGSettingsFile 
 
     If fFExists(toolSettingsFile) Then
 
-        rDDefaultEditor = GetINISetting("Software\SteamyDock\DockSettings", "defaultEditor", toolSettingsFile)
-        rDDebugFlg = GetINISetting("Software\SteamyDock\DockSettings", "debugFlg", toolSettingsFile)
+        rDDefaultEditor = GetINISetting("Software\DockSettings", "defaultEditor", toolSettingsFile)
+        rDDebugFlg = GetINISetting("Software\DockSettings", "debugFlg", toolSettingsFile)
         debugflg = Val(rDDebugFlg)
 
     End If
