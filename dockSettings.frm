@@ -454,21 +454,6 @@ Begin VB.Form dockSettings
          End
       End
    End
-   Begin VB.PictureBox picHiddenPicture 
-      Appearance      =   0  'Flat
-      BackColor       =   &H80000004&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H80000008&
-      Height          =   1605
-      Left            =   6525
-      ScaleHeight     =   1605
-      ScaleWidth      =   1650
-      TabIndex        =   86
-      ToolTipText     =   "The icon size in the dock"
-      Top             =   240
-      Visible         =   0   'False
-      Width           =   1650
-   End
    Begin VB.Frame fmeMain 
       Caption         =   "General Configuration"
       BeginProperty Font 
@@ -494,58 +479,55 @@ Begin VB.Form dockSettings
          TabIndex        =   235
          Top             =   6750
          Width           =   5370
-         Begin VB.CommandButton Command3 
+         Begin VB.CommandButton btnGeneralIconSettingsEditor 
             Caption         =   "..."
-            Enabled         =   0   'False
             Height          =   300
             Left            =   4920
+            Style           =   1  'Graphical
             TabIndex        =   245
-            ToolTipText     =   "Select the folder location of Rocketdock here"
             Top             =   1260
-            Visible         =   0   'False
             Width           =   300
          End
-         Begin VB.CommandButton Command2 
+         Begin VB.CommandButton btnGeneralDockSettingsEditor 
             Caption         =   "..."
-            Enabled         =   0   'False
             Height          =   300
             Left            =   4920
+            Style           =   1  'Graphical
             TabIndex        =   244
-            ToolTipText     =   "Select the folder location of Rocketdock here"
             Top             =   810
-            Visible         =   0   'False
             Width           =   300
          End
-         Begin VB.CommandButton Command1 
+         Begin VB.CommandButton btnGeneralDockEditor 
             Caption         =   "..."
-            Enabled         =   0   'False
             Height          =   300
             Left            =   4920
+            Style           =   1  'Graphical
             TabIndex        =   243
-            ToolTipText     =   "Select the folder location of Rocketdock here"
             Top             =   330
-            Visible         =   0   'False
             Width           =   300
          End
-         Begin VB.TextBox Text2 
+         Begin VB.TextBox txtIconSettingsDefaultEditor 
             Height          =   315
             Left            =   1200
+            Locked          =   -1  'True
             TabIndex        =   240
             Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
             Top             =   1275
             Width           =   3585
          End
-         Begin VB.TextBox Text1 
+         Begin VB.TextBox txtDockSettingsDefaultEditor 
             Height          =   315
             Left            =   1200
+            Locked          =   -1  'True
             TabIndex        =   238
             Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
             Top             =   795
             Width           =   3585
          End
-         Begin VB.TextBox txtDefaultEditor 
+         Begin VB.TextBox txtDockDefaultEditor 
             Height          =   315
             Left            =   1200
+            Locked          =   -1  'True
             TabIndex        =   236
             Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
             Top             =   345
@@ -585,7 +567,6 @@ Begin VB.Form dockSettings
             Index           =   1
             Left            =   90
             TabIndex        =   241
-            ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
             Top             =   1290
             Width           =   1530
          End
@@ -604,7 +585,6 @@ Begin VB.Form dockSettings
             Index           =   0
             Left            =   90
             TabIndex        =   239
-            ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
             Top             =   840
             Width           =   1530
          End
@@ -623,7 +603,6 @@ Begin VB.Form dockSettings
             Index           =   6
             Left            =   90
             TabIndex        =   237
-            ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
             Top             =   390
             Width           =   1530
          End
@@ -2651,6 +2630,21 @@ Begin VB.Form dockSettings
          Width           =   795
       End
    End
+   Begin VB.PictureBox picHiddenPicture 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000004&
+      BorderStyle     =   0  'None
+      ForeColor       =   &H80000008&
+      Height          =   1605
+      Left            =   6525
+      ScaleHeight     =   1605
+      ScaleWidth      =   1485
+      TabIndex        =   86
+      ToolTipText     =   "The icon size in the dock"
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   1485
+   End
    Begin VB.Frame fmeMain 
       Caption         =   "Position the Dock"
       BeginProperty Font 
@@ -4341,6 +4335,61 @@ Private Sub btnFacebook_MouseMove(Button As Integer, Shift As Integer, X As Sing
                   TTIconInfo, "Help on the FaceBook Button", , , , True
 End Sub
 
+' ----------------------------------------------------------------
+' Procedure Name: btnGeneralDockEditor_Click
+' Purpose:
+' Procedure Kind: Sub
+' Procedure Access: Private
+' Author: beededea
+' Date: 01/03/2024
+' ----------------------------------------------------------------
+Private Sub btnGeneralDockEditor_Click()
+    
+'    ' variables declared
+'    Dim getFolder As String: getFolder = ""
+'    Dim dialogInitDir As String: dialogInitDir = ""
+'
+'    On Error GoTo btnGeneralDockEditor_Click_Error
+'
+'    If debugflg = 1 Then Debug.Print "%btnGeneralRdFolder_Click"
+'
+'    dialogInitDir = App.Path
+'
+''    If txtDockDefaultEditor.Text <> vbNullString Then
+''        If fDirExists(txtDockDefaultEditor.Text) Then
+''            dialogInitDir = txtDockDefaultEditor.Text 'start dir, might be "C:\" or so also
+''        Else
+''            dialogInitDir = rdAppPath 'start dir, might be "C:\" or so also
+''        End If
+''    End If
+'
+'    getFolder = BrowseFolder(hwnd, dialogInitDir) ' show the dialog box to select a folder
+'
+'
+'
+'
+'    If getFolder <> vbNullString Then txtDockDefaultEditor.Text = getFolder
+    
+    
+    Call selectDockVBPFile
+    
+    On Error GoTo 0
+    Exit Sub
+
+btnGeneralDockEditor_Click_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnGeneralDockEditor_Click, line " & Erl & "."
+
+End Sub
+
+Private Sub btnGeneralDockSettingsEditor_Click()
+    Call selectDockSettingsVBPFile(False)
+End Sub
+
+Private Sub btnGeneralIconSettingsEditor_Click()
+    Call selectIconSettingsVBPFile
+End Sub
+
 Private Sub btnGeneralRdFolder_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
     If rDEnableBalloonTooltips = "1" Then CreateToolTip btnGeneralRdFolder.hwnd, "Press this button to select the folder location of Rocketdock here. ", _
                   TTIconInfo, "Help on selecting a folder.", , , , True
@@ -4689,7 +4738,7 @@ Private Sub Form_Load()
     Dim answer As VbMsgBoxResult
     
     ' initial values assigned
-    NameProcess = ""
+    NameProcess = vbNullString
     AppExists = False
     answer = vbNo
     
@@ -4701,8 +4750,12 @@ Private Sub Form_Load()
     busyCounter = 1
     totalBusyCounter = 1
     rDEnableBalloonTooltips = "1"
-    rDDefaultEditor = "" ' "E:\vb6\rocketdock\docksettings.vbp"
-    rDDebugFlg = ""
+    
+    sDDockSettingsDefaultEditor = vbNullString ' "E:\vb6\rocketdock\docksettings.vbp"
+    sDIconSettingsDefaultEditor = vbNullString
+    sDDockDefaultEditor = vbNullString
+    
+    rDDebugFlg = vbNullString
 
     mnupopmenu.Visible = False
 
@@ -4768,6 +4821,9 @@ Private Sub Form_Load()
     
     ' if both docks are installed we need to determine which is the default
     Call checkDefaultDock
+    
+    ' locate the icon settings tool ini file so we can read the editor VBP file
+    Call locateiconSettingsToolFile
     
     'load the resizing image into a hidden picbox
     picHiddenPicture.Picture = LoadPicture(App.Path & "\gpu-z-256.gif")
@@ -5116,8 +5172,8 @@ Private Sub mnuAppFolder_Click()
         execStatus = ShellExecute(Me.hwnd, "open", folderPath, vbNullString, vbNullString, 1)
         If execStatus <= 32 Then MsgBox "Attempt to open folder failed."
     Else
-        MsgBox "Having a bit of a problem opening a folder for this widget - " & folderPath & " It doesn't seem to have a valid working directory set.", "Panzer Earth Gauge Confirmation Message", vbOKOnly + vbExclamation
-        'MessageBox Me.hWnd, "Having a bit of a problem opening a folder for that command - " & sCommand & " It doesn't seem to have a valid working directory set.", "Panzer Earth Gauge Confirmation Message", vbOKOnly + vbExclamation
+        MsgBox "Having a bit of a problem opening a folder for this widget - " & folderPath & " It doesn't seem to have a valid working directory set.", "Dock Settings Confirmation Message", vbOKOnly + vbExclamation
+        'MessageBox Me.hWnd, "Having a bit of a problem opening a folder for that command - " & sCommand & " It doesn't seem to have a valid working directory set.", "Dock Settings Confirmation Message", vbOKOnly + vbExclamation
     End If
 
    On Error GoTo 0
@@ -5137,26 +5193,10 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub mnuEditWidget_Click()
-    Dim execStatus As Long: execStatus = 0
-    
+
     On Error GoTo mnuEditWidget_Click_Error
     
-    If rDDefaultEditor = vbNullString Then
-        MsgBox "Select the .VBP file that is associated with the Icon Settings VB6 program."
-        rDDefaultEditor = addTargetProgram("")
-        If fFExists(rDDefaultEditor) Then
-            PutINISetting "Software\DockSettings", "defaultEditor", rDDefaultEditor, toolSettingsFile
-            mnuEditWidget.Caption = "Edit Program using " & rDDefaultEditor
-        End If
-    End If
-    
-    If fFExists(rDDefaultEditor) Then
-        ' run the selected program
-        execStatus = ShellExecute(Me.hwnd, "open", rDDefaultEditor, vbNullString, vbNullString, 1)
-        If execStatus <= 32 Then MsgBox "Attempt to open the IDE for this widget failed."
-    Else
-        MsgBox "Having a bit of a problem opening an IDE for this widgt - " & rDDefaultEditor & " It doesn't seem to have a valid working directory set.", "Panzer Earth Gauge Confirmation Message", vbOKOnly + vbExclamation
-    End If
+    Call runDockSettingsVBPFile
 
    On Error GoTo 0
    Exit Sub
@@ -5165,6 +5205,10 @@ mnuEditWidget_Click_Error:
 
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuEditWidget_Click of Form menuForm"
 End Sub
+
+
+
+
 
 '---------------------------------------------------------------------------------------
 ' Procedure : optGeneralReadConfig_Click
@@ -8110,7 +8154,11 @@ Private Sub setThemeShade(redC As Integer, greenC As Integer, blueC As Integer)
     
     'all other buttons go here
     
-    btnGeneralRdFolder.BackColor = RGB(redC, greenC, blueC)
+'    btnGeneralRdFolder.BackColor = RGB(redC, greenC, blueC)
+'
+'    btnGeneralDockEditor.BackColor = RGB(redC, greenC, blueC)
+'    btnGeneralDockSettingsEditor.BackColor = RGB(redC, greenC, blueC)
+'    btnGeneralIconSettingsEditor.BackColor = RGB(redC, greenC, blueC)
     
     sliBehaviourAutoHideDuration.BackColor = RGB(redC, greenC, blueC)
     sliAnimationInterval.BackColor = RGB(redC, greenC, blueC)
@@ -9638,7 +9686,7 @@ Private Sub changeFont(suppliedFont As String, suppliedSize As Integer, supplied
       
     ' a method of looping through all the controls and identifying the labels and text boxes
     For Each Ctrl In dockSettings.Controls
-         If (TypeOf Ctrl Is CommandButton) Or (TypeOf Ctrl Is TextBox) Or (TypeOf Ctrl Is FileListBox) Or (TypeOf Ctrl Is Label) Or (TypeOf Ctrl Is ComboBox) Or (TypeOf Ctrl Is CheckBox) Or (TypeOf Ctrl Is OptionButton) Or (TypeOf Ctrl Is Frame) Then
+         If (TypeOf Ctrl Is CommandButton) Or (TypeOf Ctrl Is textbox) Or (TypeOf Ctrl Is FileListBox) Or (TypeOf Ctrl Is Label) Or (TypeOf Ctrl Is ComboBox) Or (TypeOf Ctrl Is CheckBox) Or (TypeOf Ctrl Is OptionButton) Or (TypeOf Ctrl Is Frame) Then
            If suppliedFont <> "" Then Ctrl.Font.Name = suppliedFont
            If suppliedSize > 0 Then Ctrl.Font.Size = suppliedSize
            'If suppliedStyle <> "" Then Ctrl.Font.Style = suppliedStyle
@@ -10872,6 +10920,11 @@ Private Sub setToolTips()
         picIcon(4).ToolTipText = "Icon effects and quality"
         genChkShowIconSettings.ToolTipText = "When you drag or add an item to the dock it will always show the icon settings utility unless you disable it here"
         chkSplashStatus.ToolTipText = "Show Splash Screen on Start-up"
+        
+        btnGeneralDockEditor.ToolTipText = "Select the VB6 project file to allow editing of the dock itself from the developer menu."
+        btnGeneralDockSettingsEditor.ToolTipText = "Select the VB6 project file to allow editing of this dock settings utility using the developer menu."
+        btnGeneralIconSettingsEditor.ToolTipText = "Select the VB6 project file to allow editing of the icon settings tool from its developer menu."
+        
         optGeneralReadSettings.ToolTipText = "Store configuration in Rocketdock's program files folder, causes security issues and requires admin access,"
         optGeneralReadRegistry.ToolTipText = "Stores the configuration where Rocketdock stores it, in the Registry, increasingly incompatible with Windows new standards, causes some security problems and requires admin rights to operate."
         optGeneralReadConfig.ToolTipText = "This stores ALL configuration within the user data area retaining future compatibility in Windows. The trouble is, only SteamyDock can access it."
@@ -11069,6 +11122,11 @@ Private Sub setToolTips()
         picIcon(4).ToolTipText = vbNullString
         genChkShowIconSettings.ToolTipText = vbNullString
         chkSplashStatus.ToolTipText = vbNullString
+        
+        
+        btnGeneralDockEditor.ToolTipText = vbNullString
+        btnGeneralDockSettingsEditor.ToolTipText = vbNullString
+        btnGeneralIconSettingsEditor.ToolTipText = vbNullString
         optGeneralReadSettings.ToolTipText = vbNullString
         optGeneralReadRegistry.ToolTipText = vbNullString
         optGeneralReadConfig.ToolTipText = vbNullString
@@ -11324,7 +11382,12 @@ Public Sub adjustMainControls()
    
     On Error GoTo adjustMainControls_Error
           
-    If rDDefaultEditor <> vbNullString Then mnuEditWidget.Caption = "Edit Program using " & rDDefaultEditor
+    If sDDockSettingsDefaultEditor <> vbNullString Then
+        mnuEditWidget.Caption = "Edit Program using " & sDDockSettingsDefaultEditor
+        txtDockDefaultEditor.Text = sDDockDefaultEditor ' main steamydock editor location
+        txtDockSettingsDefaultEditor.Text = sDDockSettingsDefaultEditor
+        txtIconSettingsDefaultEditor.Text = sDIconSettingsDefaultEditor ' iconsettings editor location
+    End If
     
     If debugflg = 1 Then
         mnuDebug.Caption = "Turn Debugging OFF"
@@ -11460,7 +11523,13 @@ Public Sub readSettingsFile() '(ByVal location As String, ByVal PzGSettingsFile 
 
     If fFExists(toolSettingsFile) Then
 
-        rDDefaultEditor = GetINISetting("Software\DockSettings", "defaultEditor", toolSettingsFile)
+        sDDockDefaultEditor = GetINISetting("Software\SteamyDock\DockSettings", "defaultEditor", dockSettingsFile)
+        sDDockSettingsDefaultEditor = GetINISetting("Software\DockSettings", "defaultEditor", toolSettingsFile)
+        sDIconSettingsDefaultEditor = GetINISetting("Software\IconSettings", "defaultEditor", iconSettingsToolFile)
+        
+        PutINISetting "Software\SteamyDock\DockSettings", "defaultEditor", sDIconSettingsDefaultEditor, iconSettingsToolFile
+        
+        
         rDDebugFlg = GetINISetting("Software\DockSettings", "debugFlg", toolSettingsFile)
         debugflg = Val(rDDebugFlg)
 

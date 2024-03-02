@@ -144,7 +144,7 @@ Public sdChkToggleDialogs As String
 Public dockSettingsXPos As String
 Public dockSettingsYPos As String
 
-
+Public iconSettingsToolFile As String
 
 
 '---------------------------------------------------------------------------------------
@@ -481,3 +481,166 @@ FindWindowHandle_Error:
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure FindWindowHandle of Module mdlMain"
 End Function
 
+' ----------------------------------------------------------------
+' Procedure Name: selectDockSettingsVBPFile
+' Purpose:
+' Procedure Kind: Sub
+' Procedure Access: Public
+' Author: beededea
+' Date: 01/03/2024
+' ----------------------------------------------------------------
+Public Sub selectDockSettingsVBPFile(ByVal runAfter As Boolean)
+    Dim execStatus As Long: execStatus = 0
+
+    On Error GoTo selectDockSettingsVBPFile_Error
+    
+    If sDDockSettingsDefaultEditor = vbNullString Then
+        MsgBox "Select the .VBP file that is associated with this Dock Settings VB6 program."
+    End If
+    
+    sDDockSettingsDefaultEditor = addTargetProgram("")
+    If LTrim$(sDDockSettingsDefaultEditor) = vbNullString Then Exit Sub
+    
+    If fFExists(sDDockSettingsDefaultEditor) Then
+        PutINISetting "Software\DockSettings", "defaultEditor", sDDockSettingsDefaultEditor, toolSettingsFile
+        dockSettings.mnuEditWidget.Caption = "Edit Program using " & sDDockSettingsDefaultEditor
+        dockSettings.txtDockSettingsDefaultEditor.Text = sDDockSettingsDefaultEditor
+    Else
+        MsgBox "Having a bit of a problem selecting an IDE for this program - " & sDDockSettingsDefaultEditor & " It doesn't seem to have a valid working directory set.", "Dock Settings Confirmation Message", vbOKOnly + vbExclamation
+        Exit Sub
+    End If
+    
+    If runAfter = True Then
+        ' run the selected program
+        execStatus = ShellExecute(dockSettings.hwnd, "open", sDDockSettingsDefaultEditor, vbNullString, vbNullString, 1)
+        If execStatus <= 32 Then MsgBox "Attempt to open the IDE for this program failed." Else
+    End If
+
+    On Error GoTo 0
+    Exit Sub
+
+selectDockSettingsVBPFile_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure selectDockSettingsVBPFile, line " & Erl & "."
+
+End Sub
+
+
+' ----------------------------------------------------------------
+' Procedure Name: runDockSettingsVBPFile
+' Purpose:
+' Procedure Kind: Sub
+' Procedure Access: Public
+' Author: beededea
+' Date: 01/03/2024
+' ----------------------------------------------------------------
+Public Sub runDockSettingsVBPFile()
+    Dim execStatus As Long: execStatus = 0
+
+    On Error GoTo runDockSettingsVBPFile_Error
+    
+    If fFExists(sDDockSettingsDefaultEditor) Then
+        PutINISetting "Software\DockSettings", "defaultEditor", sDDockSettingsDefaultEditor, toolSettingsFile
+    Else
+        MsgBox "Having a bit of a problem running an IDE for this program - " & sDDockSettingsDefaultEditor & " It doesn't seem to have a valid working directory set.", "Dock Settings Confirmation Message", vbOKOnly + vbExclamation
+        Exit Sub
+    End If
+    
+    ' run the selected program
+    execStatus = ShellExecute(dockSettings.hwnd, "open", sDDockSettingsDefaultEditor, vbNullString, vbNullString, 1)
+    If execStatus <= 32 Then MsgBox "Attempt to open the IDE for this program failed." Else
+
+    On Error GoTo 0
+    Exit Sub
+
+runDockSettingsVBPFile_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure runDockSettingsVBPFile, line " & Erl & "."
+
+End Sub
+
+' ----------------------------------------------------------------
+' Procedure Name: selectDockVBPFile
+' Purpose:
+' Procedure Kind: Sub
+' Procedure Access: Public
+' Author: beededea
+' Date: 01/03/2024
+' ----------------------------------------------------------------
+Public Sub selectDockVBPFile()
+    Dim dockEditor As String: dockEditor = vbNullString
+
+    On Error GoTo selectDockVBPFile_Error
+    
+    If sDDockDefaultEditor = vbNullString Then
+        MsgBox "Select the .VBP file that is associated with the SteamyDock VB6 program."
+    End If
+    
+    dockEditor = addTargetProgram("")
+    If LTrim$(dockEditor) = vbNullString Then Exit Sub
+    
+    If fFExists(dockEditor) Then
+        sDDockDefaultEditor = dockEditor
+        PutINISetting "Software\SteamyDock\DockSettings", "defaultEditor", sDDockDefaultEditor, dockSettingsFile
+        dockSettings.txtDockDefaultEditor.Text = dockEditor
+    Else
+        MsgBox "Having a bit of a problem selecting an IDE for this program - " & sDDockDefaultEditor & " It doesn't seem to have a valid working directory set.", "Dock Settings Confirmation Message", vbOKOnly + vbExclamation
+        Exit Sub
+    End If
+    
+    On Error GoTo 0
+    Exit Sub
+
+selectDockVBPFile_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure selectDockVBPFile, line " & Erl & "."
+
+End Sub
+
+' ----------------------------------------------------------------
+' Procedure Name: selectIconSettingsVBPFile
+' Purpose:
+' Procedure Kind: Sub
+' Procedure Access: Public
+' Author: beededea
+' Date: 01/03/2024
+' ----------------------------------------------------------------
+Public Sub selectIconSettingsVBPFile()
+    Dim dockEditor As String: dockEditor = vbNullString
+
+    On Error GoTo selectIconSettingsVBPFile_Error
+    
+    If sDIconSettingsDefaultEditor = vbNullString Then
+        MsgBox "Select the .VBP file that is associated with the Icon Settings VB6 program."
+    End If
+    
+    dockEditor = addTargetProgram("")
+    If LTrim$(dockEditor) = vbNullString Then Exit Sub
+    
+    If fFExists(dockEditor) Then
+        sDIconSettingsDefaultEditor = dockEditor
+        PutINISetting "Software\SteamyDock\DockSettings", "defaultEditor", sDIconSettingsDefaultEditor, iconSettingsToolFile
+        dockSettings.txtIconSettingsDefaultEditor.Text = dockEditor
+    Else
+        MsgBox "Having a bit of a problem selecting an IDE for this program - " & sDDockDefaultEditor & " It doesn't seem to have a valid working directory set.", "Dock Settings Confirmation Message", vbOKOnly + vbExclamation
+        Exit Sub
+    End If
+    
+    On Error GoTo 0
+    Exit Sub
+
+selectIconSettingsVBPFile_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure selectIconSettingsVBPFile, line " & Erl & "."
+
+End Sub
+
+Public Sub locateiconSettingsToolFile()
+
+
+    Dim iconSettingsToolDir As String: iconSettingsToolDir = vbNullString
+    
+    ' icon Settings tool own settings.ini
+    iconSettingsToolDir = SpecialFolder(SpecialFolder_AppData) & "\rocketdockEnhancedSettings"
+    iconSettingsToolFile = iconSettingsToolDir & "\settings.ini"
+End Sub
