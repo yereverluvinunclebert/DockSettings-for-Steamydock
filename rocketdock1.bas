@@ -501,6 +501,10 @@ Public Sub selectDockSettingsVBPFile(ByVal runAfter As Boolean)
     sDDockSettingsDefaultEditor = addTargetProgram("")
     If LTrim$(sDDockSettingsDefaultEditor) = vbNullString Then Exit Sub
     
+    
+    '         sDDockSettingsDefaultEditor = GetINISetting("Software\DockSettings", "dockDefaultEditor", toolSettingsFile)
+
+    
     If fFExists(sDDockSettingsDefaultEditor) Then
         PutINISetting "Software\DockSettings", "defaultEditor", sDDockSettingsDefaultEditor, toolSettingsFile
         dockSettings.mnuEditWidget.Caption = "Edit Program using " & sDDockSettingsDefaultEditor
@@ -619,6 +623,8 @@ Public Sub selectIconSettingsVBPFile()
     
     If fFExists(dockEditor) Then
         sDIconSettingsDefaultEditor = dockEditor
+        PutINISetting "Software\IconSettings", "defaultEditor", sDIconSettingsDefaultEditor, iconSettingsToolFile
+        
         PutINISetting "Software\SteamyDock\DockSettings", "defaultEditor", sDIconSettingsDefaultEditor, iconSettingsToolFile
         dockSettings.txtIconSettingsDefaultEditor.Text = dockEditor
     Else

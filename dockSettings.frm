@@ -677,7 +677,7 @@ Begin VB.Form dockSettings
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Height          =   225
+            Height          =   255
             Left            =   750
             TabIndex        =   143
             ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
@@ -783,11 +783,12 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   360
-         Left            =   1200
+         Left            =   3585
          TabIndex        =   13
          ToolTipText     =   "If you dislike the minimise animation, click this"
          Top             =   2505
          Value           =   1  'Checked
+         Visible         =   0   'False
          Width           =   2520
       End
       Begin VB.CheckBox chkGenOpen 
@@ -859,10 +860,11 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   360
-         Left            =   915
+         Left            =   3300
          TabIndex        =   12
          ToolTipText     =   "This allows running applications to appear in the dock"
          Top             =   2175
+         Visible         =   0   'False
          Width           =   3075
       End
       Begin VB.CheckBox chkGenWinStartup 
@@ -989,6 +991,24 @@ Begin VB.Form dockSettings
             Top             =   780
             Width           =   5115
          End
+      End
+      Begin VB.Label lblSquiggle 
+         Caption         =   "-oOo-"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   2310
+         TabIndex        =   246
+         ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+         Top             =   2340
+         Width           =   1215
       End
       Begin VB.Label lblGenLabel 
          Caption         =   "Dock Folder Location"
@@ -9686,7 +9706,7 @@ Private Sub changeFont(suppliedFont As String, suppliedSize As Integer, supplied
       
     ' a method of looping through all the controls and identifying the labels and text boxes
     For Each Ctrl In dockSettings.Controls
-         If (TypeOf Ctrl Is CommandButton) Or (TypeOf Ctrl Is textbox) Or (TypeOf Ctrl Is FileListBox) Or (TypeOf Ctrl Is Label) Or (TypeOf Ctrl Is ComboBox) Or (TypeOf Ctrl Is CheckBox) Or (TypeOf Ctrl Is OptionButton) Or (TypeOf Ctrl Is Frame) Then
+         If (TypeOf Ctrl Is CommandButton) Or (TypeOf Ctrl Is TextBox) Or (TypeOf Ctrl Is FileListBox) Or (TypeOf Ctrl Is Label) Or (TypeOf Ctrl Is ComboBox) Or (TypeOf Ctrl Is CheckBox) Or (TypeOf Ctrl Is OptionButton) Or (TypeOf Ctrl Is Frame) Then
            If suppliedFont <> "" Then Ctrl.Font.Name = suppliedFont
            If suppliedSize > 0 Then Ctrl.Font.Size = suppliedSize
            'If suppliedStyle <> "" Then Ctrl.Font.Style = suppliedStyle
@@ -10506,8 +10526,15 @@ Private Sub writeDockSettings(location As String, settingsFile As String)
     PutINISetting location, "OptionsTabIndex", rDOptionsTabIndex, toolSettingsFile
     PutINISetting location & "\WindowFilters", "Count", 0, settingsFile
     
-
-
+    ' this tool's local settings.ini
+    PutINISetting "Software\DockSettings", "dockSettingsDefaultEditor", sDDockSettingsDefaultEditor, toolSettingsFile
+        
+    ' icon settings tool
+    PutINISetting "Software\IconSettings", "iconSettingsDefaultEditor", sDIconSettingsDefaultEditor, iconSettingsToolFile
+    
+    ' the dock itself
+    PutINISetting "Software\SteamyDock\DockSettings", "dockDefaultEditor", sDDockDefaultEditor, dockSettingsFile
+       
    On Error GoTo 0
    Exit Sub
 
@@ -11521,19 +11548,22 @@ End Function
 Public Sub readSettingsFile() '(ByVal location As String, ByVal PzGSettingsFile As String)
     On Error GoTo readSettingsFile_Error
 
-    If fFExists(toolSettingsFile) Then
+    ' this tool's local settings.ini
+    If fFExists(toolSettingsFile) Then sDDockSettingsDefaultEditor = GetINISetting("Software\DockSettings", "dockSettingsDefaultEditor", toolSettingsFile)
+        
+    ' icon settings tool
+    If fFExists(iconSettingsToolFile) Then sDIconSettingsDefaultEditor = GetINISetting("Software\IconSettings", "iconSettingsDefaultEditor", iconSettingsToolFile)
+        
+    ' the dock itself
+    If fFExists(dockSettingsFile) Then sDDockDefaultEditor = GetINISetting("Software\SteamyDock\DockSettings", "dockDefaultEditor", dockSettingsFile)
+       
+        ' write the default editor for the icon settings.ini directly
+        'If sDIconSettingsDefaultEditor <> vbNullString Then PutINISetting "Software\DockSettings", "dockDefaultEditor", sDIconSettingsDefaultEditor, iconSettingsToolFile
+        
+    rDDebugFlg = GetINISetting("Software\DockSettings", "debugFlg", toolSettingsFile)
+    debugflg = Val(rDDebugFlg)
 
-        sDDockDefaultEditor = GetINISetting("Software\SteamyDock\DockSettings", "defaultEditor", dockSettingsFile)
-        sDDockSettingsDefaultEditor = GetINISetting("Software\DockSettings", "defaultEditor", toolSettingsFile)
-        sDIconSettingsDefaultEditor = GetINISetting("Software\IconSettings", "defaultEditor", iconSettingsToolFile)
-        
-        PutINISetting "Software\SteamyDock\DockSettings", "defaultEditor", sDIconSettingsDefaultEditor, iconSettingsToolFile
-        
-        
-        rDDebugFlg = GetINISetting("Software\DockSettings", "debugFlg", toolSettingsFile)
-        debugflg = Val(rDDebugFlg)
 
-    End If
 
    On Error GoTo 0
    Exit Sub
