@@ -454,6 +454,21 @@ Begin VB.Form dockSettings
          End
       End
    End
+   Begin VB.PictureBox picHiddenPicture 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000004&
+      BorderStyle     =   0  'None
+      ForeColor       =   &H80000008&
+      Height          =   1605
+      Left            =   6525
+      ScaleHeight     =   1605
+      ScaleWidth      =   1485
+      TabIndex        =   86
+      ToolTipText     =   "The icon size in the dock"
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   1485
+   End
    Begin VB.Frame fmeMain 
       Caption         =   "General Configuration"
       BeginProperty Font 
@@ -842,10 +857,11 @@ Begin VB.Form dockSettings
          ItemData        =   "dockSettings.frx":5C25
          Left            =   2085
          List            =   "dockSettings.frx":5C2F
+         Locked          =   -1  'True
          TabIndex        =   76
          Text            =   "Rocketdock"
          ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock, these utilities are compatible with both"
-         Top             =   4695
+         Top             =   4710
          Width           =   2310
       End
       Begin VB.CheckBox chkGenMin 
@@ -1062,10 +1078,10 @@ Begin VB.Form dockSettings
       EndProperty
       Height          =   8640
       Index           =   2
-      Left            =   1230
+      Left            =   1215
       TabIndex        =   63
       ToolTipText     =   "Here you can control the behaviour of the animation effects"
-      Top             =   30
+      Top             =   45
       Width           =   6930
       Begin VB.ComboBox cmbBehaviourSoundSelection 
          BeginProperty Font 
@@ -2650,21 +2666,6 @@ Begin VB.Form dockSettings
          Width           =   795
       End
    End
-   Begin VB.PictureBox picHiddenPicture 
-      Appearance      =   0  'Flat
-      BackColor       =   &H80000004&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H80000008&
-      Height          =   1605
-      Left            =   6525
-      ScaleHeight     =   1605
-      ScaleWidth      =   1485
-      TabIndex        =   86
-      ToolTipText     =   "The icon size in the dock"
-      Top             =   240
-      Visible         =   0   'False
-      Width           =   1485
-   End
    Begin VB.Frame fmeMain 
       Caption         =   "Position the Dock"
       BeginProperty Font 
@@ -2681,7 +2682,7 @@ Begin VB.Form dockSettings
       Left            =   1230
       TabIndex        =   32
       ToolTipText     =   "This panel controls the positioning of the whole dock"
-      Top             =   15
+      Top             =   30
       Width           =   6930
       Begin VB.PictureBox picMultipleGears1 
          BorderStyle     =   0  'None
@@ -3003,7 +3004,7 @@ Begin VB.Form dockSettings
       EndProperty
       Height          =   8640
       Index           =   1
-      Left            =   1245
+      Left            =   1260
       TabIndex        =   87
       ToolTipText     =   "This panel allows you to set the icon sizes and hover effects"
       Top             =   15
@@ -4295,7 +4296,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 'Simulate MouseEnter event to reset the icons on one frame
-Private Declare Function SetCapture Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function SetCapture Lib "user32" (ByVal hWnd As Long) As Long
 Private Declare Function ReleaseCapture Lib "user32" () As Long
 Private Declare Function GetCapture Lib "user32" () As Long
 
@@ -4312,7 +4313,7 @@ Private Const COLOR_BTNFACE As Long = 15
 Private Declare Function GetSysColor Lib "user32.dll" (ByVal nIndex As Long) As Long
 Private Declare Function IsThemeActive Lib "uxtheme" () As Boolean
 
-Private Declare Function GetDeviceCaps Lib "gdi32" (ByVal hdc As Long, ByVal nIndex As Long) As Long
+Private Declare Function GetDeviceCaps Lib "gdi32" (ByVal hDC As Long, ByVal nIndex As Long) As Long
 
 
 ' Flag for debug mode
@@ -4320,38 +4321,51 @@ Private mbDebugMode As Boolean  ' .30 DAEB 03/03/2021 frmMain.frm replaced the i
 
 Public origSettingsFile As String
 
+' module level balloon tooltip variables for comboBoxes ONLY.
+Private gcmbBehaviourActivationFXBalloonTooltip As String
+Private gcmbBehaviourAutoHideTypeBalloonTooltip As String
+Private gcmbHidingKeyBalloonTooltip As String
+Private gcmbBehaviourSoundSelectionBalloonTooltip As String
+Private gcmbStyleThemeBalloonTooltip As String
+Private gcmbPositionMonitorBalloonTooltip As String
+Private gcmbPositionScreenBalloonTooltip As String
+Private gcmbPositionLayeringBalloonTooltip As String
+Private gcmbIconsQualityBalloonTooltip As String
+Private gcmbIconsHoverFXBalloonTooltip As String
+Private gcmbDefaultDockBalloonTooltip As String
+
 
 
 
 
 
 Private Sub btnAboutDebugInfo_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnAboutDebugInfo.hwnd, "This is the debugging option - Don't use it unless you know what you are doing. This option runs a separate binary, the persistentDebug.exe (an additional binary provided with this tool) is only run when you turn debugging ON. I suggest you do NOT use this utility unless you have a problem that is not easy diagnose. It is a separate exe that my program talks to, sending the program's subroutine entry points and other debug data to that window.When you run it the first time, your anti-malware tool such as malwarebytes will flag it as a possible malware. It is NOT. It only seems that way to anti-malware tools because of the way it operates, ie. one program is talking to another using shared memory.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnAboutDebugInfo.hWnd, "This is the debugging option - Don't use it unless you know what you are doing. This option runs a separate binary, the persistentDebug.exe (an additional binary provided with this tool) is only run when you turn debugging ON. I suggest you do NOT use this utility unless you have a problem that is not easy diagnose. It is a separate exe that my program talks to, sending the program's subroutine entry points and other debug data to that window.When you run it the first time, your anti-malware tool such as malwarebytes will flag it as a possible malware. It is NOT. It only seems that way to anti-malware tools because of the way it operates, ie. one program is talking to another using shared memory.", _
                   TTIconInfo, "Help on the About Button", , , , True
 End Sub
 
 Private Sub btnApply_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnApply.hwnd, "Apply your recent changes to the settings and save them.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnApply.hWnd, "Apply your recent changes to the settings and save them.", _
                   TTIconInfo, "Help on the Apply Button", , , , True
 End Sub
 
 Private Sub btnClose_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnClose.hwnd, "Close the Dock Settings Utility.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnClose.hWnd, "Close the Dock Settings Utility.", _
                   TTIconInfo, "Help on the Close Button", , , , True
 End Sub
 
 Private Sub btnDefaults_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnDefaults.hwnd, "Revert ALL settings to the defaults.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnDefaults.hWnd, "Revert ALL settings to the defaults.", _
                   TTIconInfo, "Help on the Set Defaults Button", , , , True
 End Sub
 
 Private Sub btnDonate_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnDonate.hwnd, "Opens a browser window and sends you to the donation page on Amazon.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnDonate.hWnd, "Opens a browser window and sends you to the donation page on Amazon.", _
                   TTIconInfo, "Help on the Donate Button", , , , True
 End Sub
 
 Private Sub btnFacebook_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnFacebook.hwnd, "This will link you to the Rocket/SteamyDock users Group.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnFacebook.hWnd, "This will link you to the Rocket/SteamyDock users Group.", _
                   TTIconInfo, "Help on the FaceBook Button", , , , True
 End Sub
 
@@ -4411,38 +4425,38 @@ Private Sub btnGeneralIconSettingsEditor_Click()
 End Sub
 
 Private Sub btnGeneralRdFolder_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnGeneralRdFolder.hwnd, "Press this button to select the folder location of Rocketdock here. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnGeneralRdFolder.hWnd, "Press this button to select the folder location of Rocketdock here. ", _
                   TTIconInfo, "Help on selecting a folder.", , , , True
 
 End Sub
 
 Private Sub btnHelp_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnHelp.hwnd, "This button open the tool's HTML help page in your browser.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnHelp.hWnd, "This button open the tool's HTML help page in your browser.", _
                   TTIconInfo, "Help on the Help Button", , , , True
 End Sub
 
 Private Sub btnStyleFont_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnStyleFont.hwnd, "This button gives the font selection box. Here you set the font as shown on the icon labels.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnStyleFont.hWnd, "This button gives the font selection box. Here you set the font as shown on the icon labels.", _
                   TTIconInfo, "Help on the Font Selection Button.", , , , True
 End Sub
 
 Private Sub btnStyleOutline_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnStyleOutline.hwnd, "The colour of the outline, click the button to change.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnStyleOutline.hWnd, "The colour of the outline, click the button to change.", _
                   TTIconInfo, "Help on the Outline Colour Selection Button.", , , , True
 End Sub
 
 Private Sub btnStyleShadow_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnStyleShadow.hwnd, "The colour of the shadow, click the button to change.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnStyleShadow.hWnd, "The colour of the shadow, click the button to change.", _
                   TTIconInfo, "Help on the Shadow Colour Selection Button.", , , , True
 End Sub
 
 Private Sub btnUpdate_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnFacebook.hwnd, "Here you can visit the update location where you can download new versions of the programs used by Rocketdock.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnFacebook.hWnd, "Here you can visit the update location where you can download new versions of the programs used by Rocketdock.", _
                   TTIconInfo, "Help on the Update Button", , , , True
 End Sub
 
 Private Sub chkBehaviourAutoHide_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkBehaviourAutoHide.hwnd, "This checkbox acts as a toggle. You can determine whether the dock will auto-hide or not and the type of hide that is implemented. using Rocketdock  only supports one type of hide and that is the slide type. Steamydock gives you an additional fade or an instant disappear. The latter is lighter on CPU usage whilst the former two are animated and require a little cpu during the transition.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkBehaviourAutoHide.hWnd, "This checkbox acts as a toggle. You can determine whether the dock will auto-hide or not and the type of hide that is implemented. using Rocketdock  only supports one type of hide and that is the slide type. Steamydock gives you an additional fade or an instant disappear. The latter is lighter on CPU usage whilst the former two are animated and require a little cpu during the transition.", _
                   TTIconInfo, "Help on the AutoHide Checkbox.", , , , True
 End Sub
 '
@@ -4452,39 +4466,39 @@ End Sub
 'End Sub
 
 Private Sub chkGenDisableAnim_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenDisableAnim.hwnd, "If you dislike the minimise animation, click this. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenDisableAnim.hWnd, "If you dislike the minimise animation, click this. ", _
                   TTIconInfo, "Help on disabling the minimise animation.", , , , True
 End Sub
 
 Private Sub chkGenLock_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenLock.hwnd, "This is an essential option that stops you accidentally deleting your dock icons, click it!. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenLock.hWnd, "This is an essential option that stops you accidentally deleting your dock icons, click it!. ", _
                   TTIconInfo, "Help on Dragging, dropping to or from the dock.", , , , True
                   
 End Sub
 
 Private Sub chkGenMin_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-   If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenMin.hwnd, "This option allows running applications to be minimised, appearing in the dock. Supported by Rocketdock only.", _
+   If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenMin.hWnd, "This option allows running applications to be minimised, appearing in the dock. Supported by Rocketdock only.", _
                   TTIconInfo, "Help on mimising apps to the dock.", , , , True
 End Sub
 
 Private Sub chkGenOpen_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenOpen.hwnd, "If you click on an icon that is already running then it can open it or fire up another instance. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenOpen.hWnd, "If you click on an icon that is already running then it can open it or fire up another instance. ", _
                   TTIconInfo, "Help on the Running Application Indicators.", , , , True
 End Sub
 
 Private Sub chkGenRun_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenRun.hwnd, "After a short delay, small application indicators appear above the icon of a running program, this uses a little cpu every few seconds, frequency set below. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenRun.hWnd, "After a short delay, small application indicators appear above the icon of a running program, this uses a little cpu every few seconds, frequency set below. ", _
                   TTIconInfo, "Help on Showing Running Applications .", , , , True
 End Sub
 
 Private Sub chkGenWinStartup_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenWinStartup.hwnd, "When this checkbox is ticked it will cause the selected dock to run when Windows starts. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenWinStartup.hWnd, "When this checkbox is ticked it will cause the selected dock to run when Windows starts. ", _
                   TTIconInfo, "Help on the Start with Windows Checkbox", , , , True
 End Sub
 
 Private Sub chkIconsZoomOpaque_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkIconsZoomOpaque.hwnd, "Should the zoomed icons be opaque when the others are transparent? Not yet implemented in Steamydock. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkIconsZoomOpaque.hWnd, "Should the zoomed icons be opaque when the others are transparent? Not yet implemented in Steamydock. ", _
                   TTIconInfo, "Help on the Zoom Opacity Checkbox", , , , True
 End Sub
 
@@ -4498,7 +4512,7 @@ Private Sub chkLabelBackgrounds_Click()
 End Sub
 
 Private Sub chkLabelBackgrounds_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkLabelBackgrounds.hwnd, "With this checkbox you can toggle the icon label background on/off.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkLabelBackgrounds.hWnd, "With this checkbox you can toggle the icon label background on/off.", _
                   TTIconInfo, "Help on Label Background Disable.", , , , True
 End Sub
 
@@ -4532,17 +4546,17 @@ chkRetainIcons_Click_Error:
 End Sub
 
 Private Sub chkRetainIcons_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkRetainIcons.hwnd, "When you drag a program binary to the dock it can take an automatically selected icon or you can retain the embedded icon within the binary file. The automatically selected icon will come from our own collection. An embedded icon may well be good enough to display but be aware, older binaries use very small or low quality icons.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkRetainIcons.hWnd, "When you drag a program binary to the dock it can take an automatically selected icon or you can retain the embedded icon within the binary file. The automatically selected icon will come from our own collection. An embedded icon may well be good enough to display but be aware, older binaries use very small or low quality icons.", _
                   TTIconInfo, "Help on Retaining Original Icons.", , , , True
 End Sub
 
 Private Sub chkSplashStatus_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkSplashStatus.hwnd, "When this checkbox is ticked the dock shows a Splash Screen on Start-up.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkSplashStatus.hWnd, "When this checkbox is ticked the dock shows a Splash Screen on Start-up.", _
                   TTIconInfo, "Help on the Splash Screen Checkbox", , , , True
 End Sub
 
 Private Sub chkStyleDisable_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkStyleDisable.hwnd, "This checkbox disables the labels that appear above the icon in the dock.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkStyleDisable.hWnd, "This checkbox disables the labels that appear above the icon in the dock.", _
                   TTIconInfo, "Help on Label Disable.", , , , True
 
 End Sub
@@ -4562,7 +4576,7 @@ Private Sub chkToggleDialogs_Click()
 End Sub
 
 Private Sub chkToggleDialogs_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkToggleDialogs.hwnd, "This checkbox acts as a toggle to enable/disable the balloon tooltips.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkToggleDialogs.hWnd, "This checkbox acts as a toggle to enable/disable the balloon tooltips.", _
                   TTIconInfo, "Help on the Ballooon Tooltip Toggle", , , , True
 End Sub
 
@@ -4617,7 +4631,7 @@ Private Sub fmeMain_MouseMove(Index As Integer, Button As Integer, Shift As Inte
         End If
     End If
 
-    CreateToolTip fmeMain(Index).hwnd, descriptiveText, TTIconInfo, titleText, , , , True
+    CreateToolTip fmeMain(Index).hWnd, descriptiveText, TTIconInfo, titleText, , , , True
 
 End Sub
 
@@ -4781,7 +4795,11 @@ Private Sub Form_Load()
 
     On Error GoTo Form_Load_Error
     If debugflg = 1 Then Debug.Print "%Form_Load"
+        
+    ' subclass controls that need additional functionality that VB6 does not provide (balloon tooltips on comboboxes)
+    Call subClassControls
     
+    ' obatiain all drive names
     Call getAllDriveNames(sAllDrives)
                            
     'if the process already exists then kill it
@@ -4906,8 +4924,8 @@ Private Sub makeVisibleFormElements()
     Dim formLeftPixels As Long: formLeftPixels = 0
     Dim formTopPixels As Long: formTopPixels = 0
 
-    screenHeightTwips = GetDeviceCaps(Me.hdc, VERTRES) * screenTwipsPerPixelY
-    screenWidthTwips = GetDeviceCaps(Me.hdc, HORZRES) * screenTwipsPerPixelX ' replaces buggy screen.width
+    screenHeightTwips = GetDeviceCaps(Me.hDC, VERTRES) * screenTwipsPerPixelY
+    screenWidthTwips = GetDeviceCaps(Me.hDC, HORZRES) * screenTwipsPerPixelX ' replaces buggy screen.width
 
     ' read the form X/Y params from the toolSettings.ini
 '    dockSettingsYPos = GetINISetting("Software\SteamyDockSettings", "dockSettingsYPos", toolSettingsFile)
@@ -4929,7 +4947,7 @@ Private Sub makeVisibleFormElements()
     formLeftPixels = Val(GetINISetting("Software\DockSettings", "dockSettingsXPos", toolSettingsFile)) / screenTwipsPerPixelX
     formTopPixels = Val(GetINISetting("Software\DockSettings", "dockSettingsYPos", toolSettingsFile)) / screenTwipsPerPixelY
 
-    Call adjustFormPositionToCorrectMonitor(Me.hwnd, formLeftPixels, formTopPixels)
+    Call adjustFormPositionToCorrectMonitor(Me.hWnd, formLeftPixels, formTopPixels)
         
 End Sub
 
@@ -5109,7 +5127,7 @@ End Sub
 
 
 Private Sub genChkShowIconSettings_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip genChkShowIconSettings.hwnd, "When you drag or add an item to the dock it will always show the icon settings utility unless you disable it here.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip genChkShowIconSettings.hWnd, "When you drag or add an item to the dock it will always show the icon settings utility unless you disable it here.", _
                   TTIconInfo, "Help on the automatic icon Settings Startup", , , , True
 End Sub
 
@@ -5189,7 +5207,7 @@ Private Sub mnuAppFolder_Click()
     folderPath = App.Path
     If fDirExists(folderPath) Then ' if it is a folder already
 
-        execStatus = ShellExecute(Me.hwnd, "open", folderPath, vbNullString, vbNullString, 1)
+        execStatus = ShellExecute(Me.hWnd, "open", folderPath, vbNullString, vbNullString, 1)
         If execStatus <= 32 Then MsgBox "Attempt to open folder failed."
     Else
         MsgBox "Having a bit of a problem opening a folder for this widget - " & folderPath & " It doesn't seem to have a valid working directory set.", "Dock Settings Confirmation Message", vbOKOnly + vbExclamation
@@ -5274,7 +5292,7 @@ optGeneralReadConfig_Click_Error:
 End Sub
 
 Private Sub optGeneralReadConfig_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip optGeneralReadConfig.hwnd, "This stores ALL SteamyDock's configuration within the user data area. This option retains future compatibility within modern versions of Windows. Not applicable for Rocketdock ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip optGeneralReadConfig.hWnd, "This stores ALL SteamyDock's configuration within the user data area. This option retains future compatibility within modern versions of Windows. Not applicable for Rocketdock ", _
                   TTIconInfo, "Help on using SteamyDock's config.", , , , True
 End Sub
 
@@ -5312,7 +5330,7 @@ optGeneralReadRegistry_Click_Error:
 End Sub
 
 Private Sub optGeneralReadRegistry_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip optGeneralReadRegistry.hwnd, "This option allows you to read Rocketdock's configuration from the Rocketdock portion of the Registry. This method is becoming increasingly incompatible with newer Windows beyond XP as it can cause some security problems on newer system as it requires admin rights to write back. Use it here in a read-only fashion to migrate from Rocketdock.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip optGeneralReadRegistry.hWnd, "This option allows you to read Rocketdock's configuration from the Rocketdock portion of the Registry. This method is becoming increasingly incompatible with newer Windows beyond XP as it can cause some security problems on newer system as it requires admin rights to write back. Use it here in a read-only fashion to migrate from Rocketdock.", _
                   TTIconInfo, "Help on reading from the registry", , , , True
 End Sub
 
@@ -5517,7 +5535,7 @@ Private Sub checkDefaultDock()
     End If
     
     cmbDefaultDock.ListIndex = 1
-    cmbDefaultDock.Enabled = False ' .11 DAEB 26/04/2021 docksettings Disable the dock select dropdown when only steamydock is present
+    'cmbDefaultDock.Enabled = False ' .11 DAEB 26/04/2021 docksettings Disable the dock select dropdown when only steamydock is present
     
     dockAppPath = sdAppPath
     txtGeneralRdLocation.Text = dockAppPath
@@ -5941,7 +5959,7 @@ Private Sub btnApply_Click()
     If ans = True Then
         ' restart Rocketdock
         If fFExists(dockAppPath & "\" & NameProcess) Then
-            Call ShellExecute(hwnd, "Open", dockAppPath & "\" & NameProcess, vbNullString, App.Path, 1)
+            Call ShellExecute(hWnd, "Open", dockAppPath & "\" & NameProcess, vbNullString, App.Path, 1)
         End If
     Else
         answer = MsgBox("Could not find a " & NameProcess & " process, would you like me to restart " & NameProcess & "?", vbYesNo)
@@ -5951,7 +5969,7 @@ Private Sub btnApply_Click()
 
         ' restart Rocketdock
         If fFExists(dockAppPath & "\" & NameProcess) Then
-            Call ShellExecute(hwnd, "Open", dockAppPath & "\" & NameProcess, vbNullString, App.Path, 1)
+            Call ShellExecute(hWnd, "Open", dockAppPath & "\" & NameProcess, vbNullString, App.Path, 1)
         End If
     End If
 
@@ -6372,7 +6390,7 @@ Private Sub btnGeneralRdFolder_Click()
         End If
     End If
 
-    getFolder = BrowseFolder(hwnd, dialogInitDir) ' show the dialog box to select a folder
+    getFolder = BrowseFolder(hWnd, dialogInitDir) ' show the dialog box to select a folder
     'getFolder = ChooseDir_Click ' old method to show the dialog box to select a folder
     If getFolder <> vbNullString Then txtGeneralRdLocation.Text = getFolder
 
@@ -6653,7 +6671,7 @@ Private Sub btnStyleShadow_Click()
    On Error GoTo btnStyleShadow_Click_Error
    If debugflg = 1 Then Debug.Print "%btnStyleShadow_Click"
 
-    colourResult = ShowColorDialog(Me.hwnd, True, rDFontShadowColor)
+    colourResult = ShowColorDialog(Me.hWnd, True, rDFontShadowColor)
 
     If colourResult <> -1 And colourResult <> 0 Then
         rDFontShadowColor = colourResult
@@ -6706,7 +6724,7 @@ Private Sub btnStyleOutline_Click()
    If debugflg = 1 Then Debug.Print "%btnStyleOutline_Click"
     
     ' this will take 255, VBRed,  16711680
-    colourResult = ShowColorDialog(Me.hwnd, True, rDFontOutlineColor)
+    colourResult = ShowColorDialog(Me.hWnd, True, rDFontOutlineColor)
     
     If colourResult <> -1 And colourResult <> 0 Then
         rDFontOutlineColor = (colourResult)
@@ -7988,7 +8006,7 @@ Private Sub lblPunklabsLink_Click(Index As Integer)
     answer = MsgBox("This link opens a browser window and connects to Punklabs Homepage. Would you like to proceed?", vbExclamation + vbYesNo)
 
     If answer = vbYes Then
-        Call ShellExecute(Me.hwnd, "Open", "http://www.punklabs.com", vbNullString, App.Path, 1)
+        Call ShellExecute(Me.hWnd, "Open", "http://www.punklabs.com", vbNullString, App.Path, 1)
     End If
     
    On Error GoTo 0
@@ -8258,7 +8276,7 @@ picCogs1_MouseDown_Error:
 End Sub
 
 Private Sub optGeneralReadSettings_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip optGeneralReadSettings.hwnd, "This option allows you to read the configuration from Rocketdock's program files folder, this is for migrating in a read-only fashion from RocketDock to SteamyDock. Requires admin access so only select this option when migrating from Rocketdock. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip optGeneralReadSettings.hWnd, "This option allows you to read the configuration from Rocketdock's program files folder, this is for migrating in a read-only fashion from RocketDock to SteamyDock. Requires admin access so only select this option when migrating from Rocketdock. ", _
                   TTIconInfo, "Help on reading from the settings.ini.", , , , True
 End Sub
 
@@ -8300,7 +8318,7 @@ optGeneralWriteConfig_Click_Error:
 End Sub
 
 Private Sub optGeneralWriteConfig_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-   If rDEnableBalloonTooltips = "1" Then CreateToolTip optGeneralWriteConfig.hwnd, "This option stores ALL configuration within the user data area retaining future compatibility in Windows. Not available to Rocketdock.", _
+   If rDEnableBalloonTooltips = "1" Then CreateToolTip optGeneralWriteConfig.hWnd, "This option stores ALL configuration within the user data area retaining future compatibility in Windows. Not available to Rocketdock.", _
                   TTIconInfo, "Help on Writing SteamyDock's Config.", , , , True
 End Sub
 
@@ -8961,17 +8979,17 @@ Private Sub picIcon_MouseMove(Index As Integer, Button As Integer, Shift As Inte
     End If
 
 
-    CreateToolTip picIcon(Index).hwnd, descriptiveText, TTIconInfo, titleText, , , , True
+    CreateToolTip picIcon(Index).hWnd, descriptiveText, TTIconInfo, titleText, , , , True
 
 End Sub
 
 Private Sub picMinSize_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip picMinSize.hwnd, "This frame shows the icon in the small size just as it will look in the dock.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip picMinSize.hWnd, "This frame shows the icon in the small size just as it will look in the dock.", _
                   TTIconInfo, "Help on the Icon Zoom Preview.", , , , True
 End Sub
 
 Private Sub picSizePreview_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip picSizePreview.hwnd, "This frame shows the icon in two sizes, as it looks in the dock (on the left) and is it will appear when fully enlarged during a zoom.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip picSizePreview.hWnd, "This frame shows the icon in two sizes, as it looks in the dock (on the left) and is it will appear when fully enlarged during a zoom.", _
                   TTIconInfo, "Help on the Icon Zoom Preview.", , , , True
 End Sub
 
@@ -8992,7 +9010,7 @@ Private Sub picStylePreview_Click()
     
     On Error GoTo picStylePreview_Click_Error
 
-    colourResult = ShowColorDialog(Me.hwnd, True, rDFontShadowColor)
+    colourResult = ShowColorDialog(Me.hWnd, True, rDFontShadowColor)
 
     If colourResult <> -1 And colourResult <> 0 Then
         picStylePreview.BackColor = colourResult
@@ -9007,16 +9025,16 @@ picStylePreview_Click_Error:
 End Sub
 
 Private Sub picStylePreview_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip picStylePreview.hwnd, "This panel shows a preview of the font selection - you can change the background of the preview to approximate how your font will look  on your desktop.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip picStylePreview.hWnd, "This panel shows a preview of the font selection - you can change the background of the preview to approximate how your font will look  on your desktop.", _
                   TTIconInfo, "Help on the Font Preview Pane.", , , , True
 End Sub
 Private Sub picThemeSample_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip picThemeSample.hwnd, "This panel shows a portion of the dock with the current theme selected.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip picThemeSample.hWnd, "This panel shows a portion of the dock with the current theme selected.", _
                   TTIconInfo, "Help on Theme Selection.", , , , True
 End Sub
 
 Private Sub picZoomSize_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip picZoomSize.hwnd, "This frame shows the icon in the large size just as it looks when fully enlarged during a mouse-over zoom.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip picZoomSize.hWnd, "This frame shows the icon in the large size just as it looks when fully enlarged during a mouse-over zoom.", _
                   TTIconInfo, "Help on the Icon Zoom Preview.", , , , True
 
 End Sub
@@ -9068,7 +9086,7 @@ sliAnimationInterval_Change_Error:
 End Sub
 
 Private Sub sliAnimationInterval_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-If rDEnableBalloonTooltips = "1" Then CreateToolTip sliAnimationInterval.hwnd, "The overall animation period in millisecs. 10ms is a good default but experiment with the value for your own system if the animation is not as smooth as you desire. The animation is achieved using GDI+ and is entirely CPU driven. You may see a benefit in Steamydock by changing this slider. This will have no effect on Rocketdock.", _
+If rDEnableBalloonTooltips = "1" Then CreateToolTip sliAnimationInterval.hWnd, "The overall animation period in millisecs. 10ms is a good default but experiment with the value for your own system if the animation is not as smooth as you desire. The animation is achieved using GDI+ and is entirely CPU driven. You may see a benefit in Steamydock by changing this slider. This will have no effect on Rocketdock.", _
                   TTIconInfo, "Help on the Animation Interval.", , , , True
 End Sub
 
@@ -9096,7 +9114,7 @@ sliBehaviourAutoHideDelay_Click_Error:
 End Sub
 
 Private Sub sliBehaviourAutoHideDelay_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliBehaviourAutoHideDelay.hwnd, "Determine the delay between the last usage of the dock and when it will auto-hide.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliBehaviourAutoHideDelay.hWnd, "Determine the delay between the last usage of the dock and when it will auto-hide.", _
                   TTIconInfo, "Help on the AutoHide Delay Slider.", , , , True
 End Sub
 
@@ -9124,7 +9142,7 @@ sliBehaviourAutoHideDuration_Change_Error:
 End Sub
 
 Private Sub sliBehaviourAutoHideDuration_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliBehaviourAutoHideDuration.hwnd, "The speed at which the dock auto-hide animation will occur.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliBehaviourAutoHideDuration.hWnd, "The speed at which the dock auto-hide animation will occur.", _
                   TTIconInfo, "Help on the AutoHide Duration Slider.", , , , True
 End Sub
 
@@ -9154,7 +9172,7 @@ End Sub
 
 
 Private Sub sliBehaviourPopUpDelay_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliBehaviourPopUpDelay.hwnd, "The speed at which the dock auto-reveal animation will occur. This was previously called the Pop-up Delay in Rocketdock's settings screen.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliBehaviourPopUpDelay.hWnd, "The speed at which the dock auto-reveal animation will occur. This was previously called the Pop-up Delay in Rocketdock's settings screen.", _
                   TTIconInfo, "Help on the AutoReveal Duration Slider.", , , , True
 End Sub
 
@@ -9186,7 +9204,7 @@ sliContinuousHide_Change_Error:
 End Sub
 
 Private Sub sliContinuousHide_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-If rDEnableBalloonTooltips = "1" Then CreateToolTip sliContinuousHide.hwnd, "Determine the amount of time the dock will disappear when told to go away using F11 key.", _
+If rDEnableBalloonTooltips = "1" Then CreateToolTip sliContinuousHide.hWnd, "Determine the amount of time the dock will disappear when told to go away using F11 key.", _
                   TTIconInfo, "Help on the Continuous Hide Slider.", , , , True
 End Sub
 
@@ -9214,7 +9232,7 @@ sliGenRunAppInterval_Change_Error:
 End Sub
 
 Private Sub sliGenRunAppInterval_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliGenRunAppInterval.hwnd, "After a short delay, small application indicators appear above the icon of a running program, this uses a little cpu every few seconds, frequency set here. The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliGenRunAppInterval.hWnd, "After a short delay, small application indicators appear above the icon of a running program, this uses a little cpu every few seconds, frequency set here. The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds. ", _
                   TTIconInfo, "Help on the Running Application Timer.", , , , True
 End Sub
 
@@ -9242,7 +9260,7 @@ sliIconsDuration_Change_Error:
 End Sub
 
 Private Sub sliIconsDuration_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliIconsDuration.hwnd, "How long the effect is applied in milliseconds. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliIconsDuration.hWnd, "How long the effect is applied in milliseconds. ", _
                   TTIconInfo, "Help on the Icon Zoom Duration Slider", , , , True
 End Sub
 
@@ -9270,7 +9288,7 @@ sliIconsOpacity_Change_Error:
 End Sub
 
 Private Sub sliIconsOpacity_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliIconsOpacity.hwnd, "The icons in the dock can be made transparent here.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliIconsOpacity.hWnd, "The icons in the dock can be made transparent here.", _
                   TTIconInfo, "Help on the Icon Opacity Slider", , , , True
 
 End Sub
@@ -9310,7 +9328,7 @@ sliIconsSize_Change_Error:
 End Sub
 
 Private Sub sliIconsSize_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliIconsSize.hwnd, "The size of all the icons in the dock prior to any zoom effect being applied. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliIconsSize.hWnd, "The size of all the icons in the dock prior to any zoom effect being applied. ", _
                   TTIconInfo, "Help on the Icons Size Slider", , , , True
 End Sub
 
@@ -9419,7 +9437,7 @@ PixelsToTwips_Error:
 End Function
 
 Private Sub sliIconsZoom_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliIconsZoom.hwnd, "The maximum icon size after a zoom. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliIconsZoom.hWnd, "The maximum icon size after a zoom. ", _
                   TTIconInfo, "Help on the Icon Zoom Slider", , , , True
 
 End Sub
@@ -9450,7 +9468,7 @@ End Sub
 
 
 Private Sub sliIconsZoomWidth_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliIconsZoomWidth.hwnd, "How many icons to the left and right are also animated. Lower power machines will benefit from a lower setting. 4 is fine. ", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliIconsZoomWidth.hWnd, "How many icons to the left and right are also animated. Lower power machines will benefit from a lower setting. 4 is fine. ", _
                   TTIconInfo, "Help on the Icon Zoom Width Slider", , , , True
 
 
@@ -9480,7 +9498,7 @@ sliPositionCentre_Change_Error:
 End Sub
 
 Private Sub sliPositionCentre_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliPositionCentre.hwnd, "You can align the dock so that it is centred or offset as you require.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliPositionCentre.hWnd, "You can align the dock so that it is centred or offset as you require.", _
                   TTIconInfo, "Help on the Dock Centre Position Slider ", , , , True
 End Sub
 
@@ -9508,7 +9526,7 @@ sliPositionEdgeOffset_Click_Error:
 End Sub
 
 Private Sub sliPositionEdgeOffset_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliPositionEdgeOffset.hwnd, "Position from the bottom/top edge of the screen.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliPositionEdgeOffset.hWnd, "Position from the bottom/top edge of the screen.", _
                   TTIconInfo, "Help on the Dock Position Edge Offset Slider ", , , , True
 End Sub
 
@@ -9536,7 +9554,7 @@ sliStyleFontOpacity_Click_Error:
 End Sub
 
 Private Sub sliStyleFontOpacity_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliStyleFontOpacity.hwnd, "The font transparency can be changed here.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliStyleFontOpacity.hWnd, "The font transparency can be changed here.", _
                   TTIconInfo, "Help on the Font Opacity Slider.", , , , True
 End Sub
 
@@ -9564,7 +9582,7 @@ sliStyleOpacity_Change_Error:
 End Sub
 
 Private Sub sliStyleOpacity_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-If rDEnableBalloonTooltips = "1" Then CreateToolTip sliStyleOpacity.hwnd, "This controls the transparency of the background theme.", _
+If rDEnableBalloonTooltips = "1" Then CreateToolTip sliStyleOpacity.hWnd, "This controls the transparency of the background theme.", _
                   TTIconInfo, "Help on the Opacity Slider.", , , , True
 End Sub
 
@@ -9592,7 +9610,7 @@ sliStyleOutlineOpacity_Change_Error:
 End Sub
 
 Private Sub sliStyleOutlineOpacity_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliStyleOutlineOpacity.hwnd, "The label outline transparency, use the slider to change.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliStyleOutlineOpacity.hWnd, "The label outline transparency, use the slider to change.", _
                   TTIconInfo, "Help on the Outline Opacity Slider.", , , , True
 End Sub
 
@@ -9816,7 +9834,7 @@ Private Sub mnuCoffee_Click(Index As Integer)
     answer = MsgBox(" Help support the creation of more widgets like this, send us a beer! This button opens a browser window and connects to the Paypal donate page for this widget). Will you be kind and proceed?", vbExclamation + vbYesNo)
 
     If answer = vbYes Then
-        Call ShellExecute(Me.hwnd, "Open", "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=info@lightquick.co.uk&currency_code=GBP&amount=2.50&return=&item_name=Donate%20a%20Beer", vbNullString, App.Path, 1)
+        Call ShellExecute(Me.hWnd, "Open", "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=info@lightquick.co.uk&currency_code=GBP&amount=2.50&return=&item_name=Donate%20a%20Beer", vbNullString, App.Path, 1)
     End If
 
     On Error GoTo 0
@@ -9847,7 +9865,7 @@ Private Sub mnuHelpPdf_click()
     answer = MsgBox("This option opens a browser window and displays this tool's help. Proceed?", vbExclamation + vbYesNo)
     If answer = vbYes Then
         If fFExists(App.Path & "\help\SteamyDockSettings.html") Then
-            Call ShellExecute(Me.hwnd, "Open", App.Path & "\help\SteamyDockSettings.html", vbNullString, App.Path, 1)
+            Call ShellExecute(Me.hWnd, "Open", App.Path & "\help\SteamyDockSettings.html", vbNullString, App.Path, 1)
         Else
             MsgBox ("The help file - SteamyDockSettings.html- is missing from the help folder.")
         End If
@@ -9882,7 +9900,7 @@ Private Sub mnuFacebook_Click()
 
     answer = MsgBox("Visiting the Facebook chat page - this button opens a browser window and connects to our Facebook chat page. Proceed?", vbExclamation + vbYesNo)
     If answer = vbYes Then
-        Call ShellExecute(Me.hwnd, "Open", "http://www.facebook.com/profile.php?id=100012278951649", vbNullString, App.Path, 1)
+        Call ShellExecute(Me.hWnd, "Open", "http://www.facebook.com/profile.php?id=100012278951649", vbNullString, App.Path, 1)
     End If
 
     On Error GoTo 0
@@ -9916,7 +9934,7 @@ Private Sub mnuLatest_Click()
     answer = MsgBox("Download latest version of the program - this button opens a browser window and connects to the widget download page where you can check and download the latest zipped file). Proceed?", vbExclamation + vbYesNo)
 
     If answer = vbYes Then
-        Call ShellExecute(Me.hwnd, "Open", "https://www.deviantart.com/yereverluvinuncleber/art/Quartermaster-VB6-Desktop-784624943", vbNullString, App.Path, 1)
+        Call ShellExecute(Me.hWnd, "Open", "https://www.deviantart.com/yereverluvinuncleber/art/Quartermaster-VB6-Desktop-784624943", vbNullString, App.Path, 1)
     End If
 
 
@@ -9973,7 +9991,7 @@ Private Sub mnuSupport_Click()
     answer = MsgBox("Visiting the support page - this button opens a browser window and connects to our contact us page where you can send us a support query or just have a chat). Proceed?", vbExclamation + vbYesNo)
 
     If answer = vbYes Then
-        Call ShellExecute(Me.hwnd, "Open", "https://www.deviantart.com/yereverluvinuncleber/art/Quartermaster-VB6-Desktop-784624943", vbNullString, App.Path, 1)
+        Call ShellExecute(Me.hWnd, "Open", "https://www.deviantart.com/yereverluvinuncleber/art/Quartermaster-VB6-Desktop-784624943", vbNullString, App.Path, 1)
     End If
 
     On Error GoTo 0
@@ -10007,7 +10025,7 @@ Private Sub mnuSweets_Click()
     answer = MsgBox(" Help support the creation of more widgets like this. Buy me a small item on my Amazon wishlist! This button opens a browser window and connects to my Amazon wish list page). Will you be kind and proceed?", vbExclamation + vbYesNo)
 
     If answer = vbYes Then
-        Call ShellExecute(Me.hwnd, "Open", "http://www.amazon.co.uk/gp/registry/registry.html?ie=UTF8&id=A3OBFB6ZN4F7&type=wishlist", vbNullString, App.Path, 1)
+        Call ShellExecute(Me.hWnd, "Open", "http://www.amazon.co.uk/gp/registry/registry.html?ie=UTF8&id=A3OBFB6ZN4F7&type=wishlist", vbNullString, App.Path, 1)
     End If
     
     On Error GoTo 0
@@ -10039,7 +10057,7 @@ Private Sub mnuWidgets_Click()
     answer = MsgBox(" This button opens a browser window and connects to the Steampunk widgets page on my site. Do you wish to proceed?", vbExclamation + vbYesNo)
 
     If answer = vbYes Then
-        Call ShellExecute(Me.hwnd, "Open", "https://www.deviantart.com/yereverluvinuncleber/gallery/59981269/yahoo-widgets", vbNullString, App.Path, 1)
+        Call ShellExecute(Me.hWnd, "Open", "https://www.deviantart.com/yereverluvinuncleber/gallery/59981269/yahoo-widgets", vbNullString, App.Path, 1)
     End If
 
     On Error GoTo 0
@@ -10217,7 +10235,7 @@ End Function
 
 
 Private Sub sliStyleShadowOpacity_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliStyleShadowOpacity.hwnd, "The strength of the shadow can be altered here.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliStyleShadowOpacity.hWnd, "The strength of the shadow can be altered here.", _
                   TTIconInfo, "Help on the Shadow Opacity Slider.", , , , True
 End Sub
 
@@ -10247,7 +10265,7 @@ End Sub
 
 
 Private Sub sliStyleThemeSize_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-If rDEnableBalloonTooltips = "1" Then CreateToolTip sliStyleThemeSize.hwnd, "This controls the size of the background theme. Only implemented on SteamyDock.", _
+If rDEnableBalloonTooltips = "1" Then CreateToolTip sliStyleThemeSize.hWnd, "This controls the size of the background theme. Only implemented on SteamyDock.", _
                   TTIconInfo, "Help on Theme Size.", , , , True
 End Sub
 
@@ -10925,7 +10943,7 @@ End Sub
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub setToolTips()
+        Sub setToolTips()
     On Error GoTo setToolTips_Error
 
     If chkToggleDialogs.Value = 0 Then
@@ -11134,6 +11152,33 @@ Private Sub setToolTips()
     Else
     
         rDEnableBalloonTooltips = "1" ' this is the flag used to determine whether a new balloon tooltip is generated
+        
+        ' module level balloon tooltip variables for comboBoxes ONLY.
+        gcmbBehaviourActivationFXBalloonTooltip = "Set which type of animation you want to occur on an icon mouseover."
+        gcmbBehaviourAutoHideTypeBalloonTooltip = "The type of dock auto-hide, fade away, instant hide or a slide away like Rocketdock."
+        gcmbHidingKeyBalloonTooltip = "This is the key sequence that is used to hide or restore Steamydock. Choose a key sequence that will not conflict with other apps you are running."
+        gcmbBehaviourSoundSelectionBalloonTooltip = "Select a sound to play when an icon in the dock is clicked."
+        gcmbStyleThemeBalloonTooltip = "The dock background theme can be selected here. The themes roughly match those available in Rocketdock."
+        gcmbPositionMonitorBalloonTooltip = "Here you can determine upon which monitor the dock will appear."
+        gcmbPositionScreenBalloonTooltip = "Place the dock at your preferred location. Steamydock currently only supports top and bottom positions. In windows 11 it is not possible to move Windows standard taskbar to the top programatically nor via configuration, you have to make a registry change and reboot! "
+        gcmbPositionLayeringBalloonTooltip = "This determines whether the dock should appear on top of other windows or underneath?"
+        gcmbIconsQualityBalloonTooltip = "Technically, lower power single/dual core machines from the XP era will benefit from the lower quality setting but in reality, the fast machines we have these days can run with high quality enabled and suffer no degradation whatsoever."
+        gcmbIconsHoverFXBalloonTooltip = "The zoom effect to apply, at the moment the only effect in operation is bubble."
+        gcmbDefaultDockBalloonTooltip = "This control merely indicates that the default dock is SteamyDock."
+ 
+
+        cmbBehaviourActivationFX.ToolTipText = vbNullString
+        cmbBehaviourAutoHideType.ToolTipText = vbNullString
+        cmbHidingKey.ToolTipText = vbNullString
+        cmbBehaviourSoundSelection.ToolTipText = vbNullString
+        cmbStyleTheme.ToolTipText = vbNullString
+        cmbPositionMonitor.ToolTipText = vbNullString
+        cmbPositionScreen.ToolTipText = vbNullString
+        cmbPositionLayering.ToolTipText = vbNullString
+        cmbIconsQuality.ToolTipText = vbNullString
+        cmbIconsHoverFX.ToolTipText = vbNullString
+        cmbDefaultDock.ToolTipText = vbNullString
+
 
         btnDefaults.ToolTipText = vbNullString
         chkToggleDialogs.ToolTipText = vbNullString
@@ -11380,7 +11425,7 @@ End Sub
 
 
 Private Sub txtGeneralRdLocation_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip txtGeneralRdLocation.hwnd, "This is the extrapolated location of the currently selected dock. This is for information only.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip txtGeneralRdLocation.hWnd, "This is the extrapolated location of the currently selected dock. This is for information only.", _
                   TTIconInfo, "Help on the Running Application Indicators.", , , , True
 End Sub
 Private Sub positionTimer_Timer()
@@ -11573,3 +11618,111 @@ readSettingsFile_Error:
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure readSettingsFile of Module common2"
 
 End Sub
+
+'---------------------------------------------------------------------------------------
+' Procedure : subClassControls
+' Author    : beededea
+' Date      : 16/07/2024
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub subClassControls()
+    
+   On Error GoTo subClassControls_Error
+
+    If InIDE Then
+        MsgBox "NOTE: Running in IDE so Sub classing is disabled" & vbCrLf & "Balloon tooltips will not display on comboboxes."
+    Else
+        ' sub classing code to intercept messages to the comboboxes frame to provide missing balloon tooltips functionality
+        Call SubclassComboBox(cmbBehaviourActivationFX.hWnd, ObjPtr(cmbBehaviourActivationFX))
+        Call SubclassComboBox(cmbBehaviourAutoHideType.hWnd, ObjPtr(cmbBehaviourAutoHideType))
+        Call SubclassComboBox(cmbHidingKey.hWnd, ObjPtr(cmbHidingKey))
+        Call SubclassComboBox(cmbBehaviourSoundSelection.hWnd, ObjPtr(cmbBehaviourSoundSelection))
+        Call SubclassComboBox(cmbStyleTheme.hWnd, ObjPtr(cmbStyleTheme))
+        Call SubclassComboBox(cmbPositionMonitor.hWnd, ObjPtr(cmbPositionMonitor))
+        Call SubclassComboBox(cmbPositionScreen.hWnd, ObjPtr(cmbPositionScreen))
+        Call SubclassComboBox(cmbPositionLayering.hWnd, ObjPtr(cmbPositionLayering))
+        Call SubclassComboBox(cmbIconsQuality.hWnd, ObjPtr(cmbIconsQuality))
+        Call SubclassComboBox(cmbIconsHoverFX.hWnd, ObjPtr(cmbIconsHoverFX))
+        Call SubclassComboBox(cmbDefaultDock.hWnd, ObjPtr(cmbDefaultDock))
+    End If
+
+   On Error GoTo 0
+   Exit Sub
+
+subClassControls_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure subClassControls of Form rDIconConfigForm"
+End Sub
+
+
+
+'---------------------------------------------------------------------------------------
+' Procedure : MouseMoveOnComboText
+' Author    : beededea
+' Date      : 16/07/2024
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Public Sub MouseMoveOnComboText(sComboName As String)
+    Dim sTitle As String
+    Dim sText As String
+
+   On Error GoTo MouseMoveOnComboText_Error
+
+    Select Case sComboName
+    Case "cmbBehaviourActivationFX"
+        sTitle = "Help on Window Mode Selection."
+        sText = gcmbBehaviourActivationFXBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbBehaviourActivationFX.hWnd), sText, , sTitle, , , , True
+    Case "cmbBehaviourAutoHideType"
+        sTitle = "Help on Open Running Behaviour."
+        sText = gcmbBehaviourAutoHideTypeBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbBehaviourAutoHideType.hWnd), sText, , sTitle, , , , True
+    Case "cmbHidingKey"
+        sTitle = "Help on the Drop Down Icon Filter"
+        sText = gcmbHidingKeyBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbHidingKey.hWnd), sText, , sTitle, , , , True
+    Case "cmbBehaviourSoundSelection"
+        sTitle = "Help on the Drop Down Icon Filter"
+        sText = gcmbBehaviourSoundSelectionBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbBehaviourSoundSelection.hWnd), sText, , sTitle, , , , True
+    Case "cmbStyleTheme"
+        sTitle = "Help on the Drop Down Icon Filter"
+        sText = gcmbStyleThemeBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbStyleTheme.hWnd), sText, , sTitle, , , , True
+    Case "cmbPositionMonitor"
+        sTitle = "Help on the Drop Down Icon Filter"
+        sText = gcmbPositionMonitorBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbPositionMonitor.hWnd), sText, , sTitle, , , , True
+    Case "cmbPositionScreen"
+        sTitle = "Help on the Drop Down Icon Filter"
+        sText = gcmbPositionScreenBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbPositionScreen.hWnd), sText, , sTitle, , , , True
+    Case "cmbPositionLayering"
+        sTitle = "Help on the Drop Down Icon Filter"
+        sText = gcmbPositionLayeringBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbPositionLayering.hWnd), sText, , sTitle, , , , True
+    Case "cmbIconsQuality"
+        sTitle = "Help on the Drop Down Icon Filter"
+        sText = gcmbIconsQualityBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbIconsQuality.hWnd), sText, , sTitle, , , , True
+    Case "cmbIconsHoverFX"
+        sTitle = "Help on the Drop Down Icon Filter"
+        sText = gcmbIconsHoverFXBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbIconsHoverFX.hWnd), sText, , sTitle, , , , True
+    Case "cmbDefaultDock"
+        sTitle = "Help on the Drop Down Icon Filter"
+        sText = gcmbDefaultDockBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbDefaultDock.hWnd), sText, , sTitle, , , , True
+
+    End Select
+
+   On Error GoTo 0
+   Exit Sub
+
+MouseMoveOnComboText_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure MouseMoveOnComboText of Form rDIconConfigForm"
+End Sub
+
