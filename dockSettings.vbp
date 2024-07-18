@@ -26,7 +26,7 @@ Description="SteamyDock's settings utility"
 CompatibleMode="0"
 MajorVer=0
 MinorVer=0
-RevisionVer=933
+RevisionVer=938
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionComments="Pre-release version. Alpha."
@@ -634,3 +634,5 @@ Status=
 Priority=
 AssignedTo=
 Comment=
+
+

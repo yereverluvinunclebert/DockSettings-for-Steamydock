@@ -4174,6 +4174,9 @@ Attribute VB_Exposed = False
 ' menu option to move the utility to the centre of the main monitor
 ' for win 11 bottom cut off - need to add another 100 twips
 ' adjust Form Position on startup placing form onto Correct Monitor when placed off screen due to monitor/resolution changes
+' The drop-down lists do not support mouseOver events so the balloon tooltips will not work. They will have to be sub-classed
+'   to allow the balloon tooltip to function.
+
 
 ' Status/Bugs/Tasks:
 ' ==================
@@ -4188,9 +4191,6 @@ Attribute VB_Exposed = False
 '   Within the hotkey folder under vb6 there is code that will identify keypresses (dockSettings) and will respond
 '   via sub-classing (steamyDock).
 '
-' The drop-down lists do not support mouseOver events so the balloon tooltips will not work. They will have to be sub-classed
-'   to allow the balloon tooltip to function.
-'
 ' update the help files WIP
 '
 '   test running with a blank tool settings file
@@ -4199,17 +4199,6 @@ Attribute VB_Exposed = False
 '
 '   remove persistent debug and replace with logging to a file as per FCW.
 '
-'       Elroy's code to add balloon tips to comboBox
-'       https://www.vbforums.com/showthread.php?893844-VB6-QUESTION-How-to-capture-the-MouseOver-Event-on-a-comboBox
-
-' https://classicvb.net/samples/HookXP/   CHookMouseEvents.cls
-'    This class provides the mysterious MouseEnter, MouseHover, and MouseLeave events, as well as a few bonus features like when the user clicks the
-'    4th or 5th buttons on a 5 button mouse. It also provides a collection based scheme whereby you can add and remove windows to monitor just as
-'    you would to an ordinary collection. All events are raised with the associated hWnd so you can determine which control is under the mouse. This
-'    could help the prefs in SteamyDock's DockSettings and other tools enabling balloon tooltips on comboBoxes.
-
-' NOTE: hookXP already downloaded.
-
 '
 ' Credits :
 '           Shuja Ali (codeguru.com) for his settings.ini code.
@@ -5811,6 +5800,8 @@ Private Sub btnApply_Click()
     Dim positionZeroFail As Boolean
     Dim positionThreeFail As Boolean
     Dim debugPoint As Integer
+    Dim itis As Boolean: itis = False
+
 
     On Error GoTo btnApply_Click_Error
     If debugflg = 1 Then Debug.Print "%btnApply_Click"
@@ -5839,15 +5830,7 @@ Private Sub btnApply_Click()
 '        End If
     End If
    
-    ' kill the rocketdock /steamydock process first
-    
-'    If defaultDock = 0 Then
-'        NameProcess = "RocketDock.exe"
-'    Else
-        NameProcess = "steamyDock.exe"
-'    End If
-    ans = checkAndKill(NameProcess, False, False)
-            
+   
     ' if the settings.ini has been chosen as an option then the creation of it will already have occurred,
     ' so, if the temporary settings file exists then it means that the user clicked "use settings.ini file"
     ' in which case we copy it to the main settings.ini file.
@@ -5860,106 +5843,66 @@ Private Sub btnApply_Click()
     'PutINISetting "Software\SteamyDock\DockSettings", "AlwaysAsk", rDAlwaysAsk, dockSettingsFile
     PutINISetting "Software\SteamyDock\DockSettings", "DefaultDock", rDDefaultDock, dockSettingsFile
     
-    'If optGeneralWriteConfig.Value = True Then ' the 3rd option
-        debugPoint = 2
+    debugPoint = 2
 
-        ' writes to the new config file
-        Call writeDockSettings("Software\SteamyDock\DockSettings", dockSettingsFile)
-        
-        ' the docksettings tool only writes the basic 'dock' configuration
-        ' however, if the 'icon' settings do not exist in the 3rd config option then the actual dock will fail to show any icons
-        ' (the other icon settings tool is meant to write the icon data but that tool may not yet have been run).
-        
-        ' in the unlikely event that this program is run before the main dock program, there is a chance that the dockSettings.ini
-        ' will not have been created previously and may not contain any icon details. This next bit tests the docksettings.ini
-        ' file for valid icon records.
-        
-        'test the first record
-        sFilename = GetINISetting("Software\SteamyDock\IconSettings\Icons", "0-FileName", dockSettingsFile)
-        sTitle = GetINISetting("Software\SteamyDock\IconSettings\Icons", "0-Title", dockSettingsFile)
-        sCommand = GetINISetting("Software\SteamyDock\IconSettings\Icons", "0-Command", dockSettingsFile)
-        If sFilename = "" And sTitle = "" And sCommand = "" Then positionZeroFail = True
-
-         
-        'test the third record - it assumes all docks will have at least three elements and therfore three records
-        sFilename = GetINISetting("Software\SteamyDock\IconSettings\Icons", "3-FileName", dockSettingsFile)
-        sTitle = GetINISetting("Software\SteamyDock\IconSettings\Icons", "3-Title", dockSettingsFile)
-        sCommand = GetINISetting("Software\SteamyDock\IconSettings\Icons", "3-Command", dockSettingsFile)
-        If sFilename = "" And sTitle = "" And sCommand = "" Then positionThreeFail = True
-        
-        ' the dock icon settings are empty? deanieboy
-        If positionZeroFail = True And positionThreeFail = True Then
-            If fFExists(dockSettingsFile) Then ' does the temporary settings.ini exist?
-                ' read the registry values for each of the icons and write them to the settings.ini
-                'Call readIconsWriteSettings("Software\SteamyDock\IconSettings", dockSettingsFile)
-            End If
-        End If
-
-'    Else
-'        debugPoint = 3
-'        If rocketDockInstalled = True Then
-'          If optGeneralWriteSettings.Value = True Then ' use the settings file
-'            debugPoint = 4
-'            If fFExists(tmpSettingsFile) Then ' does the temporary settings.ini exist?
-'                Call writeDockSettings("Software\RocketDock", tmpSettingsFile)
-'                ' if it exists, read the registry values for each of the icons and write them to the settings.ini
-'                Call readIconsWriteSettings("Software\RocketDock", tmpSettingsFile)
-'            End If
-'            If fFExists(tmpSettingsFile) Then ' does the tmp settings.ini exist?
-'                debugPoint = 5
-'                If fFExists(origSettingsFile) Then ' does the tmp settings.ini exist?
-'                    debugPoint = 6
-'                    Kill origSettingsFile
-'                End If
-'                debugPoint = 7
-'                Name tmpSettingsFile As origSettingsFile ' rename 'our' settings file to the one used by RD
-'            End If
-'          Else ' WRITE THE REGISTRY AND remove the settings file
-'            Call writeRegistry
-'            ' this function restarts Rocketdock so that the changes 'take'.
-'            Sleep (1300) ' this is required as the o/ses' final commit of the data to the registry can be delayed
-'                         ' and without the pause the restart does not picku p the committed data.
-'            'see if the settings.ini exists
-'            ' if it does exist, ensure it no longer does so by deleting it, RD will then use the registry.
-'            If fFExists(origSettingsFile) Then ' does the original settings.ini exist?
-'                    Kill origSettingsFile
-'            End If
-'          End If
-'        End If
-'    End If
-
-  
-    ' From the general panel
-    ' these write to registry areas available to any program not just Rocketdock
+    ' writes to the new config file
+    Call writeDockSettings("Software\SteamyDock\DockSettings", dockSettingsFile)
     
+    ' the docksettings tool only writes the basic 'dock' configuration
+    ' however, if the 'icon' settings do not exist in the 3rd config option then the actual dock will fail to show any icons
+    ' (the other icon settings tool is meant to write the icon data but that tool may not yet have been run).
+    
+    ' in the unlikely event that this program is run before the main dock program, there is a chance that the dockSettings.ini
+    ' will not have been created previously and may not contain any icon details. This next bit tests the docksettings.ini
+    ' file for valid icon records.
+    
+    'test the first record
+    sFilename = GetINISetting("Software\SteamyDock\IconSettings\Icons", "0-FileName", dockSettingsFile)
+    sTitle = GetINISetting("Software\SteamyDock\IconSettings\Icons", "0-Title", dockSettingsFile)
+    sCommand = GetINISetting("Software\SteamyDock\IconSettings\Icons", "0-Command", dockSettingsFile)
+    If sFilename = "" And sTitle = "" And sCommand = "" Then positionZeroFail = True
+
+    'test the third record - it assumes all docks will have at least three elements and therfore three records
+    sFilename = GetINISetting("Software\SteamyDock\IconSettings\Icons", "3-FileName", dockSettingsFile)
+    sTitle = GetINISetting("Software\SteamyDock\IconSettings\Icons", "3-Title", dockSettingsFile)
+    sCommand = GetINISetting("Software\SteamyDock\IconSettings\Icons", "3-Command", dockSettingsFile)
+    If sFilename = "" And sTitle = "" And sCommand = "" Then positionThreeFail = True
+    
+    ' the dock icon settings are empty? deanieboy
+    If positionZeroFail = True And positionThreeFail = True Then
+        If fFExists(dockSettingsFile) Then ' does the temporary settings.ini exist?
+            ' read the registry values for each of the icons and write them to the settings.ini
+            'Call readIconsWriteSettings("Software\SteamyDock\IconSettings", dockSettingsFile)
+        End If
+    End If
+
     picBusy.Visible = True
     busyTimer.Enabled = True
     
     If rDStartupRun = "1" Then
-        'if rocketdock set the string to Rocketdock startup
-'        If defaultDock = 0 Then ' rocketdock
-'            Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "RocketDock", """" & txtGeneralRdLocation.Text & "\" & "RocketDock.exe""")
-'        End If
-        'if steamydock set the string to steamydock startup
         If defaultDock = 1 Then ' steamydock
             Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "SteamyDock", """" & txtGeneralRdLocation.Text & "\" & "SteamyDock.exe""")
         End If
     Else
-'        If defaultDock = 0 Then ' rocketdock
-'            Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "RocketDock", "")
-'        End If
         If defaultDock = 1 Then ' steamydock
             Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "SteamyDock", "")
         End If
     End If
     
-    busyTimer.Enabled = True
-    
-    ' if the rocketdock process has died then create a new one.
-    If ans = True Then
-        ' restart Rocketdock
-        If fFExists(dockAppPath & "\" & NameProcess) Then
-            Call ShellExecute(hWnd, "Open", dockAppPath & "\" & NameProcess, vbNullString, App.Path, 1)
+    ' kill the steamydock process first
+
+    NameProcess = dockAppPath & "\" & "SteamyDock.exe" ' .07 DAEB 01/02/2021 rDIconConfigForm.frm Modified the parameter passed to isRunning to include the full path, otherwise it does not correlate with the found processes' folder
+
+    itis = IsRunning(NameProcess, vbNull) ' this is the check to see if the process is running
+    ' kill the rocketdock /steamydock process first
+    If itis = True Then
+        ans = checkAndKill(NameProcess, False, False)
+        If ans = True Then ' only proceed if the kill has succeeded
+            
+            ' restart steamydock
+            If fFExists(NameProcess) Then ' .09 DAEB 07/02/2021 rDIconConfigForm.frm use the fullprocess variable without adding path again - duh!
+                ans = ShellExecute(hWnd, "Open", NameProcess, vbNullString, App.Path, 1)
+            End If
         End If
     Else
         answer = MsgBox("Could not find a " & NameProcess & " process, would you like me to restart " & NameProcess & "?", vbYesNo)
@@ -5968,8 +5911,8 @@ Private Sub btnApply_Click()
         End If
 
         ' restart Rocketdock
-        If fFExists(dockAppPath & "\" & NameProcess) Then
-            Call ShellExecute(hWnd, "Open", dockAppPath & "\" & NameProcess, vbNullString, App.Path, 1)
+        If fFExists(NameProcess) Then
+            Call ShellExecute(hWnd, "Open", NameProcess, vbNullString, App.Path, 1)
         End If
     End If
 
@@ -11166,7 +11109,6 @@ End Sub
         gcmbIconsHoverFXBalloonTooltip = "The zoom effect to apply. At the moment the only effect in operation is bubble. The other animations types still need to be coded."
         gcmbDefaultDockBalloonTooltip = "This control merely indicates that the default dock is SteamyDock. Older versions worked with both Rocketdock and SteamyDock."
  
-
         cmbBehaviourActivationFX.ToolTipText = vbNullString
         cmbBehaviourAutoHideType.ToolTipText = vbNullString
         cmbHidingKey.ToolTipText = vbNullString
