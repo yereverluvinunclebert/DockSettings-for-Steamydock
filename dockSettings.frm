@@ -11154,17 +11154,17 @@ End Sub
         rDEnableBalloonTooltips = "1" ' this is the flag used to determine whether a new balloon tooltip is generated
         
         ' module level balloon tooltip variables for comboBoxes ONLY.
-        gcmbBehaviourActivationFXBalloonTooltip = "Set which type of animation you want to occur on an icon mouseover."
-        gcmbBehaviourAutoHideTypeBalloonTooltip = "The type of dock auto-hide, fade away, instant hide or a slide away like Rocketdock."
+        gcmbBehaviourActivationFXBalloonTooltip = "Set which type of animation you want to occur on an icon click. Only two animations are currently available. The bounce effect is best."
+        gcmbBehaviourAutoHideTypeBalloonTooltip = "The type of dock auto-hide, fade away, instant hide or a slide-away like Rocketdock."
         gcmbHidingKeyBalloonTooltip = "This is the key sequence that is used to hide or restore Steamydock. Choose a key sequence that will not conflict with other apps you are running."
         gcmbBehaviourSoundSelectionBalloonTooltip = "Select a sound to play when an icon in the dock is clicked."
         gcmbStyleThemeBalloonTooltip = "The dock background theme can be selected here. The themes roughly match those available in Rocketdock."
         gcmbPositionMonitorBalloonTooltip = "Here you can determine upon which monitor the dock will appear."
-        gcmbPositionScreenBalloonTooltip = "Place the dock at your preferred location. Steamydock currently only supports top and bottom positions. In windows 11 it is not possible to move Windows standard taskbar to the top programatically nor via configuration, you have to make a registry change and reboot! "
-        gcmbPositionLayeringBalloonTooltip = "This determines whether the dock should appear on top of other windows or underneath?"
+        gcmbPositionScreenBalloonTooltip = "Place the dock at your preferred location. Steamydock currently only supports top and bottom positions. In windows 11 it is not possible to move Windows standard taskbar to the top programmatically nor via configuration, you have to make a registry change and reboot! "
+        gcmbPositionLayeringBalloonTooltip = "This determines whether the dock should appear on top of other windows or underneath."
         gcmbIconsQualityBalloonTooltip = "Technically, lower power single/dual core machines from the XP era will benefit from the lower quality setting but in reality, the fast machines we have these days can run with high quality enabled and suffer no degradation whatsoever."
-        gcmbIconsHoverFXBalloonTooltip = "The zoom effect to apply, at the moment the only effect in operation is bubble."
-        gcmbDefaultDockBalloonTooltip = "This control merely indicates that the default dock is SteamyDock."
+        gcmbIconsHoverFXBalloonTooltip = "The zoom effect to apply. At the moment the only effect in operation is bubble. The other animations types still need to be coded."
+        gcmbDefaultDockBalloonTooltip = "This control merely indicates that the default dock is SteamyDock. Older versions worked with both Rocketdock and SteamyDock."
  
 
         cmbBehaviourActivationFX.ToolTipText = vbNullString
@@ -11715,7 +11715,6 @@ Public Sub MouseMoveOnComboText(sComboName As String)
         sTitle = "Help on the Drop Down Icon Filter"
         sText = gcmbDefaultDockBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbDefaultDock.hWnd), sText, , sTitle, , , , True
-
     End Select
 
    On Error GoTo 0
