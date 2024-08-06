@@ -78,7 +78,7 @@ dedicated OCX file that is shipped with this package.
 o  CCRSlider.ocx
 
 This OCX will reside in the program folder. The program reference to this OCX is 
-contained within the supplied resource file Panzer Earth Gauge.RES. It is 
+contained within the supplied resource file dockSettings.RES. It is 
 compiled into the binary.
 
 o In the VB6 IDE - project - references - browse - select the OLEEXP.tlb
