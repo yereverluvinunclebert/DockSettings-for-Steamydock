@@ -12,6 +12,7 @@ Module=Module1; ..\SteamyDock\monitorModule.bas
 Form=message.frm
 Module=common; ..\SteamyDock\common.bas
 Module=Subclasser; Subclasser.bas
+ResFile32="dockSettings.RES"
 IconForm="dockSettings"
 Startup="dockSettings"
 HelpFile=""
@@ -26,7 +27,7 @@ Description="SteamyDock's settings utility"
 CompatibleMode="0"
 MajorVer=0
 MinorVer=0
-RevisionVer=938
+RevisionVer=939
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionComments="Pre-release version. Alpha."
@@ -634,5 +635,3 @@ Status=
 Priority=
 AssignedTo=
 Comment=
-
-
