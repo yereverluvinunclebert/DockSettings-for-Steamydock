@@ -71,15 +71,26 @@ Example folder structure:
 	E:\VB6\docksettings ! this repo.
 	E:\VB6\rocketdock   ! from https://github.com/yereverluvinunclebert/rocketdock
 
-o Krools replacement for the Microsoft Windows Common Controls found in
-mscomctl.ocx (treeview, slider) are replicated by the addition of one
-dedicated OCX file that is shipped with this package.
+o Krool's replacement for the Microsoft Windows Common Controls found in
+mscomctl.ocx (slider) are replicated by the addition of one
+dedicated OCX file that are shipped with this package.
 
-o  CCRSlider.ocx
+During development these should be copied to C:\windows\syswow64 and should be registered.
 
-This OCX will reside in the program folder. The program reference to this OCX is 
-contained within the supplied resource file dockSettings.RES. It is 
-compiled into the binary.
+- CCRSlider.ocx
+
+Register this using regsvr32, ie. in a CMD window with administrator privileges.
+	c:
+	cd \windows\syswow64
+	regsvr32 CCRSlider.ocx
+
+This will allow the custom controls to be accessible to the VB6 IDE
+at design time and the sliders will function as intended (if this ocx is
+not registered correctly then the relevant controls will be replaced by picture boxes).
+
+No need to do the above at runtime. At runtime these OCX will reside in the program folder. The program reference to this OCX is contained within the supplied resource file, dockSettings.RES. The reference to these 
+files is compiled into the binary. As long as the OCX is in the same folder as the binary
+the program will run without the need to register the OCX manually.
 
 o In the VB6 IDE - project - references - browse - select the OLEEXP.tlb
 
