@@ -79,10 +79,12 @@ During development these should be copied to C:\windows\syswow64 and should be r
 
 - CCRSlider.ocx
 
-Register this using regsvr32, ie. in a CMD window with administrator privileges.
-	c:
-	cd \windows\syswow64
-	regsvr32 CCRSlider.ocx
+Register these using regsvr32, ie. in a CMD window with administrator privileges.
+	
+	c:                          ! set device to boot drive with Windows
+	cd \windows\syswow64s	    ! change default folder to syswow64
+	regsvr32 CCRImageList.ocx	! register the ocx
+
 
 This will allow the custom controls to be accessible to the VB6 IDE
 at design time and the sliders will function as intended (if this ocx is
