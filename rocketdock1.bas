@@ -77,8 +77,8 @@ End Type
 
 Private Type FONTSTRUC
   lStructSize As Long
-  hwnd As Long
-  hdc As Long
+  hWnd As Long
+  hDC As Long
   lpLogFont As Long
   iPointSize As Long
   flags As Long
@@ -127,11 +127,11 @@ Private Declare Function ChooseFont Lib "comdlg32.dll" Alias "ChooseFontA" _
 Private Declare Function GlobalLock Lib "kernel32" (ByVal hMem As Long) As Long
 Private Declare Function GlobalAlloc Lib "kernel32" _
   (ByVal wFlags As Long, ByVal dwBytes As Long) As Long
-Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
+Public Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
 (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
 Private Declare Function GetDeviceCaps Lib "gdi32" _
-  (ByVal hdc As Long, ByVal nIndex As Long) As Long
-Private Declare Function GetDC Lib "user32" (ByVal hwnd As Long) As Long
+  (ByVal hDC As Long, ByVal nIndex As Long) As Long
+Private Declare Function GetDC Lib "user32" (ByVal hWnd As Long) As Long
 Private Declare Function FindWindow Lib "user32.dll" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
 Private Declare Function ChooseColor Lib "comdlg32.dll" Alias "ChooseColorA" _
     (lpChoosecolor As ChooseColorStruct) As Long
@@ -145,6 +145,25 @@ Public dockSettingsXPos As String
 Public dockSettingsYPos As String
 
 Public iconSettingsToolFile As String
+
+Public gblSuppliedFont As String
+Public gblSuppliedFontSize As String
+Public gblSuppliedFontItalics As String
+Public gblSuppliedFontColour As String
+
+'------------------------------------------------------ STARTS
+' Private Types for determining  sizing
+Public gblResizeRatio As Double
+Public gblFormResizedInCode As Boolean
+Public gblDoNotResize As Boolean
+
+Public gblAdjustedFormHeight As Long
+Public gblAdjustedFormWidth  As Long
+
+Public gblDockSettingsFormOldHeight As Long
+Public gblDockSettingsFormOldWidth As Long
+'------------------------------------------------------ ENDS
+
 
 
 '---------------------------------------------------------------------------------------
@@ -516,7 +535,7 @@ Public Sub selectDockSettingsVBPFile(ByVal runAfter As Boolean)
     
     If runAfter = True Then
         ' run the selected program
-        execStatus = ShellExecute(dockSettings.hwnd, "open", sDDockSettingsDefaultEditor, vbNullString, vbNullString, 1)
+        execStatus = ShellExecute(dockSettings.hWnd, "open", sDDockSettingsDefaultEditor, vbNullString, vbNullString, 1)
         If execStatus <= 32 Then MsgBox "Attempt to open the IDE for this program failed." Else
     End If
 
@@ -551,7 +570,7 @@ Public Sub runDockSettingsVBPFile()
     End If
     
     ' run the selected program
-    execStatus = ShellExecute(dockSettings.hwnd, "open", sDDockSettingsDefaultEditor, vbNullString, vbNullString, 1)
+    execStatus = ShellExecute(dockSettings.hWnd, "open", sDDockSettingsDefaultEditor, vbNullString, vbNullString, 1)
     If execStatus <= 32 Then MsgBox "Attempt to open the IDE for this program failed." Else
 
     On Error GoTo 0
@@ -614,7 +633,7 @@ Public Sub selectIconSettingsVBPFile()
 
     On Error GoTo selectIconSettingsVBPFile_Error
     
-    If sDIconSettingsDefaultEditor = vbNullString Then
+    If gblSdIconSettingsDefaultEditor = vbNullString Then
         MsgBox "Select the .VBP file that is associated with the Icon Settings VB6 program."
     End If
     
@@ -622,10 +641,10 @@ Public Sub selectIconSettingsVBPFile()
     If LTrim$(dockEditor) = vbNullString Then Exit Sub
     
     If fFExists(dockEditor) Then
-        sDIconSettingsDefaultEditor = dockEditor
-        PutINISetting "Software\IconSettings", "defaultEditor", sDIconSettingsDefaultEditor, iconSettingsToolFile
+        gblSdIconSettingsDefaultEditor = dockEditor
+        PutINISetting "Software\IconSettings", "defaultEditor", gblSdIconSettingsDefaultEditor, iconSettingsToolFile
         
-        PutINISetting "Software\SteamyDock\DockSettings", "defaultEditor", sDIconSettingsDefaultEditor, iconSettingsToolFile
+        PutINISetting "Software\SteamyDock\DockSettings", "defaultEditor", gblSdIconSettingsDefaultEditor, iconSettingsToolFile
         dockSettings.txtIconSettingsDefaultEditor.Text = dockEditor
     Else
         MsgBox "Having a bit of a problem selecting an IDE for this program - " & sDDockDefaultEditor & " It doesn't seem to have a valid working directory set.", "Dock Settings Confirmation Message", vbOKOnly + vbExclamation
