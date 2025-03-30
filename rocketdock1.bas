@@ -155,7 +155,7 @@ Public gblSuppliedFontColour As String
 ' Private Types for determining  sizing
 Public gblResizeRatio As Double
 Public gblFormResizedInCode As Boolean
-Public gblDoNotResize As Boolean
+'Public gblDoNotResize As Boolean
 
 Public gblAdjustedFormHeight As Long
 Public gblAdjustedFormWidth  As Long
