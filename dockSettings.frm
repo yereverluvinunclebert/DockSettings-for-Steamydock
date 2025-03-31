@@ -16,25 +16,6 @@ Begin VB.Form dockSettings
       Left            =   1455
       Top             =   8790
    End
-   Begin VB.CommandButton btnDefaults 
-      Caption         =   "De&faults"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   405
-      Left            =   3255
-      Style           =   1  'Graphical
-      TabIndex        =   3
-      ToolTipText     =   "Revert ALL settings to the defaults"
-      Top             =   8790
-      Width           =   1065
-   End
    Begin VB.CheckBox chkToggleDialogs 
       Caption         =   "Display Info.Dialogs"
       Height          =   225
@@ -550,12 +531,13 @@ Begin VB.Form dockSettings
       Begin VB.Frame fraEditors 
          BorderStyle     =   0  'None
          Height          =   1665
-         Left            =   855
+         Left            =   825
          TabIndex        =   222
-         Top             =   6750
-         Width           =   5370
+         Top             =   6660
+         Width           =   5280
          Begin VB.CommandButton btnGeneralIconSettingsEditor 
             Caption         =   "..."
+            Enabled         =   0   'False
             Height          =   300
             Left            =   4920
             Style           =   1  'Graphical
@@ -565,6 +547,7 @@ Begin VB.Form dockSettings
          End
          Begin VB.CommandButton btnGeneralDockSettingsEditor 
             Caption         =   "..."
+            Enabled         =   0   'False
             Height          =   300
             Left            =   4920
             Style           =   1  'Graphical
@@ -574,6 +557,7 @@ Begin VB.Form dockSettings
          End
          Begin VB.CommandButton btnGeneralDockEditor 
             Caption         =   "..."
+            Enabled         =   0   'False
             Height          =   300
             Left            =   4920
             Style           =   1  'Graphical
@@ -582,6 +566,7 @@ Begin VB.Form dockSettings
             Width           =   300
          End
          Begin VB.TextBox txtIconSettingsDefaultEditor 
+            Enabled         =   0   'False
             Height          =   315
             Left            =   1200
             Locked          =   -1  'True
@@ -591,6 +576,7 @@ Begin VB.Form dockSettings
             Width           =   3585
          End
          Begin VB.TextBox txtDockSettingsDefaultEditor 
+            Enabled         =   0   'False
             Height          =   315
             Left            =   1200
             Locked          =   -1  'True
@@ -600,6 +586,7 @@ Begin VB.Form dockSettings
             Width           =   3585
          End
          Begin VB.TextBox txtDockDefaultEditor 
+            Enabled         =   0   'False
             Height          =   315
             Left            =   1200
             Locked          =   -1  'True
@@ -609,7 +596,8 @@ Begin VB.Form dockSettings
             Width           =   3585
          End
          Begin VB.Label lblGenLabel 
-            Caption         =   "VB6 Editor VBP file locations:"
+            Caption         =   "VB6/TwinBasic Editor VBP or TwinProj file locations:"
+            Enabled         =   0   'False
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   8.25
@@ -625,10 +613,11 @@ Begin VB.Form dockSettings
             TabIndex        =   229
             ToolTipText     =   $"dockSettings.frx":A573
             Top             =   15
-            Width           =   2190
+            Width           =   4755
          End
          Begin VB.Label lblGenLabel 
             Caption         =   "Icon Settings :"
+            Enabled         =   0   'False
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   8.25
@@ -647,6 +636,7 @@ Begin VB.Form dockSettings
          End
          Begin VB.Label lblGenLabel 
             Caption         =   "Dock Settings :"
+            Enabled         =   0   'False
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   8.25
@@ -665,6 +655,7 @@ Begin VB.Form dockSettings
          End
          Begin VB.Label lblGenLabel 
             Caption         =   "Dock :"
+            Enabled         =   0   'False
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   8.25
@@ -4084,6 +4075,25 @@ Begin VB.Form dockSettings
          Width           =   2175
       End
    End
+   Begin VB.CommandButton btnDefaults 
+      Caption         =   "De&faults"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   405
+      Left            =   3255
+      Style           =   1  'Graphical
+      TabIndex        =   3
+      ToolTipText     =   "Revert ALL settings to the defaults"
+      Top             =   8790
+      Width           =   1065
+   End
    Begin VB.Label lblDragCorner 
       Caption         =   "o"
       BeginProperty Font 
@@ -4197,7 +4207,7 @@ Begin VB.Form dockSettings
             Caption         =   "Edit Program Using..."
          End
          Begin VB.Menu mnuDebug 
-            Caption         =   "Turn Debugging ON"
+            Caption         =   "Turn Developer Options ON"
          End
       End
       Begin VB.Menu mnuClose 
@@ -4210,60 +4220,13 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-' Changes:
-' 25/10/2020 docksettings .01 DAEB added the greying out or enabling of the checkbox and label for the icon label background toggle
-' 25/10/2020 docksettings .02 DAEB add the logic for saving/reading icon label background string to configuration files
-' 26/10/2020 docksettings .03 DAEB fixed a previous find/replace bug causing the autohide setting to fail to both save and read
-' 26/10/2020 docksettings .04 DAEB added a caption change to autohide toggle checkbox using the IDE only
-' 26/10/2020 docksettings .05 DAEB added a manual click to the autohide toggle checkbox
-' 30/10/2020 docksettings .06 DAEB fraZoomConfigs containing sliIconsZoomWidth made visible by default using the IDE and the references to make them otherwise removed.
-' 23/01/2021 docksettings .07 DAEB Added themeing to two new sliders
-' .08 DAEB 01/02/2021 docksettings Added support for the default hiding key plus others for the two dock
-' .09 DAEB 01/02/2021 docksettings Make the sample image functionality disabled for rocketdock
-' .10 DAEB 01/02/2021 docksettings Remove some functionality not available to rocketdock
-' .11 DAEB 26/04/2021 docksettings Disable the dock select dropdown when only steamydock is present
-' .12 DAEB 26/04/2021 docksettings Set the large icon minimum size to 85 pixels when using the bumpy animation
-' .13 DAEB 29/04/2021 docksettings set the default dock for some reason not already set
-' .14 DAEB 01/05/2021 docksettings added checkbox and values to show icon settings utility when adding an icon to the dock
-' .15 DAEB 18/02/2021 docksettings set the default key settings for RD and SD
-' .16 DAEB 01/07/2022 docksettings added the juggling of the checkboxes and labels to allow greying out or enabling of the checkbox and labels without causing crinkly effect with serif fonts.
-' .17 DAEB 07/09/2022 docksettings the dock folder location now changes as it is switched between Rocketdock and Steamy Dock
-' .18 DAEB 07/09/2022 docksettings save and restore the chkRetainIcons checkbox value
-' .19 DAEB 07/09/2022 docksettings when you select rocketdock it reverts to the registry but when you select steamydock it does not revert to the dock settings file.
-' .20 DAEB 07/09/2022 docksettings tab selection fixed
-' .21 DAEB 07/09/2022 docksettings moved hiding key definitions to own subroutine
-' .22 DAEB 02/10/2022 docksettings added a message pop up on the punklabs link
-' .23 DAEB 02/10/2022 docksettings added control logic to hide/show the scrollbar
-' add the Steampunk cogs for the light and dark themes
-' take the X/Y position and store it, when restarting, set it as per FCW.
-' menu option to move the utility to the centre of the main monitor
-' for win 11 bottom cut off - need to add another 100 twips
-' adjust Form Position on startup placing form onto Correct Monitor when placed off screen due to monitor/resolution changes
-' The drop-down lists do not support mouseOver events so the balloon tooltips will not work. They will have to be sub-classed
-'   to allow the balloon tooltip to function.
+'---------------------------------------------------------------------------------------
+' Module    : dockSettings
+' Author    : beededea
+' Date      : 30/03/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
 
-
-' Status/Bugs/Tasks:
-' ==================
-'
-' frmMessage msgbox error during compilation as per steamydock
-
-' resource file for the ocx as per rocketdock
-'
-' Define any key to toggle hiding not just function keys - at the moment it is much more sensible to have a single key defined
-'   Using this code it can be done - https://www.developerfusion.com/code/271/create-a-hot-key/
-'   but this will require subclassing within steamydock. All the solutions I have found require sub-classing.
-'   Within the hotkey folder under vb6 there is code that will identify keypresses (dockSettings) and will respond
-'   via sub-classing (steamyDock).
-'
-' update the help files WIP
-'
-'   test running with a blank tool settings file
-'
-'   test running with a blank dock settings file
-'
-'   remove persistent debug and replace with logging to a file as per FCW.
-'
 '
 ' Credits :
 '           Shuja Ali (codeguru.com) for his settings.ini code.
@@ -4271,7 +4234,6 @@ Attribute VB_Exposed = False
 '           Registry reading code from ALLAPI.COM.
 '           Punklabs for the original inspiration and for Rocketdock, Skunkie in particular.
 '
-'           Elroy on VB forums for his Persistent debug window
 '           Rxbagain on codeguru for his Open File common dialog code without dependent OCX
 '           Krool on the VBForums for his impressive common control replacements
 '           si_the_geek for his special folder code
@@ -4580,14 +4542,6 @@ Private Sub Form_Load()
     ' click on the panel that is set by default
     Call picIcon_MouseDown_Event(Val(rDOptionsTabIndex) - 1)
     
-    picIcon(0).Visible = True
-    picIcon(1).Visible = True
-    picIcon(2).Visible = True
-    picIcon(3).Visible = True
-    picIcon(4).Visible = True
-    picIcon(5).Visible = True
-
-    
     ' set the theme on startup
     Call setThemeSkin
     
@@ -4779,15 +4733,116 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub Form_Unload(Cancel As Integer)
-        
-    ' variables declared
-    Dim NameProcess As String: NameProcess = ""
-    Dim ofrm As Form
 
     On Error GoTo Form_Unload_Error
     
+    Call thisForm_Unload
+    
     If debugflg = 1 Then Debug.Print "%" & "Form_Unload"
     
+   On Error GoTo 0
+   Exit Sub
+
+Form_Unload_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Unload of Form dockSettings"
+    
+End Sub
+'---------------------------------------------------------------------------------------
+' Procedure : thisForm_Unload
+' Author    : beededea
+' Date      : 18/08/2022
+' Purpose   : the standard form unload routine called from several places
+'---------------------------------------------------------------------------------------
+'
+Public Sub thisForm_Unload() ' name follows VB6 standard naming convention
+    On Error GoTo Form_Unload_Error
+
+    Call saveMainFormPosition
+
+    Call DestroyToolTip ' destroys any current balloon tooltip
+    
+    Call unloadAllForms(True)
+
+    On Error GoTo 0
+    Exit Sub
+
+Form_Unload_Error:
+
+    With Err
+         If .Number <> 0 Then
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure thisForm_Unload of Class Module module1"
+            Resume Next
+          End If
+    End With
+End Sub
+
+
+'---------------------------------------------------------------------------------------
+' Procedure : unloadAllForms
+' Author    : beededea
+' Date      : 28/06/2023
+' Purpose   : unload all VB6 forms
+'---------------------------------------------------------------------------------------
+'
+Public Sub unloadAllForms(ByVal endItAll As Boolean)
+    
+    Dim ofrm As Form
+    Dim NameProcess As String: NameProcess = ""
+    Dim fcount As Integer: fcount = 0
+    Dim useloop As Integer: useloop = 0
+       
+    On Error GoTo unloadAllForms_Error
+    
+    ' the following unload commands take a while to complete resulting in a seeming-delay after a close, this .hide does away with that
+    
+    Me.Hide
+              
+    ' stop all VB6 timers in the main form
+    
+    themeTimer.Enabled = False
+    repaintTimer.Enabled = False
+    busyTimer.Enabled = False
+    positionTimer.Enabled = False
+    
+    ' unload the native VB6 forms
+    
+    Unload about
+    Unload frmMessage
+    Unload licence
+    'Unload dockSettings ' this will be unloaded at the end of the form_unload
+    
+    ' remove all variable references to each form in turn
+    
+    Set about = Nothing
+    Set frmMessage = Nothing
+    Set licence = Nothing
+    Set dockSettings = Nothing
+   
+    On Error Resume Next
+    
+    If endItAll = True Then End
+
+   On Error GoTo 0
+   Exit Sub
+
+unloadAllForms_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure unloadAllForms of Module Module1"
+End Sub
+
+
+'---------------------------------------------------------------------------------------
+' Procedure : saveMainFormPosition
+' Author    : beededea
+' Date      : 04/08/2023
+' Purpose   : called from several locations saves the form X,Y positions
+'---------------------------------------------------------------------------------------
+'
+Public Sub saveMainFormPosition()
+
+   On Error GoTo saveMainFormPosition_Error
+
     ' save the current X and y position of this form to allow repositioning when restarting
     dockSettingsXPos = dockSettings.Left
     dockSettingsYPos = dockSettings.Top
@@ -4796,26 +4851,12 @@ Private Sub Form_Unload(Cancel As Integer)
     PutINISetting "Software\DockSettings", "dockSettingsXPos", dockSettingsXPos, toolSettingsFile
     PutINISetting "Software\DockSettings", "dockSettingsYPos", dockSettingsYPos, toolSettingsFile
     
-    'this was initially commented out as it caused a crash on exit in Win 7 (only) subsequent to the two Krool's
-    'controls being added or perhaps it was the failure to close GDI properly
-    'then I added it back in as an END is the wrong thing to do supposedly - but I do like a good END.
-    
-    For Each ofrm In Forms
-        'fcount = fcount + 1
-        Unload ofrm
-    Next
-    
-'    Sleep 5000
-'    MsgBox ("END " & fcount)
-    
-    'End ' on 32bit Windows this causes a crash and untidy exit so removed.
-   
-   On Error GoTo 0
+    On Error GoTo 0
    Exit Sub
 
-Form_Unload_Error:
+saveMainFormPosition_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Unload of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure saveMainFormPosition of Module Module1"
     
 End Sub
 
@@ -4933,7 +4974,7 @@ End Sub
 
 
 Private Sub btnAboutDebugInfo_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnAboutDebugInfo.hWnd, "This is the debugging option - Don't use it unless you know what you are doing. This option runs a separate binary, the persistentDebug.exe (an additional binary provided with this tool) is only run when you turn debugging ON. I suggest you do NOT use this utility unless you have a problem that is not easy diagnose. It is a separate exe that my program talks to, sending the program's subroutine entry points and other debug data to that window.When you run it the first time, your anti-malware tool such as malwarebytes will flag it as a possible malware. It is NOT. It only seems that way to anti-malware tools because of the way it operates, ie. one program is talking to another using shared memory.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnAboutDebugInfo.hWnd, "This is the debugging option.", _
                   TTIconInfo, "Help on the About Button", , , , True
 End Sub
 
@@ -5393,7 +5434,21 @@ Private Sub makeVisibleFormElements()
     Dim formTopPixels As Long: formTopPixels = 0
 
     On Error GoTo makeVisibleFormElements_Error
+    
+    picIcon(0).Visible = True
+    picIcon(1).Visible = True
+    picIcon(2).Visible = True
+    picIcon(3).Visible = True
+    picIcon(4).Visible = True
+    picIcon(5).Visible = True
 
+    picIconPressed(0).Visible = False
+    picIconPressed(1).Visible = False
+    picIconPressed(2).Visible = False
+    picIconPressed(3).Visible = False
+    picIconPressed(4).Visible = False
+    picIconPressed(5).Visible = False
+    
     screenHeightTwips = GetDeviceCaps(Me.hDC, VERTRES) * screenTwipsPerPixelY
     screenWidthTwips = GetDeviceCaps(Me.hDC, HORZRES) * screenTwipsPerPixelX ' replaces buggy screen.width
 
@@ -6452,7 +6507,7 @@ Private Sub btnClose_Click()
    On Error GoTo btnClose_Click_Error
    If debugflg = 1 Then Debug.Print "%btnClose_Click"
 
-    Form_Unload 0
+    Call thisForm_Unload
 
    On Error GoTo 0
    Exit Sub
@@ -8878,162 +8933,6 @@ End Sub
     
 
 
-''---------------------------------------------------------------------------------------
-'' Procedure : SpecialFolder
-'' Author    :  si_the_geek vbforums
-'' Date      : 17/10/2019
-'' Purpose   :
-''---------------------------------------------------------------------------------------
-''
-'Public Function SpecialFolder(pFolder As eSpecialFolders) As String
-''Returns the path to the specified special folder (AppData etc)
-'
-'    ' variables declared
-'    Dim objShell  As Object
-'    Dim objFolder As Object
-'
-'    'initialise the dimensioned variables
-'    Set objShell = Nothing
-'    Set objFolder = Nothing
-'
-'   On Error GoTo SpecialFolder_Error
-'   If debugflg = 1 Then debug.print "%SpecialFolder"
-'
-'  Set objShell = CreateObject("Shell.Application")
-'  Set objFolder = objShell.NameSpace(CLng(pFolder))
-'
-'  If (Not objFolder Is Nothing) Then SpecialFolder = objFolder.Self.path
-'
-'  Set objFolder = Nothing
-'  Set objShell = Nothing
-'
-'  If SpecialFolder = "" Then Err.Raise 513, "SpecialFolder", "The folder path could not be detected"
-'
-'   On Error GoTo 0
-'   Exit Function
-'
-'SpecialFolder_Error:
-'
-'    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure SpecialFolder of Module Module1"
-'
-'End Function
-
-''---------------------------------------------------------------------------------------
-'' Procedure : checkLicenceState
-'' Author    : beededea
-'' Date      : 20/06/2019
-'' Purpose   : 'check the state of the licence
-''---------------------------------------------------------------------------------------
-''
-'Private Sub checkLicenceState()
-'
-'    ' variables declared
-'    Dim slicence As Integer
-'
-'    'initialise the dimensioned variables
-'    slicence = 0
-'
-'    On Error GoTo checkLicenceState_Error
-'
-'    'toolSettingsFile = toolSettingsDir & "\settings.ini"
-'    'toolSettingsFile = App.Path & "\settings.ini"
-'    ' read the tool's own settings file (
-'    If fFExists(toolSettingsFile) Then ' does the tool's own settings.ini exist?
-'        slicence = GetINISetting("Software\SteamyDockSettings", "Licence", toolSettingsFile)
-'        ' if the licence state is not already accepted then display the licence form
-'        If slicence = 0 Then
-'            Call LoadFileToTB(licence.txtLicenceTextBox, App.path & "\licence.txt", False)
-'
-'            licence.Show vbModal ' show the licence screen in VB modal mode (ie. on its own)
-'            ' on the licence box change the state fo the licence acceptance
-'        End If
-'    End If
-'
-'    ' show the licence screen if it has never been run before and set it to be in focus
-'    If licence.Visible = True Then
-'        licence.SetFocus
-'    End If
-'
-'   On Error GoTo 0
-'   Exit Sub
-'
-'checkLicenceState_Error:
-'
-'    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure checkLicenceState of Form dockSettings"
-'
-'End Sub
-
-
-
-''---------------------------------------------------------------------------------------
-'' Procedure : checkRocketdockInstallation
-'' Author    : beededea
-'' Date      : 20/06/2019
-'' Purpose   :
-''---------------------------------------------------------------------------------------
-''
-'Private Sub checkRocketdockInstallation()
-'
-'    ' variables declared
-'    Dim answer As VbMsgBoxResult
-'
-'    'initialise the dimensioned variables
-'    answer = vbNo
-'
-'    RD86installed = ""
-'    RDinstalled = ""
-'
-'    ' check where rocketdock is installed
-'    On Error GoTo checkRocketdockInstallation_Error
-'
-'    RD86installed = driveCheck("Program Files (x86)\Rocketdock", "RocketDock.exe")
-'    RDinstalled = driveCheck("Program Files\Rocketdock", "RocketDock.exe")
-'
-'    If RDinstalled = "" And RD86installed = "" Then
-'        rocketDockInstalled = False
-'        'answer = MsgBox(" Rocketdock has not been installed in the program files (x86) folder on any of the drives on this system, can you please install into the correct folder and retry?", vbYesNo)
-'        txtGeneralRdLocation.Text = ""
-'        Exit Sub
-'
-'    Else
-'        rocketDockInstalled = True
-'        If RDinstalled <> "" Then
-'            rdAppPath = RDinstalled
-'        End If
-'        'the one in the x86 folder has precedence
-'        If RD86installed <> "" Then
-'            rdAppPath = RD86installed
-'        End If
-'
-'    End If
-'
-'    ' If rocketdock Is Not installed Then test the registry
-'    ' if the registry settings are not located then remove them as a source.
-'
-'    ' rocketDockInstalled = False ' debug
-'
-'    ' read selected random entries from the registry, if each are false then the RD registry entries do not exist.
-'    If rocketDockInstalled = False Then
-'        rDLockIcons = getstring(HKEY_CURRENT_USER, "Software\RocketDock\", "LockIconsd")
-'        rDOpenRunning = getstring(HKEY_CURRENT_USER, "Software\RocketDock\", "OpenRunnings")
-'        rDShowRunning = getstring(HKEY_CURRENT_USER, "Software\RocketDock\", "ShowRunnings")
-'        rDManageWindows = getstring(HKEY_CURRENT_USER, "Software\RocketDock\", "ManageWindowsw")
-'        rDDisableMinAnimation = getstring(HKEY_CURRENT_USER, "Software\RocketDock\", "DisableMinAnimations")
-'        If rDLockIcons = "" And rDOpenRunning = "" And rDShowRunning = "" And rDManageWindows = "" And rDDisableMinAnimation = "" Then
-'            ' rocketdock registry entries do not exist so RD has never been installed or it has been wiped entirely.
-'            RDregistryPresent = False
-'        Else
-'            RDregistryPresent = True 'rocketdock HAS been installed in the past as the registry entries are still present
-'        End If
-'    End If
-'
-'   On Error GoTo 0
-'   Exit Sub
-'
-'checkRocketdockInstallation_Error:
-'
-'    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure checkRocketdockInstallation of Form dockSettings"
-'End Sub
 
 '---------------------------------------------------------------------------------------
 ' Procedure : readDockSettings
@@ -9296,25 +9195,16 @@ Private Sub picIcon_MouseDown_Event(Index As Integer)
     rDOptionsTabIndex = Index + 1
     If Index < 0 Then Index = 0
     
-'    If defaultDock = 0 Then
-'        If fFExists(origSettingsFile) Then ' does the original settings.ini exist?
-'            PutINISetting "Software\RocketDock", "OptionsTabIndex", rDOptionsTabIndex, origSettingsFile
-'        Else
-'            Call savestring(HKEY_CURRENT_USER, "Software\RocketDock\", "OptionsTabIndex", rDOptionsTabIndex)
-'        End If
-'    Else
-        'CFG - write the current open tab to the 3rd config settings
-        ' .20 DAEB 07/09/2022 docksettings tab selection fixed
-        PutINISetting "Software\DockSettings", "OptionsTabIndex", rDOptionsTabIndex, toolSettingsFile
-        
-'    End If
+    'CFG - write the current open tab to the 3rd config settings
+    ' .20 DAEB 07/09/2022 docksettings tab selection fixed
+    PutINISetting "Software\DockSettings", "OptionsTabIndex", rDOptionsTabIndex, toolSettingsFile
     
-    fmeMain(0).Visible = False
-    fmeMain(1).Visible = False
-    fmeMain(2).Visible = False
-    fmeMain(3).Visible = False
-    fmeMain(4).Visible = False
-    fmeMain(5).Visible = False
+    If Index <> 0 Then fmeMain(0).Visible = False
+    If Index <> 1 Then fmeMain(1).Visible = False
+    If Index <> 2 Then fmeMain(2).Visible = False
+    If Index <> 3 Then fmeMain(3).Visible = False
+    If Index <> 4 Then fmeMain(4).Visible = False
+    If Index <> 5 Then fmeMain(5).Visible = False
     
     fmeMain(Index).Visible = True
 
@@ -9328,7 +9218,6 @@ Private Sub picIcon_MouseDown_Event(Index As Integer)
     picIcon(Index).Visible = False
     picIconPressed(Index).Visible = True
 
-
    On Error GoTo 0
    Exit Sub
 
@@ -9338,9 +9227,18 @@ picIcon_MouseDown_Event_Error:
 
 End Sub
 
+'---------------------------------------------------------------------------------------
+' Procedure : picIcon_MouseMove
+' Author    : beededea
+' Date      : 31/03/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
 Private Sub picIcon_MouseMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
     Dim descriptiveText As String
     Dim titleText As String
+
+   On Error GoTo picIcon_MouseMove_Error
 
     descriptiveText = ""
     titleText = ""
@@ -9369,6 +9267,13 @@ Private Sub picIcon_MouseMove(Index As Integer, Button As Integer, Shift As Inte
 
 
     CreateToolTip picIcon(Index).hWnd, descriptiveText, TTIconInfo, titleText, , , , True
+
+   On Error GoTo 0
+   Exit Sub
+
+picIcon_MouseMove_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure picIcon_MouseMove of Form dockSettings"
 
 End Sub
 
@@ -10571,22 +10476,47 @@ End Sub
 '
 Private Sub mnuDebug_Click()
         
-    
     On Error GoTo mnuDebug_Click_Error
+    
     If debugflg = 1 Then Debug.Print "%mnuDebug_Click"
     
     If debugflg = 0 Then
         debugflg = 1
-        'mnuDebug.Caption = "Turn Debugging OFF"
+        mnuDebug.Caption = "Turn Developer Options OFF"
         mnuAppFolder.Visible = True
         mnuEditWidget.Visible = True
-        fraEditors.Visible = True
+        
+        lblGenLabel(5).Enabled = True
+        lblGenLabel(6).Enabled = True
+        lblGenLabel(0).Enabled = True
+        lblGenLabel(1).Enabled = True
+        
+        txtDockDefaultEditor.Enabled = True
+        txtDockSettingsDefaultEditor.Enabled = True
+        txtIconSettingsDefaultEditor.Enabled = True
+        
+        btnGeneralDockEditor.Enabled = True
+        btnGeneralDockSettingsEditor.Enabled = True
+        btnGeneralIconSettingsEditor.Enabled = True
+        
     Else
         debugflg = 0
-        'mnuDebug.Caption = "Turn Debugging ON"
+        mnuDebug.Caption = "Turn Developer Options ON"
         mnuAppFolder.Visible = False
         mnuEditWidget.Visible = False
-        fraEditors.Visible = False
+        
+        lblGenLabel(5).Enabled = False
+        lblGenLabel(6).Enabled = False
+        lblGenLabel(0).Enabled = False
+        lblGenLabel(1).Enabled = False
+        
+        txtDockDefaultEditor.Enabled = False
+        txtDockSettingsDefaultEditor.Enabled = False
+        txtIconSettingsDefaultEditor.Enabled = False
+        
+        btnGeneralDockEditor.Enabled = False
+        btnGeneralDockSettingsEditor.Enabled = False
+        btnGeneralIconSettingsEditor.Enabled = False
     End If
 
     gblRdDebugFlg = CStr(debugflg)
@@ -11281,11 +11211,20 @@ adjustControls_Error:
 
 End Sub
 
+'---------------------------------------------------------------------------------------
+' Procedure : setBounceTypes
+' Author    : beededea
+' Date      : 31/03/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
 Private Sub setBounceTypes()
 
 'None
 'UberIcon Effects
 'Bounce
+
+   On Error GoTo setBounceTypes_Error
 
     cmbBehaviourActivationFX.Clear
 
@@ -11305,8 +11244,24 @@ Private Sub setBounceTypes()
     cmbBehaviourActivationFX.ListIndex = Val(rDIconActivationFX)
     
 
+   On Error GoTo 0
+   Exit Sub
+
+setBounceTypes_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setBounceTypes of Form dockSettings"
+
 End Sub
+'---------------------------------------------------------------------------------------
+' Procedure : setSoundSelectionDropDown
+' Author    : beededea
+' Date      : 31/03/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
 Private Sub setSoundSelectionDropDown()
+
+   On Error GoTo setSoundSelectionDropDown_Error
 
     cmbBehaviourSoundSelection.Clear
 
@@ -11316,6 +11271,13 @@ Private Sub setSoundSelectionDropDown()
     
     cmbBehaviourSoundSelection.ListIndex = Val(rDSoundSelection)
     
+
+   On Error GoTo 0
+   Exit Sub
+
+setSoundSelectionDropDown_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setSoundSelectionDropDown of Form dockSettings"
 
 End Sub
 
@@ -11942,15 +11904,39 @@ Public Sub adjustMainControls()
     End If
     
     If debugflg = 1 Then
-'        mnuDebug.Caption = "Turn Debugging OFF"
+        mnuDebug.Caption = "Turn Developer Options OFF"
         mnuAppFolder.Visible = True
         mnuEditWidget.Visible = True
-        fraEditors.Visible = True
+        
+        lblGenLabel(5).Enabled = True
+        lblGenLabel(6).Enabled = True
+        lblGenLabel(0).Enabled = True
+        lblGenLabel(1).Enabled = True
+        
+        txtDockDefaultEditor.Enabled = True
+        txtDockSettingsDefaultEditor.Enabled = True
+        txtIconSettingsDefaultEditor.Enabled = True
+        
+        btnGeneralDockEditor.Enabled = True
+        btnGeneralDockSettingsEditor.Enabled = True
+        btnGeneralIconSettingsEditor.Enabled = True
     Else
-'        mnuDebug.Caption = "Turn Debugging ON"
+        mnuDebug.Caption = "Turn Developer Options ON"
         mnuAppFolder.Visible = False
         mnuEditWidget.Visible = False
-        fraEditors.Visible = False
+        
+        lblGenLabel(5).Enabled = False
+        lblGenLabel(6).Enabled = False
+        lblGenLabel(0).Enabled = False
+        lblGenLabel(1).Enabled = False
+        
+        txtDockDefaultEditor.Enabled = False
+        txtDockSettingsDefaultEditor.Enabled = False
+        txtIconSettingsDefaultEditor.Enabled = False
+        
+        btnGeneralDockEditor.Enabled = False
+        btnGeneralDockSettingsEditor.Enabled = False
+        btnGeneralIconSettingsEditor.Enabled = False
     End If
     
    On Error GoTo 0

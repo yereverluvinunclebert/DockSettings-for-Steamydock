@@ -1,0 +1,65 @@
+' Changes:
+
+' 25/10/2020 docksettings .01 DAEB added the greying out or enabling of the checkbox and label for the icon label background toggle
+' 25/10/2020 docksettings .02 DAEB add the logic for saving/reading icon label background string to configuration files
+' 26/10/2020 docksettings .03 DAEB fixed a previous find/replace bug causing the autohide setting to fail to both save and read
+' 26/10/2020 docksettings .04 DAEB added a caption change to autohide toggle checkbox using the IDE only
+' 26/10/2020 docksettings .05 DAEB added a manual click to the autohide toggle checkbox
+' 30/10/2020 docksettings .06 DAEB fraZoomConfigs containing sliIconsZoomWidth made visible by default using the IDE and the references to make them otherwise removed.
+' 23/01/2021 docksettings .07 DAEB Added themeing to two new sliders
+' .08 DAEB 01/02/2021 docksettings Added support for the default hiding key plus others for the two dock
+' .09 DAEB 01/02/2021 docksettings Make the sample image functionality disabled for rocketdock
+' .10 DAEB 01/02/2021 docksettings Remove some functionality not available to rocketdock
+' .11 DAEB 26/04/2021 docksettings Disable the dock select dropdown when only steamydock is present
+' .12 DAEB 26/04/2021 docksettings Set the large icon minimum size to 85 pixels when using the bumpy animation
+' .13 DAEB 29/04/2021 docksettings set the default dock for some reason not already set
+' .14 DAEB 01/05/2021 docksettings added checkbox and values to show icon settings utility when adding an icon to the dock
+' .15 DAEB 18/02/2021 docksettings set the default key settings for RD and SD
+' .16 DAEB 01/07/2022 docksettings added the juggling of the checkboxes and labels to allow greying out or enabling of the checkbox and labels without causing crinkly effect with serif fonts.
+' .17 DAEB 07/09/2022 docksettings the dock folder location now changes as it is switched between Rocketdock and Steamy Dock
+' .18 DAEB 07/09/2022 docksettings save and restore the chkRetainIcons checkbox value
+' .19 DAEB 07/09/2022 docksettings when you select rocketdock it reverts to the registry but when you select steamydock it does not revert to the dock settings file.
+' .20 DAEB 07/09/2022 docksettings tab selection fixed
+' .21 DAEB 07/09/2022 docksettings moved hiding key definitions to own subroutine
+' .22 DAEB 02/10/2022 docksettings added a message pop up on the punklabs link
+' .23 DAEB 02/10/2022 docksettings added control logic to hide/show the scrollbar
+' add the Steampunk cogs for the light and dark themes
+' take the X/Y position and store it, when restarting, set it as per FCW.
+' menu option to move the utility to the centre of the main monitor
+' for win 11 bottom cut off - need to add another 100 twips
+' adjust Form Position on startup placing form onto Correct Monitor when placed off screen due to monitor/resolution changes
+' The drop-down lists do not support mouseOver events so the balloon tooltips will not work. They will have to be sub-classed
+'   to allow the balloon tooltip to function.
+
+
+' Status/Bugs/Tasks:
+' ==================
+
+' fix the drag corner position on form_load
+
+' higher res. icon images when the form is larger than a certain size
+
+' theme skin images, higher res. versions create
+
+' higher res. theme skin images when the form is larger than a certain size
+
+' update the help files WIP
+'
+' frmMessage msgbox error during compilation as per steamydock
+
+' separate common.bas and common2.bas to make it easier to compile just the one utility on its own.
+
+' resource file for the ocx as per rocketdock
+'
+' Define any key to toggle hiding not just function keys - at the moment it is much more sensible to have a single key defined
+'   Using this code it can be done - https://www.developerfusion.com/code/271/create-a-hot-key/
+'   but this will require subclassing within steamydock. All the solutions I have found require sub-classing.
+'   Within the hotkey folder under vb6 there is code that will identify keypresses (dockSettings) and will respond
+'   via sub-classing (steamyDock).
+'
+'   test running with a blank tool settings file
+'
+'   test running with a blank dock settings file
+'
+'   remove persistent debug and replace with logging to a file as per FCW.
+'
