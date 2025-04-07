@@ -613,6 +613,7 @@ Begin VB.Form dockSettings
       End
       Begin VB.CommandButton btnApplyWallpaper 
          Caption         =   "&Apply"
+         Enabled         =   0   'False
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -4608,15 +4609,19 @@ Private Sub btnApplyWallpaper_MouseDown(Button As Integer, Shift As Integer, X A
     Dim wallpaperFullPath As String: wallpaperFullPath = vbNullString
    
     On Error GoTo btnApplyWallpaper_MouseDown_Error
-   
+    
     rDWallpaperStyle = cmbWallpaperStyle.List(cmbWallpaperStyle.ListIndex)
 
-    PutINISetting "Software\SteamyDock\DockSettings", "Wallpaper", rDWallpaper, dockSettingsFile
-    PutINISetting "Software\SteamyDock\DockSettings", "WallpaperStyle", rDWallpaperStyle, dockSettingsFile
+    If rDWallpaper <> "none selected" Then
     
-    wallpaperFullPath = sdAppPath & "\wallpapers\" & rDWallpaper
-    
-    Call changeWallpaper(wallpaperFullPath, rDWallpaperStyle)
+        PutINISetting "Software\SteamyDock\DockSettings", "Wallpaper", rDWallpaper, dockSettingsFile
+        PutINISetting "Software\SteamyDock\DockSettings", "WallpaperStyle", rDWallpaperStyle, dockSettingsFile
+        
+        wallpaperFullPath = sdAppPath & "\wallpapers\" & rDWallpaper
+        
+        Call changeWallpaper(wallpaperFullPath, rDWallpaperStyle)
+        
+    End If
     
     cmbWallpaper.SetFocus
 
@@ -4704,6 +4709,10 @@ End Sub
 Private Sub chkWallpaperTimer_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
     If rDEnableBalloonTooltips = "1" Then CreateToolTip chkWallpaperTimer.hWnd, "This checkbox enables a timer in the dock that will change the desktop background on an interval you define.", _
                   TTIconInfo, "Help on the Apply Wallpaper Timer", , , , True
+End Sub
+
+Private Sub cmbWallpaperTimerInterval_Click()
+    rDWallpaperTimerInterval = cmbWallpaperTimerInterval.ListIndex
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -8214,7 +8223,7 @@ End Sub
 '---------------------------------------------------------------------------------------
 ' Procedure : cmbWallpaper_Click
 ' Author    : beededea
-' Date      : 01/03/2020
+' Date      : 01/03/2025
 ' Purpose   : if a wallpaper image is selected from the dropdown list then make it the default
 '---------------------------------------------------------------------------------------
 '
@@ -8225,6 +8234,13 @@ Private Sub cmbWallpaper_Click()
     If debugflg = 1 Then Debug.Print "%cmbWallpaper_Change"
     
     rDWallpaper = cmbWallpaper.List(cmbWallpaper.ListIndex)
+    
+    ' disable the apply button if no wallpaper choice
+    If rDWallpaper <> "none selected" Then
+        btnApplyWallpaper.Enabled = True
+    Else
+        btnApplyWallpaper.Enabled = False
+    End If
     
     ' .09 DAEB 01/02/2021 docksettings Make the sample image functionality disabled for rocketdock
     If defaultDock = 1 Then
@@ -11820,6 +11836,14 @@ Private Sub populateWallpaperStyleDropDown()
         End If
     Next useloop
     
+    ' disable the apply button if no wallpaper choice
+    If cmbWallpaperStyle.List(cmbWallpaperStyle.ListIndex) <> "none selected" Then
+        btnApplyWallpaper.Enabled = True
+    Else
+        btnApplyWallpaper.Enabled = False
+    End If
+        
+    
    On Error GoTo 0
    Exit Sub
 
@@ -11862,17 +11886,9 @@ Private Sub populateWallpaperTimerIntervalDropDown()
     cmbWallpaperTimerInterval.AddItem "7 days", 13
         
     thisTime = rDWallpaperTimerInterval
-
-    'Iterate through items.
-    For useloop = 0 To cmbWallpaperTimerInterval.ListCount - 1
-        'Compare value.
-        If cmbWallpaperTimerInterval.List(useloop) = thisTime Then
-            'Select it and leave loop.
-            cmbWallpaperTimerInterval.ListIndex = useloop
-            Exit For
-        End If
-    Next useloop
     
+    cmbWallpaperTimerInterval.ListIndex = thisTime
+
    On Error GoTo 0
    Exit Sub
 
