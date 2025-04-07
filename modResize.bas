@@ -4,14 +4,14 @@ Option Explicit
 '@IgnoreModule IntegerDataType, ModuleWithoutFolder
 Public Type ControlPositionType
     Left As Single
-    Top As Single
+    top As Single
     Width As Single
     Height As Single
     FontSize As Single
 End Type
 Public swFormControlPositions() As ControlPositionType
 Public gblFormControlPositions() As ControlPositionType
-Private Declare Function LockWindowUpdate Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function LockWindowUpdate Lib "user32" (ByVal hWnd As Long) As Long
 
 '---------------------------------------------------------------------------------------
 ' Procedure : Stretch
@@ -81,7 +81,7 @@ Public Sub resizeControls(ByRef thisForm As Form, ByRef m_ControlPositions() As 
 
                     Ctrl.Stretch = True
                     Ctrl.Left = x_scale * .Left
-                    Ctrl.Top = y_scale * .Top
+                    Ctrl.top = y_scale * .top
                     Ctrl.Height = y_scale * .Height
                     Ctrl.Width = x_scale * .Width
 
@@ -89,7 +89,7 @@ Public Sub resizeControls(ByRef thisForm As Form, ByRef m_ControlPositions() As 
                 ElseIf (TypeOf Ctrl Is PictureBox) Then
 
                     Ctrl.Left = x_scale * .Left
-                    Ctrl.Top = y_scale * .Top
+                    Ctrl.top = y_scale * .top
                     Ctrl.Height = y_scale * .Height
                     Ctrl.Width = x_scale * .Width
                     
@@ -100,6 +100,7 @@ Public Sub resizeControls(ByRef thisForm As Form, ByRef m_ControlPositions() As 
                         If Ctrl.Index = 3 Then fileToLoad = App.Path & "\style.gif"
                         If Ctrl.Index = 4 Then fileToLoad = App.Path & "\position.gif"
                         If Ctrl.Index = 5 Then fileToLoad = App.Path & "\about.gif"
+                        If Ctrl.Index = 6 Then fileToLoad = App.Path & "\wallpaper.gif"
                             
                         Ctrl.PaintPicture LoadPicture(fileToLoad), 0, 0, Ctrl.Width, Ctrl.Height
                         Stretch Ctrl, fileToLoad
@@ -112,6 +113,7 @@ Public Sub resizeControls(ByRef thisForm As Form, ByRef m_ControlPositions() As 
                         If Ctrl.Index = 3 Then fileToLoad = App.Path & "\styleHighlighted.gif"
                         If Ctrl.Index = 4 Then fileToLoad = App.Path & "\positionHighlighted.gif"
                         If Ctrl.Index = 5 Then fileToLoad = App.Path & "\aboutHighlighted.gif"
+                        If Ctrl.Index = 6 Then fileToLoad = App.Path & "\wallpaperHighlighted.gif"
                             
                         Ctrl.PaintPicture LoadPicture(fileToLoad), 0, 0, Ctrl.Width, Ctrl.Height
                         Stretch Ctrl, fileToLoad
@@ -119,7 +121,7 @@ Public Sub resizeControls(ByRef thisForm As Form, ByRef m_ControlPositions() As 
                                 
                 Else
                     Ctrl.Left = x_scale * .Left
-                    Ctrl.Top = y_scale * .Top
+                    Ctrl.top = y_scale * .top
                     Ctrl.Width = x_scale * .Width
                     If Not (TypeOf Ctrl Is ComboBox) Then
                         ' Cannot change height of ComboBoxes.
@@ -185,7 +187,7 @@ Public Sub saveControlSizes(ByVal thisForm As Form, ByRef m_ControlPositions() A
         
             If (TypeOf Ctrl Is CommandButton) Or (TypeOf Ctrl Is ListBox) Or (TypeOf Ctrl Is VScrollBar) Or (TypeOf Ctrl Is HScrollBar) Or (TypeOf Ctrl Is TextBox) Or (TypeOf Ctrl Is FileListBox) Or (TypeOf Ctrl Is Label) Or (TypeOf Ctrl Is ComboBox) Or (TypeOf Ctrl Is CheckBox) Or (TypeOf Ctrl Is OptionButton) Or (TypeOf Ctrl Is Frame) Or (TypeOf Ctrl Is Image) Or (TypeOf Ctrl Is PictureBox) Or (TypeOf Ctrl Is Slider) Then
                 .Left = Ctrl.Left
-                .Top = Ctrl.Top
+                .top = Ctrl.top
                 .Width = Ctrl.Width
                 .Height = Ctrl.Height
                 On Error Resume Next ' cater for any controls that do not have a font property that may cause an error

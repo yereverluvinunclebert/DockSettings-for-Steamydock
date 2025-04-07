@@ -4366,6 +4366,8 @@ Attribute VB_Exposed = False
 '           si_the_geek for his special folder code
 '           Gary Beene        Get list of drive letters https://www.garybeene.com/code/visual%20basic145.htm
 '
+'           HanneSThEGreaT changeWallpaper https://forums.codeguru.com/showthread.php?497353-VB6-How-Do-I-Change-The-Windows-WallPaper
+'
 ' NOTE - Do not END this program within the IDE as GDI will not release memory and usage will grow and grow
 ' ALWAYS use the QUIT option on the application right click menu.
 
@@ -4558,6 +4560,8 @@ Private Sub btnApplyWallpaper_MouseDown(Button As Integer, Shift As Integer, X A
     wallpaperFullPath = sdAppPath & "\wallpapers\" & rDWallpaper
     
     Call changeWallpaper(wallpaperFullPath, rDWallpaperStyle)
+    
+    cmbWallpaper.SetFocus
 
    On Error GoTo 0
    Exit Sub
@@ -4575,36 +4579,31 @@ End Sub
 ' Purpose   : Routine to change the windows wallpaper
 '---------------------------------------------------------------------------------------
 '
-Private Sub changeWallpaper(ByVal NewWall As String, ByVal WallStyle As String)
+Private Sub changeWallpaper(ByVal SelectedWallpaper As String, ByVal WallpaperStyle As String)
 
     Dim lReturn As Long 'Return of SysParInfo API
     
     'Determine WallPaper Style
     On Error GoTo changeWallpaper_Error
     
-    If WallStyle <> "Center" And WallStyle <> "Tile" And WallStyle <> "Stretch" Then
-        WallStyle = "Stretch"
+    If WallpaperStyle <> "Centre" And WallpaperStyle <> "Tile" And WallpaperStyle <> "Stretch" Then
+        WallpaperStyle = "Stretch"
     End If
     
     'Determine Center
-    If WallStyle = "Centre" Then
+    If WallpaperStyle = "Centre" Then
         savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "TileWallpaper", "0"
         savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "WallpaperStyle", "0"
-        
-                
-    'Determine Tile
-    ElseIf WallStyle = "Tile" Then
+    ElseIf WallpaperStyle = "Tile" Then
         savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "TileWallpaper", "1"
         savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "WallpaperStyle", "0"
-        
-    'Determine Stretch
-    ElseIf WallStyle = "Stretch" Then
+    ElseIf WallpaperStyle = "Stretch" Then
         savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "TileWallpaper", "0"
         savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "WallpaperStyle", "2"
     End If
     
     'Set the WallPaper
-    lReturn = SystemParametersInfo(SPI_SETDESKWALLPAPER, 0&, NewWall, SPIF_UPDATEINIFILE Or SPIF_SENDWININICHANGE)
+    lReturn = SystemParametersInfo(SPI_SETDESKWALLPAPER, 0&, SelectedWallpaper, SPIF_UPDATEINIFILE Or SPIF_SENDWININICHANGE)
 
    On Error GoTo 0
    Exit Sub
@@ -6836,7 +6835,7 @@ Private Sub btnDefaults_Click()
     
     rDtheme = "CrystalXP.net"
     rDWallpaper = "none"
-    rDWallpaperStyle = "centre"
+    rDWallpaperStyle = "Centre"
     cmbStyleTheme.Text = rDtheme
     
     rDThemeOpacity = "100"
