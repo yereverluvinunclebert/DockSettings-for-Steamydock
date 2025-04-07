@@ -4552,7 +4552,9 @@ Private Const SPI_SETDESKWALLPAPER = 20 'Change Wallpaper
 Private Sub btnApplyWallpaper_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
     Dim wallpaperFullPath As String: wallpaperFullPath = vbNullString
    
-   On Error GoTo btnApplyWallpaper_MouseDown_Error
+    On Error GoTo btnApplyWallpaper_MouseDown_Error
+   
+    rDWallpaperStyle = cmbWallpaperStyle.List(cmbWallpaperStyle.ListIndex)
 
     PutINISetting "Software\SteamyDock\DockSettings", "Wallpaper", rDWallpaper, dockSettingsFile
     PutINISetting "Software\SteamyDock\DockSettings", "WallpaperStyle", rDWallpaperStyle, dockSettingsFile
@@ -6834,7 +6836,7 @@ Private Sub btnDefaults_Click()
    
     
     rDtheme = "CrystalXP.net"
-    rDWallpaper = "none"
+    rDWallpaper = "none selected"
     rDWallpaperStyle = "Centre"
     cmbStyleTheme.Text = rDtheme
     
