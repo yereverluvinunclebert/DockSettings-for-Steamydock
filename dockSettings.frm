@@ -594,6 +594,23 @@ Begin VB.Form dockSettings
       TabIndex        =   253
       Top             =   45
       Width           =   6930
+      Begin VB.ComboBox cmbWallpaperTimerInterval 
+         Enabled         =   0   'False
+         Height          =   315
+         Left            =   1905
+         TabIndex        =   261
+         Text            =   "5"
+         Top             =   2220
+         Width           =   1680
+      End
+      Begin VB.CheckBox chkWallpaperTimer 
+         Caption         =   "Enable Automatic Wallpaper Change"
+         Height          =   300
+         Left            =   1905
+         TabIndex        =   260
+         Top             =   1695
+         Width           =   3360
+      End
       Begin VB.CommandButton btnApplyWallpaper 
          Caption         =   "&Apply"
          BeginProperty Font 
@@ -610,7 +627,7 @@ Begin VB.Form dockSettings
          Style           =   1  'Graphical
          TabIndex        =   258
          ToolTipText     =   "This will save your changes and restart the dock."
-         Top             =   5055
+         Top             =   6225
          Width           =   1335
       End
       Begin VB.ComboBox cmbWallpaper 
@@ -625,16 +642,54 @@ Begin VB.Form dockSettings
          Height          =   315
          Left            =   1905
          TabIndex        =   254
-         Text            =   "cmbStyle"
+         Text            =   "Centre"
          Top             =   1200
          Width           =   1680
       End
+      Begin VB.Label lblWallpaper 
+         Caption         =   "Auto-Timer:"
+         Height          =   300
+         Index           =   5
+         Left            =   705
+         TabIndex        =   264
+         Top             =   1725
+         Width           =   1275
+      End
+      Begin VB.Label lblWallpaper 
+         Caption         =   "(DaysHhrs/Mins)"
+         Enabled         =   0   'False
+         Height          =   300
+         Index           =   4
+         Left            =   3810
+         TabIndex        =   263
+         Top             =   2250
+         Width           =   1275
+      End
+      Begin VB.Label lblWallpaper 
+         Caption         =   "Interval :"
+         Enabled         =   0   'False
+         Height          =   300
+         Index           =   3
+         Left            =   720
+         TabIndex        =   262
+         Top             =   2235
+         Width           =   1275
+      End
+      Begin VB.Label lblWallpaper 
+         Caption         =   "Use mouse scrollwheel up+ down to preview the available wallpapers."
+         Height          =   555
+         Index           =   2
+         Left            =   720
+         TabIndex        =   259
+         Top             =   6285
+         Width           =   4080
+      End
       Begin VB.Image imgWallpaperPreview 
          BorderStyle     =   1  'Fixed Single
-         Height          =   2970
+         Height          =   3300
          Left            =   675
          Stretch         =   -1  'True
-         Top             =   1935
+         Top             =   2775
          Width           =   5640
       End
       Begin VB.Label lblWallpaper 
@@ -4478,7 +4533,7 @@ Private gcmbIconsHoverFXBalloonTooltip As String
 Private gcmbDefaultDockBalloonTooltip As String
 Private gcmbWallpaperBalloonTooltip As String
 Private gcmbWallpaperStyleBalloonTooltip As String
-
+Private gcmbWallpaperTimerIntervalBalloonTooltip As String
 
 '------------------------------------------------------ STARTS
 ' Constants and APIs to create and subclass the dragCorner
@@ -4615,6 +4670,42 @@ changeWallpaper_Error:
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure changeWallpaper of Form dockSettings"
 
 End Sub
+
+'---------------------------------------------------------------------------------------
+' Procedure : chkWallpaperTimer_Click
+' Author    : beededea
+' Date      : 07/04/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub chkWallpaperTimer_Click()
+   On Error GoTo chkWallpaperTimer_Click_Error
+
+    If chkWallpaperTimer.Value = 1 Then
+       lblWallpaper(3).Enabled = True
+       lblWallpaper(4).Enabled = True
+       cmbWallpaperTimerInterval.Enabled = True
+    Else
+       lblWallpaper(3).Enabled = False
+       lblWallpaper(4).Enabled = False
+       cmbWallpaperTimerInterval.Enabled = False
+    End If
+
+    rDWallpaperTimer = CStr(chkWallpaperTimer.Value)
+
+   On Error GoTo 0
+   Exit Sub
+
+chkWallpaperTimer_Click_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkWallpaperTimer_Click of Form dockSettings"
+End Sub
+
+Private Sub chkWallpaperTimer_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkWallpaperTimer.hWnd, "This checkbox enables a timer in the dock that will change the desktop background on an interval you define.", _
+                  TTIconInfo, "Help on the Apply Wallpaper Timer", , , , True
+End Sub
+
 '---------------------------------------------------------------------------------------
 ' Procedure : Form_Initialize
 ' Author    : beededea
@@ -5219,7 +5310,7 @@ Private Sub btnClose_MouseMove(Button As Integer, Shift As Integer, X As Single,
                   TTIconInfo, "Help on the Close Button", , , , True
 End Sub
 Private Sub btnApplyWallpaper_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnApplyWallpaper.hWnd, "Apply the currently selected wallpaper.", _
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnApplyWallpaper.hWnd, "Display the selected wallpaper on the desktop. Don't forget to save and restart to make all the changes stick.", _
                   TTIconInfo, "Help on the Apply Wallpaper Button", , , , True
 End Sub
 
@@ -5902,6 +5993,10 @@ Private Sub Label7_Click()
 End Sub
 
 
+Private Sub imgWallpaperPreview_Click()
+    cmbWallpaper.SetFocus
+End Sub
+
 ' .23 DAEB 02/10/2022 docksettings added control logic to hide/show the scrollbar
 Private Sub lblAboutText_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
     fraScrollbarCover.Visible = False
@@ -6333,8 +6428,7 @@ Private Sub checkDefaultDock()
         End If
     End If
     
-    cmbDefaultDock.ListIndex = 1
-    'cmbDefaultDock.Enabled = False ' .11 DAEB 26/04/2021 docksettings Disable the dock select dropdown when only steamydock is present
+    'cmbDefaultDock.ListIndex = 1
     
     dockAppPath = sdAppPath
     txtGeneralRdLocation.Text = dockAppPath
@@ -6838,6 +6932,9 @@ Private Sub btnDefaults_Click()
     rDtheme = "CrystalXP.net"
     rDWallpaper = "none selected"
     rDWallpaperStyle = "Centre"
+    rDWallpaperTimer = "0"
+    rDWallpaperTimerInterval = "5"
+
     cmbStyleTheme.Text = rDtheme
     
     rDThemeOpacity = "100"
@@ -8465,6 +8562,9 @@ Private Sub cmbDefaultDock_Click()
     Call setBounceTypes
     Call populateSoundSelectionDropDown
     Call populateWallpaperStyleDropDown
+    Call populateWallpaperTimerIntervalDropDown
+    
+    chkWallpaperTimer.Value = CInt(rDWallpaperTimer)
 
     Call setHidingKey
         
@@ -8555,11 +8655,15 @@ End Sub
 Private Sub fmeMain_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
    On Error GoTo fmeMain_MouseDown_Error
    If debugflg = 1 Then Debug.Print "%fmeMain_MouseDown"
+   
+
 
     If Button = 2 Then
         ' only required for VB6, the VB.NET version allows
         ' click-throughs on transparent images so that the main main menu is shown, the image itself shows the preview menu
         Me.PopupMenu mnupopmenu, vbPopupMenuRightButton
+    Else
+        cmbWallpaper.SetFocus
     End If
     
     ' setting capture of the mouseEnter event on the frame
@@ -9520,6 +9624,10 @@ Private Sub picIcon_MouseDown_Event(Index As Integer)
         
     picIcon(Index).Visible = False
     picIconPressed(Index).Visible = True
+    
+    If Index = 6 And dockSettings.Visible = True Then
+        cmbWallpaper.SetFocus
+    End If
 
    On Error GoTo 0
    Exit Sub
@@ -10428,6 +10536,7 @@ Private Sub changeFont(suppliedFont As String, suppliedSize As Integer, supplied
     cmbBehaviourAutoHideType.SelLength = 0
     cmbWallpaper.SelLength = 0
     cmbWallpaperStyle.SelLength = 0
+    cmbWallpaperTimerInterval.SelLength = 0
    
    On Error GoTo 0
    Exit Sub
@@ -11210,6 +11319,8 @@ Private Sub writeDockSettings(location As String, settingsFile As String)
     PutINISetting location, "Theme", rDtheme, settingsFile
     PutINISetting location, "Wallpaper", rDWallpaper, settingsFile
     PutINISetting location, "WallpaperStyle", rDWallpaperStyle, settingsFile
+    PutINISetting location, "WallpaperTimer", rDWallpaperTimer, settingsFile
+    PutINISetting location, "WallpaperTimerInterval", rDWallpaperTimerInterval, settingsFile
     
     PutINISetting location, "ThemeOpacity", rDThemeOpacity, settingsFile
     PutINISetting location, "IconOpacity", rDIconOpacity, settingsFile
@@ -11270,6 +11381,7 @@ writeDockSettings_Error:
 
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure writeDockSettings of Form dockSettings"
 End Sub
+
 
 
 
@@ -11374,6 +11486,9 @@ Private Sub adjustControls()
     Call setBounceTypes
     Call populateSoundSelectionDropDown
     Call populateWallpaperStyleDropDown
+    Call populateWallpaperTimerIntervalDropDown
+    
+    chkWallpaperTimer.Value = CInt(rDWallpaperTimer)
     
     cmbIconsQuality.ListIndex = Val(rDIconQuality)
     sliIconsOpacity.Value = Val(rDIconOpacity)
@@ -11565,6 +11680,8 @@ Private Sub populateWallpapers()
         MsgBox "WARNING - The Wallpapers folder is not present in the correct location " & App.Path
     End If
     
+    cmbWallpaper.AddItem "none selected"
+    
     myName = Dir(MyPath, vbDirectory)   ' Retrieve the first entry.
     Do While myName <> ""   ' Start the loop.
        ' Ignore the current directory and the encompassing directory.
@@ -11678,8 +11795,10 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub populateWallpaperStyleDropDown()
-
-   On Error GoTo populateWallpaperStyleDropDown_Error
+    Dim useloop As Integer: useloop = 0
+    Dim thisStyle As String: thisStyle = vbNullString
+    
+    On Error GoTo populateWallpaperStyleDropDown_Error
 
     cmbWallpaperStyle.Clear
 
@@ -11687,7 +11806,19 @@ Private Sub populateWallpaperStyleDropDown()
     cmbWallpaperStyle.AddItem "Tile", 1
     cmbWallpaperStyle.AddItem "Stretch", 2
     
-    cmbWallpaperStyle.ListIndex = Val(rDWallpaperStyle)
+    'cmbWallpaperStyle.ListIndex = Val(rDWallpaperStyle)
+    
+    thisStyle = rDWallpaperStyle
+
+    'Iterate through items.
+    For useloop = 0 To cmbWallpaperStyle.ListCount - 1
+        'Compare value.
+        If cmbWallpaperStyle.List(useloop) = thisStyle Then
+            'Select it and leave loop.
+            cmbWallpaperStyle.ListIndex = useloop
+            Exit For
+        End If
+    Next useloop
     
    On Error GoTo 0
    Exit Sub
@@ -11695,6 +11826,59 @@ Private Sub populateWallpaperStyleDropDown()
 populateWallpaperStyleDropDown_Error:
 
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure populateWallpaperStyleDropDown of Form dockSettings"
+
+End Sub
+
+
+
+'---------------------------------------------------------------------------------------
+' Procedure : populateWallpaperTimerIntervalDropDown
+' Author    : beededea
+' Date      : 31/03/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub populateWallpaperTimerIntervalDropDown()
+    Dim useloop As Integer: useloop = 0
+    Dim thisTime As String: thisTime = vbNullString
+    
+    On Error GoTo populateWallpaperTimerIntervalDropDown_Error
+
+    cmbWallpaperTimerInterval.Clear
+
+    cmbWallpaperTimerInterval.AddItem "5", 0
+    cmbWallpaperTimerInterval.AddItem "10", 1
+    cmbWallpaperTimerInterval.AddItem "15", 2
+    cmbWallpaperTimerInterval.AddItem "30", 3
+    cmbWallpaperTimerInterval.AddItem "1 hour", 4
+    cmbWallpaperTimerInterval.AddItem "2 hrs", 5
+    cmbWallpaperTimerInterval.AddItem "4 hrs", 6
+    cmbWallpaperTimerInterval.AddItem "8 hrs", 7
+    cmbWallpaperTimerInterval.AddItem "16 hrs", 8
+    cmbWallpaperTimerInterval.AddItem "1 day", 9
+    cmbWallpaperTimerInterval.AddItem "2 days", 10
+    cmbWallpaperTimerInterval.AddItem "3 days", 11
+    cmbWallpaperTimerInterval.AddItem "5 days", 12
+    cmbWallpaperTimerInterval.AddItem "7 days", 13
+        
+    thisTime = rDWallpaperTimerInterval
+
+    'Iterate through items.
+    For useloop = 0 To cmbWallpaperTimerInterval.ListCount - 1
+        'Compare value.
+        If cmbWallpaperTimerInterval.List(useloop) = thisTime Then
+            'Select it and leave loop.
+            cmbWallpaperTimerInterval.ListIndex = useloop
+            Exit For
+        End If
+    Next useloop
+    
+   On Error GoTo 0
+   Exit Sub
+
+populateWallpaperTimerIntervalDropDown_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure populateWallpaperTimerIntervalDropDown of Form dockSettings"
 
 End Sub
 
@@ -11806,11 +11990,11 @@ Private Sub setToolTips()
         rDEnableBalloonTooltips = "0" ' this is the flag used to determine whether a new balloon tooltip is generated
         
         btnDefaults.ToolTipText = "Revert ALL settings to the defaults"
-        chkToggleDialogs.ToolTipText = "When checked this toggle will display the information pop-ups and balloon tips "
+        chkToggleDialogs.ToolTipText = "When checked this toggle will display the information pop-ups and balloon tips"
         btnHelp.ToolTipText = "Click here to open tool's HTML help page in your browser"
         picBusy.ToolTipText = "The program is doing something..."
         btnClose.ToolTipText = "Exit this utility"
-        btnApplyWallpaper.ToolTipText = "Apply the selected wallpaper"
+        btnApplyWallpaper.ToolTipText = "Display the selected wallpaper on the desktop"
         btnApply.ToolTipText = "This will save your changes and restart the dock."
         lblText(0).ToolTipText = "General Configuration Options"
         
@@ -12017,6 +12201,9 @@ Private Sub setToolTips()
         fmeIconAbout.ToolTipText = wallpaperText
         picIcon(6).ToolTipText = wallpaperText
         lblText(6).ToolTipText = wallpaperText
+        
+        chkWallpaperTimer.ToolTipText = "This checkbox enables a timer in the dock that will change the desktop background on an interval you define"
+        
     Else
     
         rDEnableBalloonTooltips = "1" ' this is the flag used to determine whether a new balloon tooltip is generated
@@ -12035,6 +12222,7 @@ Private Sub setToolTips()
         gcmbDefaultDockBalloonTooltip = "This control merely indicates that the default dock is SteamyDock. Older versions worked with both Rocketdock and SteamyDock."
         gcmbWallpaperBalloonTooltip = "Select the wallpaper image that you desire to appear on the Windows desktop."
         gcmbWallpaperStyleBalloonTooltip = "Select the wallpaper style, centred, tiled or stretched."
+        gcmbWallpaperTimerIntervalBalloonTooltip = "Select the interval at which the wallpaper will automatically change."
 
         cmbBehaviourActivationFX.ToolTipText = vbNullString
         cmbBehaviourAutoHideType.ToolTipText = vbNullString
@@ -12047,7 +12235,6 @@ Private Sub setToolTips()
         cmbIconsQuality.ToolTipText = vbNullString
         cmbIconsHoverFX.ToolTipText = vbNullString
         cmbDefaultDock.ToolTipText = vbNullString
-
 
         btnDefaults.ToolTipText = vbNullString
         chkToggleDialogs.ToolTipText = vbNullString
@@ -12235,6 +12422,8 @@ Private Sub setToolTips()
         fmeIconAbout.ToolTipText = wallpaperText
         picIcon(6).ToolTipText = wallpaperText
         lblText(6).ToolTipText = wallpaperText
+        
+        chkWallpaperTimer.ToolTipText = vbNullString
         
     End If
 
@@ -12568,6 +12757,8 @@ Private Sub subClassControls()
         Call SubclassComboBox(cmbDefaultDock.hWnd, ObjPtr(cmbDefaultDock))
         Call SubclassComboBox(cmbWallpaper.hWnd, ObjPtr(cmbWallpaper))
         Call SubclassComboBox(cmbWallpaperStyle.hWnd, ObjPtr(cmbWallpaperStyle))
+        Call SubclassComboBox(cmbWallpaperTimerInterval.hWnd, ObjPtr(cmbWallpaperTimerInterval))
+        
     End If
 
    On Error GoTo 0
@@ -12605,49 +12796,53 @@ Public Sub MouseMoveOnComboText(sComboName As String)
         sText = gcmbBehaviourAutoHideTypeBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbBehaviourAutoHideType.hWnd), sText, , sTitle, , , , True
     Case "cmbHidingKey"
-        sTitle = "Help on the Drop Down Icon Filter"
+        sTitle = "Help on the Hiding Key Selection"
         sText = gcmbHidingKeyBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbHidingKey.hWnd), sText, , sTitle, , , , True
     Case "cmbBehaviourSoundSelection"
-        sTitle = "Help on the Drop Down Icon Filter"
+        sTitle = "Help on the Sound Selection"
         sText = gcmbBehaviourSoundSelectionBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbBehaviourSoundSelection.hWnd), sText, , sTitle, , , , True
     Case "cmbStyleTheme"
-        sTitle = "Help on the Drop Down Icon Filter"
+        sTitle = "Help on the Style Theme Selection"
         sText = gcmbStyleThemeBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbStyleTheme.hWnd), sText, , sTitle, , , , True
     Case "cmbPositionMonitor"
-        sTitle = "Help on the Drop Down Icon Filter"
+        sTitle = "Help on the Monitor Position"
         sText = gcmbPositionMonitorBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbPositionMonitor.hWnd), sText, , sTitle, , , , True
     Case "cmbPositionScreen"
-        sTitle = "Help on the Drop Down Icon Filter"
+        sTitle = "Help on the Screen Position"
         sText = gcmbPositionScreenBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbPositionScreen.hWnd), sText, , sTitle, , , , True
     Case "cmbPositionLayering"
-        sTitle = "Help on the Drop Down Icon Filter"
+        sTitle = "Help on Layering the dock in relation to other Windows programs"
         sText = gcmbPositionLayeringBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbPositionLayering.hWnd), sText, , sTitle, , , , True
     Case "cmbIconsQuality"
-        sTitle = "Help on the Drop Down Icon Filter"
+        sTitle = "Help on the quality of the icons"
         sText = gcmbIconsQualityBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbIconsQuality.hWnd), sText, , sTitle, , , , True
     Case "cmbIconsHoverFX"
-        sTitle = "Help on the Drop Down Icon Filter"
+        sTitle = "Help on the icon hover effects"
         sText = gcmbIconsHoverFXBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbIconsHoverFX.hWnd), sText, , sTitle, , , , True
     Case "cmbDefaultDock"
-        sTitle = "Help on the Drop Down Icon Filter"
+        sTitle = "Help on the Default Dock"
         sText = gcmbDefaultDockBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbDefaultDock.hWnd), sText, , sTitle, , , , True
     Case "cmbWallpaper"
-        sTitle = "Help on the Drop Down Icon Filter"
+        sTitle = "Help on the Wallpaper Selection"
         sText = gcmbWallpaperBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbWallpaper.hWnd), sText, , sTitle, , , , True
     Case "cmbWallpaperStyle"
-        sTitle = "Help on the Drop Down Icon Filter"
+        sTitle = "Help on the Wallpaper Style"
         sText = gcmbWallpaperStyleBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbWallpaperStyle.hWnd), sText, , sTitle, , , , True
+    Case "cmbWallpaperTimerInterval"
+        sTitle = "Help on the Wallpaper Change Interval"
+        sText = gcmbWallpaperTimerIntervalBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbWallpaperTimerInterval.hWnd), sText, , sTitle, , , , True
     End Select
 
    On Error GoTo 0
