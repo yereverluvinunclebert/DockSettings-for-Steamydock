@@ -125,22 +125,79 @@ Begin VB.Form dockSettings
       TabIndex        =   0
       Top             =   135
       Width           =   1035
-      Begin VB.Frame fmeIconAbout 
+      Begin VB.Frame fmeWallpaper 
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   0  'None
-         Height          =   1425
-         Left            =   90
-         TabIndex        =   15
-         Top             =   6930
+         Height          =   1230
+         Left            =   45
+         TabIndex        =   249
+         Top             =   6030
          Width           =   915
          Begin VB.PictureBox picIcon 
             BackColor       =   &H00FFFFFF&
             BorderStyle     =   0  'None
+            Height          =   850
+            Index           =   6
+            Left            =   30
+            Picture         =   "dockSettings.frx":1005
+            ScaleHeight     =   855
+            ScaleWidth      =   960
+            TabIndex        =   250
+            ToolTipText     =   "About the dock settings"
+            Top             =   30
+            Width           =   960
+         End
+         Begin VB.PictureBox picIconPressed 
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   0  'None
             Height          =   975
+            Index           =   6
+            Left            =   60
+            Picture         =   "dockSettings.frx":271F
+            ScaleHeight     =   975
+            ScaleWidth      =   960
+            TabIndex        =   251
+            ToolTipText     =   "About the dock settings"
+            Top             =   75
+            Visible         =   0   'False
+            Width           =   960
+         End
+         Begin VB.Label lblText 
+            BackColor       =   &H00FFFFFF&
+            Caption         =   "Wallpaper"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   195
+            Index           =   6
+            Left            =   90
+            TabIndex        =   252
+            Top             =   1005
+            Width           =   750
+         End
+      End
+      Begin VB.Frame fmeIconAbout 
+         BackColor       =   &H00FFFFFF&
+         BorderStyle     =   0  'None
+         Height          =   1230
+         Left            =   90
+         TabIndex        =   15
+         Top             =   7230
+         Width           =   915
+         Begin VB.PictureBox picIcon 
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   0  'None
+            Height          =   850
             Index           =   5
             Left            =   0
-            Picture         =   "dockSettings.frx":1005
-            ScaleHeight     =   975
+            Picture         =   "dockSettings.frx":3E39
+            ScaleHeight     =   855
             ScaleWidth      =   960
             TabIndex        =   242
             ToolTipText     =   "About the dock settings"
@@ -153,7 +210,7 @@ Begin VB.Form dockSettings
             Height          =   975
             Index           =   5
             Left            =   30
-            Picture         =   "dockSettings.frx":1B6A
+            Picture         =   "dockSettings.frx":499E
             ScaleHeight     =   975
             ScaleWidth      =   960
             TabIndex        =   248
@@ -178,26 +235,26 @@ Begin VB.Form dockSettings
             Index           =   5
             Left            =   180
             TabIndex        =   16
-            Top             =   1005
+            Top             =   960
             Width           =   570
          End
       End
       Begin VB.Frame fmeIconGeneral 
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   0  'None
-         Height          =   1185
+         Height          =   1100
          Left            =   45
          TabIndex        =   14
-         Top             =   -30
+         Top             =   -75
          Width           =   915
          Begin VB.PictureBox picIcon 
             BackColor       =   &H00FFFFFF&
             BorderStyle     =   0  'None
-            Height          =   960
+            Height          =   850
             Index           =   0
             Left            =   0
-            Picture         =   "dockSettings.frx":26CF
-            ScaleHeight     =   960
+            Picture         =   "dockSettings.frx":5503
+            ScaleHeight     =   855
             ScaleWidth      =   960
             TabIndex        =   237
             ToolTipText     =   "General Configuration Options"
@@ -232,7 +289,7 @@ Begin VB.Form dockSettings
                Left            =   -30
                TabIndex        =   19
                ToolTipText     =   "General Configuration Options"
-               Top             =   -15
+               Top             =   -30
                Width           =   795
             End
          End
@@ -242,7 +299,7 @@ Begin VB.Form dockSettings
             Height          =   960
             Index           =   0
             Left            =   15
-            Picture         =   "dockSettings.frx":3195
+            Picture         =   "dockSettings.frx":5FC9
             ScaleHeight     =   960
             ScaleWidth      =   960
             TabIndex        =   243
@@ -258,20 +315,20 @@ Begin VB.Form dockSettings
          Height          =   1185
          Left            =   15
          TabIndex        =   13
-         Top             =   5430
+         Top             =   4875
          Width           =   915
          Begin VB.PictureBox picIcon 
             BackColor       =   &H00FFFFFF&
             BorderStyle     =   0  'None
-            Height          =   1020
+            Height          =   850
             Index           =   4
             Left            =   0
-            Picture         =   "dockSettings.frx":3C5B
-            ScaleHeight     =   1020
+            Picture         =   "dockSettings.frx":6A8F
+            ScaleHeight     =   855
             ScaleWidth      =   960
             TabIndex        =   241
             ToolTipText     =   "Dock Positioning"
-            Top             =   -15
+            Top             =   -30
             Width           =   960
          End
          Begin VB.PictureBox picIconPressed 
@@ -280,7 +337,7 @@ Begin VB.Form dockSettings
             Height          =   1020
             Index           =   4
             Left            =   30
-            Picture         =   "dockSettings.frx":4B55
+            Picture         =   "dockSettings.frx":7989
             ScaleHeight     =   1020
             ScaleWidth      =   960
             TabIndex        =   247
@@ -305,30 +362,30 @@ Begin VB.Form dockSettings
             Index           =   4
             Left            =   240
             TabIndex        =   235
-            Top             =   1005
+            Top             =   990
             Width           =   765
          End
       End
       Begin VB.Frame fmeIconStyle 
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   0  'None
-         Height          =   1185
+         Height          =   1100
          Left            =   -15
          TabIndex        =   6
-         Top             =   4005
+         Top             =   3615
          Width           =   915
          Begin VB.PictureBox picIcon 
             BackColor       =   &H00FFFFFF&
             BorderStyle     =   0  'None
-            Height          =   975
+            Height          =   850
             Index           =   3
             Left            =   0
-            Picture         =   "dockSettings.frx":5A4F
-            ScaleHeight     =   975
+            Picture         =   "dockSettings.frx":8883
+            ScaleHeight     =   855
             ScaleWidth      =   960
             TabIndex        =   240
             ToolTipText     =   "Dock theme and text configuration"
-            Top             =   0
+            Top             =   -30
             Width           =   960
          End
          Begin VB.PictureBox picIconPressed 
@@ -337,7 +394,7 @@ Begin VB.Form dockSettings
             Height          =   975
             Index           =   3
             Left            =   0
-            Picture         =   "dockSettings.frx":6650
+            Picture         =   "dockSettings.frx":9484
             ScaleHeight     =   975
             ScaleWidth      =   960
             TabIndex        =   246
@@ -362,7 +419,7 @@ Begin VB.Form dockSettings
             Index           =   3
             Left            =   300
             TabIndex        =   17
-            Top             =   945
+            Top             =   930
             Width           =   765
          End
       End
@@ -370,9 +427,9 @@ Begin VB.Form dockSettings
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   0  'None
          Height          =   1185
-         Left            =   30
+         Left            =   45
          TabIndex        =   5
-         Top             =   2505
+         Top             =   2310
          Width           =   915
          Begin VB.Frame fmeLblFrame 
             BackColor       =   &H00FFFFFF&
@@ -408,11 +465,11 @@ Begin VB.Form dockSettings
          Begin VB.PictureBox picIcon 
             BackColor       =   &H00FFFFFF&
             BorderStyle     =   0  'None
-            Height          =   975
+            Height          =   990
             Index           =   2
             Left            =   0
-            Picture         =   "dockSettings.frx":7251
-            ScaleHeight     =   975
+            Picture         =   "dockSettings.frx":A085
+            ScaleHeight     =   990
             ScaleWidth      =   960
             TabIndex        =   239
             ToolTipText     =   "Icon bounce and pop up effects"
@@ -425,7 +482,7 @@ Begin VB.Form dockSettings
             Height          =   975
             Index           =   2
             Left            =   15
-            Picture         =   "dockSettings.frx":7D57
+            Picture         =   "dockSettings.frx":AB8B
             ScaleHeight     =   975
             ScaleWidth      =   960
             TabIndex        =   245
@@ -438,10 +495,10 @@ Begin VB.Form dockSettings
       Begin VB.Frame fmeIconIcons 
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   0  'None
-         Height          =   1185
+         Height          =   1100
          Left            =   30
          TabIndex        =   4
-         Top             =   1305
+         Top             =   1170
          Width           =   915
          Begin VB.PictureBox picIconPressed 
             BackColor       =   &H00FFFFFF&
@@ -449,12 +506,12 @@ Begin VB.Form dockSettings
             Height          =   975
             Index           =   1
             Left            =   30
-            Picture         =   "dockSettings.frx":885D
+            Picture         =   "dockSettings.frx":B691
             ScaleHeight     =   975
             ScaleWidth      =   960
             TabIndex        =   244
             ToolTipText     =   "Icon effects and quality"
-            Top             =   30
+            Top             =   0
             Visible         =   0   'False
             Width           =   960
          End
@@ -464,7 +521,7 @@ Begin VB.Form dockSettings
             Height          =   975
             Index           =   1
             Left            =   0
-            Picture         =   "dockSettings.frx":96E8
+            Picture         =   "dockSettings.frx":C51C
             ScaleHeight     =   975
             ScaleWidth      =   960
             TabIndex        =   238
@@ -488,9 +545,9 @@ Begin VB.Form dockSettings
             EndProperty
             Height          =   240
             Index           =   1
-            Left            =   60
+            Left            =   45
             TabIndex        =   236
-            Top             =   960
+            Top             =   900
             Width           =   795
          End
       End
@@ -510,8 +567,8 @@ Begin VB.Form dockSettings
       Visible         =   0   'False
       Width           =   1485
    End
-   Begin VB.Frame fmeMain 
-      Caption         =   "General Configuration"
+   Begin VB.CommandButton btnDefaults 
+      Caption         =   "De&faults"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   8.25
@@ -521,160 +578,24 @@ Begin VB.Form dockSettings
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   8640
-      Index           =   0
+      Height          =   405
+      Left            =   3255
+      Style           =   1  'Graphical
+      TabIndex        =   3
+      ToolTipText     =   "Revert ALL settings to the defaults"
+      Top             =   8790
+      Width           =   1065
+   End
+   Begin VB.Frame fmeMain 
+      Caption         =   "Desktop Wallpaper Settings "
+      Height          =   8595
+      Index           =   6
       Left            =   1230
-      TabIndex        =   1
-      ToolTipText     =   "These are the main settings for the dock"
-      Top             =   15
+      TabIndex        =   253
+      Top             =   45
       Width           =   6930
-      Begin VB.Frame fraEditors 
-         BorderStyle     =   0  'None
-         Height          =   1665
-         Left            =   825
-         TabIndex        =   222
-         Top             =   6660
-         Width           =   5280
-         Begin VB.CommandButton btnGeneralIconSettingsEditor 
-            Caption         =   "..."
-            Enabled         =   0   'False
-            Height          =   300
-            Left            =   4920
-            Style           =   1  'Graphical
-            TabIndex        =   232
-            Top             =   1260
-            Width           =   300
-         End
-         Begin VB.CommandButton btnGeneralDockSettingsEditor 
-            Caption         =   "..."
-            Enabled         =   0   'False
-            Height          =   300
-            Left            =   4920
-            Style           =   1  'Graphical
-            TabIndex        =   231
-            Top             =   810
-            Width           =   300
-         End
-         Begin VB.CommandButton btnGeneralDockEditor 
-            Caption         =   "..."
-            Enabled         =   0   'False
-            Height          =   300
-            Left            =   4920
-            Style           =   1  'Graphical
-            TabIndex        =   230
-            Top             =   330
-            Width           =   300
-         End
-         Begin VB.TextBox txtIconSettingsDefaultEditor 
-            Enabled         =   0   'False
-            Height          =   315
-            Left            =   1200
-            Locked          =   -1  'True
-            TabIndex        =   227
-            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-            Top             =   1275
-            Width           =   3585
-         End
-         Begin VB.TextBox txtDockSettingsDefaultEditor 
-            Enabled         =   0   'False
-            Height          =   315
-            Left            =   1200
-            Locked          =   -1  'True
-            TabIndex        =   225
-            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-            Top             =   795
-            Width           =   3585
-         End
-         Begin VB.TextBox txtDockDefaultEditor 
-            Enabled         =   0   'False
-            Height          =   315
-            Left            =   1200
-            Locked          =   -1  'True
-            TabIndex        =   223
-            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-            Top             =   345
-            Width           =   3585
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "VB6/TwinBasic Editor VBP or TwinProj file locations:"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   5
-            Left            =   90
-            TabIndex        =   229
-            ToolTipText     =   $"dockSettings.frx":A573
-            Top             =   15
-            Width           =   4755
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Icon Settings :"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   1
-            Left            =   90
-            TabIndex        =   228
-            Top             =   1290
-            Width           =   1530
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Dock Settings :"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   0
-            Left            =   90
-            TabIndex        =   226
-            Top             =   840
-            Width           =   1530
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Dock :"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   6
-            Left            =   90
-            TabIndex        =   224
-            Top             =   390
-            Width           =   1530
-         End
-      End
-      Begin VB.CheckBox genChkShowIconSettings 
-         Caption         =   "Automatically display Icon Settings after adding an icon to the dock"
+      Begin VB.CommandButton btnApplyWallpaper 
+         Caption         =   "&Apply"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -684,436 +605,55 @@ Begin VB.Form dockSettings
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   210
-         Left            =   945
-         TabIndex        =   209
-         Top             =   6315
-         Width           =   5115
+         Height          =   405
+         Left            =   4995
+         Style           =   1  'Graphical
+         TabIndex        =   258
+         ToolTipText     =   "This will save your changes and restart the dock."
+         Top             =   5055
+         Width           =   1335
       End
-      Begin VB.CheckBox chkSplashStatus 
-         Caption         =   "Show Splash Screen at Startup"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   195
-         Left            =   945
-         TabIndex        =   164
-         ToolTipText     =   "Show Splash Screen on Start-up"
-         Top             =   6000
-         Width           =   3735
+      Begin VB.ComboBox cmbWallpaper 
+         Height          =   315
+         Left            =   1905
+         TabIndex        =   257
+         Text            =   "wallpaper1"
+         Top             =   675
+         Width           =   4245
       End
-      Begin VB.Frame fraRunAppIndicators 
-         BorderStyle     =   0  'None
-         Height          =   885
-         Left            =   450
-         TabIndex        =   126
-         Top             =   3210
-         Width           =   5955
-         Begin CCRSlider.Slider sliGenRunAppInterval 
-            Height          =   315
-            Left            =   1020
-            TabIndex        =   127
-            ToolTipText     =   "The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   540
-            Width           =   2820
-            _ExtentX        =   4974
-            _ExtentY        =   556
-            Enabled         =   0   'False
-            Min             =   5
-            Max             =   65
-            Value           =   5
-            TickFrequency   =   3
-            SelStart        =   15
-            Transparent     =   -1  'True
-         End
-         Begin VB.Label lblGenRunAppInterval2 
-            Caption         =   "5s"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   255
-            Left            =   795
-            TabIndex        =   131
-            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   420
-            Width           =   630
-         End
-         Begin VB.Label lblGenRunAppInterval3 
-            Caption         =   "65s"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   3900
-            TabIndex        =   130
-            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   420
-            Width           =   585
-         End
-         Begin VB.Label lblGenRunAppIntervalCur 
-            Caption         =   "(15 seconds)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   4635
-            TabIndex        =   129
-            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   420
-            Width           =   1215
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Running Application Check Interval"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   2
-            Left            =   750
-            LinkItem        =   "150"
-            TabIndex        =   128
-            ToolTipText     =   "This function consumes cpu on  low power computers so keep it above 15 secs, preferably 30."
-            Top             =   105
-            Width           =   3210
-         End
+      Begin VB.ComboBox cmbWallpaperStyle 
+         Height          =   315
+         Left            =   1905
+         TabIndex        =   254
+         Text            =   "cmbStyle"
+         Top             =   1200
+         Width           =   1680
       End
-      Begin VB.CommandButton btnGeneralRdFolder 
-         Caption         =   "..."
-         Enabled         =   0   'False
+      Begin VB.Image imgWallpaperPreview 
+         BorderStyle     =   1  'Fixed Single
+         Height          =   2970
+         Left            =   675
+         Stretch         =   -1  'True
+         Top             =   1935
+         Width           =   5640
+      End
+      Begin VB.Label lblWallpaper 
+         Caption         =   "Wallpaper :"
          Height          =   300
-         Left            =   5745
-         TabIndex        =   97
-         ToolTipText     =   "Select the folder location of Rocketdock here"
-         Top             =   5475
-         Visible         =   0   'False
-         Width           =   300
+         Index           =   1
+         Left            =   720
+         TabIndex        =   256
+         Top             =   705
+         Width           =   1275
       End
-      Begin VB.CheckBox chkGenRun 
-         Caption         =   "Running Application Indicators"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   930
-         TabIndex        =   11
-         ToolTipText     =   $"dockSettings.frx":A63D
-         Top             =   2880
-         Width           =   2985
-      End
-      Begin VB.CheckBox chkGenDisableAnim 
-         Caption         =   "Disable Minimise Animations"
-         Enabled         =   0   'False
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   3585
-         TabIndex        =   10
-         ToolTipText     =   "If you dislike the minimise animation, click this"
-         Top             =   2505
-         Value           =   1  'Checked
-         Visible         =   0   'False
-         Width           =   2520
-      End
-      Begin VB.CheckBox chkGenOpen 
-         Caption         =   "Open Running Application Instance"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   930
-         TabIndex        =   12
-         ToolTipText     =   "If you click on an icon that is already running then it can open it or fire up another instance"
-         Top             =   4185
-         Width           =   3030
-      End
-      Begin VB.TextBox txtGeneralRdLocation 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Left            =   915
-         Locked          =   -1  'True
-         TabIndex        =   68
-         Text            =   "C:\programs"
-         ToolTipText     =   "This is the extrapolated location of the currently selected dock. This is for information only."
-         Top             =   5460
-         Width           =   4710
-      End
-      Begin VB.ComboBox cmbDefaultDock 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         ItemData        =   "dockSettings.frx":A6DC
-         Left            =   2085
-         List            =   "dockSettings.frx":A6E6
-         Locked          =   -1  'True
-         TabIndex        =   66
-         Text            =   "Rocketdock"
-         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock, these utilities are compatible with both"
-         Top             =   4710
-         Width           =   2310
-      End
-      Begin VB.CheckBox chkGenMin 
-         Caption         =   "Minimise Windows to the Dock"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   3300
-         TabIndex        =   9
-         ToolTipText     =   "This allows running applications to appear in the dock"
-         Top             =   2175
-         Visible         =   0   'False
-         Width           =   3075
-      End
-      Begin VB.CheckBox chkGenWinStartup 
-         Caption         =   "Run at Startup"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Left            =   915
-         TabIndex        =   2
-         ToolTipText     =   "This will cause the current dock to run when Windows starts"
-         Top             =   495
-         Width           =   1440
-      End
-      Begin VB.Frame fraWriteOptionButtons 
-         BorderStyle     =   0  'None
-         Height          =   450
-         Left            =   510
-         TabIndex        =   151
-         Top             =   1755
-         Width           =   6165
-         Begin VB.OptionButton optGeneralWriteConfig 
-            Caption         =   "Write Settings to SteamyDock's Own Configuration Area"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   390
-            TabIndex        =   152
-            ToolTipText     =   $"dockSettings.frx":A702
-            Top             =   15
-            Width           =   5325
-         End
-      End
-      Begin VB.Frame fraReadOptionButtons 
-         BorderStyle     =   0  'None
-         Height          =   1080
-         Left            =   540
-         TabIndex        =   132
-         Top             =   690
-         Width           =   6315
-         Begin VB.OptionButton optGeneralReadSettings 
-            Caption         =   "Read Settings from Rocketdock's portable SETTINGS.INI (single-user)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   360
-            TabIndex        =   135
-            ToolTipText     =   "Store configuration in Rocketdock's program files folder, causes security issues and requires admin access,"
-            Top             =   165
-            Width           =   5500
-         End
-         Begin VB.OptionButton optGeneralReadRegistry 
-            Caption         =   "Read Settings from RocketDock's Registry (multi-user)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   360
-            TabIndex        =   134
-            ToolTipText     =   $"dockSettings.frx":A797
-            Top             =   465
-            Width           =   5500
-         End
-         Begin VB.OptionButton optGeneralReadConfig 
-            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   360
-            TabIndex        =   133
-            ToolTipText     =   $"dockSettings.frx":A85A
-            Top             =   780
-            Width           =   5565
-         End
-         Begin VB.Label lbloptGeneralReadConfig 
-            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   315
-            Left            =   630
-            TabIndex        =   211
-            Top             =   780
-            Width           =   5115
-         End
-      End
-      Begin VB.Label lblSquiggle 
-         Caption         =   "-oOo-"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   2310
-         TabIndex        =   233
-         ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-         Top             =   2340
-         Width           =   1215
-      End
-      Begin VB.Label lblGenLabel 
-         Caption         =   "Dock Folder Location"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   4
-         Left            =   915
-         TabIndex        =   96
-         ToolTipText     =   $"dockSettings.frx":A8EF
-         Top             =   5190
-         Width           =   1695
-      End
-      Begin VB.Label lblGenLabel 
-         Caption         =   "Default Dock"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   3
-         Left            =   915
-         TabIndex        =   67
-         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
-         Top             =   4740
-         Width           =   1530
+      Begin VB.Label lblWallpaper 
+         Caption         =   "Positioning :"
+         Height          =   300
+         Index           =   0
+         Left            =   705
+         TabIndex        =   255
+         Top             =   1230
+         Width           =   1275
       End
    End
    Begin VB.Frame fmeMain 
@@ -1145,9 +685,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":A9B9
+         ItemData        =   "dockSettings.frx":D3A7
          Left            =   2190
-         List            =   "dockSettings.frx":A9C6
+         List            =   "dockSettings.frx":D3B4
          TabIndex        =   221
          Text            =   "None"
          Top             =   6150
@@ -1199,9 +739,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":A9EA
+         ItemData        =   "dockSettings.frx":D3D8
          Left            =   2190
-         List            =   "dockSettings.frx":AA15
+         List            =   "dockSettings.frx":D403
          TabIndex        =   204
          Text            =   "F11"
          ToolTipText     =   "This is the key sequence that is used to hide or restore Steamydock"
@@ -1325,9 +865,9 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":AA56
+            ItemData        =   "dockSettings.frx":D444
             Left            =   1770
-            List            =   "dockSettings.frx":AA63
+            List            =   "dockSettings.frx":D451
             TabIndex        =   196
             Text            =   "Fade"
             ToolTipText     =   "The type of auto-hide, fade, instant or a slide like Rocketdock"
@@ -1363,12 +903,12 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":AA7D
+            ItemData        =   "dockSettings.frx":D46B
             Left            =   1770
-            List            =   "dockSettings.frx":AA8A
+            List            =   "dockSettings.frx":D478
             TabIndex        =   193
             Text            =   "Bounce"
-            ToolTipText     =   $"dockSettings.frx":AAAE
+            ToolTipText     =   $"dockSettings.frx":D49C
             Top             =   0
             Width           =   2620
          End
@@ -1388,7 +928,7 @@ Begin VB.Form dockSettings
             Left            =   90
             LinkItem        =   "150"
             TabIndex        =   194
-            ToolTipText     =   $"dockSettings.frx":AB42
+            ToolTipText     =   $"dockSettings.frx":D530
             Top             =   45
             Width           =   1605
          End
@@ -1726,7 +1266,7 @@ Begin VB.Form dockSettings
             Height          =   315
             Left            =   1890
             TabIndex        =   154
-            ToolTipText     =   $"dockSettings.frx":ABD4
+            ToolTipText     =   $"dockSettings.frx":D5C2
             Top             =   285
             Width           =   2775
             _ExtentX        =   4895
@@ -1902,7 +1442,7 @@ Begin VB.Form dockSettings
          Width           =   1440
       End
       Begin VB.Label lblBehaviourLabel 
-         Caption         =   $"dockSettings.frx":AC63
+         Caption         =   $"dockSettings.frx":D651
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2229,7 +1769,7 @@ Begin VB.Form dockSettings
          ScaleHeight     =   675
          ScaleWidth      =   5280
          TabIndex        =   51
-         ToolTipText     =   $"dockSettings.frx":ACF5
+         ToolTipText     =   $"dockSettings.frx":D6E3
          Top             =   4440
          Width           =   5340
          Begin VB.Label lblPreviewFont 
@@ -2394,9 +1934,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":AD7F
+         ItemData        =   "dockSettings.frx":D76D
          Left            =   2205
-         List            =   "dockSettings.frx":AD81
+         List            =   "dockSettings.frx":D76F
          TabIndex        =   40
          ToolTipText     =   "The dock background theme can be selected here"
          Top             =   405
@@ -2433,7 +1973,7 @@ Begin VB.Form dockSettings
          BorderStyle     =   1  'Fixed Single
          Height          =   2070
          Left            =   645
-         Picture         =   "dockSettings.frx":AD83
+         Picture         =   "dockSettings.frx":D771
          Top             =   1800
          Width           =   5430
       End
@@ -2743,9 +2283,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":E8AD
+         ItemData        =   "dockSettings.frx":1129B
          Left            =   2190
-         List            =   "dockSettings.frx":E8BA
+         List            =   "dockSettings.frx":112A8
          TabIndex        =   37
          Text            =   "Always Below"
          ToolTipText     =   "Should the dock appear on top of other windows or underneath?"
@@ -2763,9 +2303,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":E8E3
+         ItemData        =   "dockSettings.frx":112D1
          Left            =   2205
-         List            =   "dockSettings.frx":E8F9
+         List            =   "dockSettings.frx":112E7
          TabIndex        =   26
          Text            =   "Monitor 1"
          ToolTipText     =   "Here you can determine upon which monitor the dock will appear"
@@ -2783,9 +2323,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":E93F
+         ItemData        =   "dockSettings.frx":1132D
          Left            =   2190
-         List            =   "dockSettings.frx":E94F
+         List            =   "dockSettings.frx":1133D
          TabIndex        =   25
          Text            =   "Bottom"
          ToolTipText     =   "Place the dock at your preferred location. Steamydock only supports top and bottom positions"
@@ -3354,12 +2894,12 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":E96D
+         ItemData        =   "dockSettings.frx":1135B
          Left            =   2160
-         List            =   "dockSettings.frx":E97A
+         List            =   "dockSettings.frx":11368
          TabIndex        =   78
          Text            =   "Low quality (Faster)"
-         ToolTipText     =   $"dockSettings.frx":E9BC
+         ToolTipText     =   $"dockSettings.frx":113AA
          Top             =   390
          Width           =   2520
       End
@@ -3426,9 +2966,9 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":EA7A
+            ItemData        =   "dockSettings.frx":11468
             Left            =   1995
-            List            =   "dockSettings.frx":EA8D
+            List            =   "dockSettings.frx":1147B
             TabIndex        =   123
             Text            =   "None"
             ToolTipText     =   "The zoom effect to apply"
@@ -3774,7 +3314,7 @@ Begin VB.Form dockSettings
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
          TabIndex        =   217
-         Text            =   "dockSettings.frx":EACD
+         Text            =   "dockSettings.frx":114BB
          Top             =   2235
          Width           =   6660
       End
@@ -4075,8 +3615,8 @@ Begin VB.Form dockSettings
          Width           =   2175
       End
    End
-   Begin VB.CommandButton btnDefaults 
-      Caption         =   "De&faults"
+   Begin VB.Frame fmeMain 
+      Caption         =   "General Configuration"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   8.25
@@ -4086,13 +3626,600 @@ Begin VB.Form dockSettings
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   405
-      Left            =   3255
-      Style           =   1  'Graphical
-      TabIndex        =   3
-      ToolTipText     =   "Revert ALL settings to the defaults"
-      Top             =   8790
-      Width           =   1065
+      Height          =   8640
+      Index           =   0
+      Left            =   1230
+      TabIndex        =   1
+      ToolTipText     =   "These are the main settings for the dock"
+      Top             =   15
+      Width           =   6930
+      Begin VB.Frame fraEditors 
+         BorderStyle     =   0  'None
+         Height          =   1665
+         Left            =   825
+         TabIndex        =   222
+         Top             =   6660
+         Width           =   5280
+         Begin VB.CommandButton btnGeneralIconSettingsEditor 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            Style           =   1  'Graphical
+            TabIndex        =   232
+            Top             =   1260
+            Width           =   300
+         End
+         Begin VB.CommandButton btnGeneralDockSettingsEditor 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            Style           =   1  'Graphical
+            TabIndex        =   231
+            Top             =   810
+            Width           =   300
+         End
+         Begin VB.CommandButton btnGeneralDockEditor 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            Style           =   1  'Graphical
+            TabIndex        =   230
+            Top             =   330
+            Width           =   300
+         End
+         Begin VB.TextBox txtIconSettingsDefaultEditor 
+            Enabled         =   0   'False
+            Height          =   315
+            Left            =   1200
+            Locked          =   -1  'True
+            TabIndex        =   227
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   1275
+            Width           =   3585
+         End
+         Begin VB.TextBox txtDockSettingsDefaultEditor 
+            Enabled         =   0   'False
+            Height          =   315
+            Left            =   1200
+            Locked          =   -1  'True
+            TabIndex        =   225
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   795
+            Width           =   3585
+         End
+         Begin VB.TextBox txtDockDefaultEditor 
+            Enabled         =   0   'False
+            Height          =   315
+            Left            =   1200
+            Locked          =   -1  'True
+            TabIndex        =   223
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   345
+            Width           =   3585
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "VB6/TwinBasic Editor VBP or TwinProj file locations:"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   5
+            Left            =   90
+            TabIndex        =   229
+            ToolTipText     =   $"dockSettings.frx":11C33
+            Top             =   15
+            Width           =   4755
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Icon Settings :"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   1
+            Left            =   90
+            TabIndex        =   228
+            Top             =   1290
+            Width           =   1530
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Dock Settings :"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   0
+            Left            =   90
+            TabIndex        =   226
+            Top             =   840
+            Width           =   1530
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Dock :"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   6
+            Left            =   90
+            TabIndex        =   224
+            Top             =   390
+            Width           =   1530
+         End
+      End
+      Begin VB.CheckBox genChkShowIconSettings 
+         Caption         =   "Automatically display Icon Settings after adding an icon to the dock"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Left            =   945
+         TabIndex        =   209
+         Top             =   6315
+         Width           =   5115
+      End
+      Begin VB.CheckBox chkSplashStatus 
+         Caption         =   "Show Splash Screen at Startup"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   195
+         Left            =   945
+         TabIndex        =   164
+         ToolTipText     =   "Show Splash Screen on Start-up"
+         Top             =   6000
+         Width           =   3735
+      End
+      Begin VB.Frame fraRunAppIndicators 
+         BorderStyle     =   0  'None
+         Height          =   885
+         Left            =   450
+         TabIndex        =   126
+         Top             =   3210
+         Width           =   5955
+         Begin CCRSlider.Slider sliGenRunAppInterval 
+            Height          =   315
+            Left            =   1020
+            TabIndex        =   127
+            ToolTipText     =   "The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   540
+            Width           =   2820
+            _ExtentX        =   4974
+            _ExtentY        =   556
+            Enabled         =   0   'False
+            Min             =   5
+            Max             =   65
+            Value           =   5
+            TickFrequency   =   3
+            SelStart        =   15
+            Transparent     =   -1  'True
+         End
+         Begin VB.Label lblGenRunAppInterval2 
+            Caption         =   "5s"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   255
+            Left            =   795
+            TabIndex        =   131
+            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   420
+            Width           =   630
+         End
+         Begin VB.Label lblGenRunAppInterval3 
+            Caption         =   "65s"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   3900
+            TabIndex        =   130
+            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   420
+            Width           =   585
+         End
+         Begin VB.Label lblGenRunAppIntervalCur 
+            Caption         =   "(15 seconds)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   4635
+            TabIndex        =   129
+            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   420
+            Width           =   1215
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Running Application Check Interval"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   2
+            Left            =   750
+            LinkItem        =   "150"
+            TabIndex        =   128
+            ToolTipText     =   "This function consumes cpu on  low power computers so keep it above 15 secs, preferably 30."
+            Top             =   105
+            Width           =   3210
+         End
+      End
+      Begin VB.CommandButton btnGeneralRdFolder 
+         Caption         =   "..."
+         Enabled         =   0   'False
+         Height          =   300
+         Left            =   5745
+         TabIndex        =   97
+         ToolTipText     =   "Select the folder location of Rocketdock here"
+         Top             =   5475
+         Visible         =   0   'False
+         Width           =   300
+      End
+      Begin VB.CheckBox chkGenRun 
+         Caption         =   "Running Application Indicators"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   930
+         TabIndex        =   11
+         ToolTipText     =   $"dockSettings.frx":11CFD
+         Top             =   2880
+         Width           =   2985
+      End
+      Begin VB.CheckBox chkGenDisableAnim 
+         Caption         =   "Disable Minimise Animations"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   3585
+         TabIndex        =   10
+         ToolTipText     =   "If you dislike the minimise animation, click this"
+         Top             =   2505
+         Value           =   1  'Checked
+         Visible         =   0   'False
+         Width           =   2520
+      End
+      Begin VB.CheckBox chkGenOpen 
+         Caption         =   "Open Running Application Instance"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   930
+         TabIndex        =   12
+         ToolTipText     =   "If you click on an icon that is already running then it can open it or fire up another instance"
+         Top             =   4185
+         Width           =   3030
+      End
+      Begin VB.TextBox txtGeneralRdLocation 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   915
+         Locked          =   -1  'True
+         TabIndex        =   68
+         Text            =   "C:\programs"
+         ToolTipText     =   "This is the extrapolated location of the currently selected dock. This is for information only."
+         Top             =   5460
+         Width           =   4710
+      End
+      Begin VB.ComboBox cmbDefaultDock 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         ItemData        =   "dockSettings.frx":11D9C
+         Left            =   2085
+         List            =   "dockSettings.frx":11DA6
+         Locked          =   -1  'True
+         TabIndex        =   66
+         Text            =   "Rocketdock"
+         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock, these utilities are compatible with both"
+         Top             =   4710
+         Width           =   2310
+      End
+      Begin VB.CheckBox chkGenMin 
+         Caption         =   "Minimise Windows to the Dock"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   3300
+         TabIndex        =   9
+         ToolTipText     =   "This allows running applications to appear in the dock"
+         Top             =   2175
+         Visible         =   0   'False
+         Width           =   3075
+      End
+      Begin VB.CheckBox chkGenWinStartup 
+         Caption         =   "Run at Startup"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Left            =   915
+         TabIndex        =   2
+         ToolTipText     =   "This will cause the current dock to run when Windows starts"
+         Top             =   495
+         Width           =   1440
+      End
+      Begin VB.Frame fraWriteOptionButtons 
+         BorderStyle     =   0  'None
+         Height          =   450
+         Left            =   510
+         TabIndex        =   151
+         Top             =   1755
+         Width           =   6165
+         Begin VB.OptionButton optGeneralWriteConfig 
+            Caption         =   "Write Settings to SteamyDock's Own Configuration Area"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   390
+            TabIndex        =   152
+            ToolTipText     =   $"dockSettings.frx":11DC2
+            Top             =   15
+            Width           =   5325
+         End
+      End
+      Begin VB.Frame fraReadOptionButtons 
+         BorderStyle     =   0  'None
+         Height          =   1080
+         Left            =   540
+         TabIndex        =   132
+         Top             =   690
+         Width           =   6315
+         Begin VB.OptionButton optGeneralReadSettings 
+            Caption         =   "Read Settings from Rocketdock's portable SETTINGS.INI (single-user)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   360
+            TabIndex        =   135
+            ToolTipText     =   "Store configuration in Rocketdock's program files folder, causes security issues and requires admin access,"
+            Top             =   165
+            Width           =   5500
+         End
+         Begin VB.OptionButton optGeneralReadRegistry 
+            Caption         =   "Read Settings from RocketDock's Registry (multi-user)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   360
+            TabIndex        =   134
+            ToolTipText     =   $"dockSettings.frx":11E57
+            Top             =   465
+            Width           =   5500
+         End
+         Begin VB.OptionButton optGeneralReadConfig 
+            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   360
+            TabIndex        =   133
+            ToolTipText     =   $"dockSettings.frx":11F1A
+            Top             =   780
+            Width           =   5565
+         End
+         Begin VB.Label lbloptGeneralReadConfig 
+            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   630
+            TabIndex        =   211
+            Top             =   780
+            Width           =   5115
+         End
+      End
+      Begin VB.Label lblSquiggle 
+         Caption         =   "-oOo-"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   2310
+         TabIndex        =   233
+         ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+         Top             =   2340
+         Width           =   1215
+      End
+      Begin VB.Label lblGenLabel 
+         Caption         =   "Dock Folder Location"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   4
+         Left            =   915
+         TabIndex        =   96
+         ToolTipText     =   $"dockSettings.frx":11FAF
+         Top             =   5190
+         Width           =   1695
+      End
+      Begin VB.Label lblGenLabel 
+         Caption         =   "Default Dock"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   3
+         Left            =   915
+         TabIndex        =   67
+         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
+         Top             =   4740
+         Width           =   1530
+      End
    End
    Begin VB.Label lblDragCorner 
       Caption         =   "o"
@@ -4347,6 +4474,9 @@ Private gcmbPositionLayeringBalloonTooltip As String
 Private gcmbIconsQualityBalloonTooltip As String
 Private gcmbIconsHoverFXBalloonTooltip As String
 Private gcmbDefaultDockBalloonTooltip As String
+Private gcmbWallpaperBalloonTooltip As String
+Private gcmbWallpaperStyleBalloonTooltip As String
+
 
 '------------------------------------------------------ STARTS
 ' Constants and APIs to create and subclass the dragCorner
@@ -4384,6 +4514,106 @@ End Enum
 
 Private Declare Function SetProcessDpiAwareness Lib "shcore.dll" (ByVal Value As PROCESS_DPI_AWARENESS) As Long
 
+'Retrieves or sets the value of one of the system-wide parameters
+Private Declare Function SystemParametersInfo Lib "user32" Alias "SystemParametersInfoA" (ByVal uAction As Long, _
+ByVal uParam As Long, ByVal lpvParam As Any, ByVal fuWinIni As Long) As Long
+
+'Opens the specified registry key
+Private Declare Function RegOpenKey Lib "advapi32.dll" Alias "RegOpenKeyA" (ByVal hKey As Long, ByVal lpSubKey As String, phkResult As Long) As Long
+
+'Sets the data and type of a specified value under a registry key
+Private Declare Function RegSetValueEx Lib "advapi32.dll" Alias "RegSetValueExA" (ByVal hKey As Long, ByVal lpValueName As String, ByVal Reserved As Long, ByVal dwType As Long, ByVal lpData As String, ByVal cbData As Long) As Long
+
+'Writes all the attributes of the specified open registry key into the registry
+Private Declare Function RegFlushKey Lib "advapi32.dll" (ByVal hKey As Long) As Long
+
+'The RegCloseKey function releases the handle of the specified key
+Private Declare Function RegCloseKey Lib "advapi32.dll" (ByVal hKey As Long) As Long
+
+'Creates the specified registry key
+Private Declare Function RegCreateKey Lib "advapi32.dll" Alias "RegCreateKeyA" (ByVal hKey As Long, ByVal lpSubKey As String, phkResult As Long) As Long
+
+
+Private Const SPIF_SENDWININICHANGE = &H2 'Send Change Message
+Private Const SPIF_UPDATEINIFILE = &H1 'Update INI File
+
+
+Private Const SPI_SETDESKWALLPAPER = 20 'Change Wallpaper
+
+'---------------------------------------------------------------------------------------
+' Procedure : btnApplyWallpaper_MouseDown
+' Author    : beededea
+' Date      : 07/04/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub btnApplyWallpaper_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    Dim wallpaperFullPath As String: wallpaperFullPath = vbNullString
+   
+   On Error GoTo btnApplyWallpaper_MouseDown_Error
+
+    PutINISetting "Software\SteamyDock\DockSettings", "Wallpaper", rDWallpaper, dockSettingsFile
+    PutINISetting "Software\SteamyDock\DockSettings", "WallpaperStyle", rDWallpaperStyle, dockSettingsFile
+    
+    wallpaperFullPath = sdAppPath & "\wallpapers\" & rDWallpaper
+    
+    Call changeWallpaper(wallpaperFullPath, rDWallpaperStyle)
+
+   On Error GoTo 0
+   Exit Sub
+
+btnApplyWallpaper_MouseDown_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnApplyWallpaper_MouseDown of Form dockSettings"
+
+End Sub
+
+'---------------------------------------------------------------------------------------
+' Procedure : changeWallpaper
+' Author    : HanneSThEGreaT https://forums.codeguru.com/showthread.php?497353-VB6-How-Do-I-Change-The-Windows-WallPaper
+' Date      : 07/04/2025
+' Purpose   : Routine to change the windows wallpaper
+'---------------------------------------------------------------------------------------
+'
+Private Sub changeWallpaper(ByVal NewWall As String, ByVal WallStyle As String)
+
+    Dim lReturn As Long 'Return of SysParInfo API
+    
+    'Determine WallPaper Style
+    On Error GoTo changeWallpaper_Error
+    
+    If WallStyle <> "Center" And WallStyle <> "Tile" And WallStyle <> "Stretch" Then
+        WallStyle = "Stretch"
+    End If
+    
+    'Determine Center
+    If WallStyle = "Centre" Then
+        savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "TileWallpaper", "0"
+        savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "WallpaperStyle", "0"
+        
+                
+    'Determine Tile
+    ElseIf WallStyle = "Tile" Then
+        savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "TileWallpaper", "1"
+        savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "WallpaperStyle", "0"
+        
+    'Determine Stretch
+    ElseIf WallStyle = "Stretch" Then
+        savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "TileWallpaper", "0"
+        savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "WallpaperStyle", "2"
+    End If
+    
+    'Set the WallPaper
+    lReturn = SystemParametersInfo(SPI_SETDESKWALLPAPER, 0&, NewWall, SPIF_UPDATEINIFILE Or SPIF_SENDWININICHANGE)
+
+   On Error GoTo 0
+   Exit Sub
+
+changeWallpaper_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure changeWallpaper of Form dockSettings"
+
+End Sub
 '---------------------------------------------------------------------------------------
 ' Procedure : Form_Initialize
 ' Author    : beededea
@@ -4845,7 +5075,7 @@ Public Sub saveMainFormPosition()
 
     ' save the current X and y position of this form to allow repositioning when restarting
     dockSettingsXPos = dockSettings.Left
-    dockSettingsYPos = dockSettings.Top
+    dockSettingsYPos = dockSettings.top
     
     ' now write those params to the toolSettings.ini
     PutINISetting "Software\DockSettings", "dockSettingsXPos", dockSettingsXPos, toolSettingsFile
@@ -4987,6 +5217,11 @@ Private Sub btnClose_MouseMove(Button As Integer, Shift As Integer, X As Single,
     If rDEnableBalloonTooltips = "1" Then CreateToolTip btnClose.hWnd, "Close the Dock Settings Utility.", _
                   TTIconInfo, "Help on the Close Button", , , , True
 End Sub
+Private Sub btnApplyWallpaper_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnApplyWallpaper.hWnd, "Apply the currently selected wallpaper.", _
+                  TTIconInfo, "Help on the Apply Wallpaper Button", , , , True
+End Sub
+
 
 Private Sub btnDefaults_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
     If rDEnableBalloonTooltips = "1" Then CreateToolTip btnDefaults.hWnd, "Revert ALL settings to the defaults.", _
@@ -5441,6 +5676,7 @@ Private Sub makeVisibleFormElements()
     picIcon(3).Visible = True
     picIcon(4).Visible = True
     picIcon(5).Visible = True
+    picIcon(6).Visible = True
 
     picIconPressed(0).Visible = False
     picIconPressed(1).Visible = False
@@ -5448,6 +5684,7 @@ Private Sub makeVisibleFormElements()
     picIconPressed(3).Visible = False
     picIconPressed(4).Visible = False
     picIconPressed(5).Visible = False
+    picIconPressed(6).Visible = False
     
     screenHeightTwips = GetDeviceCaps(Me.hDC, VERTRES) * screenTwipsPerPixelY
     screenWidthTwips = GetDeviceCaps(Me.hDC, HORZRES) * screenTwipsPerPixelX ' replaces buggy screen.width
@@ -6598,6 +6835,8 @@ Private Sub btnDefaults_Click()
    
     
     rDtheme = "CrystalXP.net"
+    rDWallpaper = "none"
+    rDWallpaperStyle = "centre"
     cmbStyleTheme.Text = rDtheme
     
     rDThemeOpacity = "100"
@@ -7123,25 +7362,25 @@ Private Sub displayFontInformation(suppliedFontSize As Integer, suppliedBold As 
     ' 15 - bold, underline, strikeout and italics ' unsupported
         
     lblPreviewFont.Left = (5340 / 2) - (lblPreviewFont.Width / 2)
-    lblPreviewFont.Top = (735 / 2) - (lblPreviewFont.Height / 2)
+    lblPreviewFont.top = (735 / 2) - (lblPreviewFont.Height / 2)
     
     lblPreviewTop.Left = (5340 / 2) - (lblPreviewFont.Width / 2)
-    lblPreviewTop.Top = (715 / 2) - (lblPreviewFont.Height / 2)
+    lblPreviewTop.top = (715 / 2) - (lblPreviewFont.Height / 2)
     
     lblPreviewBottom.Left = (5340 / 2) - (lblPreviewFont.Width / 2)
-    lblPreviewBottom.Top = (755 / 2) - (lblPreviewFont.Height / 2)
+    lblPreviewBottom.top = (755 / 2) - (lblPreviewFont.Height / 2)
     
     lblPreviewLeft.Left = (5320 / 2) - (lblPreviewFont.Width / 2)
-    lblPreviewLeft.Top = (735 / 2) - (lblPreviewFont.Height / 2)
+    lblPreviewLeft.top = (735 / 2) - (lblPreviewFont.Height / 2)
         
     lblPreviewRight.Left = (5370 / 2) - (lblPreviewFont.Width / 2)
-    lblPreviewRight.Top = (735 / 2) - (lblPreviewFont.Height / 2)
+    lblPreviewRight.top = (735 / 2) - (lblPreviewFont.Height / 2)
         
     lblPreviewFontShadow.Left = (5440 / 2) - (lblPreviewFontShadow.Width / 2)
-    lblPreviewFontShadow.Top = (825 / 2) - (lblPreviewFontShadow.Height / 2)
+    lblPreviewFontShadow.top = (825 / 2) - (lblPreviewFontShadow.Height / 2)
         
     lblPreviewFontShadow2.Left = (5450 / 2) - (lblPreviewFontShadow2.Width / 2)
-    lblPreviewFontShadow2.Top = (835 / 2) - (lblPreviewFontShadow2.Height / 2)
+    lblPreviewFontShadow2.top = (835 / 2) - (lblPreviewFontShadow2.Height / 2)
         
     rDFontFlags = 0
     If suppliedBold = True Then rDFontFlags = 1
@@ -7875,6 +8114,38 @@ cmbStyleTheme_Change_Error:
 End Sub
 
 '---------------------------------------------------------------------------------------
+' Procedure : cmbWallpaper_Click
+' Author    : beededea
+' Date      : 01/03/2020
+' Purpose   : if a wallpaper image is selected from the dropdown list then make it the default
+'---------------------------------------------------------------------------------------
+'
+Private Sub cmbWallpaper_Click()
+    Dim wallpaperPic As String: wallpaperPic = vbNullString
+
+    On Error GoTo cmbWallpaper_Change_Error
+    If debugflg = 1 Then Debug.Print "%cmbWallpaper_Change"
+    
+    rDWallpaper = cmbWallpaper.List(cmbWallpaper.ListIndex)
+    
+    ' .09 DAEB 01/02/2021 docksettings Make the sample image functionality disabled for rocketdock
+    If defaultDock = 1 Then
+        wallpaperPic = sdAppPath & "\wallpapers\" & rDWallpaper
+        
+        If fFExists(wallpaperPic) Then
+            imgWallpaperPreview.Picture = LoadPicture(sdAppPath & "\wallpapers\" & rDWallpaper)
+        End If
+    End If
+    
+    On Error GoTo 0
+    Exit Sub
+
+cmbWallpaper_Change_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbWallpaper_Click of Form dockSettings"
+End Sub
+
+'---------------------------------------------------------------------------------------
 ' Procedure : cmbDefaultDock_Click
 ' Author    : beededea
 ' Date      : 13/05/2020
@@ -8191,7 +8462,8 @@ Private Sub cmbDefaultDock_Click()
     
     Call setZoomTypes ' .14 DAEB 29/04/2021 docksettings Set the default zoom types available to the type of dock selected
     Call setBounceTypes
-    Call setSoundSelectionDropDown
+    Call populateSoundSelectionDropDown
+    Call populateWallpaperStyleDropDown
 
     Call setHidingKey
         
@@ -8202,6 +8474,32 @@ cmbDefaultDock_Click_Error:
 
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbDefaultDock_Click of Form dockSettings"
     
+End Sub
+
+'---------------------------------------------------------------------------------------
+' Procedure : setWallpaper
+' Author    : beededea
+' Date      : 31/03/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub setWallpaper()
+
+   On Error GoTo setWallpaper_Error
+
+    cmbBehaviourActivationFX.Clear
+    cmbBehaviourActivationFX.AddItem "None", 0
+    cmbBehaviourActivationFX.AddItem "Bounce", 1
+    cmbBehaviourActivationFX.AddItem "Miserable", 2
+    cmbBehaviourActivationFX.ListIndex = Val(rDIconActivationFX)
+
+   On Error GoTo 0
+   Exit Sub
+
+setWallpaper_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setWallpaper of Form dockSettings"
+
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -8601,7 +8899,7 @@ Private Sub setThemeShade(redC As Integer, greenC As Integer, blueC As Integer)
     iconBox.BackColor = vbWhite
     
     ' loop through the selection icons and revert these to white
-    For useloop = 0 To 5
+    For useloop = 0 To 6
         
         lblText(useloop).BackColor = vbWhite
         'If useloop > 0 Then picIcon(useloop).BackColor = vbWhite
@@ -8619,6 +8917,7 @@ Private Sub setThemeShade(redC As Integer, greenC As Integer, blueC As Integer)
     fmeIconStyle.BackColor = vbWhite
     fmeIconIcons.BackColor = vbWhite
     fmeIconPosition.BackColor = vbWhite
+    fmeWallpaper.BackColor = vbWhite
     
     ' labels within the preview box that must stay the high contrast colours
     Label9.BackColor = RGB(212, 208, 199)
@@ -9205,11 +9504,14 @@ Private Sub picIcon_MouseDown_Event(Index As Integer)
     If Index <> 3 Then fmeMain(3).Visible = False
     If Index <> 4 Then fmeMain(4).Visible = False
     If Index <> 5 Then fmeMain(5).Visible = False
+    If Index <> 6 Then fmeMain(6).Visible = False
     
     fmeMain(Index).Visible = True
 
     fmeMain(Index).Left = 1245 * gblResizeRatio
-    fmeMain(Index).Top = 30 * gblResizeRatio
+    fmeMain(Index).top = 30 * gblResizeRatio
+    fmeMain(Index).Width = 6930 * gblResizeRatio
+    fmeMain(Index).Height = 8645 * gblResizeRatio
     
     ' ensure the resizing icons always display.
     ' it seems that when the picturebox is hidden and given focus then the images are lost.
@@ -9262,9 +9564,11 @@ Private Sub picIcon_MouseMove(Index As Integer, Button As Integer, Shift As Inte
         ElseIf Index = 5 Then
             descriptiveText = "This Button will select the about pane. The Position Panel provides the version number of this utility, useful information when reporting a bug. The text below this gives due credit to Punk labs for being the originator of  and gives thanks to them for coming up with such a useful tool and also to Apple who created the original idea for this whole genre of docks. This pane also gives access to some useful utilities."
             titleText = "Help on the Position Pane Button."
+        ElseIf Index = 6 Then
+            descriptiveText = "This Button will select the wallpaper pane. The wallpaper Panel allows you to select and apply a background image as the desktop wallpaper."
+            titleText = "Help on the Wallpaper Pane Button."
         End If
     End If
-
 
     CreateToolTip picIcon(Index).hWnd, descriptiveText, TTIconInfo, titleText, , , , True
 
@@ -10121,6 +10425,8 @@ Private Sub changeFont(suppliedFont As String, suppliedSize As Integer, supplied
     cmbPositionScreen.SelLength = 0
     cmbPositionLayering.SelLength = 0
     cmbBehaviourAutoHideType.SelLength = 0
+    cmbWallpaper.SelLength = 0
+    cmbWallpaperStyle.SelLength = 0
    
    On Error GoTo 0
    Exit Sub
@@ -10827,25 +11133,24 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub placeFrames()
-
         
-    ' variables declared
-    Dim topDown As Integer
+    Dim top As Integer: top = 0
+    Dim gap As Integer: gap = 0
         
-    'initialise the dimensioned variables
-    topDown = 0
+    On Error GoTo placeFrames_Error
+   
+    If debugflg = 1 Then Debug.Print "%placeFrames"
+    
+    top = 0
+    gap = 100
 
-
-   On Error GoTo placeFrames_Error
-   If debugflg = 1 Then Debug.Print "%placeFrames"
-
-    topDown = 220
-    fmeIconGeneral.Top = 200
-    fmeIconIcons.Top = fmeIconGeneral.Top + 1185 + topDown
-    fmeIconBehaviour.Top = fmeIconIcons.Top + 1185 + topDown
-    fmeIconStyle.Top = fmeIconBehaviour.Top + 1185 + topDown
-    fmeIconPosition.Top = fmeIconStyle.Top + 1185 + topDown
-    fmeIconAbout.Top = fmeIconPosition.Top + 1185 + topDown
+    fmeIconGeneral.top = top
+    fmeIconIcons.top = fmeIconGeneral.top + 1100 + gap
+    fmeIconBehaviour.top = fmeIconIcons.top + 1100 + gap
+    fmeIconStyle.top = fmeIconBehaviour.top + 1100 + gap + 125
+    fmeIconPosition.top = fmeIconStyle.top + 1100 + gap
+    fmeWallpaper.top = fmeIconPosition.top + 1100 + gap
+    fmeIconAbout.top = fmeWallpaper.top + 1100 + gap
 
    On Error GoTo 0
    Exit Sub
@@ -10902,6 +11207,9 @@ Private Sub writeDockSettings(location As String, settingsFile As String)
     PutINISetting location, "Version", rDVersion, settingsFile
     PutINISetting location, "HotKey-Toggle", rDHotKeyToggle, settingsFile
     PutINISetting location, "Theme", rDtheme, settingsFile
+    PutINISetting location, "Wallpaper", rDWallpaper, settingsFile
+    PutINISetting location, "WallpaperStyle", rDWallpaperStyle, settingsFile
+    
     PutINISetting location, "ThemeOpacity", rDThemeOpacity, settingsFile
     PutINISetting location, "IconOpacity", rDIconOpacity, settingsFile
     PutINISetting location, "FontSize", rDFontSize, settingsFile
@@ -10985,11 +11293,7 @@ Private Sub adjustControls()
     Dim suppliedBold As Boolean
     Dim suppliedItalics As Boolean
     Dim suppliedUnderline As Boolean
-    
-    'Dim MyFile As String
-    Dim MyPath  As String
-    Dim themePresent As Boolean
-    Dim myName As String
+
     
     'initialise the dimensioned variables
     rgbRdFontShadowColor = ""
@@ -11004,40 +11308,8 @@ Private Sub adjustControls()
     On Error GoTo adjustControls_Error
     If debugflg = 1 Then Debug.Print "%adjustControls"
     
-    
-    MyPath = dockAppPath & "\Skins\" '"E:\Program Files (x86)\RocketDock\Skins\"
-    themePresent = False
-
-    If Not fDirExists(MyPath) Then
-        MsgBox "WARNING - The skins folder is not present in the correct location " & rdAppPath
-    End If
-    
-    myName = Dir(MyPath, vbDirectory)   ' Retrieve the first entry.
-    Do While myName <> ""   ' Start the loop.
-       ' Ignore the current directory and the encompassing directory.
-       If myName <> "." And myName <> ".." Then
-          ' Use bitwise comparison to make sure MyName is a directory.
-          If (GetAttr(MyPath & myName) And vbDirectory) = vbDirectory Then
-             'Debug.Print MyName   ' Display entry only if it
-          End If   ' it represents a directory.
-       End If
-       myName = Dir   ' Get next entry.
-       If myName <> "." And myName <> ".." And myName <> "" Then
-        cmbStyleTheme.AddItem myName
-        'MsgBox MyName
-        Debug.Print myName   ' Display entry only if it
-        If myName = rDtheme Then themePresent = True
-       End If
-    Loop
-
-    ' if the theme is not in the list then make it none to ensure no corruption *1
-    If themePresent = False Then rDtheme = "blank"
-
-    If rDtheme = "Program Files" Or rDtheme = "" Then
-        cmbStyleTheme.Text = "blank"
-    Else
-        cmbStyleTheme.Text = rDtheme
-    End If
+    Call populateThemes
+    Call populateWallpapers
 
     'optGeneralReadConfig.Value = CBool(LCase(rDGeneralReadConfig))
       If rDGeneralReadConfig = "True" Then
@@ -11099,7 +11371,8 @@ Private Sub adjustControls()
     
     Call setZoomTypes ' .14 DAEB 29/04/2021 docksettings Set the default zoom types available to the type of dock selected
     Call setBounceTypes
-    Call setSoundSelectionDropDown
+    Call populateSoundSelectionDropDown
+    Call populateWallpaperStyleDropDown
     
     cmbIconsQuality.ListIndex = Val(rDIconQuality)
     sliIconsOpacity.Value = Val(rDIconOpacity)
@@ -11210,6 +11483,121 @@ adjustControls_Error:
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustControls of Form dockSettings on line " & Erl
 
 End Sub
+ 
+'---------------------------------------------------------------------------------------
+' Procedure : populateThemes
+' Author    : beededea
+' Date      : 07/04/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub populateThemes()
+     
+    'Dim MyFile As String
+    Dim MyPath  As String
+    Dim themePresent As Boolean
+    Dim myName As String
+    
+   On Error GoTo populateThemes_Error
+
+    MyPath = dockAppPath & "\Skins\" '"E:\Program Files (x86)\RocketDock\Skins\"
+    themePresent = False
+
+    If Not fDirExists(MyPath) Then
+        MsgBox "WARNING - The skins folder is not present in the correct location " & rdAppPath
+    End If
+    
+    myName = Dir(MyPath, vbDirectory)   ' Retrieve the first entry.
+    Do While myName <> ""   ' Start the loop.
+       ' Ignore the current directory and the encompassing directory.
+       If myName <> "." And myName <> ".." Then
+          ' Use bitwise comparison to make sure MyName is a directory.
+          If (GetAttr(MyPath & myName) And vbDirectory) = vbDirectory Then
+             'Debug.Print MyName   ' Display entry only if it
+          End If   ' it represents a directory.
+       End If
+       myName = Dir   ' Get next entry.
+       If myName <> "." And myName <> ".." And myName <> "" Then
+        cmbStyleTheme.AddItem myName
+        'MsgBox MyName
+        Debug.Print myName   ' Display entry only if it
+        If myName = rDtheme Then themePresent = True
+       End If
+    Loop
+
+    ' if the theme is not in the list then make it none to ensure no corruption *1
+    If themePresent = False Then rDtheme = "blank"
+
+    If rDtheme = "Program Files" Or rDtheme = "" Then
+        cmbStyleTheme.Text = "blank"
+    Else
+        cmbStyleTheme.Text = rDtheme
+    End If
+
+   On Error GoTo 0
+   Exit Sub
+
+populateThemes_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure populateThemes of Form dockSettings"
+End Sub
+
+'---------------------------------------------------------------------------------------
+' Procedure : populateWallpapers
+' Author    : beededea
+' Date      : 07/04/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub populateWallpapers()
+     
+    Dim MyPath  As String: MyPath = vbNullString
+    Dim wallpaperPresent As Boolean: wallpaperPresent = False
+    Dim myName As String: myName = vbNullString
+    
+    On Error GoTo populateWallpapers_Error
+
+    MyPath = dockAppPath & "\Wallpapers\"
+    wallpaperPresent = False
+
+    If Not fDirExists(MyPath) Then
+        MsgBox "WARNING - The Wallpapers folder is not present in the correct location " & App.Path
+    End If
+    
+    myName = Dir(MyPath, vbDirectory)   ' Retrieve the first entry.
+    Do While myName <> ""   ' Start the loop.
+       ' Ignore the current directory and the encompassing directory.
+       If myName <> "." And myName <> ".." Then
+          ' Use bitwise comparison to make sure MyName is a directory.
+          If (GetAttr(MyPath & myName) And vbDirectory) = vbDirectory Then
+             'Debug.Print MyName   ' Display entry only if it
+          End If   ' it represents a directory.
+       End If
+       myName = Dir   ' Get next entry.
+       If myName <> "." And myName <> ".." And myName <> "" Then
+        cmbWallpaper.AddItem myName
+        'MsgBox MyName
+        Debug.Print myName   ' Display entry only if it
+        If myName = rDWallpaper Then wallpaperPresent = True
+       End If
+    Loop
+
+    ' if the wallpaper is not in the list then make it none to ensure no corruption *1
+    If wallpaperPresent = False Then rDWallpaper = "none selected"
+
+    If rDWallpaper = "Program Files" Or rDWallpaper = "" Then
+        cmbWallpaper.Text = "none selected"
+    Else
+        cmbWallpaper.Text = rDWallpaper
+    End If
+
+   On Error GoTo 0
+   Exit Sub
+
+populateWallpapers_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure populateWallpapers of Form dockSettings"
+End Sub
 
 '---------------------------------------------------------------------------------------
 ' Procedure : setBounceTypes
@@ -11253,15 +11641,15 @@ setBounceTypes_Error:
 
 End Sub
 '---------------------------------------------------------------------------------------
-' Procedure : setSoundSelectionDropDown
+' Procedure : populateSoundSelectionDropDown
 ' Author    : beededea
 ' Date      : 31/03/2025
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub setSoundSelectionDropDown()
+Private Sub populateSoundSelectionDropDown()
 
-   On Error GoTo setSoundSelectionDropDown_Error
+   On Error GoTo populateSoundSelectionDropDown_Error
 
     cmbBehaviourSoundSelection.Clear
 
@@ -11275,9 +11663,37 @@ Private Sub setSoundSelectionDropDown()
    On Error GoTo 0
    Exit Sub
 
-setSoundSelectionDropDown_Error:
+populateSoundSelectionDropDown_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setSoundSelectionDropDown of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure populateSoundSelectionDropDown of Form dockSettings"
+
+End Sub
+
+'---------------------------------------------------------------------------------------
+' Procedure : populateWallpaperStyleDropDown
+' Author    : beededea
+' Date      : 31/03/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub populateWallpaperStyleDropDown()
+
+   On Error GoTo populateWallpaperStyleDropDown_Error
+
+    cmbWallpaperStyle.Clear
+
+    cmbWallpaperStyle.AddItem "Centre", 0
+    cmbWallpaperStyle.AddItem "Tile", 1
+    cmbWallpaperStyle.AddItem "Stretch", 2
+    
+    cmbWallpaperStyle.ListIndex = Val(rDWallpaperStyle)
+    
+   On Error GoTo 0
+   Exit Sub
+
+populateWallpaperStyleDropDown_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure populateWallpaperStyleDropDown of Form dockSettings"
 
 End Sub
 
@@ -11379,6 +11795,7 @@ End Sub
 Private Sub setToolTips()
     
     Dim aboutText As String: aboutText = vbNullString
+    Dim wallpaperText As String: wallpaperText = vbNullString
 
     On Error GoTo setToolTips_Error
 
@@ -11392,13 +11809,19 @@ Private Sub setToolTips()
         btnHelp.ToolTipText = "Click here to open tool's HTML help page in your browser"
         picBusy.ToolTipText = "The program is doing something..."
         btnClose.ToolTipText = "Exit this utility"
+        btnApplyWallpaper.ToolTipText = "Apply the selected wallpaper"
         btnApply.ToolTipText = "This will save your changes and restart the dock."
         lblText(0).ToolTipText = "General Configuration Options"
-        picIcon(0).ToolTipText = "About the dock settings"
-        picIcon(1).ToolTipText = "General Configuration Options"
-        picIcon(2).ToolTipText = "Dock theme and text configuration"
-        picIcon(3).ToolTipText = "Icon bounce and pop up effects"
-        picIcon(4).ToolTipText = "Icon effects and quality"
+        
+        picIcon(0).ToolTipText = "General Configuration Options"
+        picIcon(1).ToolTipText = "Icon size and quality"
+        picIcon(2).ToolTipText = "Icon bounce and pop up effects"
+        picIcon(3).ToolTipText = "Dock effects and quality"
+        picIcon(4).ToolTipText = "Dock theme and text configuration"
+        picIcon(5).ToolTipText = "Dock positioning"
+        picIcon(5).ToolTipText = "About this program"
+        picIcon(6).ToolTipText = "Desktop Wallpaper settings"
+        
         genChkShowIconSettings.ToolTipText = "When you drag or add an item to the dock it will always show the icon settings utility unless you disable it here"
         chkSplashStatus.ToolTipText = "Show Splash Screen on Start-up"
         
@@ -11584,10 +12007,15 @@ Private Sub setToolTips()
         picHiddenPicture.ToolTipText = "The icon size in the dock"
         Label26.ToolTipText = "Show Splash Screen on Start-up"
     
-        aboutText = "This Button will select the about pane. The About Panel provides the version number of this utility, useful information when reporting a bug."
+        aboutText = "About this program"
         fmeIconAbout.ToolTipText = aboutText
         picIcon(5).ToolTipText = aboutText
         lblText(5).ToolTipText = aboutText
+        
+        wallpaperText = "This Button will select the wallpaper pane."
+        fmeIconAbout.ToolTipText = wallpaperText
+        picIcon(6).ToolTipText = wallpaperText
+        lblText(6).ToolTipText = wallpaperText
     Else
     
         rDEnableBalloonTooltips = "1" ' this is the flag used to determine whether a new balloon tooltip is generated
@@ -11604,7 +12032,9 @@ Private Sub setToolTips()
         gcmbIconsQualityBalloonTooltip = "Technically, lower power single/dual core machines from the XP era will benefit from the lower quality setting but in reality, the fast machines we have these days can run with high quality enabled and suffer no degradation whatsoever."
         gcmbIconsHoverFXBalloonTooltip = "The zoom effect to apply. At the moment the only effect in operation is bubble. The other animations types still need to be coded."
         gcmbDefaultDockBalloonTooltip = "This control merely indicates that the default dock is SteamyDock. Older versions worked with both Rocketdock and SteamyDock."
- 
+        gcmbWallpaperBalloonTooltip = "Select the wallpaper image that you desire to appear on the Windows desktop."
+        gcmbWallpaperStyleBalloonTooltip = "Select the wallpaper style, centred, tiled or stretched."
+
         cmbBehaviourActivationFX.ToolTipText = vbNullString
         cmbBehaviourAutoHideType.ToolTipText = vbNullString
         cmbHidingKey.ToolTipText = vbNullString
@@ -11623,6 +12053,7 @@ Private Sub setToolTips()
         btnHelp.ToolTipText = vbNullString
         picBusy.ToolTipText = vbNullString
         btnClose.ToolTipText = vbNullString
+        btnApplyWallpaper.ToolTipText = vbNullString
         btnApply.ToolTipText = vbNullString
         lblText(0).ToolTipText = vbNullString
         picIcon(0).ToolTipText = vbNullString
@@ -11630,6 +12061,8 @@ Private Sub setToolTips()
         picIcon(2).ToolTipText = vbNullString
         picIcon(3).ToolTipText = vbNullString
         picIcon(4).ToolTipText = vbNullString
+        picIcon(5).ToolTipText = vbNullString
+        picIcon(6).ToolTipText = vbNullString
         genChkShowIconSettings.ToolTipText = vbNullString
         chkSplashStatus.ToolTipText = vbNullString
         
@@ -11796,6 +12229,12 @@ Private Sub setToolTips()
         fmeIconAbout.ToolTipText = aboutText
         picIcon(5).ToolTipText = aboutText
         lblText(5).ToolTipText = aboutText
+            
+        wallpaperText = vbNullString
+        fmeIconAbout.ToolTipText = wallpaperText
+        picIcon(6).ToolTipText = wallpaperText
+        lblText(6).ToolTipText = wallpaperText
+        
     End If
 
     On Error GoTo 0
@@ -11873,7 +12312,7 @@ End Sub
 Private Sub positionTimer_Timer()
     ' save the current X and y position of this form to allow repositioning when restarting
     dockSettingsXPos = dockSettings.Left
-    dockSettingsYPos = dockSettings.Top
+    dockSettingsYPos = dockSettings.top
     
     ' now write those params to the toolSettings.ini
     PutINISetting "Software\DockSettings", "IconConfigFormXPos", dockSettingsXPos, toolSettingsFile
@@ -11882,7 +12321,7 @@ End Sub
 
 Private Sub mnuBringToCentre_click()
 
-    dockSettings.Top = Screen.Height / 2 - dockSettings.Height / 2
+    dockSettings.top = Screen.Height / 2 - dockSettings.Height / 2
     dockSettings.Left = screenWidthTwips / 2 - dockSettings.Width / 2
 End Sub
 '---------------------------------------------------------------------------------------
@@ -11893,6 +12332,7 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Public Sub adjustMainControls()
+    Dim wallpaperPic As String: wallpaperPic = vbNullString
    
     On Error GoTo adjustMainControls_Error
           
@@ -11937,6 +12377,15 @@ Public Sub adjustMainControls()
         btnGeneralDockEditor.Enabled = False
         btnGeneralDockSettingsEditor.Enabled = False
         btnGeneralIconSettingsEditor.Enabled = False
+    End If
+    
+    
+    If rDWallpaper <> "none selected" Then
+        wallpaperPic = sdAppPath & "\wallpapers\" & rDWallpaper
+        
+        If fFExists(wallpaperPic) Then
+            imgWallpaperPreview.Picture = LoadPicture(sdAppPath & "\wallpapers\" & rDWallpaper)
+        End If
     End If
     
    On Error GoTo 0
@@ -12116,6 +12565,8 @@ Private Sub subClassControls()
         Call SubclassComboBox(cmbIconsQuality.hWnd, ObjPtr(cmbIconsQuality))
         Call SubclassComboBox(cmbIconsHoverFX.hWnd, ObjPtr(cmbIconsHoverFX))
         Call SubclassComboBox(cmbDefaultDock.hWnd, ObjPtr(cmbDefaultDock))
+        Call SubclassComboBox(cmbWallpaper.hWnd, ObjPtr(cmbWallpaper))
+        Call SubclassComboBox(cmbWallpaperStyle.hWnd, ObjPtr(cmbWallpaperStyle))
     End If
 
    On Error GoTo 0
@@ -12188,6 +12639,14 @@ Public Sub MouseMoveOnComboText(sComboName As String)
         sTitle = "Help on the Drop Down Icon Filter"
         sText = gcmbDefaultDockBalloonTooltip
         If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbDefaultDock.hWnd), sText, , sTitle, , , , True
+    Case "cmbWallpaper"
+        sTitle = "Help on the Drop Down Icon Filter"
+        sText = gcmbWallpaperBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbWallpaper.hWnd), sText, , sTitle, , , , True
+    Case "cmbWallpaperStyle"
+        sTitle = "Help on the Drop Down Icon Filter"
+        sText = gcmbWallpaperStyleBalloonTooltip
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbWallpaperStyle.hWnd), sText, , sTitle, , , , True
     End Select
 
    On Error GoTo 0

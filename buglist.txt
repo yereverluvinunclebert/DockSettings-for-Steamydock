@@ -31,6 +31,10 @@
 ' The drop-down lists do not support mouseOver events so the balloon tooltips will not work. They will have to be sub-classed
 '   to allow the balloon tooltip to function.
 
+' form_unload to standard
+' VB6 editor dev.options visible but disabled
+' clicking an icon does not hide current form
+
 
 ' Status/Bugs/Tasks:
 ' ==================
@@ -48,6 +52,10 @@
 ' frmMessage msgbox error during compilation as per steamydock
 
 ' separate common.bas and common2.bas to make it easier to compile just the one utility on its own.
+
+' save the form size on setting and when saving
+
+' resize the form on startup if a form size has been saved
 
 ' resource file for the ocx as per rocketdock
 '
