@@ -42,7 +42,7 @@ Begin VB.Form dockSettings
       Style           =   1  'Graphical
       TabIndex        =   150
       ToolTipText     =   "Click here to open tool's HTML help page in your browser"
-      Top             =   8790
+      Top             =   8865
       Width           =   1065
    End
    Begin VB.PictureBox picBusy 
@@ -94,7 +94,7 @@ Begin VB.Form dockSettings
       Style           =   1  'Graphical
       TabIndex        =   8
       ToolTipText     =   "Exit this utility"
-      Top             =   8805
+      Top             =   8865
       Width           =   1065
    End
    Begin VB.CommandButton btnApply 
@@ -113,7 +113,7 @@ Begin VB.Form dockSettings
       Style           =   1  'Graphical
       TabIndex        =   7
       ToolTipText     =   "This will save your changes and restart the dock."
-      Top             =   8805
+      Top             =   8865
       Width           =   1335
    End
    Begin VB.PictureBox iconBox 
@@ -583,7 +583,7 @@ Begin VB.Form dockSettings
       Style           =   1  'Graphical
       TabIndex        =   3
       ToolTipText     =   "Revert ALL settings to the defaults"
-      Top             =   8790
+      Top             =   8865
       Width           =   1065
    End
    Begin VB.Frame fmeMain 
@@ -2335,6 +2335,14 @@ Begin VB.Form dockSettings
       ToolTipText     =   "This panel controls the positioning of the whole dock"
       Top             =   30
       Width           =   6930
+      Begin VB.CheckBox chkMoveWinTaskbar 
+         Caption         =   "Avoid clashes with Windows taskbar?"
+         Height          =   315
+         Left            =   2205
+         TabIndex        =   266
+         Top             =   1755
+         Width           =   3675
+      End
       Begin VB.ComboBox cmbPositionLayering 
          BeginProperty Font 
             Name            =   "Arial"
@@ -2352,7 +2360,7 @@ Begin VB.Form dockSettings
          TabIndex        =   37
          Text            =   "Always Below"
          ToolTipText     =   "Should the dock appear on top of other windows or underneath?"
-         Top             =   1905
+         Top             =   2400
          Width           =   2595
       End
       Begin VB.ComboBox cmbPositionMonitor 
@@ -2400,7 +2408,7 @@ Begin VB.Form dockSettings
          Left            =   2085
          TabIndex        =   23
          ToolTipText     =   "Position from the bottom/top edge of the screen"
-         Top             =   3270
+         Top             =   3705
          Width           =   2820
          _ExtentX        =   4974
          _ExtentY        =   556
@@ -2413,7 +2421,7 @@ Begin VB.Form dockSettings
          Left            =   2085
          TabIndex        =   24
          ToolTipText     =   "You can align the dock so that it is centred or offset as you require"
-         Top             =   2625
+         Top             =   3075
          Width           =   2820
          _ExtentX        =   4974
          _ExtentY        =   556
@@ -2421,16 +2429,35 @@ Begin VB.Form dockSettings
          Max             =   100
          TickFrequency   =   10
       End
+      Begin VB.Label Label2 
+         Caption         =   "Move Taskbar"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   405
+         Left            =   675
+         TabIndex        =   267
+         ToolTipText     =   "Place the dock at your preferred location. Steamydock only supports top and bottom positions"
+         Top             =   1830
+         Width           =   1335
+      End
       Begin VB.Image imgMultipleGears3 
          Height          =   3000
-         Left            =   3675
-         Top             =   5385
+         Left            =   3540
+         Top             =   4980
          Width           =   2970
       End
       Begin VB.Image imgMultipleGears1 
-         Height          =   4230
-         Left            =   165
-         Top             =   4290
+         Height          =   3825
+         Left            =   315
+         Stretch         =   -1  'True
+         Top             =   4485
          Width           =   2925
       End
       Begin VB.Label Label33 
@@ -2448,7 +2475,7 @@ Begin VB.Form dockSettings
          Left            =   675
          TabIndex        =   38
          ToolTipText     =   "Should the dock appear on top of other windows or underneath?"
-         Top             =   1935
+         Top             =   2430
          Width           =   1335
       End
       Begin VB.Label lblPositionMonitor 
@@ -2463,7 +2490,7 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   225
-         Left            =   675
+         Left            =   720
          TabIndex        =   36
          ToolTipText     =   "Here you can determine upon which monitor the dock will appear"
          Top             =   510
@@ -2502,7 +2529,7 @@ Begin VB.Form dockSettings
          Left            =   675
          TabIndex        =   34
          ToolTipText     =   "You can align the dock so that it is centred or offset as you require"
-         Top             =   2670
+         Top             =   3105
          Width           =   795
       End
       Begin VB.Label lblPositionCentrePercCurrent 
@@ -2520,7 +2547,7 @@ Begin VB.Form dockSettings
          Left            =   5535
          TabIndex        =   33
          ToolTipText     =   "You can align the dock so that it is centred or offset as you require"
-         Top             =   2670
+         Top             =   3105
          Width           =   630
       End
       Begin VB.Label Label29 
@@ -2538,7 +2565,7 @@ Begin VB.Form dockSettings
          Left            =   4905
          TabIndex        =   32
          ToolTipText     =   "You can align the dock so that it is centred or offset as you require"
-         Top             =   2670
+         Top             =   3105
          Width           =   585
       End
       Begin VB.Label Label28 
@@ -2556,7 +2583,7 @@ Begin VB.Form dockSettings
          Left            =   1590
          TabIndex        =   31
          ToolTipText     =   "You can align the dock so that it is centred or offset as you require"
-         Top             =   2670
+         Top             =   3105
          Width           =   630
       End
       Begin VB.Label Label27 
@@ -2574,7 +2601,7 @@ Begin VB.Form dockSettings
          Left            =   675
          TabIndex        =   30
          ToolTipText     =   "Position from the bottom/top edge of the screen"
-         Top             =   3315
+         Top             =   3750
          Width           =   990
       End
       Begin VB.Label lblPositionEdgeOffsetPxCurrent 
@@ -2592,7 +2619,7 @@ Begin VB.Form dockSettings
          Left            =   5535
          TabIndex        =   29
          ToolTipText     =   "Position from the bottom/top edge of the screen"
-         Top             =   3300
+         Top             =   3735
          Width           =   630
       End
       Begin VB.Label Label25 
@@ -2610,7 +2637,7 @@ Begin VB.Form dockSettings
          Left            =   4890
          TabIndex        =   28
          ToolTipText     =   "Position from the bottom/top edge of the screen"
-         Top             =   3315
+         Top             =   3750
          Width           =   555
       End
       Begin VB.Label Label24 
@@ -2628,7 +2655,7 @@ Begin VB.Form dockSettings
          Left            =   1650
          TabIndex        =   27
          ToolTipText     =   "Position from the bottom/top edge of the screen"
-         Top             =   3315
+         Top             =   3750
          Width           =   540
       End
    End
@@ -5096,7 +5123,7 @@ Private Function readWindowsTaskbarPosition() As Integer
 
     Dim binaryValue As Variant
     Dim Value As Variant
-    Dim I As Long
+    Dim I As Long: I = 0
 
     On Error GoTo readWindowsTaskbarPosition_Error
     
@@ -5141,10 +5168,9 @@ End Function
     Dim bAns As Boolean: bAns = False
     Dim keyhand As Long: keyhand = 0
     Dim b As String: b = vbNullString
-    Dim hKey As _
-  REG_TOPLEVEL_KEYS
-    Dim strPath As String
-    Dim strvalue As String
+    Dim hKey As REG_TOPLEVEL_KEYS
+    Dim strPath As String: strPath = vbNullString
+    Dim strvalue As String: strvalue = vbNullString
        
     On Error GoTo setWindowsTaskbarPosition_Error
     
@@ -5198,14 +5224,12 @@ Private Sub btnApplyWallpaper_MouseDown(Button As Integer, Shift As Integer, X A
     rDWallpaperStyle = cmbWallpaperStyle.List(cmbWallpaperStyle.ListIndex)
 
     If rDWallpaper <> "none selected" Then
-    
         PutINISetting "Software\SteamyDock\DockSettings", "Wallpaper", rDWallpaper, dockSettingsFile
         PutINISetting "Software\SteamyDock\DockSettings", "WallpaperStyle", rDWallpaperStyle, dockSettingsFile
         
         wallpaperFullPath = sdAppPath & "\wallpapers\" & rDWallpaper
         
         Call changeWallpaper(wallpaperFullPath, rDWallpaperStyle)
-        
     End If
     
     cmbWallpaper.SetFocus
@@ -5228,16 +5252,16 @@ End Sub
 '
 Private Sub changeWallpaper(ByVal SelectedWallpaper As String, ByVal WallpaperStyle As String)
 
-    Dim lReturn As Long 'Return of SysParInfo API
-    
-    'Determine WallPaper Style
+    Dim lReturn As Long: lReturn = 0 'Return of SysParInfo API
+
     On Error GoTo changeWallpaper_Error
     
+    'Determine default WallPaper 'Style', ie. positioning
     If WallpaperStyle <> "Centre" And WallpaperStyle <> "Tile" And WallpaperStyle <> "Stretch" Then
         WallpaperStyle = "Stretch"
     End If
     
-    'Determine Center
+    'Write to the registry to allow Windows to determine wallpaper placement
     If WallpaperStyle = "Centre" Then
         savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "TileWallpaper", "0"
         savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "WallpaperStyle", "0"
@@ -5249,9 +5273,8 @@ Private Sub changeWallpaper(ByVal SelectedWallpaper As String, ByVal WallpaperSt
         savestring HKEY_CURRENT_USER, "Control Panel\Desktop", "WallpaperStyle", "2"
     End If
     
-    'Set the WallPaper
+    'Set the WallPaper and trigger the system to apply it to the desktop
     lReturn = SystemParametersInfo(SPI_SETDESKWALLPAPER, 0&, SelectedWallpaper, SPIF_UPDATEINIFILE Or SPIF_SENDWININICHANGE)
-    
 
    On Error GoTo 0
    Exit Sub
@@ -5489,32 +5512,6 @@ End Sub
 ' ----------------------------------------------------------------
 Private Sub btnGeneralDockEditor_Click()
     
-'    ' variables declared
-'    Dim getFolder As String: getFolder = ""
-'    Dim dialogInitDir As String: dialogInitDir = ""
-'
-'    On Error GoTo btnGeneralDockEditor_Click_Error
-'
-'    If debugflg = 1 Then Debug.Print "%btnGeneralRdFolder_Click"
-'
-'    dialogInitDir = App.Path
-'
-''    If txtDockDefaultEditor.Text <> vbNullString Then
-''        If fDirExists(txtDockDefaultEditor.Text) Then
-''            dialogInitDir = txtDockDefaultEditor.Text 'start dir, might be "C:\" or so also
-''        Else
-''            dialogInitDir = rdAppPath 'start dir, might be "C:\" or so also
-''        End If
-''    End If
-'
-'    getFolder = BrowseFolder(hwnd, dialogInitDir) ' show the dialog box to select a folder
-'
-'
-'
-'
-'    If getFolder <> vbNullString Then txtDockDefaultEditor.Text = getFolder
-    
-    
     Call selectDockVBPFile
     
     On Error GoTo 0
@@ -5612,13 +5609,26 @@ Private Sub chkIconsZoomOpaque_MouseMove(Button As Integer, Shift As Integer, X 
                   TTIconInfo, "Help on the Zoom Opacity Checkbox", , , , True
 End Sub
 
+'---------------------------------------------------------------------------------------
+' Procedure : chkLabelBackgrounds_Click
+' Author    : beededea
+' Date      : 09/04/2025
+' Purpose   : add a background to the icon titles in dock's drawtext function
+'---------------------------------------------------------------------------------------
+'
 Private Sub chkLabelBackgrounds_Click()
+
+   On Error GoTo chkLabelBackgrounds_Click_Error
 
    sDShowLblBacks = chkLabelBackgrounds.Value ' 25/10/2020 docksettings .02 DAEB add the logic for saving/reading icon label background string to configuration files
     
-    
+   On Error GoTo 0
+   Exit Sub
 
-    ' add a background to the icon titles in dock's drawtext function
+chkLabelBackgrounds_Click_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkLabelBackgrounds_Click of Form dockSettings"
+    
 End Sub
 
 Private Sub chkLabelBackgrounds_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
@@ -5734,8 +5744,8 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub fmeMain_MouseMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
-    Dim descriptiveText As String
-    Dim titleText As String
+    Dim descriptiveText As String: descriptiveText = vbNullString
+    Dim titleText As String: titleText = vbNullString
     
    On Error GoTo fmeMain_MouseMove_Error
 
@@ -5847,7 +5857,6 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub cmbBehaviourAutoHideType_Click()
-
 
    On Error GoTo cmbBehaviourAutoHideType_Click_Error
 
@@ -6014,8 +6023,8 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub busyTimer_Timer()
-        Dim thisWindow As Long
-        Dim busyFilename As String
+        Dim thisWindow As Long: thisWindow = 0
+        Dim busyFilename As String: busyFilename = vbNullString
         
         On Error GoTo busyTimer_Timer_Error
 
@@ -6049,28 +6058,6 @@ busyTimer_Timer_Error:
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure busyTimer_Timer of Form dockSettings"
 
 End Sub
-
-''---------------------------------------------------------------------------------------
-'' Procedure : chkGenAlwaysAsk_Click
-'' Author    : beededea
-'' Date      : 13/06/2020
-'' Purpose   :
-''---------------------------------------------------------------------------------------
-''
-'Private Sub chkGenAlwaysAsk_Click()
-'   On Error GoTo chkGenAlwaysAsk_Click_Error
-'
-'    rDAlwaysAsk = chkGenAlwaysAsk.Value
-'
-'   On Error GoTo 0
-'   Exit Sub
-'
-'chkGenAlwaysAsk_Click_Error:
-'
-'    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkGenAlwaysAsk_Click of Form dockSettings"
-'
-'End Sub
-
 
 
 Private Sub fraAutoHideDelay_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
@@ -6137,9 +6124,6 @@ Private Sub genChkShowIconSettings_MouseMove(Button As Integer, Shift As Integer
                   TTIconInfo, "Help on the automatic icon Settings Startup", , , , True
 End Sub
 
-Private Sub Label7_Click()
-
-End Sub
 
 
 Private Sub imgWallpaperPreview_Click()
@@ -6150,7 +6134,6 @@ Private Sub fmeWallpaperPreview_MouseMove(Button As Integer, Shift As Integer, X
 
     If rDEnableBalloonTooltips = "1" Then CreateToolTip fmeWallpaperPreview.hWnd, "This image box displays a resized preview version of a much larger wallpaper, press the change button to apply it to your desktop.", _
                   TTIconInfo, "Help on the Wallpaper Preview", , , , True
-
 
 End Sub
 
@@ -6311,7 +6294,7 @@ Private Sub optGeneralReadConfig_Click()
 
    On Error GoTo optGeneralReadConfig_Click_Error
 
-    If startupFlg = True Then '.NET
+    If startupFlg = True Then '
         ' don't do this on the first startup run
         Exit Sub
 
@@ -6406,7 +6389,7 @@ Private Sub optGeneralReadSettings_Click()
    
     tmpSettingsFile = rdAppPath & "\tmpSettings.ini" ' temporary copy of Rocketdock 's settings file
     
-    If startupFlg = True Then '.NET
+    If startupFlg = True Then '
         ' don't do this on the first startup run
         Exit Sub
     Else
@@ -8291,7 +8274,7 @@ Private Sub cmbPositionMonitor_Click()
    On Error GoTo cmbPositionMonitor_Click_Error
    If debugflg = 1 Then Debug.Print "%cmbPositionMonitor_Click"
     
-    If startupFlg = True Then '.NET
+    If startupFlg = True Then '
         ' don't do this on the startup run only when actually clicked upon
         Exit Sub
     Else
@@ -9054,11 +9037,9 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub lblPunklabsLink_Click(Index As Integer)
-    Dim answer As VbMsgBoxResult
+    Dim answer As VbMsgBoxResult: answer = vbNo
    
     On Error GoTo lblPunklabsLink_Click_Error
-   
-    answer = vbNo
    
     If debugflg = 1 Then Debug.Print "%lblPunklabsLink_Click"
     
@@ -9353,7 +9334,7 @@ Private Sub optGeneralWriteConfig_Click()
 
    On Error GoTo optGeneralWriteConfig_Click_Error
 
-    If startupFlg = True Then '.NET
+    If startupFlg = True Then '
         ' don't do this on the first startup run
         Exit Sub
     Else
@@ -9427,7 +9408,7 @@ End Sub
 '
 '    tmpSettingsFile = rdAppPath & "\tmpSettings.ini" ' temporary copy of Rocketdock 's settings file
 '
-'    If startupFlg = True Then '.NET
+'    If startupFlg = True Then '
 '        ' don't do this on the first startup run
 '        Exit Sub
 '    Else
@@ -12007,8 +11988,7 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub populateWallpaperStyleDropDown()
-    Dim useloop As Integer: useloop = 0
-    Dim thisStyle As String: thisStyle = vbNullString
+
     
     On Error GoTo populateWallpaperStyleDropDown_Error
 
@@ -12017,29 +11997,7 @@ Private Sub populateWallpaperStyleDropDown()
     cmbWallpaperStyle.AddItem "Centre", 0
     cmbWallpaperStyle.AddItem "Tile", 1
     cmbWallpaperStyle.AddItem "Stretch", 2
-    
-    'cmbWallpaperStyle.ListIndex = Val(rDWallpaperStyle)
-    
-    thisStyle = rDWallpaperStyle
-
-    'Iterate through items.
-    For useloop = 0 To cmbWallpaperStyle.ListCount - 1
-        'Compare value.
-        If cmbWallpaperStyle.List(useloop) = thisStyle Then
-            'Select it and leave loop.
-            cmbWallpaperStyle.ListIndex = useloop
-            Exit For
-        End If
-    Next useloop
-    
-    ' disable the apply button if no wallpaper choice
-    If cmbWallpaperStyle.List(cmbWallpaperStyle.ListIndex) <> "none selected" Then
-        btnApplyWallpaper.Enabled = True
-    Else
-        btnApplyWallpaper.Enabled = False
-    End If
         
-    
    On Error GoTo 0
    Exit Sub
 
@@ -12782,14 +12740,8 @@ Public Sub adjustMainControls()
         btnGeneralIconSettingsEditor.Enabled = False
     End If
     
-    
-    If rDWallpaper <> "none selected" Then
-        wallpaperPic = sdAppPath & "\wallpapers\" & rDWallpaper
-        
-        If fFExists(wallpaperPic) Then
-            imgWallpaperPreview.Picture = LoadPicture(sdAppPath & "\wallpapers\" & rDWallpaper)
-        End If
-    End If
+    Call selectStoredWallpaperStyle
+    Call selectStoredWallpaper
     
    On Error GoTo 0
    Exit Sub
@@ -12798,6 +12750,81 @@ adjustMainControls_Error:
 
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustMainControls of Module modMain"
 
+End Sub
+
+    
+'---------------------------------------------------------------------------------------
+' Procedure : selectStoredWallpaperStyle
+' Author    : beededea
+' Date      : 10/04/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+ Private Sub selectStoredWallpaperStyle()
+    Dim useloop As Integer: useloop = 0
+    Dim thisStyle As String: thisStyle = vbNullString
+    
+   On Error GoTo selectStoredWallpaperStyle_Error
+
+    thisStyle = rDWallpaperStyle
+
+    'Iterate through items.
+    For useloop = 0 To cmbWallpaperStyle.ListCount - 1
+        'Compare value.
+        If cmbWallpaperStyle.List(useloop) = thisStyle Then
+            'Select it and leave loop.
+            cmbWallpaperStyle.ListIndex = useloop
+            Exit For
+        End If
+    Next useloop
+    
+    ' disable the apply button if no wallpaper choice
+    If cmbWallpaperStyle.List(cmbWallpaperStyle.ListIndex) <> "none selected" Then
+        btnApplyWallpaper.Enabled = True
+    Else
+        btnApplyWallpaper.Enabled = False
+    End If
+
+   On Error GoTo 0
+   Exit Sub
+
+selectStoredWallpaperStyle_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure selectStoredWallpaperStyle of Form dockSettings"
+End Sub
+
+'---------------------------------------------------------------------------------------
+' Procedure : selectStoredWallpaper
+' Author    : beededea
+' Date      : 10/04/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub selectStoredWallpaper()
+    
+    Dim useloop As Integer: useloop = 0
+    Dim thisWallpaper As String: thisWallpaper = vbNullString
+    
+   On Error GoTo selectStoredWallpaper_Error
+
+    thisWallpaper = rDWallpaper
+
+    'Iterate through items.
+    For useloop = 0 To cmbWallpaper.ListCount - 1
+        'Compare value.
+        If cmbWallpaper.List(useloop) = thisWallpaper Then
+            'Select it and leave loop.
+            cmbWallpaper.ListIndex = useloop
+            Exit For
+        End If
+    Next useloop
+
+   On Error GoTo 0
+   Exit Sub
+
+selectStoredWallpaper_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure selectStoredWallpaper of Form dockSettings"
 End Sub
 
 
