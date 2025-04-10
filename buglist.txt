@@ -41,11 +41,11 @@
 
 ' fix the drag corner position on form_load
 
+' frame height too long after click
+
 ' higher res. icon images when the form is larger than a certain size
 
 ' theme skin images, higher res. versions create
-
-' higher res. theme skin images when the form is larger than a certain size
 
 ' update the help files WIP
 '

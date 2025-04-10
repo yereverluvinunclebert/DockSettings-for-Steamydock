@@ -587,6 +587,2687 @@ Begin VB.Form dockSettings
       Width           =   1065
    End
    Begin VB.Frame fmeMain 
+      Caption         =   "About SteamyDock"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   8640
+      Index           =   5
+      Left            =   1245
+      TabIndex        =   54
+      ToolTipText     =   "This panel is really a eulogy to Rocketdock plus a few buttons taking you to useful locations and providing additional data"
+      Top             =   45
+      Width           =   6930
+      Begin VB.Frame Frame2 
+         BorderStyle     =   0  'None
+         Height          =   6435
+         Left            =   6825
+         TabIndex        =   219
+         Top             =   2175
+         Width           =   75
+      End
+      Begin VB.Frame fraScrollbarCover 
+         BorderStyle     =   0  'None
+         Height          =   6435
+         Left            =   6570
+         TabIndex        =   218
+         Top             =   2175
+         Width           =   330
+      End
+      Begin VB.TextBox lblAboutText 
+         Appearance      =   0  'Flat
+         BackColor       =   &H8000000F&
+         BorderStyle     =   0  'None
+         Height          =   6390
+         Left            =   165
+         MultiLine       =   -1  'True
+         ScrollBars      =   2  'Vertical
+         TabIndex        =   217
+         Text            =   "dockSettings.frx":D3A7
+         Top             =   2235
+         Width           =   6660
+      End
+      Begin VB.CommandButton btnDonate 
+         Caption         =   "&Donate"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   5115
+         Style           =   1  'Graphical
+         TabIndex        =   98
+         ToolTipText     =   "Opens a browser window and sends you to our donate page on Amazon"
+         Top             =   1545
+         Width           =   1470
+      End
+      Begin VB.CommandButton btnUpdate 
+         Caption         =   "&Update"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   5115
+         Style           =   1  'Graphical
+         TabIndex        =   57
+         ToolTipText     =   "Here you can visit the update location where you can download new versions of the programs used by Rocketdock"
+         Top             =   420
+         Width           =   1470
+      End
+      Begin VB.CommandButton btnFacebook 
+         Caption         =   "&Facebook"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   5115
+         Style           =   1  'Graphical
+         TabIndex        =   56
+         ToolTipText     =   "This will link you to the Rocket/Steamy dock users Group"
+         Top             =   795
+         Width           =   1470
+      End
+      Begin VB.CommandButton btnAboutDebugInfo 
+         Caption         =   "Debug &Info."
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   5115
+         Style           =   1  'Graphical
+         TabIndex        =   55
+         ToolTipText     =   "This gives access to the debugging tool"
+         Top             =   1170
+         Width           =   1470
+      End
+      Begin VB.Label Label20 
+         Caption         =   "(32bit)"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   2985
+         TabIndex        =   207
+         Top             =   510
+         Width           =   1050
+      End
+      Begin VB.Label Label17 
+         Caption         =   "Windows XP, Vista, 7, 8 && 10 + ReactOS"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   1800
+         TabIndex        =   206
+         Top             =   1560
+         Width           =   2955
+      End
+      Begin VB.Label Label10 
+         Caption         =   "Target"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   135
+         TabIndex        =   205
+         Top             =   1560
+         Width           =   1470
+      End
+      Begin VB.Label lblPunklabsLink 
+         BackStyle       =   0  'Transparent
+         Caption         =   "                                                                                                                        "
+         Height          =   225
+         Index           =   0
+         Left            =   2175
+         MousePointer    =   1  'Arrow
+         TabIndex        =   95
+         Top             =   870
+         Width           =   1710
+      End
+      Begin VB.Label lblMinorVersion 
+         BackStyle       =   0  'Transparent
+         Caption         =   "0"
+         BeginProperty Font 
+            Name            =   "Centurion Light SF"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   2175
+         TabIndex        =   74
+         Top             =   510
+         Width           =   225
+      End
+      Begin VB.Label lblMajorVersion 
+         BackStyle       =   0  'Transparent
+         Caption         =   "0"
+         BeginProperty Font 
+            Name            =   "Centurion Light SF"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   1815
+         TabIndex        =   73
+         Top             =   510
+         Width           =   225
+      End
+      Begin VB.Label lblRevisionNum 
+         BackStyle       =   0  'Transparent
+         Caption         =   "0"
+         BeginProperty Font 
+            Name            =   "Centurion Light SF"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   2535
+         TabIndex        =   72
+         Top             =   510
+         Width           =   525
+      End
+      Begin VB.Label lblDotDot 
+         BackStyle       =   0  'Transparent
+         Caption         =   ".        ."
+         BeginProperty Font 
+            Name            =   "Centurion Light SF"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   2010
+         TabIndex        =   71
+         Top             =   510
+         Width           =   495
+      End
+      Begin VB.Label Label63 
+         Caption         =   "Current Developer"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   135
+         TabIndex        =   62
+         Top             =   1215
+         Width           =   1470
+      End
+      Begin VB.Label Label60 
+         Caption         =   "Dean Beedell © 2018"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   1800
+         TabIndex        =   61
+         Top             =   1215
+         Width           =   2175
+      End
+      Begin VB.Label Label74 
+         Caption         =   "Version"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   150
+         TabIndex        =   60
+         Top             =   495
+         Width           =   795
+      End
+      Begin VB.Label Label65 
+         Caption         =   "Originator"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   135
+         TabIndex        =   59
+         Top             =   855
+         Width           =   795
+      End
+      Begin VB.Label Label61 
+         Caption         =   "Punklabs © 2005-2007"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   1800
+         TabIndex        =   58
+         Top             =   855
+         Width           =   2175
+      End
+   End
+   Begin VB.Frame fmeMain 
+      Caption         =   "General Configuration"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   8640
+      Index           =   0
+      Left            =   1230
+      TabIndex        =   1
+      ToolTipText     =   "These are the main settings for the dock"
+      Top             =   15
+      Width           =   6930
+      Begin VB.Frame fraEditors 
+         BorderStyle     =   0  'None
+         Height          =   1665
+         Left            =   825
+         TabIndex        =   222
+         Top             =   6660
+         Width           =   5280
+         Begin VB.CommandButton btnGeneralIconSettingsEditor 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            Style           =   1  'Graphical
+            TabIndex        =   232
+            Top             =   1260
+            Width           =   300
+         End
+         Begin VB.CommandButton btnGeneralDockSettingsEditor 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            Style           =   1  'Graphical
+            TabIndex        =   231
+            Top             =   810
+            Width           =   300
+         End
+         Begin VB.CommandButton btnGeneralDockEditor 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            Style           =   1  'Graphical
+            TabIndex        =   230
+            Top             =   330
+            Width           =   300
+         End
+         Begin VB.TextBox txtIconSettingsDefaultEditor 
+            Enabled         =   0   'False
+            Height          =   315
+            Left            =   1200
+            Locked          =   -1  'True
+            TabIndex        =   227
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   1275
+            Width           =   3585
+         End
+         Begin VB.TextBox txtDockSettingsDefaultEditor 
+            Enabled         =   0   'False
+            Height          =   315
+            Left            =   1200
+            Locked          =   -1  'True
+            TabIndex        =   225
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   795
+            Width           =   3585
+         End
+         Begin VB.TextBox txtDockDefaultEditor 
+            Enabled         =   0   'False
+            Height          =   315
+            Left            =   1200
+            Locked          =   -1  'True
+            TabIndex        =   223
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   345
+            Width           =   3585
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "VB6/TwinBasic Editor VBP or TwinProj file locations:"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   5
+            Left            =   90
+            TabIndex        =   229
+            ToolTipText     =   $"dockSettings.frx":DB1F
+            Top             =   15
+            Width           =   4755
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Icon Settings :"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   1
+            Left            =   90
+            TabIndex        =   228
+            Top             =   1290
+            Width           =   1530
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Dock Settings :"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   0
+            Left            =   90
+            TabIndex        =   226
+            Top             =   840
+            Width           =   1530
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Dock :"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   6
+            Left            =   90
+            TabIndex        =   224
+            Top             =   390
+            Width           =   1530
+         End
+      End
+      Begin VB.CheckBox genChkShowIconSettings 
+         Caption         =   "Automatically display Icon Settings after adding an icon to the dock"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Left            =   945
+         TabIndex        =   209
+         Top             =   6315
+         Width           =   5115
+      End
+      Begin VB.CheckBox chkSplashStatus 
+         Caption         =   "Show Splash Screen at Startup"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   195
+         Left            =   945
+         TabIndex        =   164
+         ToolTipText     =   "Show Splash Screen on Start-up"
+         Top             =   6000
+         Width           =   3735
+      End
+      Begin VB.Frame fraRunAppIndicators 
+         BorderStyle     =   0  'None
+         Height          =   885
+         Left            =   450
+         TabIndex        =   126
+         Top             =   3210
+         Width           =   5955
+         Begin CCRSlider.Slider sliGenRunAppInterval 
+            Height          =   315
+            Left            =   1020
+            TabIndex        =   127
+            ToolTipText     =   "The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   540
+            Width           =   2820
+            _ExtentX        =   4974
+            _ExtentY        =   556
+            Enabled         =   0   'False
+            Min             =   5
+            Max             =   65
+            Value           =   5
+            TickFrequency   =   3
+            SelStart        =   15
+            Transparent     =   -1  'True
+         End
+         Begin VB.Label lblGenRunAppInterval2 
+            Caption         =   "5s"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   255
+            Left            =   795
+            TabIndex        =   131
+            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   420
+            Width           =   630
+         End
+         Begin VB.Label lblGenRunAppInterval3 
+            Caption         =   "65s"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   3900
+            TabIndex        =   130
+            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   420
+            Width           =   585
+         End
+         Begin VB.Label lblGenRunAppIntervalCur 
+            Caption         =   "(15 seconds)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   4635
+            TabIndex        =   129
+            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   420
+            Width           =   1215
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Running Application Check Interval"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   2
+            Left            =   750
+            LinkItem        =   "150"
+            TabIndex        =   128
+            ToolTipText     =   "This function consumes cpu on  low power computers so keep it above 15 secs, preferably 30."
+            Top             =   105
+            Width           =   3210
+         End
+      End
+      Begin VB.CommandButton btnGeneralRdFolder 
+         Caption         =   "..."
+         Enabled         =   0   'False
+         Height          =   300
+         Left            =   5745
+         TabIndex        =   97
+         ToolTipText     =   "Select the folder location of Rocketdock here"
+         Top             =   5475
+         Visible         =   0   'False
+         Width           =   300
+      End
+      Begin VB.CheckBox chkGenRun 
+         Caption         =   "Running Application Indicators"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   930
+         TabIndex        =   11
+         ToolTipText     =   $"dockSettings.frx":DBE9
+         Top             =   2880
+         Width           =   2985
+      End
+      Begin VB.CheckBox chkGenDisableAnim 
+         Caption         =   "Disable Minimise Animations"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   3585
+         TabIndex        =   10
+         ToolTipText     =   "If you dislike the minimise animation, click this"
+         Top             =   2505
+         Value           =   1  'Checked
+         Visible         =   0   'False
+         Width           =   2520
+      End
+      Begin VB.CheckBox chkGenOpen 
+         Caption         =   "Open Running Application Instance"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   930
+         TabIndex        =   12
+         ToolTipText     =   "If you click on an icon that is already running then it can open it or fire up another instance"
+         Top             =   4185
+         Width           =   3030
+      End
+      Begin VB.TextBox txtGeneralRdLocation 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   915
+         Locked          =   -1  'True
+         TabIndex        =   68
+         Text            =   "C:\programs"
+         ToolTipText     =   "This is the extrapolated location of the currently selected dock. This is for information only."
+         Top             =   5460
+         Width           =   4710
+      End
+      Begin VB.ComboBox cmbDefaultDock 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         ItemData        =   "dockSettings.frx":DC88
+         Left            =   2085
+         List            =   "dockSettings.frx":DC92
+         Locked          =   -1  'True
+         TabIndex        =   66
+         Text            =   "Rocketdock"
+         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock, these utilities are compatible with both"
+         Top             =   4710
+         Width           =   2310
+      End
+      Begin VB.CheckBox chkGenMin 
+         Caption         =   "Minimise Windows to the Dock"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   3300
+         TabIndex        =   9
+         ToolTipText     =   "This allows running applications to appear in the dock"
+         Top             =   2175
+         Visible         =   0   'False
+         Width           =   3075
+      End
+      Begin VB.CheckBox chkGenWinStartup 
+         Caption         =   "Run at Startup"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Left            =   915
+         TabIndex        =   2
+         ToolTipText     =   "This will cause the current dock to run when Windows starts"
+         Top             =   495
+         Width           =   1440
+      End
+      Begin VB.Frame fraWriteOptionButtons 
+         BorderStyle     =   0  'None
+         Height          =   450
+         Left            =   510
+         TabIndex        =   151
+         Top             =   1755
+         Width           =   6165
+         Begin VB.OptionButton optGeneralWriteConfig 
+            Caption         =   "Write Settings to SteamyDock's Own Configuration Area"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   390
+            TabIndex        =   152
+            ToolTipText     =   $"dockSettings.frx":DCAE
+            Top             =   15
+            Width           =   5325
+         End
+      End
+      Begin VB.Frame fraReadOptionButtons 
+         BorderStyle     =   0  'None
+         Height          =   1080
+         Left            =   540
+         TabIndex        =   132
+         Top             =   690
+         Width           =   6315
+         Begin VB.OptionButton optGeneralReadSettings 
+            Caption         =   "Read Settings from Rocketdock's portable SETTINGS.INI (single-user)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   360
+            TabIndex        =   135
+            ToolTipText     =   "Store configuration in Rocketdock's program files folder, causes security issues and requires admin access,"
+            Top             =   165
+            Width           =   5500
+         End
+         Begin VB.OptionButton optGeneralReadRegistry 
+            Caption         =   "Read Settings from RocketDock's Registry (multi-user)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   360
+            TabIndex        =   134
+            ToolTipText     =   $"dockSettings.frx":DD43
+            Top             =   465
+            Width           =   5500
+         End
+         Begin VB.OptionButton optGeneralReadConfig 
+            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   360
+            TabIndex        =   133
+            ToolTipText     =   $"dockSettings.frx":DE06
+            Top             =   780
+            Width           =   5565
+         End
+         Begin VB.Label lbloptGeneralReadConfig 
+            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   630
+            TabIndex        =   211
+            Top             =   780
+            Width           =   5115
+         End
+      End
+      Begin VB.Label lblSquiggle 
+         Caption         =   "-oOo-"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   2310
+         TabIndex        =   233
+         ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+         Top             =   2340
+         Width           =   1215
+      End
+      Begin VB.Label lblGenLabel 
+         Caption         =   "Dock Folder Location"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   4
+         Left            =   915
+         TabIndex        =   96
+         ToolTipText     =   $"dockSettings.frx":DE9B
+         Top             =   5190
+         Width           =   1695
+      End
+      Begin VB.Label lblGenLabel 
+         Caption         =   "Default Dock"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   3
+         Left            =   915
+         TabIndex        =   67
+         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
+         Top             =   4740
+         Width           =   1530
+      End
+   End
+   Begin VB.Frame fmeMain 
+      Caption         =   "Desktop Wallpaper Settings "
+      Height          =   8595
+      Index           =   6
+      Left            =   1230
+      TabIndex        =   253
+      Top             =   45
+      Width           =   6930
+      Begin VB.ComboBox cmbWallpaperTimerInterval 
+         Enabled         =   0   'False
+         Height          =   315
+         Left            =   1905
+         TabIndex        =   261
+         Text            =   "5"
+         Top             =   2220
+         Width           =   1680
+      End
+      Begin VB.CheckBox chkWallpaperTimer 
+         Caption         =   "Enable Automatic Wallpaper Change"
+         Height          =   300
+         Left            =   1905
+         TabIndex        =   260
+         Top             =   1695
+         Width           =   3360
+      End
+      Begin VB.CommandButton btnApplyWallpaper 
+         Caption         =   "&Change"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   405
+         Left            =   4995
+         Style           =   1  'Graphical
+         TabIndex        =   258
+         ToolTipText     =   "This will save your changes and restart the dock."
+         Top             =   6405
+         Width           =   1335
+      End
+      Begin VB.ComboBox cmbWallpaper 
+         Height          =   315
+         Left            =   1905
+         TabIndex        =   257
+         Text            =   "wallpaper1"
+         Top             =   675
+         Width           =   4245
+      End
+      Begin VB.ComboBox cmbWallpaperStyle 
+         Height          =   315
+         Left            =   1905
+         TabIndex        =   254
+         Text            =   "Centre"
+         Top             =   1200
+         Width           =   1680
+      End
+      Begin VB.Frame fmeWallpaperPreview 
+         Height          =   3720
+         Left            =   525
+         TabIndex        =   265
+         Top             =   2580
+         Width           =   5970
+         Begin VB.Image imgWallpaperPreview 
+            BorderStyle     =   1  'Fixed Single
+            Height          =   3300
+            Left            =   150
+            Stretch         =   -1  'True
+            Top             =   240
+            Width           =   5640
+         End
+      End
+      Begin VB.Label lblWallpaper 
+         Caption         =   "Auto-Timer:"
+         Height          =   300
+         Index           =   5
+         Left            =   705
+         TabIndex        =   264
+         Top             =   1725
+         Width           =   1275
+      End
+      Begin VB.Label lblWallpaper 
+         Caption         =   "(DaysHhrs/Mins)"
+         Enabled         =   0   'False
+         Height          =   300
+         Index           =   4
+         Left            =   3810
+         TabIndex        =   263
+         Top             =   2250
+         Width           =   1275
+      End
+      Begin VB.Label lblWallpaper 
+         Caption         =   "Interval :"
+         Enabled         =   0   'False
+         Height          =   300
+         Index           =   3
+         Left            =   720
+         TabIndex        =   262
+         Top             =   2235
+         Width           =   1275
+      End
+      Begin VB.Label lblWallpaper 
+         Caption         =   "Use mouse scrollwheel up+ down to preview the available wallpapers."
+         Height          =   555
+         Index           =   2
+         Left            =   720
+         TabIndex        =   259
+         Top             =   6465
+         Width           =   4080
+      End
+      Begin VB.Label lblWallpaper 
+         Caption         =   "Wallpaper :"
+         Height          =   300
+         Index           =   1
+         Left            =   720
+         TabIndex        =   256
+         Top             =   705
+         Width           =   1275
+      End
+      Begin VB.Label lblWallpaper 
+         Caption         =   "Positioning :"
+         Height          =   300
+         Index           =   0
+         Left            =   705
+         TabIndex        =   255
+         Top             =   1230
+         Width           =   1275
+      End
+   End
+   Begin VB.Frame fmeMain 
+      Caption         =   "Icon && Dock Behaviour"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   8640
+      Index           =   2
+      Left            =   1230
+      TabIndex        =   53
+      ToolTipText     =   "Here you can control the behaviour of the animation effects"
+      Top             =   45
+      Width           =   6930
+      Begin VB.ComboBox cmbBehaviourSoundSelection 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         ItemData        =   "dockSettings.frx":DF65
+         Left            =   2190
+         List            =   "dockSettings.frx":DF72
+         TabIndex        =   221
+         Text            =   "None"
+         Top             =   6150
+         Width           =   2620
+      End
+      Begin VB.CheckBox chkRetainIcons 
+         Caption         =   "Retain Original Icons when dragging to the dock"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   2190
+         TabIndex        =   215
+         Top             =   5610
+         Width           =   4455
+      End
+      Begin VB.CheckBox chkGenLock 
+         Caption         =   "Disable Drag/Drop and Icon Deletion"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   2190
+         TabIndex        =   213
+         ToolTipText     =   "This is an essential option that stops you accidentally deleting your dock icons, ensure it is ticked!"
+         Top             =   5130
+         Width           =   4500
+      End
+      Begin VB.ComboBox cmbHidingKey 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         ItemData        =   "dockSettings.frx":DF96
+         Left            =   2190
+         List            =   "dockSettings.frx":DFC1
+         TabIndex        =   204
+         Text            =   "F11"
+         ToolTipText     =   "This is the key sequence that is used to hide or restore Steamydock"
+         Top             =   4515
+         Width           =   2620
+      End
+      Begin VB.Frame Frame1 
+         BorderStyle     =   0  'None
+         Height          =   720
+         Left            =   465
+         TabIndex        =   197
+         Top             =   3675
+         Width           =   6120
+         Begin CCRSlider.Slider sliContinuousHide 
+            Height          =   315
+            Left            =   1575
+            TabIndex        =   198
+            ToolTipText     =   "Determine how long Steamydock will disappear when told to hide using F11"
+            Top             =   240
+            Width           =   2820
+            _ExtentX        =   4974
+            _ExtentY        =   556
+            Min             =   1
+            Max             =   120
+            Value           =   1
+            TickFrequency   =   3
+            SelStart        =   1
+         End
+         Begin VB.Label lblBehaviourLabel 
+            Caption         =   "1 min"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   11
+            Left            =   1170
+            TabIndex        =   199
+            ToolTipText     =   "Determine how long Steamydock will disappear when told to go away"
+            Top             =   285
+            Width           =   600
+         End
+         Begin VB.Label lblBehaviourLabel 
+            Caption         =   "Continuous Hide"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   5
+            Left            =   45
+            LinkItem        =   "150"
+            TabIndex        =   202
+            ToolTipText     =   "Determine how long Steamydock will disappear when told to hide for the next few minutes"
+            Top             =   -30
+            Width           =   1350
+         End
+         Begin VB.Label lblContinuousHideMsCurrent 
+            Caption         =   "(30) mins"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   4950
+            TabIndex        =   201
+            ToolTipText     =   "Determine how long Steamydock will disappear when told to go away"
+            Top             =   285
+            Width           =   1185
+         End
+         Begin VB.Label lblContinuousHideMsHigh 
+            Caption         =   "120m"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   4440
+            TabIndex        =   200
+            ToolTipText     =   "Determine how long Steamydock will disappear when told to go away"
+            Top             =   285
+            Width           =   405
+         End
+      End
+      Begin VB.Frame fraAutoHideType 
+         BorderStyle     =   0  'None
+         Height          =   1020
+         Left            =   375
+         TabIndex        =   192
+         Top             =   465
+         Width           =   5325
+         Begin VB.ComboBox cmbBehaviourAutoHideType 
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            ItemData        =   "dockSettings.frx":E002
+            Left            =   1770
+            List            =   "dockSettings.frx":E00F
+            TabIndex        =   196
+            Text            =   "Fade"
+            ToolTipText     =   "The type of auto-hide, fade, instant or a slide like Rocketdock"
+            Top             =   510
+            Width           =   2620
+         End
+         Begin VB.CheckBox chkBehaviourAutoHide 
+            Caption         =   "On/Off"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Left            =   90
+            TabIndex        =   195
+            ToolTipText     =   "You can determine whether the dock will auto-hide or not"
+            Top             =   480
+            Width           =   2235
+         End
+         Begin VB.ComboBox cmbBehaviourActivationFX 
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            ItemData        =   "dockSettings.frx":E029
+            Left            =   1770
+            List            =   "dockSettings.frx":E036
+            TabIndex        =   193
+            Text            =   "Bounce"
+            ToolTipText     =   $"dockSettings.frx":E05A
+            Top             =   0
+            Width           =   2620
+         End
+         Begin VB.Label lblBehaviourLabel 
+            Caption         =   "Icon Attention Effect"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   0
+            Left            =   90
+            LinkItem        =   "150"
+            TabIndex        =   194
+            ToolTipText     =   $"dockSettings.frx":E0EE
+            Top             =   45
+            Width           =   1605
+         End
+      End
+      Begin VB.Frame fraAutoHideDuration 
+         BorderStyle     =   0  'None
+         Height          =   645
+         Left            =   450
+         TabIndex        =   186
+         Top             =   1500
+         Width           =   6180
+         Begin CCRSlider.Slider sliBehaviourAutoHideDuration 
+            Height          =   315
+            Left            =   1590
+            TabIndex        =   187
+            ToolTipText     =   "The speed at which the dock auto-hide animation will occur"
+            Top             =   270
+            Width           =   2820
+            _ExtentX        =   4974
+            _ExtentY        =   556
+            Enabled         =   0   'False
+            Min             =   1
+            Max             =   5000
+            Value           =   1
+            TickFrequency   =   100
+            SelStart        =   1
+         End
+         Begin VB.Label lblBehaviourLabel 
+            Caption         =   "1ms"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   8
+            Left            =   1140
+            TabIndex        =   191
+            ToolTipText     =   "The speed at which the dock auto-hide animation will occur"
+            Top             =   315
+            Width           =   630
+         End
+         Begin VB.Label lblAutoHideDurationMsHigh 
+            Caption         =   "5000ms"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   4425
+            TabIndex        =   190
+            ToolTipText     =   "The speed at which the dock auto-hide animation will occur"
+            Top             =   315
+            Width           =   585
+         End
+         Begin VB.Label lblAutoHideDurationMsCurrent 
+            Caption         =   "(250)"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   5085
+            TabIndex        =   189
+            ToolTipText     =   "The speed at which the dock auto-hide animation will occur"
+            Top             =   315
+            Width           =   525
+         End
+         Begin VB.Label lblBehaviourLabel 
+            Caption         =   "AutoHide Duration"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   2
+            Left            =   45
+            LinkItem        =   "150"
+            TabIndex        =   188
+            ToolTipText     =   "The speed at which the dock auto-hide animation will occur"
+            Top             =   0
+            Width           =   1605
+         End
+      End
+      Begin VB.Frame Frame 
+         BorderStyle     =   0  'None
+         Height          =   720
+         Index           =   0
+         Left            =   420
+         TabIndex        =   180
+         Top             =   2175
+         Width           =   5805
+         Begin CCRSlider.Slider sliBehaviourPopUpDelay 
+            Height          =   315
+            Left            =   1620
+            TabIndex        =   181
+            ToolTipText     =   "The dock mouse-over delay period"
+            Top             =   315
+            Width           =   2820
+            _ExtentX        =   4974
+            _ExtentY        =   556
+            Min             =   1
+            Max             =   1000
+            Value           =   1
+            TickFrequency   =   20
+            SelStart        =   1
+         End
+         Begin VB.Label lblBehaviourLabel 
+            Caption         =   "1ms"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   9
+            Left            =   1185
+            TabIndex        =   185
+            ToolTipText     =   "The dock mouse-over delay period"
+            Top             =   345
+            Visible         =   0   'False
+            Width           =   420
+         End
+         Begin VB.Label lblBehaviourLabel 
+            Caption         =   "AutoReveal Duration"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   3
+            Left            =   90
+            LinkItem        =   "150"
+            TabIndex        =   184
+            ToolTipText     =   "The dock mouse-over delay period"
+            Top             =   0
+            Width           =   1965
+         End
+         Begin VB.Label lblBehaviourPopUpDelayMsCurrrent 
+            Caption         =   "(0)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   5100
+            TabIndex        =   183
+            ToolTipText     =   "The dock mouse-over delay period"
+            Top             =   345
+            Width           =   480
+         End
+         Begin VB.Label lblAutoRevealDurationMsHigh 
+            Caption         =   "1000ms"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   4455
+            TabIndex        =   182
+            ToolTipText     =   "The dock mouse-over delay period"
+            Top             =   345
+            Width           =   585
+         End
+      End
+      Begin VB.Frame fraAutoHideDelay 
+         BorderStyle     =   0  'None
+         Height          =   660
+         Left            =   435
+         TabIndex        =   174
+         Top             =   2970
+         Width           =   6120
+         Begin CCRSlider.Slider sliBehaviourAutoHideDelay 
+            Height          =   315
+            Left            =   1605
+            TabIndex        =   175
+            ToolTipText     =   "Determine the delay between the last usage of the dock and when it will auto-hide"
+            Top             =   240
+            Width           =   2820
+            _ExtentX        =   4974
+            _ExtentY        =   556
+            Enabled         =   0   'False
+            Max             =   2000
+            TickFrequency   =   200
+         End
+         Begin VB.Label lblBehaviourLabel 
+            Caption         =   "3s"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   10
+            Left            =   1245
+            TabIndex        =   179
+            ToolTipText     =   "Determine the delay between the last usage of the dock and when it will auto-hide"
+            Top             =   285
+            Width           =   600
+         End
+         Begin VB.Label lblAutoHideDelayMsHigh 
+            Caption         =   "5s"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   4440
+            TabIndex        =   178
+            ToolTipText     =   "Determine the delay between the last usage of the dock and when it will auto-hide"
+            Top             =   285
+            Width           =   405
+         End
+         Begin VB.Label lblAutoHideDelayMsCurrent 
+            Caption         =   "(5) secs"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   4950
+            TabIndex        =   177
+            ToolTipText     =   "Determine the delay between the last usage of the dock and when it will auto-hide"
+            Top             =   285
+            Width           =   1185
+         End
+         Begin VB.Label lblBehaviourLabel 
+            Caption         =   "AutoHide Delay"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   4
+            Left            =   105
+            LinkItem        =   "150"
+            TabIndex        =   176
+            ToolTipText     =   "Determine the delay between the last usage of the dock and when it will auto-hide"
+            Top             =   -30
+            Width           =   1350
+         End
+      End
+      Begin VB.CheckBox chkBehaviourMouseActivate 
+         Caption         =   "Pop-up on Mouseover"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   270
+         Left            =   4380
+         TabIndex        =   173
+         ToolTipText     =   "Essential functionality for the dock - pops up when  given focus"
+         Top             =   8070
+         Visible         =   0   'False
+         Width           =   2235
+      End
+      Begin VB.Frame fraAnimationInterval 
+         BorderStyle     =   0  'None
+         Height          =   825
+         Left            =   195
+         TabIndex        =   153
+         Top             =   6930
+         Width           =   6180
+         Begin CCRSlider.Slider sliAnimationInterval 
+            Height          =   315
+            Left            =   1890
+            TabIndex        =   154
+            ToolTipText     =   $"dockSettings.frx":E180
+            Top             =   285
+            Width           =   2775
+            _ExtentX        =   4895
+            _ExtentY        =   556
+            Enabled         =   0   'False
+            Min             =   1
+            Max             =   20
+            Value           =   10
+            TickFrequency   =   5
+            SelStart        =   1
+         End
+         Begin VB.Label lblAnimationIntervalMsLow 
+            Caption         =   "1ms"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   1500
+            TabIndex        =   158
+            ToolTipText     =   "Certain CPUs may operate better with a different animation interval, 1ms = 1,000 animations per second"
+            Top             =   315
+            Width           =   630
+         End
+         Begin VB.Label lblAnimationIntervalMsHigh 
+            Caption         =   "20ms"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   4680
+            TabIndex        =   157
+            ToolTipText     =   "Certain CPUs may operate better with a different animation interval, 1ms = 1,000 animations per second"
+            Top             =   315
+            Width           =   585
+         End
+         Begin VB.Label lblAnimationIntervalMsCurrent 
+            Caption         =   "(20)"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   5265
+            TabIndex        =   156
+            ToolTipText     =   "Certain CPUs may operate better with a different animation interval, 1ms = 1,000 animations per second"
+            Top             =   315
+            Width           =   525
+         End
+         Begin VB.Label lblBehaviourLabel 
+            Caption         =   "Animation Interval"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   7
+            Left            =   345
+            LinkItem        =   "150"
+            TabIndex        =   155
+            ToolTipText     =   "Certain CPUs may operate better with a different animation interval, 1ms = 1,000 animations per second"
+            Top             =   15
+            Width           =   1605
+         End
+      End
+      Begin VB.Frame fraIconEffect 
+         BorderStyle     =   0  'None
+         Height          =   480
+         Left            =   105
+         TabIndex        =   99
+         Top             =   945
+         Width           =   5025
+      End
+      Begin VB.Label lblBehaviourLabel 
+         Caption         =   "Sound Selection"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   300
+         Index           =   15
+         Left            =   540
+         TabIndex        =   220
+         Top             =   6195
+         Width           =   1440
+      End
+      Begin VB.Label lblBehaviourLabel 
+         Caption         =   "Icon Origin"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   300
+         Index           =   14
+         Left            =   540
+         TabIndex        =   216
+         ToolTipText     =   "The original icons may be low quality."
+         Top             =   5670
+         Width           =   1440
+      End
+      Begin VB.Label lblBehaviourLabel 
+         Caption         =   "Lock the Dock"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   300
+         Index           =   13
+         Left            =   540
+         TabIndex        =   214
+         ToolTipText     =   "This is an essential option that stops you accidentally deleting your dock icons, ensure it is ticked!"
+         Top             =   5190
+         Width           =   1440
+      End
+      Begin VB.Label lblBehaviourLabel 
+         Caption         =   "Dock Hiding Key"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Index           =   6
+         Left            =   525
+         LinkItem        =   "150"
+         TabIndex        =   203
+         ToolTipText     =   "This is the key sequence that is used to hide or restore Steamydock"
+         Top             =   4545
+         Width           =   1440
+      End
+      Begin VB.Label lblBehaviourLabel 
+         Caption         =   $"dockSettings.frx":E20F
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   690
+         Index           =   12
+         Left            =   1740
+         TabIndex        =   170
+         Top             =   7755
+         Width           =   4485
+      End
+   End
+   Begin VB.Frame fmeMain 
+      Caption         =   "Style Themes and Fonts"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   8640
+      Index           =   3
+      Left            =   1230
+      TabIndex        =   39
+      ToolTipText     =   "This panel allows you to change the styling of the icon labels and the dock background image"
+      Top             =   15
+      Width           =   6930
+      Begin VB.CheckBox chkLabelBackgrounds 
+         Caption         =   "Enable Label Backgrounds"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   270
+         Left            =   3525
+         TabIndex        =   171
+         ToolTipText     =   "You can toggle the icon label background on/off here"
+         Top             =   4065
+         Width           =   2490
+      End
+      Begin VB.Frame fraFontOpacity 
+         BorderStyle     =   0  'None
+         Height          =   1590
+         Left            =   210
+         TabIndex        =   100
+         ToolTipText     =   "The theme background "
+         Top             =   6750
+         Width           =   6525
+         Begin CCRSlider.Slider sliStyleShadowOpacity 
+            Height          =   330
+            Left            =   1875
+            TabIndex        =   101
+            ToolTipText     =   "The strength of the shadow can be altered here"
+            Top             =   750
+            Width           =   2820
+            _ExtentX        =   4974
+            _ExtentY        =   582
+            Max             =   100
+            TickFrequency   =   10
+         End
+         Begin CCRSlider.Slider sliStyleOutlineOpacity 
+            Height          =   330
+            Left            =   1875
+            TabIndex        =   102
+            ToolTipText     =   "The label outline transparency, use the slider to change"
+            Top             =   1245
+            Width           =   2820
+            _ExtentX        =   4974
+            _ExtentY        =   582
+            Max             =   100
+            TickFrequency   =   10
+         End
+         Begin CCRSlider.Slider sliStyleFontOpacity 
+            Height          =   330
+            Left            =   1875
+            TabIndex        =   165
+            ToolTipText     =   "The font transparency can be changed here"
+            Top             =   240
+            Width           =   2820
+            _ExtentX        =   4974
+            _ExtentY        =   582
+            Max             =   100
+            TickFrequency   =   10
+         End
+         Begin VB.Label lblStyleLabel 
+            Caption         =   "0%"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Index           =   8
+            Left            =   1635
+            TabIndex        =   169
+            ToolTipText     =   "The font transparency can be changed here"
+            Top             =   270
+            Width           =   540
+         End
+         Begin VB.Label Label30 
+            Caption         =   "100%"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Left            =   4680
+            TabIndex        =   168
+            ToolTipText     =   "The font transparency can be changed here"
+            Top             =   270
+            Width           =   555
+         End
+         Begin VB.Label lblStyleFontOpacityCurrent 
+            Caption         =   "(0%)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Left            =   5325
+            TabIndex        =   167
+            ToolTipText     =   "The font transparency can be changed here"
+            Top             =   255
+            Width           =   630
+         End
+         Begin VB.Label lblStyleLabel 
+            Caption         =   "Font Opacity"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Index           =   3
+            Left            =   480
+            TabIndex        =   166
+            ToolTipText     =   "The font transparency can be changed here"
+            Top             =   -15
+            Width           =   1350
+         End
+         Begin VB.Label lblStyleLabel 
+            Caption         =   "Outline Opacity"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Index           =   5
+            Left            =   450
+            TabIndex        =   110
+            ToolTipText     =   "The label outline transparency, use the slider to change"
+            Top             =   975
+            Width           =   1365
+         End
+         Begin VB.Label lblStyleOutlineOpacityCurrent 
+            Caption         =   "(0%)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Left            =   5325
+            TabIndex        =   109
+            ToolTipText     =   "The label outline transparency, use the slider to change"
+            Top             =   1290
+            Width           =   630
+         End
+         Begin VB.Label Label35 
+            Caption         =   "100%"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Left            =   4665
+            TabIndex        =   108
+            ToolTipText     =   "The label outline transparency, use the slider to change"
+            Top             =   1290
+            Width           =   585
+         End
+         Begin VB.Label lblStyleLabel 
+            Caption         =   "0%"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Index           =   10
+            Left            =   1635
+            TabIndex        =   107
+            ToolTipText     =   "The label outline transparency, use the slider to change"
+            Top             =   1290
+            Width           =   630
+         End
+         Begin VB.Label lblStyleLabel 
+            Caption         =   "Shadow Opacity"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Index           =   4
+            Left            =   465
+            TabIndex        =   106
+            ToolTipText     =   "The strength of the shadow can be altered here"
+            Top             =   480
+            Width           =   1350
+         End
+         Begin VB.Label lblStyleShadowOpacityCurrent 
+            Caption         =   "(0%)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Left            =   5325
+            TabIndex        =   105
+            ToolTipText     =   "The strength of the shadow can be altered here"
+            Top             =   765
+            Width           =   630
+         End
+         Begin VB.Label Label39 
+            Caption         =   "100%"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Left            =   4680
+            TabIndex        =   104
+            ToolTipText     =   "The strength of the shadow can be altered here"
+            Top             =   780
+            Width           =   555
+         End
+         Begin VB.Label lblStyleLabel 
+            Caption         =   "0%"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   240
+            Index           =   9
+            Left            =   1635
+            TabIndex        =   103
+            ToolTipText     =   "The strength of the shadow can be altered here"
+            Top             =   780
+            Width           =   540
+         End
+      End
+      Begin VB.PictureBox picStylePreview 
+         Height          =   735
+         Left            =   630
+         ScaleHeight     =   675
+         ScaleWidth      =   5280
+         TabIndex        =   51
+         ToolTipText     =   $"dockSettings.frx":E2A1
+         Top             =   4440
+         Width           =   5340
+         Begin VB.Label lblPreviewFont 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "Preview"
+            ForeColor       =   &H0000FFFF&
+            Height          =   195
+            Left            =   2355
+            TabIndex        =   52
+            Top             =   255
+            Width           =   570
+         End
+         Begin VB.Label lblPreviewFontShadow 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "Preview"
+            Height          =   195
+            Left            =   2400
+            TabIndex        =   143
+            Top             =   285
+            Width           =   570
+         End
+         Begin VB.Label lblPreviewLeft 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "Preview"
+            ForeColor       =   &H000000FF&
+            Height          =   195
+            Left            =   2340
+            TabIndex        =   144
+            Top             =   255
+            Width           =   570
+         End
+         Begin VB.Label lblPreviewRight 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "Preview"
+            ForeColor       =   &H000000FF&
+            Height          =   195
+            Left            =   2370
+            TabIndex        =   145
+            Top             =   255
+            Width           =   630
+         End
+         Begin VB.Label lblPreviewTop 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "Preview"
+            ForeColor       =   &H000000FF&
+            Height          =   195
+            Left            =   2355
+            TabIndex        =   146
+            Top             =   240
+            Width           =   570
+         End
+         Begin VB.Label lblPreviewBottom 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "Preview"
+            ForeColor       =   &H000000FF&
+            Height          =   195
+            Left            =   2355
+            TabIndex        =   147
+            Top             =   270
+            Width           =   570
+         End
+         Begin VB.Label lblPreviewFontShadow2 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "Preview"
+            Height          =   195
+            Left            =   2415
+            TabIndex        =   148
+            Top             =   285
+            Width           =   570
+         End
+      End
+      Begin VB.CommandButton btnStyleOutline 
+         Caption         =   "&Outline Colour"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   630
+         Style           =   1  'Graphical
+         TabIndex        =   50
+         ToolTipText     =   "The colour of the outline, click the button to change"
+         Top             =   6180
+         Width           =   1470
+      End
+      Begin VB.CommandButton btnStyleShadow 
+         Caption         =   "&Shadow Colour"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   630
+         Style           =   1  'Graphical
+         TabIndex        =   49
+         ToolTipText     =   "The colour of the shadow, click the button to change"
+         Top             =   5775
+         Width           =   1470
+      End
+      Begin VB.CommandButton btnStyleFont 
+         Caption         =   "Select &Font"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   630
+         Style           =   1  'Graphical
+         TabIndex        =   48
+         ToolTipText     =   "The font used in the labels, click the button to change"
+         Top             =   5370
+         Width           =   1470
+      End
+      Begin VB.CheckBox chkStyleDisable 
+         Caption         =   "Disable Icon Labels"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   270
+         Left            =   630
+         TabIndex        =   47
+         ToolTipText     =   "You can toggle the icon labels on/off here"
+         Top             =   4065
+         Width           =   2235
+      End
+      Begin VB.ComboBox cmbStyleTheme 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         ItemData        =   "dockSettings.frx":E32B
+         Left            =   2205
+         List            =   "dockSettings.frx":E32D
+         TabIndex        =   40
+         ToolTipText     =   "The dock background theme can be selected here"
+         Top             =   405
+         Width           =   2520
+      End
+      Begin CCRSlider.Slider sliStyleOpacity 
+         Height          =   315
+         Left            =   2085
+         TabIndex        =   42
+         ToolTipText     =   "The theme background opacity is set here"
+         Top             =   900
+         Width           =   2820
+         _ExtentX        =   4974
+         _ExtentY        =   556
+         Max             =   100
+         TickFrequency   =   10
+      End
+      Begin CCRSlider.Slider sliStyleThemeSize 
+         Height          =   315
+         Left            =   2085
+         TabIndex        =   159
+         ToolTipText     =   "The theme background overall size is set here"
+         Top             =   1335
+         Width           =   2820
+         _ExtentX        =   4974
+         _ExtentY        =   556
+         Min             =   1
+         Max             =   177
+         Value           =   30
+         TickFrequency   =   10
+         SelStart        =   50
+      End
+      Begin VB.Image imgThemeSample 
+         BorderStyle     =   1  'Fixed Single
+         Height          =   2070
+         Left            =   645
+         Picture         =   "dockSettings.frx":E32F
+         Top             =   1800
+         Width           =   5430
+      End
+      Begin VB.Label lblChkLabelBackgrounds 
+         Caption         =   "Enable Label Backgrounds"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   195
+         Left            =   3795
+         TabIndex        =   172
+         ToolTipText     =   "You can toggle the icon label background on/off here"
+         Top             =   4080
+         Visible         =   0   'False
+         Width           =   1935
+      End
+      Begin VB.Label lblStyleLabel 
+         Caption         =   "1px"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   7
+         Left            =   1650
+         TabIndex        =   160
+         Top             =   1380
+         Width           =   495
+      End
+      Begin VB.Label lblStyleLabel 
+         Caption         =   "Theme Size"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   2
+         Left            =   660
+         TabIndex        =   163
+         ToolTipText     =   "The theme background overall size is set here"
+         Top             =   1380
+         Width           =   945
+      End
+      Begin VB.Label lblStyleSizeCurrent 
+         Caption         =   "(118px)"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   5535
+         TabIndex        =   162
+         Top             =   1380
+         Width           =   630
+      End
+      Begin VB.Label lblThemeSizeTextHigh 
+         Caption         =   "118px"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   4905
+         TabIndex        =   161
+         Top             =   1380
+         Width           =   585
+      End
+      Begin VB.Label Label999 
+         Height          =   375
+         Left            =   720
+         TabIndex        =   142
+         Top             =   7560
+         Width           =   4215
+      End
+      Begin VB.Label lblStyleLabel 
+         Caption         =   "0%"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   6
+         Left            =   1815
+         TabIndex        =   46
+         Top             =   945
+         Width           =   420
+      End
+      Begin VB.Label lblStyleOutlineColourDesc 
+         Caption         =   "Shadow Colour: "
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   2265
+         TabIndex        =   70
+         Top             =   6225
+         Width           =   2700
+      End
+      Begin VB.Label lblStyleFontFontShadowColor 
+         Caption         =   "Shadow Colour:"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   2265
+         TabIndex        =   69
+         ToolTipText     =   "The colour of the shadow, click the button to change"
+         Top             =   5820
+         Width           =   2490
+      End
+      Begin VB.Label lblStyleFontOutlineTest 
+         Caption         =   "Test"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   5130
+         TabIndex        =   65
+         ToolTipText     =   "The colour of the outline, click the button to change"
+         Top             =   6225
+         Width           =   390
+      End
+      Begin VB.Label lblStyleFontFontShadowTest 
+         Caption         =   "Test"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   5130
+         TabIndex        =   64
+         ToolTipText     =   "The colour of the shadow, click the button to change"
+         Top             =   5820
+         Width           =   450
+      End
+      Begin VB.Label lblStyleFontName 
+         Caption         =   "Font : Open Sans"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   2265
+         TabIndex        =   63
+         ToolTipText     =   "The font used in the labels, click the button to change"
+         Top             =   5445
+         Width           =   3765
+      End
+      Begin VB.Label Label44 
+         Caption         =   "100%"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   4905
+         TabIndex        =   45
+         Top             =   945
+         Width           =   585
+      End
+      Begin VB.Label lblStyleOpacityCurrent 
+         Caption         =   "(0%)"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   5535
+         TabIndex        =   44
+         Top             =   945
+         Width           =   630
+      End
+      Begin VB.Label lblStyleLabel 
+         Caption         =   "Opacity"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   1
+         Left            =   675
+         TabIndex        =   43
+         ToolTipText     =   "The theme background opacity is set here"
+         Top             =   945
+         Width           =   1050
+      End
+      Begin VB.Label lblStyleLabel 
+         Caption         =   "Theme"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   0
+         Left            =   675
+         TabIndex        =   41
+         ToolTipText     =   "The dock background theme can be selected here"
+         Top             =   435
+         Width           =   795
+      End
+   End
+   Begin VB.Frame fmeMain 
       Caption         =   "Position the Dock"
       BeginProperty Font 
          Name            =   "Arial"
@@ -623,9 +3304,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":D3A7
+         ItemData        =   "dockSettings.frx":11E59
          Left            =   2190
-         List            =   "dockSettings.frx":D3B4
+         List            =   "dockSettings.frx":11E66
          TabIndex        =   37
          Text            =   "Always Below"
          ToolTipText     =   "Should the dock appear on top of other windows or underneath?"
@@ -643,9 +3324,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":D3DD
+         ItemData        =   "dockSettings.frx":11E8F
          Left            =   2205
-         List            =   "dockSettings.frx":D3F3
+         List            =   "dockSettings.frx":11EA5
          TabIndex        =   26
          Text            =   "Monitor 1"
          ToolTipText     =   "Here you can determine upon which monitor the dock will appear"
@@ -663,9 +3344,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":D439
+         ItemData        =   "dockSettings.frx":11EEB
          Left            =   2190
-         List            =   "dockSettings.frx":D449
+         List            =   "dockSettings.frx":11EFB
          TabIndex        =   25
          Text            =   "Bottom"
          ToolTipText     =   "Place the dock at your preferred location. Steamydock only supports top and bottom positions"
@@ -1253,12 +3934,12 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":D467
+         ItemData        =   "dockSettings.frx":11F19
          Left            =   2160
-         List            =   "dockSettings.frx":D474
+         List            =   "dockSettings.frx":11F26
          TabIndex        =   78
          Text            =   "Low quality (Faster)"
-         ToolTipText     =   $"dockSettings.frx":D4B6
+         ToolTipText     =   $"dockSettings.frx":11F68
          Top             =   390
          Width           =   2520
       End
@@ -1325,9 +4006,9 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":D574
+            ItemData        =   "dockSettings.frx":12026
             Left            =   1995
-            List            =   "dockSettings.frx":D587
+            List            =   "dockSettings.frx":12039
             TabIndex        =   123
             Text            =   "None"
             ToolTipText     =   "The zoom effect to apply"
@@ -1628,2687 +4309,6 @@ Begin VB.Form dockSettings
          ToolTipText     =   "The maximum icon size after a zoom"
          Top             =   2820
          Width           =   630
-      End
-   End
-   Begin VB.Frame fmeMain 
-      Caption         =   "About SteamyDock"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   8640
-      Index           =   5
-      Left            =   1245
-      TabIndex        =   54
-      ToolTipText     =   "This panel is really a eulogy to Rocketdock plus a few buttons taking you to useful locations and providing additional data"
-      Top             =   45
-      Width           =   6930
-      Begin VB.Frame Frame2 
-         BorderStyle     =   0  'None
-         Height          =   6435
-         Left            =   6825
-         TabIndex        =   219
-         Top             =   2175
-         Width           =   75
-      End
-      Begin VB.Frame fraScrollbarCover 
-         BorderStyle     =   0  'None
-         Height          =   6435
-         Left            =   6570
-         TabIndex        =   218
-         Top             =   2175
-         Width           =   330
-      End
-      Begin VB.TextBox lblAboutText 
-         Appearance      =   0  'Flat
-         BackColor       =   &H8000000F&
-         BorderStyle     =   0  'None
-         Height          =   6390
-         Left            =   165
-         MultiLine       =   -1  'True
-         ScrollBars      =   2  'Vertical
-         TabIndex        =   217
-         Text            =   "dockSettings.frx":D5C7
-         Top             =   2235
-         Width           =   6660
-      End
-      Begin VB.CommandButton btnDonate 
-         Caption         =   "&Donate"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   5115
-         Style           =   1  'Graphical
-         TabIndex        =   98
-         ToolTipText     =   "Opens a browser window and sends you to our donate page on Amazon"
-         Top             =   1545
-         Width           =   1470
-      End
-      Begin VB.CommandButton btnUpdate 
-         Caption         =   "&Update"
-         Enabled         =   0   'False
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   5115
-         Style           =   1  'Graphical
-         TabIndex        =   57
-         ToolTipText     =   "Here you can visit the update location where you can download new versions of the programs used by Rocketdock"
-         Top             =   420
-         Width           =   1470
-      End
-      Begin VB.CommandButton btnFacebook 
-         Caption         =   "&Facebook"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   5115
-         Style           =   1  'Graphical
-         TabIndex        =   56
-         ToolTipText     =   "This will link you to the Rocket/Steamy dock users Group"
-         Top             =   795
-         Width           =   1470
-      End
-      Begin VB.CommandButton btnAboutDebugInfo 
-         Caption         =   "Debug &Info."
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   5115
-         Style           =   1  'Graphical
-         TabIndex        =   55
-         ToolTipText     =   "This gives access to the debugging tool"
-         Top             =   1170
-         Width           =   1470
-      End
-      Begin VB.Label Label20 
-         Caption         =   "(32bit)"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   2985
-         TabIndex        =   207
-         Top             =   510
-         Width           =   1050
-      End
-      Begin VB.Label Label17 
-         Caption         =   "Windows XP, Vista, 7, 8 && 10 + ReactOS"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   1800
-         TabIndex        =   206
-         Top             =   1560
-         Width           =   2955
-      End
-      Begin VB.Label Label10 
-         Caption         =   "Target"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   135
-         TabIndex        =   205
-         Top             =   1560
-         Width           =   1470
-      End
-      Begin VB.Label lblPunklabsLink 
-         BackStyle       =   0  'Transparent
-         Caption         =   "                                                                                                                        "
-         Height          =   225
-         Index           =   0
-         Left            =   2175
-         MousePointer    =   1  'Arrow
-         TabIndex        =   95
-         Top             =   870
-         Width           =   1710
-      End
-      Begin VB.Label lblMinorVersion 
-         BackStyle       =   0  'Transparent
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Centurion Light SF"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   2175
-         TabIndex        =   74
-         Top             =   510
-         Width           =   225
-      End
-      Begin VB.Label lblMajorVersion 
-         BackStyle       =   0  'Transparent
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Centurion Light SF"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   1815
-         TabIndex        =   73
-         Top             =   510
-         Width           =   225
-      End
-      Begin VB.Label lblRevisionNum 
-         BackStyle       =   0  'Transparent
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Centurion Light SF"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   2535
-         TabIndex        =   72
-         Top             =   510
-         Width           =   525
-      End
-      Begin VB.Label lblDotDot 
-         BackStyle       =   0  'Transparent
-         Caption         =   ".        ."
-         BeginProperty Font 
-            Name            =   "Centurion Light SF"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   2010
-         TabIndex        =   71
-         Top             =   510
-         Width           =   495
-      End
-      Begin VB.Label Label63 
-         Caption         =   "Current Developer"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   135
-         TabIndex        =   62
-         Top             =   1215
-         Width           =   1470
-      End
-      Begin VB.Label Label60 
-         Caption         =   "Dean Beedell © 2018"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   1800
-         TabIndex        =   61
-         Top             =   1215
-         Width           =   2175
-      End
-      Begin VB.Label Label74 
-         Caption         =   "Version"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   150
-         TabIndex        =   60
-         Top             =   495
-         Width           =   795
-      End
-      Begin VB.Label Label65 
-         Caption         =   "Originator"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   135
-         TabIndex        =   59
-         Top             =   855
-         Width           =   795
-      End
-      Begin VB.Label Label61 
-         Caption         =   "Punklabs © 2005-2007"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   1800
-         TabIndex        =   58
-         Top             =   855
-         Width           =   2175
-      End
-   End
-   Begin VB.Frame fmeMain 
-      Caption         =   "General Configuration"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   8640
-      Index           =   0
-      Left            =   1230
-      TabIndex        =   1
-      ToolTipText     =   "These are the main settings for the dock"
-      Top             =   15
-      Width           =   6930
-      Begin VB.Frame fraEditors 
-         BorderStyle     =   0  'None
-         Height          =   1665
-         Left            =   825
-         TabIndex        =   222
-         Top             =   6660
-         Width           =   5280
-         Begin VB.CommandButton btnGeneralIconSettingsEditor 
-            Caption         =   "..."
-            Enabled         =   0   'False
-            Height          =   300
-            Left            =   4920
-            Style           =   1  'Graphical
-            TabIndex        =   232
-            Top             =   1260
-            Width           =   300
-         End
-         Begin VB.CommandButton btnGeneralDockSettingsEditor 
-            Caption         =   "..."
-            Enabled         =   0   'False
-            Height          =   300
-            Left            =   4920
-            Style           =   1  'Graphical
-            TabIndex        =   231
-            Top             =   810
-            Width           =   300
-         End
-         Begin VB.CommandButton btnGeneralDockEditor 
-            Caption         =   "..."
-            Enabled         =   0   'False
-            Height          =   300
-            Left            =   4920
-            Style           =   1  'Graphical
-            TabIndex        =   230
-            Top             =   330
-            Width           =   300
-         End
-         Begin VB.TextBox txtIconSettingsDefaultEditor 
-            Enabled         =   0   'False
-            Height          =   315
-            Left            =   1200
-            Locked          =   -1  'True
-            TabIndex        =   227
-            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-            Top             =   1275
-            Width           =   3585
-         End
-         Begin VB.TextBox txtDockSettingsDefaultEditor 
-            Enabled         =   0   'False
-            Height          =   315
-            Left            =   1200
-            Locked          =   -1  'True
-            TabIndex        =   225
-            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-            Top             =   795
-            Width           =   3585
-         End
-         Begin VB.TextBox txtDockDefaultEditor 
-            Enabled         =   0   'False
-            Height          =   315
-            Left            =   1200
-            Locked          =   -1  'True
-            TabIndex        =   223
-            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-            Top             =   345
-            Width           =   3585
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "VB6/TwinBasic Editor VBP or TwinProj file locations:"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   5
-            Left            =   90
-            TabIndex        =   229
-            ToolTipText     =   $"dockSettings.frx":DD3F
-            Top             =   15
-            Width           =   4755
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Icon Settings :"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   1
-            Left            =   90
-            TabIndex        =   228
-            Top             =   1290
-            Width           =   1530
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Dock Settings :"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   0
-            Left            =   90
-            TabIndex        =   226
-            Top             =   840
-            Width           =   1530
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Dock :"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   6
-            Left            =   90
-            TabIndex        =   224
-            Top             =   390
-            Width           =   1530
-         End
-      End
-      Begin VB.CheckBox genChkShowIconSettings 
-         Caption         =   "Automatically display Icon Settings after adding an icon to the dock"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Left            =   945
-         TabIndex        =   209
-         Top             =   6315
-         Width           =   5115
-      End
-      Begin VB.CheckBox chkSplashStatus 
-         Caption         =   "Show Splash Screen at Startup"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   195
-         Left            =   945
-         TabIndex        =   164
-         ToolTipText     =   "Show Splash Screen on Start-up"
-         Top             =   6000
-         Width           =   3735
-      End
-      Begin VB.Frame fraRunAppIndicators 
-         BorderStyle     =   0  'None
-         Height          =   885
-         Left            =   450
-         TabIndex        =   126
-         Top             =   3210
-         Width           =   5955
-         Begin CCRSlider.Slider sliGenRunAppInterval 
-            Height          =   315
-            Left            =   1020
-            TabIndex        =   127
-            ToolTipText     =   "The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   540
-            Width           =   2820
-            _ExtentX        =   4974
-            _ExtentY        =   556
-            Enabled         =   0   'False
-            Min             =   5
-            Max             =   65
-            Value           =   5
-            TickFrequency   =   3
-            SelStart        =   15
-            Transparent     =   -1  'True
-         End
-         Begin VB.Label lblGenRunAppInterval2 
-            Caption         =   "5s"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   255
-            Left            =   795
-            TabIndex        =   131
-            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   420
-            Width           =   630
-         End
-         Begin VB.Label lblGenRunAppInterval3 
-            Caption         =   "65s"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   3900
-            TabIndex        =   130
-            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   420
-            Width           =   585
-         End
-         Begin VB.Label lblGenRunAppIntervalCur 
-            Caption         =   "(15 seconds)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   4635
-            TabIndex        =   129
-            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   420
-            Width           =   1215
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Running Application Check Interval"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   2
-            Left            =   750
-            LinkItem        =   "150"
-            TabIndex        =   128
-            ToolTipText     =   "This function consumes cpu on  low power computers so keep it above 15 secs, preferably 30."
-            Top             =   105
-            Width           =   3210
-         End
-      End
-      Begin VB.CommandButton btnGeneralRdFolder 
-         Caption         =   "..."
-         Enabled         =   0   'False
-         Height          =   300
-         Left            =   5745
-         TabIndex        =   97
-         ToolTipText     =   "Select the folder location of Rocketdock here"
-         Top             =   5475
-         Visible         =   0   'False
-         Width           =   300
-      End
-      Begin VB.CheckBox chkGenRun 
-         Caption         =   "Running Application Indicators"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   930
-         TabIndex        =   11
-         ToolTipText     =   $"dockSettings.frx":DE09
-         Top             =   2880
-         Width           =   2985
-      End
-      Begin VB.CheckBox chkGenDisableAnim 
-         Caption         =   "Disable Minimise Animations"
-         Enabled         =   0   'False
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   3585
-         TabIndex        =   10
-         ToolTipText     =   "If you dislike the minimise animation, click this"
-         Top             =   2505
-         Value           =   1  'Checked
-         Visible         =   0   'False
-         Width           =   2520
-      End
-      Begin VB.CheckBox chkGenOpen 
-         Caption         =   "Open Running Application Instance"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   930
-         TabIndex        =   12
-         ToolTipText     =   "If you click on an icon that is already running then it can open it or fire up another instance"
-         Top             =   4185
-         Width           =   3030
-      End
-      Begin VB.TextBox txtGeneralRdLocation 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Left            =   915
-         Locked          =   -1  'True
-         TabIndex        =   68
-         Text            =   "C:\programs"
-         ToolTipText     =   "This is the extrapolated location of the currently selected dock. This is for information only."
-         Top             =   5460
-         Width           =   4710
-      End
-      Begin VB.ComboBox cmbDefaultDock 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         ItemData        =   "dockSettings.frx":DEA8
-         Left            =   2085
-         List            =   "dockSettings.frx":DEB2
-         Locked          =   -1  'True
-         TabIndex        =   66
-         Text            =   "Rocketdock"
-         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock, these utilities are compatible with both"
-         Top             =   4710
-         Width           =   2310
-      End
-      Begin VB.CheckBox chkGenMin 
-         Caption         =   "Minimise Windows to the Dock"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   3300
-         TabIndex        =   9
-         ToolTipText     =   "This allows running applications to appear in the dock"
-         Top             =   2175
-         Visible         =   0   'False
-         Width           =   3075
-      End
-      Begin VB.CheckBox chkGenWinStartup 
-         Caption         =   "Run at Startup"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Left            =   915
-         TabIndex        =   2
-         ToolTipText     =   "This will cause the current dock to run when Windows starts"
-         Top             =   495
-         Width           =   1440
-      End
-      Begin VB.Frame fraWriteOptionButtons 
-         BorderStyle     =   0  'None
-         Height          =   450
-         Left            =   510
-         TabIndex        =   151
-         Top             =   1755
-         Width           =   6165
-         Begin VB.OptionButton optGeneralWriteConfig 
-            Caption         =   "Write Settings to SteamyDock's Own Configuration Area"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   390
-            TabIndex        =   152
-            ToolTipText     =   $"dockSettings.frx":DECE
-            Top             =   15
-            Width           =   5325
-         End
-      End
-      Begin VB.Frame fraReadOptionButtons 
-         BorderStyle     =   0  'None
-         Height          =   1080
-         Left            =   540
-         TabIndex        =   132
-         Top             =   690
-         Width           =   6315
-         Begin VB.OptionButton optGeneralReadSettings 
-            Caption         =   "Read Settings from Rocketdock's portable SETTINGS.INI (single-user)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   360
-            TabIndex        =   135
-            ToolTipText     =   "Store configuration in Rocketdock's program files folder, causes security issues and requires admin access,"
-            Top             =   165
-            Width           =   5500
-         End
-         Begin VB.OptionButton optGeneralReadRegistry 
-            Caption         =   "Read Settings from RocketDock's Registry (multi-user)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   360
-            TabIndex        =   134
-            ToolTipText     =   $"dockSettings.frx":DF63
-            Top             =   465
-            Width           =   5500
-         End
-         Begin VB.OptionButton optGeneralReadConfig 
-            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   360
-            TabIndex        =   133
-            ToolTipText     =   $"dockSettings.frx":E026
-            Top             =   780
-            Width           =   5565
-         End
-         Begin VB.Label lbloptGeneralReadConfig 
-            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   315
-            Left            =   630
-            TabIndex        =   211
-            Top             =   780
-            Width           =   5115
-         End
-      End
-      Begin VB.Label lblSquiggle 
-         Caption         =   "-oOo-"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   2310
-         TabIndex        =   233
-         ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-         Top             =   2340
-         Width           =   1215
-      End
-      Begin VB.Label lblGenLabel 
-         Caption         =   "Dock Folder Location"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   4
-         Left            =   915
-         TabIndex        =   96
-         ToolTipText     =   $"dockSettings.frx":E0BB
-         Top             =   5190
-         Width           =   1695
-      End
-      Begin VB.Label lblGenLabel 
-         Caption         =   "Default Dock"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   3
-         Left            =   915
-         TabIndex        =   67
-         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
-         Top             =   4740
-         Width           =   1530
-      End
-   End
-   Begin VB.Frame fmeMain 
-      Caption         =   "Desktop Wallpaper Settings "
-      Height          =   8595
-      Index           =   6
-      Left            =   1230
-      TabIndex        =   253
-      Top             =   45
-      Width           =   6930
-      Begin VB.ComboBox cmbWallpaperTimerInterval 
-         Enabled         =   0   'False
-         Height          =   315
-         Left            =   1905
-         TabIndex        =   261
-         Text            =   "5"
-         Top             =   2220
-         Width           =   1680
-      End
-      Begin VB.CheckBox chkWallpaperTimer 
-         Caption         =   "Enable Automatic Wallpaper Change"
-         Height          =   300
-         Left            =   1905
-         TabIndex        =   260
-         Top             =   1695
-         Width           =   3360
-      End
-      Begin VB.CommandButton btnApplyWallpaper 
-         Caption         =   "&Change"
-         Enabled         =   0   'False
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   405
-         Left            =   4995
-         Style           =   1  'Graphical
-         TabIndex        =   258
-         ToolTipText     =   "This will save your changes and restart the dock."
-         Top             =   6405
-         Width           =   1335
-      End
-      Begin VB.ComboBox cmbWallpaper 
-         Height          =   315
-         Left            =   1905
-         TabIndex        =   257
-         Text            =   "wallpaper1"
-         Top             =   675
-         Width           =   4245
-      End
-      Begin VB.ComboBox cmbWallpaperStyle 
-         Height          =   315
-         Left            =   1905
-         TabIndex        =   254
-         Text            =   "Centre"
-         Top             =   1200
-         Width           =   1680
-      End
-      Begin VB.Frame fmeWallpaperPreview 
-         Height          =   3720
-         Left            =   525
-         TabIndex        =   265
-         Top             =   2580
-         Width           =   5970
-         Begin VB.Image imgWallpaperPreview 
-            BorderStyle     =   1  'Fixed Single
-            Height          =   3300
-            Left            =   150
-            Stretch         =   -1  'True
-            Top             =   240
-            Width           =   5640
-         End
-      End
-      Begin VB.Label lblWallpaper 
-         Caption         =   "Auto-Timer:"
-         Height          =   300
-         Index           =   5
-         Left            =   705
-         TabIndex        =   264
-         Top             =   1725
-         Width           =   1275
-      End
-      Begin VB.Label lblWallpaper 
-         Caption         =   "(DaysHhrs/Mins)"
-         Enabled         =   0   'False
-         Height          =   300
-         Index           =   4
-         Left            =   3810
-         TabIndex        =   263
-         Top             =   2250
-         Width           =   1275
-      End
-      Begin VB.Label lblWallpaper 
-         Caption         =   "Interval :"
-         Enabled         =   0   'False
-         Height          =   300
-         Index           =   3
-         Left            =   720
-         TabIndex        =   262
-         Top             =   2235
-         Width           =   1275
-      End
-      Begin VB.Label lblWallpaper 
-         Caption         =   "Use mouse scrollwheel up+ down to preview the available wallpapers."
-         Height          =   555
-         Index           =   2
-         Left            =   720
-         TabIndex        =   259
-         Top             =   6465
-         Width           =   4080
-      End
-      Begin VB.Label lblWallpaper 
-         Caption         =   "Wallpaper :"
-         Height          =   300
-         Index           =   1
-         Left            =   720
-         TabIndex        =   256
-         Top             =   705
-         Width           =   1275
-      End
-      Begin VB.Label lblWallpaper 
-         Caption         =   "Positioning :"
-         Height          =   300
-         Index           =   0
-         Left            =   705
-         TabIndex        =   255
-         Top             =   1230
-         Width           =   1275
-      End
-   End
-   Begin VB.Frame fmeMain 
-      Caption         =   "Icon && Dock Behaviour"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   8640
-      Index           =   2
-      Left            =   1230
-      TabIndex        =   53
-      ToolTipText     =   "Here you can control the behaviour of the animation effects"
-      Top             =   45
-      Width           =   6930
-      Begin VB.ComboBox cmbBehaviourSoundSelection 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         ItemData        =   "dockSettings.frx":E185
-         Left            =   2190
-         List            =   "dockSettings.frx":E192
-         TabIndex        =   221
-         Text            =   "None"
-         Top             =   6150
-         Width           =   2620
-      End
-      Begin VB.CheckBox chkRetainIcons 
-         Caption         =   "Retain Original Icons when dragging to the dock"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   2190
-         TabIndex        =   215
-         Top             =   5610
-         Width           =   4455
-      End
-      Begin VB.CheckBox chkGenLock 
-         Caption         =   "Disable Drag/Drop and Icon Deletion"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   2190
-         TabIndex        =   213
-         ToolTipText     =   "This is an essential option that stops you accidentally deleting your dock icons, ensure it is ticked!"
-         Top             =   5130
-         Width           =   4500
-      End
-      Begin VB.ComboBox cmbHidingKey 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         ItemData        =   "dockSettings.frx":E1B6
-         Left            =   2190
-         List            =   "dockSettings.frx":E1E1
-         TabIndex        =   204
-         Text            =   "F11"
-         ToolTipText     =   "This is the key sequence that is used to hide or restore Steamydock"
-         Top             =   4515
-         Width           =   2620
-      End
-      Begin VB.Frame Frame1 
-         BorderStyle     =   0  'None
-         Height          =   720
-         Left            =   465
-         TabIndex        =   197
-         Top             =   3675
-         Width           =   6120
-         Begin CCRSlider.Slider sliContinuousHide 
-            Height          =   315
-            Left            =   1575
-            TabIndex        =   198
-            ToolTipText     =   "Determine how long Steamydock will disappear when told to hide using F11"
-            Top             =   240
-            Width           =   2820
-            _ExtentX        =   4974
-            _ExtentY        =   556
-            Min             =   1
-            Max             =   120
-            Value           =   1
-            TickFrequency   =   3
-            SelStart        =   1
-         End
-         Begin VB.Label lblBehaviourLabel 
-            Caption         =   "1 min"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   11
-            Left            =   1170
-            TabIndex        =   199
-            ToolTipText     =   "Determine how long Steamydock will disappear when told to go away"
-            Top             =   285
-            Width           =   600
-         End
-         Begin VB.Label lblBehaviourLabel 
-            Caption         =   "Continuous Hide"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   5
-            Left            =   45
-            LinkItem        =   "150"
-            TabIndex        =   202
-            ToolTipText     =   "Determine how long Steamydock will disappear when told to hide for the next few minutes"
-            Top             =   -30
-            Width           =   1350
-         End
-         Begin VB.Label lblContinuousHideMsCurrent 
-            Caption         =   "(30) mins"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   4950
-            TabIndex        =   201
-            ToolTipText     =   "Determine how long Steamydock will disappear when told to go away"
-            Top             =   285
-            Width           =   1185
-         End
-         Begin VB.Label lblContinuousHideMsHigh 
-            Caption         =   "120m"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   4440
-            TabIndex        =   200
-            ToolTipText     =   "Determine how long Steamydock will disappear when told to go away"
-            Top             =   285
-            Width           =   405
-         End
-      End
-      Begin VB.Frame fraAutoHideType 
-         BorderStyle     =   0  'None
-         Height          =   1020
-         Left            =   375
-         TabIndex        =   192
-         Top             =   465
-         Width           =   5325
-         Begin VB.ComboBox cmbBehaviourAutoHideType 
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            ItemData        =   "dockSettings.frx":E222
-            Left            =   1770
-            List            =   "dockSettings.frx":E22F
-            TabIndex        =   196
-            Text            =   "Fade"
-            ToolTipText     =   "The type of auto-hide, fade, instant or a slide like Rocketdock"
-            Top             =   510
-            Width           =   2620
-         End
-         Begin VB.CheckBox chkBehaviourAutoHide 
-            Caption         =   "On/Off"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   300
-            Left            =   90
-            TabIndex        =   195
-            ToolTipText     =   "You can determine whether the dock will auto-hide or not"
-            Top             =   480
-            Width           =   2235
-         End
-         Begin VB.ComboBox cmbBehaviourActivationFX 
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            ItemData        =   "dockSettings.frx":E249
-            Left            =   1770
-            List            =   "dockSettings.frx":E256
-            TabIndex        =   193
-            Text            =   "Bounce"
-            ToolTipText     =   $"dockSettings.frx":E27A
-            Top             =   0
-            Width           =   2620
-         End
-         Begin VB.Label lblBehaviourLabel 
-            Caption         =   "Icon Attention Effect"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   0
-            Left            =   90
-            LinkItem        =   "150"
-            TabIndex        =   194
-            ToolTipText     =   $"dockSettings.frx":E30E
-            Top             =   45
-            Width           =   1605
-         End
-      End
-      Begin VB.Frame fraAutoHideDuration 
-         BorderStyle     =   0  'None
-         Height          =   645
-         Left            =   450
-         TabIndex        =   186
-         Top             =   1500
-         Width           =   6180
-         Begin CCRSlider.Slider sliBehaviourAutoHideDuration 
-            Height          =   315
-            Left            =   1590
-            TabIndex        =   187
-            ToolTipText     =   "The speed at which the dock auto-hide animation will occur"
-            Top             =   270
-            Width           =   2820
-            _ExtentX        =   4974
-            _ExtentY        =   556
-            Enabled         =   0   'False
-            Min             =   1
-            Max             =   5000
-            Value           =   1
-            TickFrequency   =   100
-            SelStart        =   1
-         End
-         Begin VB.Label lblBehaviourLabel 
-            Caption         =   "1ms"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   8
-            Left            =   1140
-            TabIndex        =   191
-            ToolTipText     =   "The speed at which the dock auto-hide animation will occur"
-            Top             =   315
-            Width           =   630
-         End
-         Begin VB.Label lblAutoHideDurationMsHigh 
-            Caption         =   "5000ms"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   4425
-            TabIndex        =   190
-            ToolTipText     =   "The speed at which the dock auto-hide animation will occur"
-            Top             =   315
-            Width           =   585
-         End
-         Begin VB.Label lblAutoHideDurationMsCurrent 
-            Caption         =   "(250)"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   5085
-            TabIndex        =   189
-            ToolTipText     =   "The speed at which the dock auto-hide animation will occur"
-            Top             =   315
-            Width           =   525
-         End
-         Begin VB.Label lblBehaviourLabel 
-            Caption         =   "AutoHide Duration"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   2
-            Left            =   45
-            LinkItem        =   "150"
-            TabIndex        =   188
-            ToolTipText     =   "The speed at which the dock auto-hide animation will occur"
-            Top             =   0
-            Width           =   1605
-         End
-      End
-      Begin VB.Frame Frame 
-         BorderStyle     =   0  'None
-         Height          =   720
-         Index           =   0
-         Left            =   420
-         TabIndex        =   180
-         Top             =   2175
-         Width           =   5805
-         Begin CCRSlider.Slider sliBehaviourPopUpDelay 
-            Height          =   315
-            Left            =   1620
-            TabIndex        =   181
-            ToolTipText     =   "The dock mouse-over delay period"
-            Top             =   315
-            Width           =   2820
-            _ExtentX        =   4974
-            _ExtentY        =   556
-            Min             =   1
-            Max             =   1000
-            Value           =   1
-            TickFrequency   =   20
-            SelStart        =   1
-         End
-         Begin VB.Label lblBehaviourLabel 
-            Caption         =   "1ms"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   9
-            Left            =   1185
-            TabIndex        =   185
-            ToolTipText     =   "The dock mouse-over delay period"
-            Top             =   345
-            Visible         =   0   'False
-            Width           =   420
-         End
-         Begin VB.Label lblBehaviourLabel 
-            Caption         =   "AutoReveal Duration"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   3
-            Left            =   90
-            LinkItem        =   "150"
-            TabIndex        =   184
-            ToolTipText     =   "The dock mouse-over delay period"
-            Top             =   0
-            Width           =   1965
-         End
-         Begin VB.Label lblBehaviourPopUpDelayMsCurrrent 
-            Caption         =   "(0)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   5100
-            TabIndex        =   183
-            ToolTipText     =   "The dock mouse-over delay period"
-            Top             =   345
-            Width           =   480
-         End
-         Begin VB.Label lblAutoRevealDurationMsHigh 
-            Caption         =   "1000ms"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   4455
-            TabIndex        =   182
-            ToolTipText     =   "The dock mouse-over delay period"
-            Top             =   345
-            Width           =   585
-         End
-      End
-      Begin VB.Frame fraAutoHideDelay 
-         BorderStyle     =   0  'None
-         Height          =   660
-         Left            =   435
-         TabIndex        =   174
-         Top             =   2970
-         Width           =   6120
-         Begin CCRSlider.Slider sliBehaviourAutoHideDelay 
-            Height          =   315
-            Left            =   1605
-            TabIndex        =   175
-            ToolTipText     =   "Determine the delay between the last usage of the dock and when it will auto-hide"
-            Top             =   240
-            Width           =   2820
-            _ExtentX        =   4974
-            _ExtentY        =   556
-            Enabled         =   0   'False
-            Max             =   2000
-            TickFrequency   =   200
-         End
-         Begin VB.Label lblBehaviourLabel 
-            Caption         =   "3s"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   10
-            Left            =   1245
-            TabIndex        =   179
-            ToolTipText     =   "Determine the delay between the last usage of the dock and when it will auto-hide"
-            Top             =   285
-            Width           =   600
-         End
-         Begin VB.Label lblAutoHideDelayMsHigh 
-            Caption         =   "5s"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   4440
-            TabIndex        =   178
-            ToolTipText     =   "Determine the delay between the last usage of the dock and when it will auto-hide"
-            Top             =   285
-            Width           =   405
-         End
-         Begin VB.Label lblAutoHideDelayMsCurrent 
-            Caption         =   "(5) secs"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   4950
-            TabIndex        =   177
-            ToolTipText     =   "Determine the delay between the last usage of the dock and when it will auto-hide"
-            Top             =   285
-            Width           =   1185
-         End
-         Begin VB.Label lblBehaviourLabel 
-            Caption         =   "AutoHide Delay"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   4
-            Left            =   105
-            LinkItem        =   "150"
-            TabIndex        =   176
-            ToolTipText     =   "Determine the delay between the last usage of the dock and when it will auto-hide"
-            Top             =   -30
-            Width           =   1350
-         End
-      End
-      Begin VB.CheckBox chkBehaviourMouseActivate 
-         Caption         =   "Pop-up on Mouseover"
-         Enabled         =   0   'False
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   270
-         Left            =   4380
-         TabIndex        =   173
-         ToolTipText     =   "Essential functionality for the dock - pops up when  given focus"
-         Top             =   8070
-         Visible         =   0   'False
-         Width           =   2235
-      End
-      Begin VB.Frame fraAnimationInterval 
-         BorderStyle     =   0  'None
-         Height          =   825
-         Left            =   195
-         TabIndex        =   153
-         Top             =   6930
-         Width           =   6180
-         Begin CCRSlider.Slider sliAnimationInterval 
-            Height          =   315
-            Left            =   1890
-            TabIndex        =   154
-            ToolTipText     =   $"dockSettings.frx":E3A0
-            Top             =   285
-            Width           =   2775
-            _ExtentX        =   4895
-            _ExtentY        =   556
-            Enabled         =   0   'False
-            Min             =   1
-            Max             =   20
-            Value           =   10
-            TickFrequency   =   5
-            SelStart        =   1
-         End
-         Begin VB.Label lblAnimationIntervalMsLow 
-            Caption         =   "1ms"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   1500
-            TabIndex        =   158
-            ToolTipText     =   "Certain CPUs may operate better with a different animation interval, 1ms = 1,000 animations per second"
-            Top             =   315
-            Width           =   630
-         End
-         Begin VB.Label lblAnimationIntervalMsHigh 
-            Caption         =   "20ms"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   4680
-            TabIndex        =   157
-            ToolTipText     =   "Certain CPUs may operate better with a different animation interval, 1ms = 1,000 animations per second"
-            Top             =   315
-            Width           =   585
-         End
-         Begin VB.Label lblAnimationIntervalMsCurrent 
-            Caption         =   "(20)"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   5265
-            TabIndex        =   156
-            ToolTipText     =   "Certain CPUs may operate better with a different animation interval, 1ms = 1,000 animations per second"
-            Top             =   315
-            Width           =   525
-         End
-         Begin VB.Label lblBehaviourLabel 
-            Caption         =   "Animation Interval"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   7
-            Left            =   345
-            LinkItem        =   "150"
-            TabIndex        =   155
-            ToolTipText     =   "Certain CPUs may operate better with a different animation interval, 1ms = 1,000 animations per second"
-            Top             =   15
-            Width           =   1605
-         End
-      End
-      Begin VB.Frame fraIconEffect 
-         BorderStyle     =   0  'None
-         Height          =   480
-         Left            =   105
-         TabIndex        =   99
-         Top             =   945
-         Width           =   5025
-      End
-      Begin VB.Label lblBehaviourLabel 
-         Caption         =   "Sound Selection"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   300
-         Index           =   15
-         Left            =   540
-         TabIndex        =   220
-         Top             =   6195
-         Width           =   1440
-      End
-      Begin VB.Label lblBehaviourLabel 
-         Caption         =   "Icon Origin"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   300
-         Index           =   14
-         Left            =   540
-         TabIndex        =   216
-         ToolTipText     =   "The original icons may be low quality."
-         Top             =   5670
-         Width           =   1440
-      End
-      Begin VB.Label lblBehaviourLabel 
-         Caption         =   "Lock the Dock"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   300
-         Index           =   13
-         Left            =   540
-         TabIndex        =   214
-         ToolTipText     =   "This is an essential option that stops you accidentally deleting your dock icons, ensure it is ticked!"
-         Top             =   5190
-         Width           =   1440
-      End
-      Begin VB.Label lblBehaviourLabel 
-         Caption         =   "Dock Hiding Key"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Index           =   6
-         Left            =   525
-         LinkItem        =   "150"
-         TabIndex        =   203
-         ToolTipText     =   "This is the key sequence that is used to hide or restore Steamydock"
-         Top             =   4545
-         Width           =   1440
-      End
-      Begin VB.Label lblBehaviourLabel 
-         Caption         =   $"dockSettings.frx":E42F
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   690
-         Index           =   12
-         Left            =   1740
-         TabIndex        =   170
-         Top             =   7755
-         Width           =   4485
-      End
-   End
-   Begin VB.Frame fmeMain 
-      Caption         =   "Style Themes and Fonts"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   8640
-      Index           =   3
-      Left            =   1230
-      TabIndex        =   39
-      ToolTipText     =   "This panel allows you to change the styling of the icon labels and the dock background image"
-      Top             =   15
-      Width           =   6930
-      Begin VB.CheckBox chkLabelBackgrounds 
-         Caption         =   "Enable Label Backgrounds"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   270
-         Left            =   3525
-         TabIndex        =   171
-         ToolTipText     =   "You can toggle the icon label background on/off here"
-         Top             =   4065
-         Width           =   2490
-      End
-      Begin VB.Frame fraFontOpacity 
-         BorderStyle     =   0  'None
-         Height          =   1590
-         Left            =   210
-         TabIndex        =   100
-         ToolTipText     =   "The theme background "
-         Top             =   6750
-         Width           =   6525
-         Begin CCRSlider.Slider sliStyleShadowOpacity 
-            Height          =   330
-            Left            =   1875
-            TabIndex        =   101
-            ToolTipText     =   "The strength of the shadow can be altered here"
-            Top             =   750
-            Width           =   2820
-            _ExtentX        =   4974
-            _ExtentY        =   582
-            Max             =   100
-            TickFrequency   =   10
-         End
-         Begin CCRSlider.Slider sliStyleOutlineOpacity 
-            Height          =   330
-            Left            =   1875
-            TabIndex        =   102
-            ToolTipText     =   "The label outline transparency, use the slider to change"
-            Top             =   1245
-            Width           =   2820
-            _ExtentX        =   4974
-            _ExtentY        =   582
-            Max             =   100
-            TickFrequency   =   10
-         End
-         Begin CCRSlider.Slider sliStyleFontOpacity 
-            Height          =   330
-            Left            =   1875
-            TabIndex        =   165
-            ToolTipText     =   "The font transparency can be changed here"
-            Top             =   240
-            Width           =   2820
-            _ExtentX        =   4974
-            _ExtentY        =   582
-            Max             =   100
-            TickFrequency   =   10
-         End
-         Begin VB.Label lblStyleLabel 
-            Caption         =   "0%"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Index           =   8
-            Left            =   1635
-            TabIndex        =   169
-            ToolTipText     =   "The font transparency can be changed here"
-            Top             =   270
-            Width           =   540
-         End
-         Begin VB.Label Label30 
-            Caption         =   "100%"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Left            =   4680
-            TabIndex        =   168
-            ToolTipText     =   "The font transparency can be changed here"
-            Top             =   270
-            Width           =   555
-         End
-         Begin VB.Label lblStyleFontOpacityCurrent 
-            Caption         =   "(0%)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Left            =   5325
-            TabIndex        =   167
-            ToolTipText     =   "The font transparency can be changed here"
-            Top             =   255
-            Width           =   630
-         End
-         Begin VB.Label lblStyleLabel 
-            Caption         =   "Font Opacity"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Index           =   3
-            Left            =   480
-            TabIndex        =   166
-            ToolTipText     =   "The font transparency can be changed here"
-            Top             =   -15
-            Width           =   1350
-         End
-         Begin VB.Label lblStyleLabel 
-            Caption         =   "Outline Opacity"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Index           =   5
-            Left            =   450
-            TabIndex        =   110
-            ToolTipText     =   "The label outline transparency, use the slider to change"
-            Top             =   975
-            Width           =   1365
-         End
-         Begin VB.Label lblStyleOutlineOpacityCurrent 
-            Caption         =   "(0%)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Left            =   5325
-            TabIndex        =   109
-            ToolTipText     =   "The label outline transparency, use the slider to change"
-            Top             =   1290
-            Width           =   630
-         End
-         Begin VB.Label Label35 
-            Caption         =   "100%"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Left            =   4665
-            TabIndex        =   108
-            ToolTipText     =   "The label outline transparency, use the slider to change"
-            Top             =   1290
-            Width           =   585
-         End
-         Begin VB.Label lblStyleLabel 
-            Caption         =   "0%"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Index           =   10
-            Left            =   1635
-            TabIndex        =   107
-            ToolTipText     =   "The label outline transparency, use the slider to change"
-            Top             =   1290
-            Width           =   630
-         End
-         Begin VB.Label lblStyleLabel 
-            Caption         =   "Shadow Opacity"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Index           =   4
-            Left            =   465
-            TabIndex        =   106
-            ToolTipText     =   "The strength of the shadow can be altered here"
-            Top             =   480
-            Width           =   1350
-         End
-         Begin VB.Label lblStyleShadowOpacityCurrent 
-            Caption         =   "(0%)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Left            =   5325
-            TabIndex        =   105
-            ToolTipText     =   "The strength of the shadow can be altered here"
-            Top             =   765
-            Width           =   630
-         End
-         Begin VB.Label Label39 
-            Caption         =   "100%"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Left            =   4680
-            TabIndex        =   104
-            ToolTipText     =   "The strength of the shadow can be altered here"
-            Top             =   780
-            Width           =   555
-         End
-         Begin VB.Label lblStyleLabel 
-            Caption         =   "0%"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   240
-            Index           =   9
-            Left            =   1635
-            TabIndex        =   103
-            ToolTipText     =   "The strength of the shadow can be altered here"
-            Top             =   780
-            Width           =   540
-         End
-      End
-      Begin VB.PictureBox picStylePreview 
-         Height          =   735
-         Left            =   630
-         ScaleHeight     =   675
-         ScaleWidth      =   5280
-         TabIndex        =   51
-         ToolTipText     =   $"dockSettings.frx":E4C1
-         Top             =   4440
-         Width           =   5340
-         Begin VB.Label lblPreviewFont 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Preview"
-            ForeColor       =   &H0000FFFF&
-            Height          =   195
-            Left            =   2355
-            TabIndex        =   52
-            Top             =   255
-            Width           =   570
-         End
-         Begin VB.Label lblPreviewFontShadow 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Preview"
-            Height          =   195
-            Left            =   2400
-            TabIndex        =   143
-            Top             =   285
-            Width           =   570
-         End
-         Begin VB.Label lblPreviewLeft 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Preview"
-            ForeColor       =   &H000000FF&
-            Height          =   195
-            Left            =   2340
-            TabIndex        =   144
-            Top             =   255
-            Width           =   570
-         End
-         Begin VB.Label lblPreviewRight 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Preview"
-            ForeColor       =   &H000000FF&
-            Height          =   195
-            Left            =   2370
-            TabIndex        =   145
-            Top             =   255
-            Width           =   630
-         End
-         Begin VB.Label lblPreviewTop 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Preview"
-            ForeColor       =   &H000000FF&
-            Height          =   195
-            Left            =   2355
-            TabIndex        =   146
-            Top             =   240
-            Width           =   570
-         End
-         Begin VB.Label lblPreviewBottom 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Preview"
-            ForeColor       =   &H000000FF&
-            Height          =   195
-            Left            =   2355
-            TabIndex        =   147
-            Top             =   270
-            Width           =   570
-         End
-         Begin VB.Label lblPreviewFontShadow2 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Preview"
-            Height          =   195
-            Left            =   2415
-            TabIndex        =   148
-            Top             =   285
-            Width           =   570
-         End
-      End
-      Begin VB.CommandButton btnStyleOutline 
-         Caption         =   "&Outline Colour"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   630
-         Style           =   1  'Graphical
-         TabIndex        =   50
-         ToolTipText     =   "The colour of the outline, click the button to change"
-         Top             =   6180
-         Width           =   1470
-      End
-      Begin VB.CommandButton btnStyleShadow 
-         Caption         =   "&Shadow Colour"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   630
-         Style           =   1  'Graphical
-         TabIndex        =   49
-         ToolTipText     =   "The colour of the shadow, click the button to change"
-         Top             =   5775
-         Width           =   1470
-      End
-      Begin VB.CommandButton btnStyleFont 
-         Caption         =   "Select &Font"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   630
-         Style           =   1  'Graphical
-         TabIndex        =   48
-         ToolTipText     =   "The font used in the labels, click the button to change"
-         Top             =   5370
-         Width           =   1470
-      End
-      Begin VB.CheckBox chkStyleDisable 
-         Caption         =   "Disable Icon Labels"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   270
-         Left            =   630
-         TabIndex        =   47
-         ToolTipText     =   "You can toggle the icon labels on/off here"
-         Top             =   4065
-         Width           =   2235
-      End
-      Begin VB.ComboBox cmbStyleTheme 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         ItemData        =   "dockSettings.frx":E54B
-         Left            =   2205
-         List            =   "dockSettings.frx":E54D
-         TabIndex        =   40
-         ToolTipText     =   "The dock background theme can be selected here"
-         Top             =   405
-         Width           =   2520
-      End
-      Begin CCRSlider.Slider sliStyleOpacity 
-         Height          =   315
-         Left            =   2085
-         TabIndex        =   42
-         ToolTipText     =   "The theme background opacity is set here"
-         Top             =   900
-         Width           =   2820
-         _ExtentX        =   4974
-         _ExtentY        =   556
-         Max             =   100
-         TickFrequency   =   10
-      End
-      Begin CCRSlider.Slider sliStyleThemeSize 
-         Height          =   315
-         Left            =   2085
-         TabIndex        =   159
-         ToolTipText     =   "The theme background overall size is set here"
-         Top             =   1335
-         Width           =   2820
-         _ExtentX        =   4974
-         _ExtentY        =   556
-         Min             =   1
-         Max             =   177
-         Value           =   30
-         TickFrequency   =   10
-         SelStart        =   50
-      End
-      Begin VB.Image imgThemeSample 
-         BorderStyle     =   1  'Fixed Single
-         Height          =   2070
-         Left            =   645
-         Picture         =   "dockSettings.frx":E54F
-         Top             =   1800
-         Width           =   5430
-      End
-      Begin VB.Label lblChkLabelBackgrounds 
-         Caption         =   "Enable Label Backgrounds"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   195
-         Left            =   3795
-         TabIndex        =   172
-         ToolTipText     =   "You can toggle the icon label background on/off here"
-         Top             =   4080
-         Visible         =   0   'False
-         Width           =   1935
-      End
-      Begin VB.Label lblStyleLabel 
-         Caption         =   "1px"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   7
-         Left            =   1650
-         TabIndex        =   160
-         Top             =   1380
-         Width           =   495
-      End
-      Begin VB.Label lblStyleLabel 
-         Caption         =   "Theme Size"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   2
-         Left            =   660
-         TabIndex        =   163
-         ToolTipText     =   "The theme background overall size is set here"
-         Top             =   1380
-         Width           =   945
-      End
-      Begin VB.Label lblStyleSizeCurrent 
-         Caption         =   "(118px)"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   5535
-         TabIndex        =   162
-         Top             =   1380
-         Width           =   630
-      End
-      Begin VB.Label lblThemeSizeTextHigh 
-         Caption         =   "118px"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   4905
-         TabIndex        =   161
-         Top             =   1380
-         Width           =   585
-      End
-      Begin VB.Label Label999 
-         Height          =   375
-         Left            =   720
-         TabIndex        =   142
-         Top             =   7560
-         Width           =   4215
-      End
-      Begin VB.Label lblStyleLabel 
-         Caption         =   "0%"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   6
-         Left            =   1815
-         TabIndex        =   46
-         Top             =   945
-         Width           =   420
-      End
-      Begin VB.Label lblStyleOutlineColourDesc 
-         Caption         =   "Shadow Colour: "
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   2265
-         TabIndex        =   70
-         Top             =   6225
-         Width           =   2700
-      End
-      Begin VB.Label lblStyleFontFontShadowColor 
-         Caption         =   "Shadow Colour:"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   2265
-         TabIndex        =   69
-         ToolTipText     =   "The colour of the shadow, click the button to change"
-         Top             =   5820
-         Width           =   2490
-      End
-      Begin VB.Label lblStyleFontOutlineTest 
-         Caption         =   "Test"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   5130
-         TabIndex        =   65
-         ToolTipText     =   "The colour of the outline, click the button to change"
-         Top             =   6225
-         Width           =   390
-      End
-      Begin VB.Label lblStyleFontFontShadowTest 
-         Caption         =   "Test"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   5130
-         TabIndex        =   64
-         ToolTipText     =   "The colour of the shadow, click the button to change"
-         Top             =   5820
-         Width           =   450
-      End
-      Begin VB.Label lblStyleFontName 
-         Caption         =   "Font : Open Sans"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   2265
-         TabIndex        =   63
-         ToolTipText     =   "The font used in the labels, click the button to change"
-         Top             =   5445
-         Width           =   3765
-      End
-      Begin VB.Label Label44 
-         Caption         =   "100%"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   4905
-         TabIndex        =   45
-         Top             =   945
-         Width           =   585
-      End
-      Begin VB.Label lblStyleOpacityCurrent 
-         Caption         =   "(0%)"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   5535
-         TabIndex        =   44
-         Top             =   945
-         Width           =   630
-      End
-      Begin VB.Label lblStyleLabel 
-         Caption         =   "Opacity"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   1
-         Left            =   675
-         TabIndex        =   43
-         ToolTipText     =   "The theme background opacity is set here"
-         Top             =   945
-         Width           =   1050
-      End
-      Begin VB.Label lblStyleLabel 
-         Caption         =   "Theme"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   0
-         Left            =   675
-         TabIndex        =   41
-         ToolTipText     =   "The dock background theme can be selected here"
-         Top             =   435
-         Width           =   795
       End
    End
    Begin VB.Label lblDragCorner 
@@ -9841,8 +9841,6 @@ Private Sub picIcon_MouseDown_Event(Index As Integer)
 
     fmeMain(Index).Left = 1245 * gblResizeRatio
     fmeMain(Index).top = 30 * gblResizeRatio
-    fmeMain(Index).Width = 6930 * gblResizeRatio
-    fmeMain(Index).Height = 8645 * gblResizeRatio
     
     ' ensure the resizing icons always display.
     ' it seems that when the picturebox is hidden and given focus then the images are lost.
@@ -9853,6 +9851,10 @@ Private Sub picIcon_MouseDown_Event(Index As Integer)
     
     If Index = 6 And dockSettings.Visible = True Then
         cmbWallpaper.SetFocus
+    End If
+    
+    If Index = 5 And dockSettings.Visible = True Then
+        lblAboutText.SetFocus
     End If
 
    On Error GoTo 0
