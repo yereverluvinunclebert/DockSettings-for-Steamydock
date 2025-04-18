@@ -587,956 +587,6 @@ Begin VB.Form dockSettings
       Width           =   1065
    End
    Begin VB.Frame fmeMain 
-      Caption         =   "About SteamyDock"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   8640
-      Index           =   5
-      Left            =   1245
-      TabIndex        =   54
-      ToolTipText     =   "This panel is really a eulogy to Rocketdock plus a few buttons taking you to useful locations and providing additional data"
-      Top             =   45
-      Width           =   6930
-      Begin VB.Frame Frame2 
-         BorderStyle     =   0  'None
-         Height          =   6435
-         Left            =   6825
-         TabIndex        =   219
-         Top             =   2175
-         Width           =   75
-      End
-      Begin VB.Frame fraScrollbarCover 
-         BorderStyle     =   0  'None
-         Height          =   6435
-         Left            =   6570
-         TabIndex        =   218
-         Top             =   2175
-         Width           =   330
-      End
-      Begin VB.TextBox lblAboutText 
-         Appearance      =   0  'Flat
-         BackColor       =   &H8000000F&
-         BorderStyle     =   0  'None
-         Height          =   6390
-         Left            =   165
-         MultiLine       =   -1  'True
-         ScrollBars      =   2  'Vertical
-         TabIndex        =   217
-         Text            =   "dockSettings.frx":D3A7
-         Top             =   2235
-         Width           =   6660
-      End
-      Begin VB.CommandButton btnDonate 
-         Caption         =   "&Donate"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   5115
-         Style           =   1  'Graphical
-         TabIndex        =   98
-         ToolTipText     =   "Opens a browser window and sends you to our donate page on Amazon"
-         Top             =   1545
-         Width           =   1470
-      End
-      Begin VB.CommandButton btnUpdate 
-         Caption         =   "&Update"
-         Enabled         =   0   'False
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   5115
-         Style           =   1  'Graphical
-         TabIndex        =   57
-         ToolTipText     =   "Here you can visit the update location where you can download new versions of the programs used by Rocketdock"
-         Top             =   420
-         Width           =   1470
-      End
-      Begin VB.CommandButton btnFacebook 
-         Caption         =   "&Facebook"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   5115
-         Style           =   1  'Graphical
-         TabIndex        =   56
-         ToolTipText     =   "This will link you to the Rocket/Steamy dock users Group"
-         Top             =   795
-         Width           =   1470
-      End
-      Begin VB.CommandButton btnAboutDebugInfo 
-         Caption         =   "Debug &Info."
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   5115
-         Style           =   1  'Graphical
-         TabIndex        =   55
-         ToolTipText     =   "This gives access to the debugging tool"
-         Top             =   1170
-         Width           =   1470
-      End
-      Begin VB.Label Label20 
-         Caption         =   "(32bit)"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   2985
-         TabIndex        =   207
-         Top             =   510
-         Width           =   1050
-      End
-      Begin VB.Label Label17 
-         Caption         =   "Windows XP, Vista, 7, 8 && 10 + ReactOS"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   1800
-         TabIndex        =   206
-         Top             =   1560
-         Width           =   2955
-      End
-      Begin VB.Label Label10 
-         Caption         =   "Target"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   135
-         TabIndex        =   205
-         Top             =   1560
-         Width           =   1470
-      End
-      Begin VB.Label lblPunklabsLink 
-         BackStyle       =   0  'Transparent
-         Caption         =   "                                                                                                                        "
-         Height          =   225
-         Index           =   0
-         Left            =   2175
-         MousePointer    =   1  'Arrow
-         TabIndex        =   95
-         Top             =   870
-         Width           =   1710
-      End
-      Begin VB.Label lblMinorVersion 
-         BackStyle       =   0  'Transparent
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Centurion Light SF"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   2175
-         TabIndex        =   74
-         Top             =   510
-         Width           =   225
-      End
-      Begin VB.Label lblMajorVersion 
-         BackStyle       =   0  'Transparent
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Centurion Light SF"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   1815
-         TabIndex        =   73
-         Top             =   510
-         Width           =   225
-      End
-      Begin VB.Label lblRevisionNum 
-         BackStyle       =   0  'Transparent
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Centurion Light SF"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   2535
-         TabIndex        =   72
-         Top             =   510
-         Width           =   525
-      End
-      Begin VB.Label lblDotDot 
-         BackStyle       =   0  'Transparent
-         Caption         =   ".        ."
-         BeginProperty Font 
-            Name            =   "Centurion Light SF"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   2010
-         TabIndex        =   71
-         Top             =   510
-         Width           =   495
-      End
-      Begin VB.Label Label63 
-         Caption         =   "Current Developer"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   135
-         TabIndex        =   62
-         Top             =   1215
-         Width           =   1470
-      End
-      Begin VB.Label Label60 
-         Caption         =   "Dean Beedell © 2018"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   1800
-         TabIndex        =   61
-         Top             =   1215
-         Width           =   2175
-      End
-      Begin VB.Label Label74 
-         Caption         =   "Version"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   150
-         TabIndex        =   60
-         Top             =   495
-         Width           =   795
-      End
-      Begin VB.Label Label65 
-         Caption         =   "Originator"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   135
-         TabIndex        =   59
-         Top             =   855
-         Width           =   795
-      End
-      Begin VB.Label Label61 
-         Caption         =   "Punklabs © 2005-2007"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   1800
-         TabIndex        =   58
-         Top             =   855
-         Width           =   2175
-      End
-   End
-   Begin VB.Frame fmeMain 
-      Caption         =   "General Configuration"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   8640
-      Index           =   0
-      Left            =   1230
-      TabIndex        =   1
-      ToolTipText     =   "These are the main settings for the dock"
-      Top             =   15
-      Width           =   6930
-      Begin VB.Frame fraEditors 
-         BorderStyle     =   0  'None
-         Height          =   1665
-         Left            =   825
-         TabIndex        =   222
-         Top             =   6660
-         Width           =   5280
-         Begin VB.CommandButton btnGeneralIconSettingsEditor 
-            Caption         =   "..."
-            Enabled         =   0   'False
-            Height          =   300
-            Left            =   4920
-            Style           =   1  'Graphical
-            TabIndex        =   232
-            Top             =   1260
-            Width           =   300
-         End
-         Begin VB.CommandButton btnGeneralDockSettingsEditor 
-            Caption         =   "..."
-            Enabled         =   0   'False
-            Height          =   300
-            Left            =   4920
-            Style           =   1  'Graphical
-            TabIndex        =   231
-            Top             =   810
-            Width           =   300
-         End
-         Begin VB.CommandButton btnGeneralDockEditor 
-            Caption         =   "..."
-            Enabled         =   0   'False
-            Height          =   300
-            Left            =   4920
-            Style           =   1  'Graphical
-            TabIndex        =   230
-            Top             =   330
-            Width           =   300
-         End
-         Begin VB.TextBox txtIconSettingsDefaultEditor 
-            Enabled         =   0   'False
-            Height          =   315
-            Left            =   1200
-            Locked          =   -1  'True
-            TabIndex        =   227
-            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-            Top             =   1275
-            Width           =   3585
-         End
-         Begin VB.TextBox txtDockSettingsDefaultEditor 
-            Enabled         =   0   'False
-            Height          =   315
-            Left            =   1200
-            Locked          =   -1  'True
-            TabIndex        =   225
-            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-            Top             =   795
-            Width           =   3585
-         End
-         Begin VB.TextBox txtDockDefaultEditor 
-            Enabled         =   0   'False
-            Height          =   315
-            Left            =   1200
-            Locked          =   -1  'True
-            TabIndex        =   223
-            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-            Top             =   345
-            Width           =   3585
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "VB6/TwinBasic Editor VBP or TwinProj file locations:"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   5
-            Left            =   90
-            TabIndex        =   229
-            ToolTipText     =   $"dockSettings.frx":DB1F
-            Top             =   15
-            Width           =   4755
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Icon Settings :"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   1
-            Left            =   90
-            TabIndex        =   228
-            Top             =   1290
-            Width           =   1530
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Dock Settings :"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   0
-            Left            =   90
-            TabIndex        =   226
-            Top             =   840
-            Width           =   1530
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Dock :"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   6
-            Left            =   90
-            TabIndex        =   224
-            Top             =   390
-            Width           =   1530
-         End
-      End
-      Begin VB.CheckBox genChkShowIconSettings 
-         Caption         =   "Automatically display Icon Settings after adding an icon to the dock"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Left            =   945
-         TabIndex        =   209
-         Top             =   6315
-         Width           =   5115
-      End
-      Begin VB.CheckBox chkSplashStatus 
-         Caption         =   "Show Splash Screen at Startup"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   195
-         Left            =   945
-         TabIndex        =   164
-         ToolTipText     =   "Show Splash Screen on Start-up"
-         Top             =   6000
-         Width           =   3735
-      End
-      Begin VB.Frame fraRunAppIndicators 
-         BorderStyle     =   0  'None
-         Height          =   885
-         Left            =   450
-         TabIndex        =   126
-         Top             =   3210
-         Width           =   5955
-         Begin CCRSlider.Slider sliGenRunAppInterval 
-            Height          =   315
-            Left            =   1020
-            TabIndex        =   127
-            ToolTipText     =   "The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   540
-            Width           =   2820
-            _ExtentX        =   4974
-            _ExtentY        =   556
-            Enabled         =   0   'False
-            Min             =   5
-            Max             =   65
-            Value           =   5
-            TickFrequency   =   3
-            SelStart        =   15
-            Transparent     =   -1  'True
-         End
-         Begin VB.Label lblGenRunAppInterval2 
-            Caption         =   "5s"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   255
-            Left            =   795
-            TabIndex        =   131
-            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   420
-            Width           =   630
-         End
-         Begin VB.Label lblGenRunAppInterval3 
-            Caption         =   "65s"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   3900
-            TabIndex        =   130
-            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   420
-            Width           =   585
-         End
-         Begin VB.Label lblGenRunAppIntervalCur 
-            Caption         =   "(15 seconds)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   4635
-            TabIndex        =   129
-            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-            Top             =   420
-            Width           =   1215
-         End
-         Begin VB.Label lblGenLabel 
-            Caption         =   "Running Application Check Interval"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Index           =   2
-            Left            =   750
-            LinkItem        =   "150"
-            TabIndex        =   128
-            ToolTipText     =   "This function consumes cpu on  low power computers so keep it above 15 secs, preferably 30."
-            Top             =   105
-            Width           =   3210
-         End
-      End
-      Begin VB.CommandButton btnGeneralRdFolder 
-         Caption         =   "..."
-         Enabled         =   0   'False
-         Height          =   300
-         Left            =   5745
-         TabIndex        =   97
-         ToolTipText     =   "Select the folder location of Rocketdock here"
-         Top             =   5475
-         Visible         =   0   'False
-         Width           =   300
-      End
-      Begin VB.CheckBox chkGenRun 
-         Caption         =   "Running Application Indicators"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   930
-         TabIndex        =   11
-         ToolTipText     =   $"dockSettings.frx":DBE9
-         Top             =   2880
-         Width           =   2985
-      End
-      Begin VB.CheckBox chkGenDisableAnim 
-         Caption         =   "Disable Minimise Animations"
-         Enabled         =   0   'False
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   3585
-         TabIndex        =   10
-         ToolTipText     =   "If you dislike the minimise animation, click this"
-         Top             =   2505
-         Value           =   1  'Checked
-         Visible         =   0   'False
-         Width           =   2520
-      End
-      Begin VB.CheckBox chkGenOpen 
-         Caption         =   "Open Running Application Instance"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   930
-         TabIndex        =   12
-         ToolTipText     =   "If you click on an icon that is already running then it can open it or fire up another instance"
-         Top             =   4185
-         Width           =   3030
-      End
-      Begin VB.TextBox txtGeneralRdLocation 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Left            =   915
-         Locked          =   -1  'True
-         TabIndex        =   68
-         Text            =   "C:\programs"
-         ToolTipText     =   "This is the extrapolated location of the currently selected dock. This is for information only."
-         Top             =   5460
-         Width           =   4710
-      End
-      Begin VB.ComboBox cmbDefaultDock 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         ItemData        =   "dockSettings.frx":DC88
-         Left            =   2085
-         List            =   "dockSettings.frx":DC92
-         Locked          =   -1  'True
-         TabIndex        =   66
-         Text            =   "Rocketdock"
-         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock, these utilities are compatible with both"
-         Top             =   4710
-         Width           =   2310
-      End
-      Begin VB.CheckBox chkGenMin 
-         Caption         =   "Minimise Windows to the Dock"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   360
-         Left            =   3300
-         TabIndex        =   9
-         ToolTipText     =   "This allows running applications to appear in the dock"
-         Top             =   2175
-         Visible         =   0   'False
-         Width           =   3075
-      End
-      Begin VB.CheckBox chkGenWinStartup 
-         Caption         =   "Run at Startup"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Left            =   915
-         TabIndex        =   2
-         ToolTipText     =   "This will cause the current dock to run when Windows starts"
-         Top             =   495
-         Width           =   1440
-      End
-      Begin VB.Frame fraWriteOptionButtons 
-         BorderStyle     =   0  'None
-         Height          =   450
-         Left            =   510
-         TabIndex        =   151
-         Top             =   1755
-         Width           =   6165
-         Begin VB.OptionButton optGeneralWriteConfig 
-            Caption         =   "Write Settings to SteamyDock's Own Configuration Area"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   390
-            TabIndex        =   152
-            ToolTipText     =   $"dockSettings.frx":DCAE
-            Top             =   15
-            Width           =   5325
-         End
-      End
-      Begin VB.Frame fraReadOptionButtons 
-         BorderStyle     =   0  'None
-         Height          =   1080
-         Left            =   540
-         TabIndex        =   132
-         Top             =   690
-         Width           =   6315
-         Begin VB.OptionButton optGeneralReadSettings 
-            Caption         =   "Read Settings from Rocketdock's portable SETTINGS.INI (single-user)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   360
-            TabIndex        =   135
-            ToolTipText     =   "Store configuration in Rocketdock's program files folder, causes security issues and requires admin access,"
-            Top             =   165
-            Width           =   5500
-         End
-         Begin VB.OptionButton optGeneralReadRegistry 
-            Caption         =   "Read Settings from RocketDock's Registry (multi-user)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   360
-            TabIndex        =   134
-            ToolTipText     =   $"dockSettings.frx":DD43
-            Top             =   465
-            Width           =   5500
-         End
-         Begin VB.OptionButton optGeneralReadConfig 
-            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   225
-            Left            =   360
-            TabIndex        =   133
-            ToolTipText     =   $"dockSettings.frx":DE06
-            Top             =   780
-            Width           =   5565
-         End
-         Begin VB.Label lbloptGeneralReadConfig 
-            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
-            Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   315
-            Left            =   630
-            TabIndex        =   211
-            Top             =   780
-            Width           =   5115
-         End
-      End
-      Begin VB.Label lblSquiggle 
-         Caption         =   "-oOo-"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Left            =   2310
-         TabIndex        =   233
-         ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
-         Top             =   2340
-         Width           =   1215
-      End
-      Begin VB.Label lblGenLabel 
-         Caption         =   "Dock Folder Location"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   4
-         Left            =   915
-         TabIndex        =   96
-         ToolTipText     =   $"dockSettings.frx":DE9B
-         Top             =   5190
-         Width           =   1695
-      End
-      Begin VB.Label lblGenLabel 
-         Caption         =   "Default Dock"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   225
-         Index           =   3
-         Left            =   915
-         TabIndex        =   67
-         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
-         Top             =   4740
-         Width           =   1530
-      End
-   End
-   Begin VB.Frame fmeMain 
       Caption         =   "Desktop Wallpaper Settings "
       Height          =   8595
       Index           =   6
@@ -1544,6 +594,24 @@ Begin VB.Form dockSettings
       TabIndex        =   253
       Top             =   45
       Width           =   6930
+      Begin VB.CommandButton btnNextWallpaper 
+         Caption         =   ">"
+         Height          =   1095
+         Left            =   6525
+         Style           =   1  'Graphical
+         TabIndex        =   269
+         Top             =   3780
+         Width           =   300
+      End
+      Begin VB.CommandButton btnPreviousWallpaper 
+         Caption         =   "<"
+         Height          =   1095
+         Left            =   135
+         Style           =   1  'Graphical
+         TabIndex        =   268
+         Top             =   3780
+         Width           =   300
+      End
       Begin VB.ComboBox cmbWallpaperTimerInterval 
          Enabled         =   0   'False
          Height          =   315
@@ -1602,14 +670,14 @@ Begin VB.Form dockSettings
          Left            =   525
          TabIndex        =   265
          Top             =   2580
-         Width           =   5970
+         Width           =   5910
          Begin VB.Image imgWallpaperPreview 
             BorderStyle     =   1  'Fixed Single
             Height          =   3300
             Left            =   150
             Stretch         =   -1  'True
             Top             =   240
-            Width           =   5640
+            Width           =   5595
          End
       End
       Begin VB.Label lblWallpaper 
@@ -1698,9 +766,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":DF65
+         ItemData        =   "dockSettings.frx":D3A7
          Left            =   2190
-         List            =   "dockSettings.frx":DF72
+         List            =   "dockSettings.frx":D3B4
          TabIndex        =   221
          Text            =   "None"
          Top             =   6150
@@ -1752,9 +820,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":DF96
+         ItemData        =   "dockSettings.frx":D3D8
          Left            =   2190
-         List            =   "dockSettings.frx":DFC1
+         List            =   "dockSettings.frx":D403
          TabIndex        =   204
          Text            =   "F11"
          ToolTipText     =   "This is the key sequence that is used to hide or restore Steamydock"
@@ -1878,9 +946,9 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":E002
+            ItemData        =   "dockSettings.frx":D444
             Left            =   1770
-            List            =   "dockSettings.frx":E00F
+            List            =   "dockSettings.frx":D451
             TabIndex        =   196
             Text            =   "Fade"
             ToolTipText     =   "The type of auto-hide, fade, instant or a slide like Rocketdock"
@@ -1916,12 +984,12 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":E029
+            ItemData        =   "dockSettings.frx":D46B
             Left            =   1770
-            List            =   "dockSettings.frx":E036
+            List            =   "dockSettings.frx":D478
             TabIndex        =   193
             Text            =   "Bounce"
-            ToolTipText     =   $"dockSettings.frx":E05A
+            ToolTipText     =   $"dockSettings.frx":D49C
             Top             =   0
             Width           =   2620
          End
@@ -1941,7 +1009,7 @@ Begin VB.Form dockSettings
             Left            =   90
             LinkItem        =   "150"
             TabIndex        =   194
-            ToolTipText     =   $"dockSettings.frx":E0EE
+            ToolTipText     =   $"dockSettings.frx":D530
             Top             =   45
             Width           =   1605
          End
@@ -2279,7 +1347,7 @@ Begin VB.Form dockSettings
             Height          =   315
             Left            =   1890
             TabIndex        =   154
-            ToolTipText     =   $"dockSettings.frx":E180
+            ToolTipText     =   $"dockSettings.frx":D5C2
             Top             =   285
             Width           =   2775
             _ExtentX        =   4895
@@ -2455,7 +1523,7 @@ Begin VB.Form dockSettings
          Width           =   1440
       End
       Begin VB.Label lblBehaviourLabel 
-         Caption         =   $"dockSettings.frx":E20F
+         Caption         =   $"dockSettings.frx":D651
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2782,7 +1850,7 @@ Begin VB.Form dockSettings
          ScaleHeight     =   675
          ScaleWidth      =   5280
          TabIndex        =   51
-         ToolTipText     =   $"dockSettings.frx":E2A1
+         ToolTipText     =   $"dockSettings.frx":D6E3
          Top             =   4440
          Width           =   5340
          Begin VB.Label lblPreviewFont 
@@ -2947,9 +2015,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":E32B
+         ItemData        =   "dockSettings.frx":D76D
          Left            =   2205
-         List            =   "dockSettings.frx":E32D
+         List            =   "dockSettings.frx":D76F
          TabIndex        =   40
          ToolTipText     =   "The dock background theme can be selected here"
          Top             =   405
@@ -2986,7 +2054,7 @@ Begin VB.Form dockSettings
          BorderStyle     =   1  'Fixed Single
          Height          =   2070
          Left            =   645
-         Picture         =   "dockSettings.frx":E32F
+         Picture         =   "dockSettings.frx":D771
          Top             =   1800
          Width           =   5430
       End
@@ -3304,9 +2372,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":11E59
+         ItemData        =   "dockSettings.frx":1129B
          Left            =   2190
-         List            =   "dockSettings.frx":11E66
+         List            =   "dockSettings.frx":112A8
          TabIndex        =   37
          Text            =   "Always Below"
          ToolTipText     =   "Should the dock appear on top of other windows or underneath?"
@@ -3324,9 +2392,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":11E8F
+         ItemData        =   "dockSettings.frx":112D1
          Left            =   2205
-         List            =   "dockSettings.frx":11EA5
+         List            =   "dockSettings.frx":112E7
          TabIndex        =   26
          Text            =   "Monitor 1"
          ToolTipText     =   "Here you can determine upon which monitor the dock will appear"
@@ -3344,9 +2412,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":11EEB
+         ItemData        =   "dockSettings.frx":1132D
          Left            =   2190
-         List            =   "dockSettings.frx":11EFB
+         List            =   "dockSettings.frx":1133D
          TabIndex        =   25
          Text            =   "Bottom"
          ToolTipText     =   "Place the dock at your preferred location. Steamydock only supports top and bottom positions"
@@ -3934,12 +3002,12 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":11F19
+         ItemData        =   "dockSettings.frx":1135B
          Left            =   2160
-         List            =   "dockSettings.frx":11F26
+         List            =   "dockSettings.frx":11368
          TabIndex        =   78
          Text            =   "Low quality (Faster)"
-         ToolTipText     =   $"dockSettings.frx":11F68
+         ToolTipText     =   $"dockSettings.frx":113AA
          Top             =   390
          Width           =   2520
       End
@@ -4006,9 +3074,9 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":12026
+            ItemData        =   "dockSettings.frx":11468
             Left            =   1995
-            List            =   "dockSettings.frx":12039
+            List            =   "dockSettings.frx":1147B
             TabIndex        =   123
             Text            =   "None"
             ToolTipText     =   "The zoom effect to apply"
@@ -4309,6 +3377,956 @@ Begin VB.Form dockSettings
          ToolTipText     =   "The maximum icon size after a zoom"
          Top             =   2820
          Width           =   630
+      End
+   End
+   Begin VB.Frame fmeMain 
+      Caption         =   "About SteamyDock"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   8640
+      Index           =   5
+      Left            =   1245
+      TabIndex        =   54
+      ToolTipText     =   "This panel is really a eulogy to Rocketdock plus a few buttons taking you to useful locations and providing additional data"
+      Top             =   45
+      Width           =   6930
+      Begin VB.Frame Frame2 
+         BorderStyle     =   0  'None
+         Height          =   6435
+         Left            =   6825
+         TabIndex        =   219
+         Top             =   2175
+         Width           =   75
+      End
+      Begin VB.Frame fraScrollbarCover 
+         BorderStyle     =   0  'None
+         Height          =   6435
+         Left            =   6570
+         TabIndex        =   218
+         Top             =   2175
+         Width           =   330
+      End
+      Begin VB.TextBox lblAboutText 
+         Appearance      =   0  'Flat
+         BackColor       =   &H8000000F&
+         BorderStyle     =   0  'None
+         Height          =   6390
+         Left            =   165
+         MultiLine       =   -1  'True
+         ScrollBars      =   2  'Vertical
+         TabIndex        =   217
+         Text            =   "dockSettings.frx":114BB
+         Top             =   2235
+         Width           =   6660
+      End
+      Begin VB.CommandButton btnDonate 
+         Caption         =   "&Donate"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   5115
+         Style           =   1  'Graphical
+         TabIndex        =   98
+         ToolTipText     =   "Opens a browser window and sends you to our donate page on Amazon"
+         Top             =   1545
+         Width           =   1470
+      End
+      Begin VB.CommandButton btnUpdate 
+         Caption         =   "&Update"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   5115
+         Style           =   1  'Graphical
+         TabIndex        =   57
+         ToolTipText     =   "Here you can visit the update location where you can download new versions of the programs used by Rocketdock"
+         Top             =   420
+         Width           =   1470
+      End
+      Begin VB.CommandButton btnFacebook 
+         Caption         =   "&Facebook"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   5115
+         Style           =   1  'Graphical
+         TabIndex        =   56
+         ToolTipText     =   "This will link you to the Rocket/Steamy dock users Group"
+         Top             =   795
+         Width           =   1470
+      End
+      Begin VB.CommandButton btnAboutDebugInfo 
+         Caption         =   "Debug &Info."
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   5115
+         Style           =   1  'Graphical
+         TabIndex        =   55
+         ToolTipText     =   "This gives access to the debugging tool"
+         Top             =   1170
+         Width           =   1470
+      End
+      Begin VB.Label Label20 
+         Caption         =   "(32bit)"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   2985
+         TabIndex        =   207
+         Top             =   510
+         Width           =   1050
+      End
+      Begin VB.Label Label17 
+         Caption         =   "Windows XP, Vista, 7, 8 && 10 + ReactOS"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   1800
+         TabIndex        =   206
+         Top             =   1560
+         Width           =   2955
+      End
+      Begin VB.Label Label10 
+         Caption         =   "Target"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   135
+         TabIndex        =   205
+         Top             =   1560
+         Width           =   1470
+      End
+      Begin VB.Label lblPunklabsLink 
+         BackStyle       =   0  'Transparent
+         Caption         =   "                                                                                                                        "
+         Height          =   225
+         Index           =   0
+         Left            =   2175
+         MousePointer    =   1  'Arrow
+         TabIndex        =   95
+         Top             =   870
+         Width           =   1710
+      End
+      Begin VB.Label lblMinorVersion 
+         BackStyle       =   0  'Transparent
+         Caption         =   "0"
+         BeginProperty Font 
+            Name            =   "Centurion Light SF"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   2175
+         TabIndex        =   74
+         Top             =   510
+         Width           =   225
+      End
+      Begin VB.Label lblMajorVersion 
+         BackStyle       =   0  'Transparent
+         Caption         =   "0"
+         BeginProperty Font 
+            Name            =   "Centurion Light SF"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   1815
+         TabIndex        =   73
+         Top             =   510
+         Width           =   225
+      End
+      Begin VB.Label lblRevisionNum 
+         BackStyle       =   0  'Transparent
+         Caption         =   "0"
+         BeginProperty Font 
+            Name            =   "Centurion Light SF"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   2535
+         TabIndex        =   72
+         Top             =   510
+         Width           =   525
+      End
+      Begin VB.Label lblDotDot 
+         BackStyle       =   0  'Transparent
+         Caption         =   ".        ."
+         BeginProperty Font 
+            Name            =   "Centurion Light SF"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   2010
+         TabIndex        =   71
+         Top             =   510
+         Width           =   495
+      End
+      Begin VB.Label Label63 
+         Caption         =   "Current Developer"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   135
+         TabIndex        =   62
+         Top             =   1215
+         Width           =   1470
+      End
+      Begin VB.Label Label60 
+         Caption         =   "Dean Beedell © 2018"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   1800
+         TabIndex        =   61
+         Top             =   1215
+         Width           =   2175
+      End
+      Begin VB.Label Label74 
+         Caption         =   "Version"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   150
+         TabIndex        =   60
+         Top             =   495
+         Width           =   795
+      End
+      Begin VB.Label Label65 
+         Caption         =   "Originator"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   135
+         TabIndex        =   59
+         Top             =   855
+         Width           =   795
+      End
+      Begin VB.Label Label61 
+         Caption         =   "Punklabs © 2005-2007"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   1800
+         TabIndex        =   58
+         Top             =   855
+         Width           =   2175
+      End
+   End
+   Begin VB.Frame fmeMain 
+      Caption         =   "General Configuration"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   8640
+      Index           =   0
+      Left            =   1230
+      TabIndex        =   1
+      ToolTipText     =   "These are the main settings for the dock"
+      Top             =   15
+      Width           =   6930
+      Begin VB.Frame fraEditors 
+         BorderStyle     =   0  'None
+         Height          =   1665
+         Left            =   825
+         TabIndex        =   222
+         Top             =   6660
+         Width           =   5280
+         Begin VB.CommandButton btnGeneralIconSettingsEditor 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            Style           =   1  'Graphical
+            TabIndex        =   232
+            Top             =   1260
+            Width           =   300
+         End
+         Begin VB.CommandButton btnGeneralDockSettingsEditor 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            Style           =   1  'Graphical
+            TabIndex        =   231
+            Top             =   810
+            Width           =   300
+         End
+         Begin VB.CommandButton btnGeneralDockEditor 
+            Caption         =   "..."
+            Enabled         =   0   'False
+            Height          =   300
+            Left            =   4920
+            Style           =   1  'Graphical
+            TabIndex        =   230
+            Top             =   330
+            Width           =   300
+         End
+         Begin VB.TextBox txtIconSettingsDefaultEditor 
+            Enabled         =   0   'False
+            Height          =   315
+            Left            =   1200
+            Locked          =   -1  'True
+            TabIndex        =   227
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   1275
+            Width           =   3585
+         End
+         Begin VB.TextBox txtDockSettingsDefaultEditor 
+            Enabled         =   0   'False
+            Height          =   315
+            Left            =   1200
+            Locked          =   -1  'True
+            TabIndex        =   225
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   795
+            Width           =   3585
+         End
+         Begin VB.TextBox txtDockDefaultEditor 
+            Enabled         =   0   'False
+            Height          =   315
+            Left            =   1200
+            Locked          =   -1  'True
+            TabIndex        =   223
+            Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
+            Top             =   345
+            Width           =   3585
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "VB6/TwinBasic Editor VBP or TwinProj file locations:"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   5
+            Left            =   90
+            TabIndex        =   229
+            ToolTipText     =   $"dockSettings.frx":11C33
+            Top             =   15
+            Width           =   4755
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Icon Settings :"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   1
+            Left            =   90
+            TabIndex        =   228
+            Top             =   1290
+            Width           =   1530
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Dock Settings :"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   0
+            Left            =   90
+            TabIndex        =   226
+            Top             =   840
+            Width           =   1530
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Dock :"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   6
+            Left            =   90
+            TabIndex        =   224
+            Top             =   390
+            Width           =   1530
+         End
+      End
+      Begin VB.CheckBox genChkShowIconSettings 
+         Caption         =   "Automatically display Icon Settings after adding an icon to the dock"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Left            =   945
+         TabIndex        =   209
+         Top             =   6315
+         Width           =   5115
+      End
+      Begin VB.CheckBox chkSplashStatus 
+         Caption         =   "Show Splash Screen at Startup"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   195
+         Left            =   945
+         TabIndex        =   164
+         ToolTipText     =   "Show Splash Screen on Start-up"
+         Top             =   6000
+         Width           =   3735
+      End
+      Begin VB.Frame fraRunAppIndicators 
+         BorderStyle     =   0  'None
+         Height          =   885
+         Left            =   450
+         TabIndex        =   126
+         Top             =   3210
+         Width           =   5955
+         Begin CCRSlider.Slider sliGenRunAppInterval 
+            Height          =   315
+            Left            =   1020
+            TabIndex        =   127
+            ToolTipText     =   "The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   540
+            Width           =   2820
+            _ExtentX        =   4974
+            _ExtentY        =   556
+            Enabled         =   0   'False
+            Min             =   5
+            Max             =   65
+            Value           =   5
+            TickFrequency   =   3
+            SelStart        =   15
+            Transparent     =   -1  'True
+         End
+         Begin VB.Label lblGenRunAppInterval2 
+            Caption         =   "5s"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   255
+            Left            =   795
+            TabIndex        =   131
+            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   420
+            Width           =   630
+         End
+         Begin VB.Label lblGenRunAppInterval3 
+            Caption         =   "65s"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   3900
+            TabIndex        =   130
+            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   420
+            Width           =   585
+         End
+         Begin VB.Label lblGenRunAppIntervalCur 
+            Caption         =   "(15 seconds)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   4635
+            TabIndex        =   129
+            ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+            Top             =   420
+            Width           =   1215
+         End
+         Begin VB.Label lblGenLabel 
+            Caption         =   "Running Application Check Interval"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Index           =   2
+            Left            =   750
+            LinkItem        =   "150"
+            TabIndex        =   128
+            ToolTipText     =   "This function consumes cpu on  low power computers so keep it above 15 secs, preferably 30."
+            Top             =   105
+            Width           =   3210
+         End
+      End
+      Begin VB.CommandButton btnGeneralRdFolder 
+         Caption         =   "..."
+         Enabled         =   0   'False
+         Height          =   300
+         Left            =   5745
+         TabIndex        =   97
+         ToolTipText     =   "Select the folder location of Rocketdock here"
+         Top             =   5475
+         Visible         =   0   'False
+         Width           =   300
+      End
+      Begin VB.CheckBox chkGenRun 
+         Caption         =   "Running Application Indicators"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   930
+         TabIndex        =   11
+         ToolTipText     =   $"dockSettings.frx":11CFD
+         Top             =   2880
+         Width           =   2985
+      End
+      Begin VB.CheckBox chkGenDisableAnim 
+         Caption         =   "Disable Minimise Animations"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   3585
+         TabIndex        =   10
+         ToolTipText     =   "If you dislike the minimise animation, click this"
+         Top             =   2505
+         Value           =   1  'Checked
+         Visible         =   0   'False
+         Width           =   2520
+      End
+      Begin VB.CheckBox chkGenOpen 
+         Caption         =   "Open Running Application Instance"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   930
+         TabIndex        =   12
+         ToolTipText     =   "If you click on an icon that is already running then it can open it or fire up another instance"
+         Top             =   4185
+         Width           =   3030
+      End
+      Begin VB.TextBox txtGeneralRdLocation 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   915
+         Locked          =   -1  'True
+         TabIndex        =   68
+         Text            =   "C:\programs"
+         ToolTipText     =   "This is the extrapolated location of the currently selected dock. This is for information only."
+         Top             =   5460
+         Width           =   4710
+      End
+      Begin VB.ComboBox cmbDefaultDock 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         ItemData        =   "dockSettings.frx":11D9C
+         Left            =   2085
+         List            =   "dockSettings.frx":11DA6
+         Locked          =   -1  'True
+         TabIndex        =   66
+         Text            =   "Rocketdock"
+         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock, these utilities are compatible with both"
+         Top             =   4710
+         Width           =   2310
+      End
+      Begin VB.CheckBox chkGenMin 
+         Caption         =   "Minimise Windows to the Dock"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         Left            =   3300
+         TabIndex        =   9
+         ToolTipText     =   "This allows running applications to appear in the dock"
+         Top             =   2175
+         Visible         =   0   'False
+         Width           =   3075
+      End
+      Begin VB.CheckBox chkGenWinStartup 
+         Caption         =   "Run at Startup"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Left            =   915
+         TabIndex        =   2
+         ToolTipText     =   "This will cause the current dock to run when Windows starts"
+         Top             =   495
+         Width           =   1440
+      End
+      Begin VB.Frame fraWriteOptionButtons 
+         BorderStyle     =   0  'None
+         Height          =   450
+         Left            =   510
+         TabIndex        =   151
+         Top             =   1755
+         Width           =   6165
+         Begin VB.OptionButton optGeneralWriteConfig 
+            Caption         =   "Write Settings to SteamyDock's Own Configuration Area"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   390
+            TabIndex        =   152
+            ToolTipText     =   $"dockSettings.frx":11DC2
+            Top             =   15
+            Width           =   5325
+         End
+      End
+      Begin VB.Frame fraReadOptionButtons 
+         BorderStyle     =   0  'None
+         Height          =   1080
+         Left            =   540
+         TabIndex        =   132
+         Top             =   690
+         Width           =   6315
+         Begin VB.OptionButton optGeneralReadSettings 
+            Caption         =   "Read Settings from Rocketdock's portable SETTINGS.INI (single-user)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   360
+            TabIndex        =   135
+            ToolTipText     =   "Store configuration in Rocketdock's program files folder, causes security issues and requires admin access,"
+            Top             =   165
+            Width           =   5500
+         End
+         Begin VB.OptionButton optGeneralReadRegistry 
+            Caption         =   "Read Settings from RocketDock's Registry (multi-user)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   360
+            TabIndex        =   134
+            ToolTipText     =   $"dockSettings.frx":11E57
+            Top             =   465
+            Width           =   5500
+         End
+         Begin VB.OptionButton optGeneralReadConfig 
+            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   225
+            Left            =   360
+            TabIndex        =   133
+            ToolTipText     =   $"dockSettings.frx":11F1A
+            Top             =   780
+            Width           =   5565
+         End
+         Begin VB.Label lbloptGeneralReadConfig 
+            Caption         =   "Read Settings From SteamyDock's Own Configuration Area (modern)"
+            Enabled         =   0   'False
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   630
+            TabIndex        =   211
+            Top             =   780
+            Width           =   5115
+         End
+      End
+      Begin VB.Label lblSquiggle 
+         Caption         =   "-oOo-"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   2310
+         TabIndex        =   233
+         ToolTipText     =   "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
+         Top             =   2340
+         Width           =   1215
+      End
+      Begin VB.Label lblGenLabel 
+         Caption         =   "Dock Folder Location"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   4
+         Left            =   915
+         TabIndex        =   96
+         ToolTipText     =   $"dockSettings.frx":11FAF
+         Top             =   5190
+         Width           =   1695
+      End
+      Begin VB.Label lblGenLabel 
+         Caption         =   "Default Dock"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   3
+         Left            =   915
+         TabIndex        =   67
+         ToolTipText     =   "Choose which dock you are using Rocketdock or SteamyDock - currently not operational, defaults to Rocketdock"
+         Top             =   4740
+         Width           =   1530
       End
    End
    Begin VB.Label lblDragCorner 
@@ -4664,6 +4682,79 @@ Private Const SPI_SETDESKWALLPAPER = 20 'Change Wallpaper
 
 
 '---------------------------------------------------------------------------------------
+' Procedure : btnPreviousWallpaper_Click
+' Author    : beededea
+' Date      : 18/04/2025
+' Purpose   : next wallpaper
+'---------------------------------------------------------------------------------------
+'
+Private Sub btnPreviousWallpaper_Click()
+    Dim cmbWallpaperIndex As Integer: cmbWallpaperIndex = 0
+    
+   On Error GoTo btnPreviousWallpaper_Click_Error
+
+    cmbWallpaperIndex = cmbWallpaper.ListIndex
+    cmbWallpaperIndex = cmbWallpaperIndex - 1
+    
+    If cmbWallpaperIndex <= 0 Then
+        cmbWallpaperIndex = 0
+    End If
+    
+    cmbWallpaper.ListIndex = cmbWallpaperIndex
+
+   On Error GoTo 0
+   Exit Sub
+
+btnPreviousWallpaper_Click_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnPreviousWallpaper_Click of Form dockSettings"
+    
+End Sub
+'---------------------------------------------------------------------------------------
+' Procedure : btnNextWallpaper_Click
+' Author    : beededea
+' Date      : 18/04/2025
+' Purpose   : next wallpaper
+'---------------------------------------------------------------------------------------
+'
+Private Sub btnNextWallpaper_Click()
+    Dim cmbWallpaperIndex As Integer: cmbWallpaperIndex = 0
+    
+   On Error GoTo btnNextWallpaper_Click_Error
+
+    cmbWallpaperIndex = cmbWallpaper.ListIndex
+    cmbWallpaperIndex = cmbWallpaperIndex + 1
+    
+    If cmbWallpaperIndex >= cmbWallpaper.ListCount - 1 Then
+        cmbWallpaperIndex = cmbWallpaper.ListCount - 1
+    End If
+    
+    cmbWallpaper.ListIndex = cmbWallpaperIndex
+
+   On Error GoTo 0
+   Exit Sub
+
+btnNextWallpaper_Click_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnNextWallpaper_Click of Form dockSettings"
+    
+End Sub
+
+' note: all buttons need to be style = graphical in order to theme by colour
+Private Sub btnNextWallpaper_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+      If rDEnableBalloonTooltips = "1" Then CreateToolTip btnNextWallpaper.hWnd, "To select the next wallpaper click this button..", _
+                  TTIconInfo, "Help on the next wallpaper button ", , , , True
+End Sub
+
+
+
+
+Private Sub btnPreviousWallpaper_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+      If rDEnableBalloonTooltips = "1" Then CreateToolTip btnPreviousWallpaper.hWnd, "To select the previous wallpaper click this button.", _
+                  TTIconInfo, "Help on the previous wallpaper button ", , , , True
+End Sub
+
+'---------------------------------------------------------------------------------------
 ' Procedure : chkMoveWinTaskbar_Click
 ' Author    : beededea
 ' Date      : 10/04/2025
@@ -4688,6 +4779,8 @@ Private Sub chkMoveWinTaskbar_MouseMove(Button As Integer, Shift As Integer, X A
                   TTIconInfo, "Help on the Avoid Clashes check box ", , , , True
 
 End Sub
+
+
 
 '---------------------------------------------------------------------------------------
 ' Procedure : Form_Initialize
@@ -9208,6 +9301,7 @@ Private Sub setThemeShade(redC As Integer, greenC As Integer, blueC As Integer)
     
     Me.BackColor = RGB(redC, greenC, blueC)
     ' a method of looping through all the controls that require reversion of any background colouring
+    ' note: all buttons need to be style = graphical in order to theme by colour
     For Each Ctrl In dockSettings.Controls
         If (TypeOf Ctrl Is CommandButton) Or (TypeOf Ctrl Is CheckBox) Or (TypeOf Ctrl Is Label) Or (TypeOf Ctrl Is OptionButton) Or (TypeOf Ctrl Is Frame) Then
           Ctrl.BackColor = RGB(redC, greenC, blueC)
@@ -12412,6 +12506,9 @@ Private Sub setToolTips()
         chkWallpaperTimer.ToolTipText = "This checkbox enables a timer in the dock that will change the desktop background on an interval you define"
         imgWallpaperPreview.ToolTipText = "This image box displays a resized version of a much larger wallpaper, press the change button to apply it to your desktop."
         chkMoveWinTaskbar.ToolTipText = "If this is enabled, Steamydock will move the Windows taskbar to the opposite side, top to bottom &&c when the two overlap."
+        
+        btnNextWallpaper.ToolTipText = "To select the Next wallpaper click this button."
+        btnPreviousWallpaper.ToolTipText = "To select the previous wallpaper click this button."
     Else
     
         rDEnableBalloonTooltips = "1" ' this is the flag used to determine whether a new balloon tooltip is generated
@@ -12636,6 +12733,8 @@ Private Sub setToolTips()
         
         chkMoveWinTaskbar.ToolTipText = vbNullString
         
+        btnNextWallpaper.ToolTipText = vbNullString
+        btnPreviousWallpaper.ToolTipText = vbNullString
     End If
 
     On Error GoTo 0
@@ -12797,7 +12896,7 @@ End Sub
 ' Procedure : selectStoredWallpaperStyle
 ' Author    : beededea
 ' Date      : 10/04/2025
-' Purpose   :
+' Purpose   : select any previously stored and save wallpaper style
 '---------------------------------------------------------------------------------------
 '
  Private Sub selectStoredWallpaperStyle()
@@ -12837,7 +12936,7 @@ End Sub
 ' Procedure : selectStoredWallpaper
 ' Author    : beededea
 ' Date      : 10/04/2025
-' Purpose   :
+' Purpose   : select any previously stored and save wallpaper
 '---------------------------------------------------------------------------------------
 '
 Private Sub selectStoredWallpaper()
