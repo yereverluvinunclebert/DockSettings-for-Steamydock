@@ -56,7 +56,7 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Public Sub resizeControls(ByRef thisForm As Form, ByRef m_ControlPositions() As ControlPositionType, ByVal m_FormWid As Double, ByVal m_FormHgt As Double, ByVal formFontSize As Single)
-    Dim i As Integer: i = 0
+    Dim I As Integer: I = 0
     Dim Ctrl As Control
     Dim x_scale As Single: x_scale = 0
     Dim y_scale As Single: y_scale = 0
@@ -71,10 +71,10 @@ Public Sub resizeControls(ByRef thisForm As Form, ByRef m_ControlPositions() As 
     gblResizeRatio = x_scale
 
     ' Position the controls.
-    i = 1
+    I = 1
 
     For Each Ctrl In thisForm.Controls
-        With m_ControlPositions(i)
+        With m_ControlPositions(I)
             If (TypeOf Ctrl Is CommandButton) Or (TypeOf Ctrl Is ListBox) Or (TypeOf Ctrl Is VScrollBar) Or (TypeOf Ctrl Is HScrollBar) Or (TypeOf Ctrl Is TextBox) Or (TypeOf Ctrl Is FileListBox) Or (TypeOf Ctrl Is Label) Or (TypeOf Ctrl Is ComboBox) Or (TypeOf Ctrl Is CheckBox) Or (TypeOf Ctrl Is OptionButton) Or (TypeOf Ctrl Is Frame) Or (TypeOf Ctrl Is Image) Or (TypeOf Ctrl Is PictureBox) Or (TypeOf Ctrl Is Slider) Then
 
                 If (TypeOf Ctrl Is Image) Then
@@ -93,27 +93,27 @@ Public Sub resizeControls(ByRef thisForm As Form, ByRef m_ControlPositions() As 
                     Ctrl.Height = y_scale * .Height
                     Ctrl.Width = x_scale * .Width
                     
-                    If Ctrl.Name = "picIcon" Then
-                        If Ctrl.Index = 0 Then fileToLoad = App.Path & "\general.gif"
-                        If Ctrl.Index = 1 Then fileToLoad = App.Path & "\icons.gif"
-                        If Ctrl.Index = 2 Then fileToLoad = App.Path & "\behaviour.gif"
-                        If Ctrl.Index = 3 Then fileToLoad = App.Path & "\style.gif"
-                        If Ctrl.Index = 4 Then fileToLoad = App.Path & "\position.gif"
-                        If Ctrl.Index = 5 Then fileToLoad = App.Path & "\about.gif"
-                        If Ctrl.Index = 6 Then fileToLoad = App.Path & "\wallpaper.gif"
+                    If Ctrl.Name = "imgIcon" Then
+                        If Ctrl.Index = 0 Then fileToLoad = App.Path & "\general.jpg"
+                        If Ctrl.Index = 1 Then fileToLoad = App.Path & "\icons.jpg"
+                        If Ctrl.Index = 2 Then fileToLoad = App.Path & "\behaviour.jpg"
+                        If Ctrl.Index = 3 Then fileToLoad = App.Path & "\style.jpg"
+                        If Ctrl.Index = 4 Then fileToLoad = App.Path & "\position.jpg"
+                        If Ctrl.Index = 6 Then fileToLoad = App.Path & "\about.jpg"
+                        If Ctrl.Index = 5 Then fileToLoad = App.Path & "\wallpaper.jpg"
                             
                         Ctrl.PaintPicture LoadPicture(fileToLoad), 0, 0, Ctrl.Width, Ctrl.Height
                         Stretch Ctrl, fileToLoad
                     End If
                                   
-                    If Ctrl.Name = "picIconPressed" Then
-                        If Ctrl.Index = 0 Then fileToLoad = App.Path & "\generalHighlighted.gif"
-                        If Ctrl.Index = 1 Then fileToLoad = App.Path & "\iconsHighlighted.gif"
-                        If Ctrl.Index = 2 Then fileToLoad = App.Path & "\behaviourHighlighted.gif"
-                        If Ctrl.Index = 3 Then fileToLoad = App.Path & "\styleHighlighted.gif"
-                        If Ctrl.Index = 4 Then fileToLoad = App.Path & "\positionHighlighted.gif"
-                        If Ctrl.Index = 5 Then fileToLoad = App.Path & "\aboutHighlighted.gif"
-                        If Ctrl.Index = 6 Then fileToLoad = App.Path & "\wallpaperHighlighted.gif"
+                    If Ctrl.Name = "imgIconPressed" Then
+                        If Ctrl.Index = 0 Then fileToLoad = App.Path & "\generalHighlighted.jpg"
+                        If Ctrl.Index = 1 Then fileToLoad = App.Path & "\iconsHighlighted.jpg"
+                        If Ctrl.Index = 2 Then fileToLoad = App.Path & "\behaviourHighlighted.jpg"
+                        If Ctrl.Index = 3 Then fileToLoad = App.Path & "\styleHighlighted.jpg"
+                        If Ctrl.Index = 4 Then fileToLoad = App.Path & "\positionHighlighted.jpg"
+                        If Ctrl.Index = 6 Then fileToLoad = App.Path & "\aboutHighlighted.jpg"
+                        If Ctrl.Index = 5 Then fileToLoad = App.Path & "\wallpaperHighlighted.jpg"
                             
                         Ctrl.PaintPicture LoadPicture(fileToLoad), 0, 0, Ctrl.Width, Ctrl.Height
                         Stretch Ctrl, fileToLoad
@@ -147,7 +147,7 @@ Public Sub resizeControls(ByRef thisForm As Form, ByRef m_ControlPositions() As 
                 End If
             End If
         End With
-        i = i + 1
+        I = I + 1
     Next Ctrl
     
 '   Dim W: W = thisForm.ScaleX(thisForm.ScaleWidth, thisForm.ScaleMode, vbTwips)
@@ -174,16 +174,16 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Public Sub saveControlSizes(ByVal thisForm As Form, ByRef m_ControlPositions() As ControlPositionType, ByRef m_FormWid As Long, ByRef m_FormHgt As Long)
-    Dim i As Integer: i = 0
+    Dim I As Integer: I = 0
     Dim Ctrl As Control
 
     ' Save the controls' positions and sizes.
     On Error GoTo saveControlSizes_Error
 
     ReDim m_ControlPositions(1 To thisForm.Controls.Count)
-    i = 1
+    I = 1
     For Each Ctrl In thisForm.Controls
-        With m_ControlPositions(i)
+        With m_ControlPositions(I)
         
             If (TypeOf Ctrl Is CommandButton) Or (TypeOf Ctrl Is ListBox) Or (TypeOf Ctrl Is VScrollBar) Or (TypeOf Ctrl Is HScrollBar) Or (TypeOf Ctrl Is TextBox) Or (TypeOf Ctrl Is FileListBox) Or (TypeOf Ctrl Is Label) Or (TypeOf Ctrl Is ComboBox) Or (TypeOf Ctrl Is CheckBox) Or (TypeOf Ctrl Is OptionButton) Or (TypeOf Ctrl Is Frame) Or (TypeOf Ctrl Is Image) Or (TypeOf Ctrl Is PictureBox) Or (TypeOf Ctrl Is Slider) Then
                 .Left = Ctrl.Left
@@ -195,7 +195,7 @@ Public Sub saveControlSizes(ByVal thisForm As Form, ByRef m_ControlPositions() A
                 On Error GoTo 0
             End If
         End With
-        i = i + 1
+        I = I + 1
     Next Ctrl
 
     ' Save the form's size.
