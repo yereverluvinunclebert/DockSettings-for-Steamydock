@@ -265,7 +265,7 @@ Begin VB.Form dockSettings
             Height          =   960
             Index           =   0
             Left            =   135
-            Picture         =   "dockSettings.frx":6FE2
+            Picture         =   "dockSettings.frx":7A3C
             Top             =   180
             Width           =   960
          End
@@ -301,7 +301,7 @@ Begin VB.Form dockSettings
             Height          =   960
             Index           =   4
             Left            =   165
-            Picture         =   "dockSettings.frx":7AA8
+            Picture         =   "dockSettings.frx":8E83
             Top             =   0
             Width           =   960
          End
@@ -309,7 +309,7 @@ Begin VB.Form dockSettings
             Height          =   960
             Index           =   4
             Left            =   180
-            Picture         =   "dockSettings.frx":906C
+            Picture         =   "dockSettings.frx":A447
             Top             =   30
             Width           =   960
          End
@@ -345,7 +345,7 @@ Begin VB.Form dockSettings
             Height          =   960
             Index           =   3
             Left            =   150
-            Picture         =   "dockSettings.frx":A5D9
+            Picture         =   "dockSettings.frx":B9B4
             Top             =   0
             Width           =   960
          End
@@ -353,7 +353,7 @@ Begin VB.Form dockSettings
             Height          =   960
             Index           =   3
             Left            =   150
-            Picture         =   "dockSettings.frx":BA89
+            Picture         =   "dockSettings.frx":CE64
             Top             =   0
             Width           =   960
          End
@@ -400,7 +400,7 @@ Begin VB.Form dockSettings
             Height          =   960
             Index           =   2
             Left            =   150
-            Picture         =   "dockSettings.frx":CDD4
+            Picture         =   "dockSettings.frx":E1AF
             Top             =   0
             Width           =   960
          End
@@ -408,7 +408,7 @@ Begin VB.Form dockSettings
             Height          =   960
             Index           =   2
             Left            =   165
-            Picture         =   "dockSettings.frx":E20B
+            Picture         =   "dockSettings.frx":F5E6
             Top             =   15
             Width           =   960
          End
@@ -446,7 +446,7 @@ Begin VB.Form dockSettings
             Height          =   960
             Index           =   1
             Left            =   150
-            Picture         =   "dockSettings.frx":ED15
+            Picture         =   "dockSettings.frx":100F0
             Top             =   0
             Width           =   960
          End
@@ -454,7 +454,7 @@ Begin VB.Form dockSettings
             Height          =   960
             Index           =   1
             Left            =   180
-            Picture         =   "dockSettings.frx":103F4
+            Picture         =   "dockSettings.frx":117CF
             Top             =   15
             Width           =   960
          End
@@ -522,7 +522,7 @@ Begin VB.Form dockSettings
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
          TabIndex        =   217
-         Text            =   "dockSettings.frx":11AC7
+         Text            =   "dockSettings.frx":12EA2
          Top             =   2175
          Width           =   6660
       End
@@ -924,7 +924,7 @@ Begin VB.Form dockSettings
             Index           =   5
             Left            =   90
             TabIndex        =   229
-            ToolTipText     =   $"dockSettings.frx":1223F
+            ToolTipText     =   $"dockSettings.frx":1361A
             Top             =   15
             Width           =   4755
          End
@@ -1145,7 +1145,7 @@ Begin VB.Form dockSettings
          Height          =   360
          Left            =   930
          TabIndex        =   11
-         ToolTipText     =   $"dockSettings.frx":12309
+         ToolTipText     =   $"dockSettings.frx":136E4
          Top             =   2880
          Width           =   2985
       End
@@ -1218,9 +1218,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":123A8
+         ItemData        =   "dockSettings.frx":13783
          Left            =   2085
-         List            =   "dockSettings.frx":123B2
+         List            =   "dockSettings.frx":1378D
          Locked          =   -1  'True
          TabIndex        =   66
          Text            =   "Rocketdock"
@@ -1287,7 +1287,7 @@ Begin VB.Form dockSettings
             Height          =   225
             Left            =   390
             TabIndex        =   152
-            ToolTipText     =   $"dockSettings.frx":123CE
+            ToolTipText     =   $"dockSettings.frx":137A9
             Top             =   15
             Width           =   5325
          End
@@ -1331,7 +1331,7 @@ Begin VB.Form dockSettings
             Height          =   225
             Left            =   360
             TabIndex        =   134
-            ToolTipText     =   $"dockSettings.frx":12463
+            ToolTipText     =   $"dockSettings.frx":1383E
             Top             =   465
             Width           =   5500
          End
@@ -1349,7 +1349,7 @@ Begin VB.Form dockSettings
             Height          =   225
             Left            =   360
             TabIndex        =   133
-            ToolTipText     =   $"dockSettings.frx":12526
+            ToolTipText     =   $"dockSettings.frx":13901
             Top             =   780
             Width           =   5565
          End
@@ -1405,7 +1405,7 @@ Begin VB.Form dockSettings
          Index           =   4
          Left            =   915
          TabIndex        =   96
-         ToolTipText     =   $"dockSettings.frx":125BB
+         ToolTipText     =   $"dockSettings.frx":13996
          Top             =   5190
          Width           =   1695
       End
@@ -1609,9 +1609,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":12685
+         ItemData        =   "dockSettings.frx":13A60
          Left            =   2190
-         List            =   "dockSettings.frx":12692
+         List            =   "dockSettings.frx":13A6D
          TabIndex        =   221
          Text            =   "None"
          Top             =   6150
@@ -1663,9 +1663,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":126B6
+         ItemData        =   "dockSettings.frx":13A91
          Left            =   2190
-         List            =   "dockSettings.frx":126E1
+         List            =   "dockSettings.frx":13ABC
          TabIndex        =   204
          Text            =   "F11"
          ToolTipText     =   "This is the key sequence that is used to hide or restore Steamydock"
@@ -1789,9 +1789,9 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":12722
+            ItemData        =   "dockSettings.frx":13AFD
             Left            =   1770
-            List            =   "dockSettings.frx":1272F
+            List            =   "dockSettings.frx":13B0A
             TabIndex        =   196
             Text            =   "Fade"
             ToolTipText     =   "The type of auto-hide, fade, instant or a slide like Rocketdock"
@@ -1827,12 +1827,12 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":12749
+            ItemData        =   "dockSettings.frx":13B24
             Left            =   1770
-            List            =   "dockSettings.frx":12756
+            List            =   "dockSettings.frx":13B31
             TabIndex        =   193
             Text            =   "Bounce"
-            ToolTipText     =   $"dockSettings.frx":1277A
+            ToolTipText     =   $"dockSettings.frx":13B55
             Top             =   0
             Width           =   2620
          End
@@ -1852,7 +1852,7 @@ Begin VB.Form dockSettings
             Left            =   90
             LinkItem        =   "150"
             TabIndex        =   194
-            ToolTipText     =   $"dockSettings.frx":1280E
+            ToolTipText     =   $"dockSettings.frx":13BE9
             Top             =   45
             Width           =   1605
          End
@@ -2190,7 +2190,7 @@ Begin VB.Form dockSettings
             Height          =   315
             Left            =   1890
             TabIndex        =   154
-            ToolTipText     =   $"dockSettings.frx":128A0
+            ToolTipText     =   $"dockSettings.frx":13C7B
             Top             =   285
             Width           =   2775
             _ExtentX        =   4895
@@ -2366,7 +2366,7 @@ Begin VB.Form dockSettings
          Width           =   1440
       End
       Begin VB.Label lblBehaviourLabel 
-         Caption         =   $"dockSettings.frx":1292F
+         Caption         =   $"dockSettings.frx":13D0A
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2693,7 +2693,7 @@ Begin VB.Form dockSettings
          ScaleHeight     =   675
          ScaleWidth      =   5280
          TabIndex        =   51
-         ToolTipText     =   $"dockSettings.frx":129C1
+         ToolTipText     =   $"dockSettings.frx":13D9C
          Top             =   4440
          Width           =   5340
          Begin VB.Label lblPreviewFont 
@@ -2858,9 +2858,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":12A4B
+         ItemData        =   "dockSettings.frx":13E26
          Left            =   2205
-         List            =   "dockSettings.frx":12A4D
+         List            =   "dockSettings.frx":13E28
          TabIndex        =   40
          ToolTipText     =   "The dock background theme can be selected here"
          Top             =   405
@@ -2897,7 +2897,7 @@ Begin VB.Form dockSettings
          BorderStyle     =   1  'Fixed Single
          Height          =   2070
          Left            =   645
-         Picture         =   "dockSettings.frx":12A4F
+         Picture         =   "dockSettings.frx":13E2A
          Top             =   1800
          Width           =   5430
       End
@@ -3215,9 +3215,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":16579
+         ItemData        =   "dockSettings.frx":17954
          Left            =   2190
-         List            =   "dockSettings.frx":16586
+         List            =   "dockSettings.frx":17961
          TabIndex        =   37
          Text            =   "Always Below"
          ToolTipText     =   "Should the dock appear on top of other windows or underneath?"
@@ -3235,9 +3235,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":165AF
+         ItemData        =   "dockSettings.frx":1798A
          Left            =   2205
-         List            =   "dockSettings.frx":165C5
+         List            =   "dockSettings.frx":179A0
          TabIndex        =   26
          Text            =   "Monitor 1"
          ToolTipText     =   "Here you can determine upon which monitor the dock will appear"
@@ -3255,9 +3255,9 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":1660B
+         ItemData        =   "dockSettings.frx":179E6
          Left            =   2190
-         List            =   "dockSettings.frx":1661B
+         List            =   "dockSettings.frx":179F6
          TabIndex        =   25
          Text            =   "Bottom"
          ToolTipText     =   "Place the dock at your preferred location. Steamydock only supports top and bottom positions"
@@ -3845,12 +3845,12 @@ Begin VB.Form dockSettings
             Strikethrough   =   0   'False
          EndProperty
          Height          =   330
-         ItemData        =   "dockSettings.frx":16639
+         ItemData        =   "dockSettings.frx":17A14
          Left            =   2160
-         List            =   "dockSettings.frx":16646
+         List            =   "dockSettings.frx":17A21
          TabIndex        =   78
          Text            =   "Low quality (Faster)"
-         ToolTipText     =   $"dockSettings.frx":16688
+         ToolTipText     =   $"dockSettings.frx":17A63
          Top             =   390
          Width           =   2520
       End
@@ -3917,9 +3917,9 @@ Begin VB.Form dockSettings
                Strikethrough   =   0   'False
             EndProperty
             Height          =   330
-            ItemData        =   "dockSettings.frx":16746
+            ItemData        =   "dockSettings.frx":17B21
             Left            =   1995
-            List            =   "dockSettings.frx":16759
+            List            =   "dockSettings.frx":17B34
             TabIndex        =   123
             Text            =   "None"
             ToolTipText     =   "The zoom effect to apply"
@@ -4903,7 +4903,7 @@ Private Sub Form_Load()
     Call locateiconSettingsToolFile
     
     'load the resizing image into a hidden picbox
-    picHiddenPicture.Picture = LoadPicture(App.Path & "\gpu-z-256.gif")
+    picHiddenPicture.Picture = LoadPicture(App.Path & "\resources\images\gpu-z-256.gif")
     
     'read the correct config location according to the default selection
     Call readDockConfiguration
@@ -5146,13 +5146,23 @@ Private Sub setPrefsIconImages()
     
     On Error GoTo setPrefsIconImages_Error
     
-    imgIcon(0).Picture = LoadPicture(App.Path & "\general.jpg")
-    imgIcon(1).Picture = LoadPicture(App.Path & "\icons.jpg")
-    imgIcon(2).Picture = LoadPicture(App.Path & "\behaviour.jpg")
-    imgIcon(3).Picture = LoadPicture(App.Path & "\style.jpg")
-    imgIcon(4).Picture = LoadPicture(App.Path & "\position.jpg")
-    imgIcon(5).Picture = LoadPicture(App.Path & "\wallpaper.jpg")
-    imgIcon(6).Picture = LoadPicture(App.Path & "\about.jpg")
+    If Val(gblResizeRatio) < 1.25 Then
+        imgIcon(0).Picture = LoadPicture(App.Path & "\resources\images\general.jpg")
+        imgIcon(1).Picture = LoadPicture(App.Path & "\resources\images\icons.jpg")
+        imgIcon(2).Picture = LoadPicture(App.Path & "\resources\images\behaviour.jpg")
+        imgIcon(3).Picture = LoadPicture(App.Path & "\resources\images\style.jpg")
+        imgIcon(4).Picture = LoadPicture(App.Path & "\resources\images\position.jpg")
+        imgIcon(5).Picture = LoadPicture(App.Path & "\resources\images\wallpaper.jpg")
+        imgIcon(6).Picture = LoadPicture(App.Path & "\resources\images\about.jpg")
+    Else
+        imgIcon(0).Picture = LoadPicture(App.Path & "\resources\images\general-128.jpg")
+        imgIcon(1).Picture = LoadPicture(App.Path & "\resources\images\icons-128.jpg")
+        imgIcon(2).Picture = LoadPicture(App.Path & "\resources\images\behaviour-128.jpg")
+        imgIcon(3).Picture = LoadPicture(App.Path & "\resources\images\style-128.jpg")
+        imgIcon(4).Picture = LoadPicture(App.Path & "\resources\images\position-128.jpg")
+        imgIcon(5).Picture = LoadPicture(App.Path & "\resources\images\wallpaper-128.jpg")
+        imgIcon(6).Picture = LoadPicture(App.Path & "\resources\images\about-128.jpg")
+    End If
         
    On Error GoTo 0
    Exit Sub
@@ -5566,6 +5576,8 @@ Private Sub Form_Resize_Event()
             
     gblFormResizedInCode = False
     pvtFormResizedByDrag = False
+    
+    'MsgBox gblResizeRatio
     
     'Call writePrefsPosition
                 
@@ -6200,9 +6212,9 @@ Private Sub busyTimer_Timer()
         busyCounter = busyCounter + 1
         If busyCounter >= 7 Then busyCounter = 1
         If classicTheme = True Then
-            busyFilename = App.Path & "\busy-F" & busyCounter & "-32x32x24.jpg"
+            busyFilename = App.Path & "\resources\images\busy-F" & busyCounter & "-32x32x24.jpg"
         Else
-            busyFilename = App.Path & "\busy-A" & busyCounter & "-32x32x24.jpg"
+            busyFilename = App.Path & "\resources\images\busy-A" & busyCounter & "-32x32x24.jpg"
         End If
         picBusy.Picture = LoadPicture(busyFilename)
         
@@ -9280,8 +9292,8 @@ Private Sub mnuDark_Click()
     rDSkinTheme = "dark"
     
     'load the gear images
-    imgMultipleGears1.Picture = LoadPicture(App.Path & "\multipleGears1.jpg")
-    imgMultipleGears3.Picture = LoadPicture(App.Path & "\multipleGears3.jpg")
+    imgMultipleGears1.Picture = LoadPicture(App.Path & "\resources\images\multipleGears1.jpg")
+    imgMultipleGears3.Picture = LoadPicture(App.Path & "\resources\images\multipleGears3.jpg")
 
     Call setThemeShade(212, 208, 199)
 
@@ -9309,8 +9321,8 @@ Private Sub mnuLight_Click()
     rDSkinTheme = "light"
     
     'load the gear images
-    imgMultipleGears1.Picture = LoadPicture(App.Path & "\multipleGears1Light.jpg")
-    imgMultipleGears3.Picture = LoadPicture(App.Path & "\multipleGears3Light.jpg")
+    imgMultipleGears1.Picture = LoadPicture(App.Path & "\resources\images\multipleGears1Light.jpg")
+    imgMultipleGears3.Picture = LoadPicture(App.Path & "\resources\images\multipleGears3Light.jpg")
 
     Call setThemeShade(240, 240, 240)
 
@@ -11637,8 +11649,8 @@ Public Sub setThemeColour()
         SysClr = GetSysColor(COLOR_BTNFACE)
         
         'load the gear images
-        imgMultipleGears1.Picture = LoadPicture(App.Path & "\multipleGears1.jpg")
-        imgMultipleGears3.Picture = LoadPicture(App.Path & "\multipleGears3.jpg")
+        imgMultipleGears1.Picture = LoadPicture(App.Path & "\resources\images\multipleGears1.jpg")
+        imgMultipleGears3.Picture = LoadPicture(App.Path & "\resources\images\multipleGears3.jpg")
 
         rDSkinTheme = "dark"
     Else
@@ -11650,16 +11662,16 @@ Public Sub setThemeColour()
             
                     
             'load the gear images
-            imgMultipleGears1.Picture = LoadPicture(App.Path & "\multipleGears1.jpg")
-            imgMultipleGears3.Picture = LoadPicture(App.Path & "\multipleGears1.jpg")
+            imgMultipleGears1.Picture = LoadPicture(App.Path & "\resources\images\multipleGears1.jpg")
+            imgMultipleGears3.Picture = LoadPicture(App.Path & "\resources\images\multipleGears1.jpg")
 
         Else ' 15790320
             Call setThemeShade(240, 240, 240)
             rDSkinTheme = "light"
         
             'load the gear images
-            imgMultipleGears1.Picture = LoadPicture(App.Path & "\multipleGears1Light.jpg")
-            imgMultipleGears3.Picture = LoadPicture(App.Path & "\multipleGears3Light.jpg")
+            imgMultipleGears1.Picture = LoadPicture(App.Path & "\resources\images\multipleGears1Light.jpg")
+            imgMultipleGears3.Picture = LoadPicture(App.Path & "\resources\images\multipleGears3Light.jpg")
             
         End If
 
@@ -11689,13 +11701,13 @@ Private Sub setThemeSkin()
 
     If rDSkinTheme = "dark" Then
         'load the gear images
-        imgMultipleGears1.Picture = LoadPicture(App.Path & "\multipleGears1.jpg")
-        imgMultipleGears3.Picture = LoadPicture(App.Path & "\multipleGears3.jpg")
+        imgMultipleGears1.Picture = LoadPicture(App.Path & "\resources\images\multipleGears1.jpg")
+        imgMultipleGears3.Picture = LoadPicture(App.Path & "\resources\images\multipleGears3.jpg")
         Call setThemeShade(212, 208, 199)
     Else
         'load the gear images
-        imgMultipleGears1.Picture = LoadPicture(App.Path & "\multipleGears1Light.jpg")
-        imgMultipleGears3.Picture = LoadPicture(App.Path & "\multipleGears3Light.jpg")
+        imgMultipleGears1.Picture = LoadPicture(App.Path & "\resources\images\multipleGears1Light.jpg")
+        imgMultipleGears3.Picture = LoadPicture(App.Path & "\resources\images\multipleGears3Light.jpg")
         Call setThemeShade(240, 240, 240)
     End If
 
@@ -13405,13 +13417,13 @@ End Sub
 Private Sub loadHighlightedImages()
    On Error GoTo loadHighlightedImages_Error
 
-    imgIconPressed(0).Picture = LoadPicture(App.Path & "\generalHighlighted.jpg")
-    imgIconPressed(1).Picture = LoadPicture(App.Path & "\iconsHighlighted.jpg")
-    imgIconPressed(2).Picture = LoadPicture(App.Path & "\behaviourHighlighted.jpg")
-    imgIconPressed(3).Picture = LoadPicture(App.Path & "\styleHighlighted.jpg")
-    imgIconPressed(4).Picture = LoadPicture(App.Path & "\positionHighlighted.jpg")
-    imgIconPressed(5).Picture = LoadPicture(App.Path & "\wallpaperHighlighted.jpg")
-    imgIconPressed(6).Picture = LoadPicture(App.Path & "\aboutHighlighted.jpg")
+    imgIconPressed(0).Picture = LoadPicture(App.Path & "\resources\images\generalHighlighted.jpg")
+    imgIconPressed(1).Picture = LoadPicture(App.Path & "\resources\images\iconsHighlighted.jpg")
+    imgIconPressed(2).Picture = LoadPicture(App.Path & "\resources\images\behaviourHighlighted.jpg")
+    imgIconPressed(3).Picture = LoadPicture(App.Path & "\resources\images\styleHighlighted.jpg")
+    imgIconPressed(4).Picture = LoadPicture(App.Path & "\resources\images\positionHighlighted.jpg")
+    imgIconPressed(5).Picture = LoadPicture(App.Path & "\resources\images\wallpaperHighlighted.jpg")
+    imgIconPressed(6).Picture = LoadPicture(App.Path & "\resources\images\aboutHighlighted.jpg")
 
    On Error GoTo 0
    Exit Sub

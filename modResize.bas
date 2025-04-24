@@ -94,26 +94,26 @@ Public Sub resizeControls(ByRef thisForm As Form, ByRef m_ControlPositions() As 
                     Ctrl.Width = x_scale * .Width
                     
                     If Ctrl.Name = "imgIcon" Then
-                        If Ctrl.Index = 0 Then fileToLoad = App.Path & "\general.jpg"
-                        If Ctrl.Index = 1 Then fileToLoad = App.Path & "\icons.jpg"
-                        If Ctrl.Index = 2 Then fileToLoad = App.Path & "\behaviour.jpg"
-                        If Ctrl.Index = 3 Then fileToLoad = App.Path & "\style.jpg"
-                        If Ctrl.Index = 4 Then fileToLoad = App.Path & "\position.jpg"
-                        If Ctrl.Index = 6 Then fileToLoad = App.Path & "\about.jpg"
-                        If Ctrl.Index = 5 Then fileToLoad = App.Path & "\wallpaper.jpg"
+                        If Ctrl.Index = 0 Then fileToLoad = App.Path & "\resources\images\general.jpg"
+                        If Ctrl.Index = 1 Then fileToLoad = App.Path & "\resources\images\icons.jpg"
+                        If Ctrl.Index = 2 Then fileToLoad = App.Path & "\resources\images\behaviour.jpg"
+                        If Ctrl.Index = 3 Then fileToLoad = App.Path & "\resources\images\style.jpg"
+                        If Ctrl.Index = 4 Then fileToLoad = App.Path & "\resources\images\position.jpg"
+                        If Ctrl.Index = 6 Then fileToLoad = App.Path & "\resources\images\about.jpg"
+                        If Ctrl.Index = 5 Then fileToLoad = App.Path & "\resources\images\wallpaper.jpg"
                             
                         Ctrl.PaintPicture LoadPicture(fileToLoad), 0, 0, Ctrl.Width, Ctrl.Height
                         Stretch Ctrl, fileToLoad
                     End If
                                   
                     If Ctrl.Name = "imgIconPressed" Then
-                        If Ctrl.Index = 0 Then fileToLoad = App.Path & "\generalHighlighted.jpg"
-                        If Ctrl.Index = 1 Then fileToLoad = App.Path & "\iconsHighlighted.jpg"
-                        If Ctrl.Index = 2 Then fileToLoad = App.Path & "\behaviourHighlighted.jpg"
-                        If Ctrl.Index = 3 Then fileToLoad = App.Path & "\styleHighlighted.jpg"
-                        If Ctrl.Index = 4 Then fileToLoad = App.Path & "\positionHighlighted.jpg"
-                        If Ctrl.Index = 6 Then fileToLoad = App.Path & "\aboutHighlighted.jpg"
-                        If Ctrl.Index = 5 Then fileToLoad = App.Path & "\wallpaperHighlighted.jpg"
+                        If Ctrl.Index = 0 Then fileToLoad = App.Path & "\resources\images\generalHighlighted.jpg"
+                        If Ctrl.Index = 1 Then fileToLoad = App.Path & "\resources\images\iconsHighlighted.jpg"
+                        If Ctrl.Index = 2 Then fileToLoad = App.Path & "\resources\images\behaviourHighlighted.jpg"
+                        If Ctrl.Index = 3 Then fileToLoad = App.Path & "\resources\images\styleHighlighted.jpg"
+                        If Ctrl.Index = 4 Then fileToLoad = App.Path & "\resources\images\positionHighlighted.jpg"
+                        If Ctrl.Index = 6 Then fileToLoad = App.Path & "\resources\images\aboutHighlighted.jpg"
+                        If Ctrl.Index = 5 Then fileToLoad = App.Path & "\resources\images\wallpaperHighlighted.jpg"
                             
                         Ctrl.PaintPicture LoadPicture(fileToLoad), 0, 0, Ctrl.Width, Ctrl.Height
                         Stretch Ctrl, fileToLoad
