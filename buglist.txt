@@ -35,27 +35,55 @@
 ' VB6 editor dev.options visible but disabled
 ' clicking an icon does not hide current form
 
+' frame height too long after click
+
+' higher res. icon images when the form is larger than a certain size
+avoid changing the background colour when running from within the IDE
+place the frames for the main tabs into the correct position at startup to fix placement fault after resize
+move images to resources folder and 128 size images to appear after 1.25 resize ratio
+Update .gitattributes
+icons added to the root, increased height, width of icon area, addition of tooltips to frames
+Added next/previous buttons to the wallpaper tab
+
+about text set focus
+Avoid clashes with taskbar, check box read/write/validate and logic to control taskbar movement
+comboboxes for wallpapers and styles now read their stored values and select the correct listindex using new subroutines
+tooltips for the wallpaper preview image, balloon via a frame and standard types
+o Added code and APIs for determining whether the app is already DPI aware
+o added code to test for dock and taskbar existing in the same location
+o code for for reading/writing binary data from the registry
+o partial code to move windows task bar
+wallpaper timer times saved and read correctly
+Addition of wallpaper timer and timer interval controls, also:
+plus all the code to create new global vars to read, validate and write wallpaper timer data
+
+' form_unload to standard methods
+' VB6 editor dev. options visible but disabled
+' clicking an icon does not hide current form
+' remove persitentDebug.exe
+moved a resizing variable from local to global for all three programs
+set DPI aware
+Resizing changes
+
+
+
 
 ' Status/Bugs/Tasks:
 ' ==================
 
 ' fix the drag corner position on form_load
 
-' frame height too long after click
-
-' higher res. icon images when the form is larger than a certain size
-
-' theme skin images, higher res. versions create
-
 ' update the help files WIP
-'
-' frmMessage msgbox error during compilation as per steamydock
-
-' separate common.bas and common2.bas to make it easier to compile just the one utility on its own.
 
 ' save the form size on setting and when saving
 
 ' resize the form on startup if a form size has been saved
+
+' theme skin images, higher res. versions create
+
+' frmMessage msgbox error during compilation as per steamydock
+
+' separate common.bas and common2.bas to make it easier to compile just the one utility on its own.
 
 ' resource file for the ocx as per rocketdock
 '
@@ -69,5 +97,5 @@
 '
 '   test running with a blank dock settings file
 '
-'   remove persistent debug and replace with logging to a file as per FCW.
+'   add logging to a file as per FCW.
 '
