@@ -5577,8 +5577,6 @@ Private Sub Form_Resize_Event()
     gblFormResizedInCode = False
     pvtFormResizedByDrag = False
     
-    'MsgBox gblResizeRatio
-    
     'Call writePrefsPosition
                 
     On Error GoTo 0
@@ -11597,17 +11595,22 @@ Private Sub themeTimer_Timer()
     'initialise the dimensioned variables
     SysClr = 0
 
-' This should only be required on a machine that can give the Windows classic theme to the UI
-' that excludes windows 8 and 10 so this timer can be switched off on these o/s.
+    ' This should only be required on a machine that can give the Windows classic theme to the UI
+    ' that excludes windows 8 and 10 so this timer can be switched off on these o/s.
 
-   On Error GoTo themeTimer_Timer_Error
+    On Error GoTo themeTimer_Timer_Error
+   
+    ' In the IDE the background sys colour is derived from the IDE and not from the program form so we disregard the discrepancy
+    ' and avoid changing the background colour when running from within the IDE
 
     SysClr = GetSysColor(COLOR_BTNFACE)
     If debugflg = 1 Then Debug.Print "COLOR_BTNFACE = " & SysClr ' generates too many debug statements in the log
-    If SysClr <> storeThemeColour Then
     
-        Call setThemeColour
-
+    If InIDE = False Then
+        If debugflg = 1 Then debugLog "COLOR_BTNFACE = " & SysClr  ' generates too many debug statements in the log
+        If SysClr <> storeThemeColour Then
+            Call setThemeColour
+        End If
     End If
 
    On Error GoTo 0
