@@ -479,6 +479,21 @@ Begin VB.Form dockSettings
       Top             =   9030
       Width           =   1065
    End
+   Begin VB.PictureBox picHiddenPicture 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000004&
+      BorderStyle     =   0  'None
+      ForeColor       =   &H80000008&
+      Height          =   1605
+      Left            =   6525
+      ScaleHeight     =   1605
+      ScaleWidth      =   1485
+      TabIndex        =   75
+      ToolTipText     =   "The icon size in the dock"
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   1485
+   End
    Begin VB.Frame fmeMain 
       Caption         =   "About SteamyDock"
       BeginProperty Font 
@@ -495,7 +510,7 @@ Begin VB.Form dockSettings
       Left            =   1665
       TabIndex        =   54
       ToolTipText     =   "This panel is really a eulogy to Rocketdock plus a few buttons taking you to useful locations and providing additional data"
-      Top             =   30
+      Top             =   15
       Width           =   6930
       Begin VB.Frame Frame2 
          BorderStyle     =   0  'None
@@ -836,7 +851,7 @@ Begin VB.Form dockSettings
       EndProperty
       Height          =   8640
       Index           =   0
-      Left            =   1230
+      Left            =   1665
       TabIndex        =   1
       ToolTipText     =   "These are the main settings for the dock"
       Top             =   15
@@ -1433,7 +1448,7 @@ Begin VB.Form dockSettings
       Caption         =   "Desktop Wallpaper Settings "
       Height          =   8595
       Index           =   5
-      Left            =   1350
+      Left            =   1665
       TabIndex        =   238
       Top             =   45
       Width           =   6930
@@ -1593,7 +1608,7 @@ Begin VB.Form dockSettings
       EndProperty
       Height          =   8640
       Index           =   2
-      Left            =   1230
+      Left            =   1665
       TabIndex        =   53
       ToolTipText     =   "Here you can control the behaviour of the animation effects"
       Top             =   45
@@ -2397,7 +2412,7 @@ Begin VB.Form dockSettings
       EndProperty
       Height          =   8640
       Index           =   3
-      Left            =   1245
+      Left            =   1665
       TabIndex        =   39
       ToolTipText     =   "This panel allows you to change the styling of the icon labels and the dock background image"
       Top             =   15
@@ -3191,7 +3206,7 @@ Begin VB.Form dockSettings
       EndProperty
       Height          =   8640
       Index           =   4
-      Left            =   1230
+      Left            =   1665
       TabIndex        =   22
       ToolTipText     =   "This panel controls the positioning of the whole dock"
       Top             =   30
@@ -3533,7 +3548,7 @@ Begin VB.Form dockSettings
       EndProperty
       Height          =   8640
       Index           =   1
-      Left            =   1260
+      Left            =   1665
       TabIndex        =   76
       ToolTipText     =   "This panel allows you to set the icon sizes and hover effects"
       Top             =   15
@@ -4221,21 +4236,6 @@ Begin VB.Form dockSettings
          Top             =   2820
          Width           =   630
       End
-   End
-   Begin VB.PictureBox picHiddenPicture 
-      Appearance      =   0  'Flat
-      BackColor       =   &H80000004&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H80000008&
-      Height          =   1605
-      Left            =   6525
-      ScaleHeight     =   1605
-      ScaleWidth      =   1485
-      TabIndex        =   75
-      ToolTipText     =   "The icon size in the dock"
-      Top             =   240
-      Visible         =   0   'False
-      Width           =   1485
    End
    Begin VB.Label lblDragCorner 
       Caption         =   "o"
@@ -9980,7 +9980,7 @@ End Sub
 Private Sub imgIcon_MouseDown_Event(Index As Integer)
    On Error GoTo imgIcon_MouseDown_Event_Error
 
-    rDOptionsTabIndex = Index + 1
+    rDOptionsTabIndex = CStr(Index + 1)
     If Index < 0 Then Index = 0
     
     'CFG - write the current open tab to the 3rd config settings
@@ -9997,7 +9997,7 @@ Private Sub imgIcon_MouseDown_Event(Index As Integer)
     
     fmeMain(Index).Visible = True
 
-    fmeMain(Index).Left = 1650 * gblResizeRatio
+    fmeMain(Index).Left = 1665 * gblResizeRatio
     fmeMain(Index).top = 30 * gblResizeRatio
     
     ' ensure the resizing icons always display.
@@ -11735,13 +11735,14 @@ End Sub
 ' Procedure : placeFrames
 ' Author    : beededea
 ' Date      : 09/05/2020
-' Purpose   : place the frames for the icons into the correct position and space
+' Purpose   : place the frames for the icons and main tabs into the correct position and space
 '---------------------------------------------------------------------------------------
 '
 Private Sub placeFrames()
         
     Dim top As Integer: top = 0
     Dim gap As Integer: gap = 0
+    Dim useloop As Integer: useloop = 0
         
     On Error GoTo placeFrames_Error
    
@@ -11749,6 +11750,9 @@ Private Sub placeFrames()
     
     top = 0
     gap = 1300
+    useloop = 0
+    
+    ' icon frames
 
     fmeGeneral.top = top
     fmeIcons.top = fmeGeneral.top + gap
@@ -11757,6 +11761,13 @@ Private Sub placeFrames()
     fmePosition.top = fmeStyle.top + gap
     fmeWallpaper.top = fmePosition.top + gap
     fmeAbout.top = fmeWallpaper.top + gap
+    
+    ' tab frames
+    
+    For useloop = 0 To 6
+        fmeMain(useloop).Left = 1665
+        fmeMain(useloop).top = 30
+    Next useloop
 
    On Error GoTo 0
    Exit Sub
