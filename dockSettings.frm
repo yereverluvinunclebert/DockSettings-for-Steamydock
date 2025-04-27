@@ -879,6 +879,7 @@ Begin VB.Form dockSettings
          Width           =   4710
       End
       Begin VB.ComboBox cmbDefaultDock 
+         Enabled         =   0   'False
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -1082,6 +1083,7 @@ Begin VB.Form dockSettings
       End
       Begin VB.Label lblGenLabel 
          Caption         =   "Default Dock"
+         Enabled         =   0   'False
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25

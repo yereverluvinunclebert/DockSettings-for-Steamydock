@@ -4,11 +4,19 @@
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <title>Rocketdock/SteamyDock - Dock Set</title>
+<style type="text/css">
+.auto-style1 {
+	text-decoration: underline;
+}
+.auto-style2 {
+	font-weight: bold;
+}
+</style>
 </head>
 
 <body>
 
-<span style="font-weight: bold;"><big>Rocketdock/SteamyDock - Dock Settings Help
+<span style="font-weight: bold;"><big>SteamyDock - Dock Settings Help
 </big><br />
 </span><br />
 <img alt="The two dock new settings utilities side by side" src="dockS-fullscreen.png" style="width: 1015px; height: 644px;" title="The two dock new settings utilities side by side" /><br />
@@ -17,24 +25,23 @@ shown side by side. The dock settings described here are shown on the right hand
 side, the dock itself is below.</span><br />
 <br />
 This utility is a functional reproduction of Rocketdock's original dock settings 
-screen. The design is limited to emulating and enhancing what Rocketdock already 
-provides - with a few improvements. This will make the utility quite familiar to 
-Rocketdock users. It can be used with Rocketdock or Steamydock, the open source 
-replacement for Rocketdock.<br />
+screen designed solely to be used with SteamyDock, the open source replacement 
+for Rocketdock. The design is limited to emulating and enhancing what the Dock 
+Settings utility in Rocketdock previously provided - with a few improvements. 
+This will make the utility quite familiar to Rocketdock users.<br />
 <br />
-Note there is one fundamental difference, the original Rocketdock dock settings 
+There is one fundamental difference between the two tools, the original Rocketdock dock settings 
 made visual changes to the dock directly. This allowed you to see the result of 
-your changes dynamically but a negative side effect was that&nbsp;some of the slider 
+your changes instantly and dynamically but a negative side effect was that&nbsp;some of the slider 
 controls that configured the size of the icons could be rather slow to respond, 
-especially on older and less powerful machines. This new version is a standalone 
+especially on older and less powerful machines. This new version of the dock 
+settings is a standalone 
 program, not as deeply integrated into the dock and due to this it cannot make 
-dynamic alterations to the size of&nbsp;dock. icons on the fly. You can see examples 
-of how the resized icons will look but it will only make the actual visual 
-changes to the dock when the 'save and restart' button is operated. A positive 
-side-effect is&nbsp;that the slider controls are now far more responsive. At the 
-moment the settings tool is a standalone tool but may be integrated directly 
-into&nbsp; Steamydock and perhaps then, that dynamic modification functionality will 
-be restored.<br />
+dynamic alterations to the size of&nbsp;dock nor make changes to icons on the 
+fly. You will need to press the 'save and restart' button to see the changes in 
+the dock itself.&nbsp; At the 
+moment the settings tool is a standalone tool but may later be integrated directly 
+into Steamydock.<br />
 <br />
 <br />
 <h3>Startup</h3>
@@ -47,35 +54,7 @@ by the dock itself.&nbsp;</span></small></h3>
 <h3><small><span style="font-weight: normal;">When using the dock, if you hover 
 over an icon and select the right-click menu, you will see "Dock Settings". 
 Choosing that&nbsp;will open our dock settings utility.</span></small></h3>
-<h2>Administrator Rights</h2>
-<p>This utility ought to run as administrator in order to access&nbsp;Rocketdock's 
-registry settings&nbsp;due to a recent Windows feature that prevents normal processes 
-from accessing another tool's registry settings. If you run it without admin 
-rights then due to a Windows bug some of the values may be incorrect and 
-therefore the dock may look and act rather strange due to corruption of 
-configuration data only partially saved. You have been warned! Run it as 
-administrator and it will work as expected. Set this by default by right 
-clicking on the file and under the compatibility tab, enable "Run this program 
-as administrator". When Steamydock coding is finished this requirement ought to 
-go away but for the moment, to access&nbsp;Rocketdock's data,
-<span style="text-decoration: underline;">admin access is required</span>.</p>
-<p>
-<img alt="Running as admin" src="docksAdmin.jpg" style="width: 367px; height: 502px;" title="Running as admin" /><br />
-<span style="font-weight: bold;">Fig 03. The administrator compatibility utility 
-setting the SteamyDock privilege level.</span></p>
-<p>In addition to this, the dock itself does things that are fairly basic and 
-fundamental. It does the sort of things that the Windows dock itself does. 
-Stopping and starting applications, checking whether the processes it has 
-initialised are running, these actions require admin access. When the program is 
-complete and released it will be bundled with a manifest that will specify the 
-admin requirement and it should then install with admin rights without user 
-intervention.</p>
-<p>If you don't like running with administrator rights then my advice is, remove 
-this tool now. To allay any of your fears the code is available on github and 
-you can view it, download it and compile it yourself at any time.&nbsp;</p>
-<h3></h3>
-<p style="page-break-before: always;">General Pane</p>
-<h3></h3>
+<h3 style="page-break-before: always;">General Pane</h3>
 <p>
 	<img alt="icon pane" src="dockS-generalPane.jpg" /><br />
 <span style="font-weight: bold;">Fig 04. The General Pane where the main options 
@@ -84,9 +63,12 @@ for configuration are located.</span><br />
 <div class="indent">
 	Use this panel&nbsp;to configure the general options that apply to the whole dock 
 	program. Note: If you hover your mouse cursor on the various components that 
-	comprise the utility a tooltip will appear that will give more information 
-	on each item. There is a help option on the right click menu that will 
-	provide further detail at any time, this document in fact.<br />
+	comprise the utility a standard tooltip will appear that will give more information 
+	on each item. If you click on the Display Info. Dialogs check box, larger 
+	balloon tooltips will be shown instead. <br />
+	<br />
+	There is a help button and a help option on the right click menu that will 
+	provide further detail at any time.<br />
 	<br />
 	<span style="font-weight: bold;">Run at startup</span> <br />
 	<br />
@@ -104,6 +86,7 @@ for configuration are located.</span><br />
 	<br />
 	<span style="font-weight: bold;">Read from a portable Settings.ini</span><br />
 	<br />
+	Only use this if you have Rocketdock and wish to migrate.
 	This triggers the reading of the dock configuration data from the registry 
 	to the portable settings.ini that will be dropped into&nbsp;Rocketdock's default 
 	folder in program files (x86). Storing data in a settings.ini file located 
@@ -113,7 +96,7 @@ for configuration are located.</span><br />
 	<span style="font-weight: bold;">Read Settings from&nbsp;Rocketdock's Registry</span><br />
 	<br />
 	This causes&nbsp;Rocketdock to read all its settings from the Windows registry. 
-	It is now considered an obsolete approach for storing application data and 
+	Only use this if you have Rocketdock and wish to migrate. It is now considered an obsolete approach for storing application data and 
 	was superceded by the use of a .ini file located in the user data area 
 	within "application data", this means that multiple users can access the 
 	same dock configuration&nbsp;but it can cause&nbsp;Rocketdock some serious saving 
@@ -129,39 +112,15 @@ for configuration are located.</span><br />
 	<br />
 	<span style="font-weight: bold;">Write Locations<br />
 	<br />
-	<img alt="writeConfig" src="writeConfig.png" style="width: 399px; height: 114px;" title="writeConfig" /><br />
 	Fig 06. The Write Locations</span><br />
 	<span style="font-weight: bold;"><br />
-	</span>When you are migrating from&nbsp;Rocketdock you will need to configure 
-	these options, otherwise they will not generally be needed. The top two 
-	options will only be available if&nbsp;Rocketdock is installed. If&nbsp; is not 
-	installed then the associated options will be greyed out.<br />
-	<span style="font-weight: bold;"><br />
-	Write to a portable Settings.ini</span><br />
+	</span>When you are migrating from&nbsp;Rocketdock you will 
+	<span class="auto-style1">not</span> need to configure 
+	this option asfrom this point onward we will only be writing to Steamydock's 
+	settings file, the option is currently greyed out.<br />
 	<br />
-	This triggers the saving of the dock configuration data from the registry to 
-	the portable settings.ini that will be dropped into&nbsp;Rocketdock's default 
-	folder in<small><span style="font-family: Courier New;"> program files (x86)</span></small>. 
-	Storing data in a settings.ini file in the program files folder is now 
-	considered an obsolete tactic for storing application data and was 
-	superceded by the registry but can be useful to&nbsp;help you transfer&nbsp;Rocketdock 
-	data to&nbsp;other PCs.<br />
-	<br />
-	<span style="font-weight: bold;">Write to&nbsp;Rocketdock's Registry</span><br />
-	<br />
-	This causes&nbsp;Rocketdock to store all its settings in the Windows registry but 
-	is now considered an obsolete approach for storing application data and was 
-	superceded by the user data area in appdata, this means that multiple users 
-	can access the same configuration &nbsp;but it can cause&nbsp;Rocketdock some 
-	problems&nbsp;under Windows 10 due to its increased security.<br />
-	<br />
-	<span style="font-weight: bold;">Write to&nbsp;SteamyDock's configuration. </span>
-	&nbsp;<br />
-	<br />
-	If the default dock is Steamydock&nbsp;there will be an enabled option to store 
-	the dock data in the user data area. Our suggestion is that you migrate to 
-	SteamyDock as soon as you can and make this the default option.<span style="font-weight: bold;"> 
-	&nbsp;Also, see section toward the end on *1 Migration from RocketDock to 
+	<span style="font-weight: bold;"> 
+	Also, see section toward the end on *1 Migration from RocketDock to 
 	SteamyDock.</span><br />
 	<br />
 	<span style="font-weight: bold;">Minimise&nbsp;windows&nbsp;to the dock</span> <br />
@@ -202,41 +161,35 @@ for configuration are located.</span><br />
 	<span style="font-weight: bold;">Fig 09. SteamyDock showing disabling of the 
 	drag and drop option.</span><br />
 	<br />
-	<span style="font-weight: bold;">Disable Drag and Drop and Deletion of Icons
 	<br />
-	<br />
-	</span>On the older&nbsp;Rocketdock screen this was known as "Lock Items" - This 
-	is an essential option that stops you accidentally deleting your dock icons, 
-	if running&nbsp;Rocketdock ensure it is always enabled as it is easy to delete an 
-	icon by mistake! Steamydock will make it more difficult to accidentally 
-	delete an icon by asking you first.<br />
 	<br />
 	<span style="font-weight: bold;">Default Dock</span><br />
 	<br />
-	Choose which dock you are using&nbsp;Rocketdock or SteamyDock. Certain 
-	configuration options will be disabled when SteamyDock is selected. <br />
+	Choose which dock you are using, Rocketdock or SteamyDock. Not used.<br />
 	<br />
 	<span style="font-weight: bold;">Dock Folder Location</span><br />
 	<br />
-	This is the extrapolated location of the default dock program.<br />
+	Information:
+	This is the extrapolated location of the default dock program. Not 
+	configurable.<br />
 	<br />
 	<span style="font-weight: bold;">Language Translation</span> <br />
 	<br />
-	One item you may notice that is missing from&nbsp;SteamyDock, is the language 
+	One item you may notice that is missing from&nbsp;SteamyDock, is a multi-language 
 	drop-down. This new FOSS version of the program is not&nbsp;language-aware, 
-	unlike the original. The reason for this is two-fold. First of all, the 
+	unlike Rocketdock. The reason for this is twofold. First of all, the 
 	complexity of the code to support the translation of every string of text in 
-	the whole program is considerable but I am still trying to find time just to 
-	code and debug the dock itself. In addition, to achieve the same I would 
+	the whole program is considerable whilst I am still trying to find time just to 
+	code and debug the dock itself. In addition, to achieve the same level of 
+	translation I would 
 	have to translate every bit of text into all the potential multiple 
-	languages that&nbsp;using&nbsp;Rocketdock also supported (forty-nine of them). The 
-	trouble with this is that I can't use the original&nbsp; translations considering 
+	languages that&nbsp;Rocketdock also supported (forty-nine of them). The 
+	trouble with this is that I cannot use the original&nbsp; translations as 
 	that work was done solely by Punklabs and is therefore proprietary. As 
 	SteamyDock is FOSS I have avoided taking any resource whatsoever from 
-	Punklabs so that I can always say this tool is truly open source. Even so, I 
-	could use not use Rocketdock's translations as most of them&nbsp;would not match 
-	the new texts I have in place, in addition I have included a lot more extra 
-	functionality in the form of tooltips, new buttons, help &amp;c - so a lot more 
+	Punklabs so that I can always say this tool is truly open source. Even if I 
+	could use the translation text, most translations&nbsp;would not match 
+	the new text I have in place for new tooltips, buttons, help &amp;c - so a lot more 
 	would have to be translated. Due to all this extra work, translation is a 
 	luxury that I simply do not have time to implement. <br />
 	<br />
@@ -245,18 +198,41 @@ for configuration are located.</span><br />
 	open source you could always add your favoured language translation 
 	functionality yourself.<br />
 	<br />
-	<span style="font-weight: bold;">Utilities Always Confirm Which Dock at 
-	Startup<br />
-	<br />
-	</span>This is to ensure you are configuring and using the correct dock 
-	during migration.<br />
 	<br />
 	<span style="font-weight: bold;">Show Splash Screen at Startup</span> <br />
 	<br />
 	The dock will pop up this splash screen every time it starts which is fun 
 	but after a while it may begin to annoy!<span style="font-weight: bold;"><br />
 	<br />
+	Automatically display icon settings after adding an icon to the dock<br />
+	<br />
+	</span>If this option is selected, every time you drag or add an item to the 
+	dock, the icon settings tool will show itself, displaying the settings for 
+	that specific icon..<span style="font-weight: bold;"><br />
+	<br />
+	VB6/TwinBasic Editor VBP/TwinProj file locations.<br />
+	<br />
+	</span>This option is disabled by default. To enable it select the right 
+	click menu, <b>Developer Options - Enable</b><span class="auto-style2"> </span>
+	<b>Developer Options <br />
+	<br />
+	</b>This will enable the three fields and buttons below that determine the 
+	location of the development IDE project files<span style="font-weight: bold;">.</span>
+	If you select the location of a VBP file and save&nbsp; - the under the 
+	right click menu <b><span style="font-weight: bold;">Developer Options,</span>
+	</b>an <strong>Edit</strong> option will appear<span style="font-weight: bold;">. </span>
+	This will allow you to edit the program dynamically from the tool itself. A 
+	convenient workflow feature.<span style="font-weight: bold;"><br />
+	<br />
+	</span>
+	The three fields are the locations for the project VBP file for each of 
+	SteamyDock's utilities.<span style="font-weight: bold;"><br />
+	<br />
+	<br />
 	<img alt="splash" src="splash.jpg" style="width: 406px; height: 570px;" /><br />
+	<br />
+	<br />
+	<br />
 	Fig 10. The splash screen for SteamyDock</span>
 	<h3>Icons Pane</h3>
 	<p>
@@ -352,6 +328,21 @@ for configuration are located.</span><br />
 	This is the user defined key that causes the dock to disappear immediately, 
 	by default F11.<br />
 	<br />
+	<span style="font-weight: bold;">Disable Drag and Drop and Deletion of Icons
+	<br />
+	<br />
+	</span>On the older&nbsp;Rocketdock screen this was known as "Lock Items" - This 
+	is an essential option that stops you accidentally deleting your dock icons, 
+	Steamydock will make it more difficult to accidentally 
+	delete an icon by asking you first.<br />
+	<br />
+	<span class="auto-style2">Icon Origin</span><br />
+	<br />
+	This option allows you to retain the program's original icon when you drag 
+	or add a program to the dock.Many programs have a built-in icon that you 
+	might want to retain. By default SteamyDock will assign a new icon based 
+	upon the program type.<br />
+	<br />
 	<span style="font-weight: bold;">Animation Interval</span><br />
 	<br />
 	The overall animation&nbsp;period in millisecs. 10ms is a good default but 
@@ -394,8 +385,8 @@ for configuration are located.</span><br />
 	<span style="font-weight: bold;">Fig 16. This is the crystalXP theme 
 	replacement displayed using SteamyDock.</span><br />
 	<br />
-	<img alt="themes" src="themes.jpg" style="width: 189px; height: 152px;" /><br />
-	<span style="font-weight: bold;">Fig 17.&nbsp;A sample of the Astro themes.</span><br />
+	<img alt="themes" src="themes.jpg" /><br />
+	<span style="font-weight: bold;">Fig 17.&nbsp;A sample of the Astro theme.</span><br />
 	<br />
 	<span style="font-weight: bold;">Opacity</span><br />
 	<br />
@@ -467,7 +458,7 @@ Monitor</span><br />
 Select the monitor upon which you want&nbsp; to display. Multi-monitor functionality 
 is only currently available using&nbsp;Rocketdock.<br />
 <br />
-<span style="font-weight: bold;">Screen Position</span><br />
+<span class="auto-style2">Dock</span><span style="font-weight: bold;"> Position</span><br />
 <br />
 You can place the dock on the side of the screen that you require. Steamydock 
 only supports top and bottom. The best location for the dock is the bottom of 
@@ -475,12 +466,20 @@ the screen &nbsp;but you will need to move the Windows task bar to the top of th
 window. The utility cannot do that automatically as Windows does not&nbsp;like apps 
 that move the task bar...you'll need to do this yourself.<br />
 <br />
+<span class="auto-style2">Move Taskbar</span><br />
+<br />
+By default, the Windows taskbar is placed at the bottom. When Steamydock runs it 
+will overlay the taskbar at the bottom. If this option is enabled and the user 
+clicks save, it will move the windows taskbar to the opposite position, ie. 
+bottom to top. Steamydock will run just fine at the top of the screen but it is 
+designed to operate at the bottom of the screen.<br />
+<br />
 <span style="font-weight: bold;">Layering</span><br />
 <br />
 Should the dock be layered on top of or under other windows? You choose your 
-preference. Unlike&nbsp;Rocketdock, when using Steamydock, the dock will always come 
-to front during user interaction regardless of the layer position. The dock will 
-return to the default position once user-interaction has been completed/<br />
+preference. Steamydock will always come to front during user interaction 
+regardless of the layer position. The dock will return to the default position 
+once user-interaction has been completed.<br />
 <br />
 <span style="font-weight: bold;">Centre</span><br />
 <br />
@@ -494,7 +493,35 @@ The whole dock can be moved away from the edge of the screen as you require.<br 
 <h3>Wallpaper Pane<br />
 </h3>
 <img alt="position" src="dockS-wallpaperPane.jpg" height="785" width="715" /><br />
+<span style="font-weight: bold;">Fig 20a. The Wallpaper Pane.</span><br />
 <br />
+<span class="auto-style2">Wallpaper</span><br />
+<br />
+Select the wallpaper you would like to see on the screen desktop background. 
+This ustility is very similar to that in Windows Settings under - 
+Personalisation - Background. The difference is that is comes supplied with a 
+series of steampunk images ready to use.Use the mouse scroll wheel up/down to 
+select each image in turn.<br />
+<br />
+<span class="auto-style2">Positioning</span><br />
+<br />
+The background image can be placed on 
+the screen as you require.<br />
+<br />
+<span class="auto-style2">Auto-Timer</span><br />
+<br />
+The whole dock can be moved away from the edge of the screen as you require. 
+Centre/Tile or stretch<br />
+<br />
+<span class="auto-style2">Interval<br />
+&nbsp;</span><br />
+Here you can set a timer interval upon which the background will change 
+automatically. <br />
+<br />
+<span class="auto-style2">Change Button<br />
+&nbsp;</span><br />
+When you have selected your chosen background image, press this button and the 
+background will be applied.
 <br />
 <div class="indent">
 	<h3>About Pane</h3>
