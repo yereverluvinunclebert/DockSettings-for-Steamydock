@@ -76,8 +76,8 @@ Begin VB.Form dockSettings
    End
    Begin VB.Timer repaintTimer 
       Interval        =   1000
-      Left            =   3405
-      Top             =   8760
+      Left            =   5760
+      Top             =   8745
    End
    Begin VB.CommandButton btnClose 
       Caption         =   "&Close"
