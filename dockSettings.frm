@@ -5483,7 +5483,7 @@ End Sub
 Private Sub cmbWallpaperTimerInterval_Click()
    On Error GoTo cmbWallpaperTimerInterval_Click_Error
 
-    rDWallpaperTimerIntervalIndex = cmbWallpaperTimerInterval.ListIndex
+    rDWallpaperTimerIntervalIndex = CStr(cmbWallpaperTimerInterval.ListIndex)
 
    On Error GoTo 0
    Exit Sub
@@ -12375,7 +12375,7 @@ Private Sub populateWallpaperTimerIntervalDropDown()
     cmbWallpaperTimerInterval.AddItem "7 days", 13
     cmbWallpaperTimerInterval.ItemData(13) = 10080 ' number of minutes stored in itemData array
         
-    thisTime = rDWallpaperTimerIntervalIndex
+    thisTime = CInt(rDWallpaperTimerIntervalIndex)
     
     cmbWallpaperTimerInterval.ListIndex = thisTime
 
