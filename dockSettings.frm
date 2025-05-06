@@ -5416,6 +5416,7 @@ Private Sub btnApplyWallpaper_MouseDown(Button As Integer, Shift As Integer, X A
         PutINISetting "Software\SteamyDock\DockSettings", "WallpaperStyle", rDWallpaperStyle, dockSettingsFile
         PutINISetting "Software\SteamyDock\DockSettings", "WallpaperLastTimeChanged", rDWallpaperLastTimeChanged, dockSettingsFile
         PutINISetting "Software\SteamyDock\DockSettings", "WallpaperTimerInterval", rDWallpaperTimerInterval, dockSettingsFile
+        PutINISetting "Software\SteamyDock\DockSettings", "WallpaperTimerIntervalIndex", rDWallpaperTimerIntervalIndex, dockSettingsFile
         
         wallpaperFullPath = sdAppPath & "\wallpapers\" & rDWallpaper
         
