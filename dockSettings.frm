@@ -8941,6 +8941,7 @@ Private Sub cmbDefaultDock_Click()
     
     chkAutomaticWallpaperChange.Value = CInt(rDAutomaticWallpaperChange)
     chkMoveWinTaskbar.Value = CInt(rDMoveWinTaskbar)
+    cmbWallpaperTimerInterval.ListIndex = CInt(rDWallpaperTimerIntervalIndex)
 
     Call setHidingKey
         
@@ -12001,6 +12002,7 @@ Private Sub adjustControls()
     
     chkAutomaticWallpaperChange.Value = CInt(rDAutomaticWallpaperChange)
     chkMoveWinTaskbar.Value = CInt(rDMoveWinTaskbar)
+    cmbWallpaperTimerInterval.ListIndex = CInt(rDWallpaperTimerIntervalIndex)
     
     cmbIconsQuality.ListIndex = Val(rDIconQuality)
     sliIconsOpacity.Value = Val(rDIconOpacity)
