@@ -12177,14 +12177,15 @@ End Sub
 ' Procedure : populateWallpapers
 ' Author    : beededea
 ' Date      : 07/04/2025
-' Purpose   :
+' Purpose   : read the wallpaper folder and extract all image names to a combobox list, must be jpgs.
 '---------------------------------------------------------------------------------------
 '
 Private Sub populateWallpapers()
      
     Dim MyPath  As String: MyPath = vbNullString
+    Dim match   As String: match = vbNullString
     Dim wallpaperPresent As Boolean: wallpaperPresent = False
-    Dim myName As String: myName = vbNullString
+    Dim myName  As String: myName = vbNullString
     
     On Error GoTo populateWallpapers_Error
 
@@ -12208,10 +12209,12 @@ Private Sub populateWallpapers()
        End If
        myName = Dir   ' Get next entry.
        If myName <> "." And myName <> ".." And myName <> "" Then
-        cmbWallpaper.AddItem myName
-        'MsgBox MyName
-        Debug.Print myName   ' Display entry only if it
-        If myName = rDWallpaper Then wallpaperPresent = True
+            match = LCase$(Right$(myName, 4))
+            If match = ".jpg" Or match = ".jpeg" Then
+                cmbWallpaper.AddItem myName
+                'Debug.Print myName   ' Display entry only if it
+                If myName = rDWallpaper Then wallpaperPresent = True
+            End If
        End If
     Loop
 
