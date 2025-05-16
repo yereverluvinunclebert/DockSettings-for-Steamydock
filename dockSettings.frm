@@ -4543,39 +4543,7 @@ Private Declare Function SetProcessDpiAwareness Lib "shcore.dll" (ByVal Value As
 
 '------------------------------------------------------ ENDS
 
-'------------------------------------------------------ STARTS
-' Private Types for reading/writing binary data from the registry
 
-'Opens the specified registry key
-Private Declare Function RegOpenKey Lib "advapi32.dll" Alias "RegOpenKeyA" (ByVal hKey As Long, ByVal lpSubKey As String, phkResult As Long) As Long
-
-'Writes all the attributes of the specified open registry key into the registry
-Private Declare Function RegFlushKey Lib "advapi32.dll" (ByVal hKey As Long) As Long
-
-Private Enum REG_TOPLEVEL_KEYS
- HKEY_CLASSES_ROOT = &H80000000
- HKEY_CURRENT_CONFIG = &H80000005
- HKEY_CURRENT_USER = &H80000001
- HKEY_DYN_DATA = &H80000006
- HKEY_LOCAL_MACHINE = &H80000002
- HKEY_PERFORMANCE_DATA = &H80000004
- HKEY_USERS = &H80000003
-End Enum
-
-'Sets the data and type of a specified value under a registry key - do not Change this! Check as ANY
-Private Declare Function RegSetValueEx Lib "advapi32.dll" Alias "RegSetValueExA" (ByVal hKey As Long, ByVal lpValueName As String, ByVal Reserved As Long, ByVal dwType As Long, lpData As Any, ByVal cbData As Long) As Long
-
-'The RegCloseKey function releases the handle of the specified key
-Private Declare Function RegCloseKey Lib "advapi32.dll" (ByVal hKey As Long) As Long
-
-'Creates the specified registry key
-Private Declare Function RegCreateKey Lib "advapi32.dll" Alias "RegCreateKeyA" (ByVal hKey As Long, ByVal lpSubKey As String, phkResult As Long) As Long
-
-Private lDataSize As Long
-Private ByteasByte() As Byte
-Private Const REG_BINARY = 3
-Private Const REG_SZ = 1
-'------------------------------------------------------ ENDS
 
 
 
@@ -4668,7 +4636,7 @@ End Sub
 Private Sub chkMoveWinTaskbar_Click()
    On Error GoTo chkMoveWinTaskbar_Click_Error
 
-    rDMoveWinTaskbar = Str$(chkMoveWinTaskbar.Value)
+    rDMoveWinTaskbar = CStr(chkMoveWinTaskbar.Value)
 
    On Error GoTo 0
    Exit Sub
@@ -4853,7 +4821,7 @@ Private Sub Form_Load()
     AppExists = App.PrevInstance
     If AppExists = True Then
         NameProcess = "docksettings.exe"
-        checkAndKill NameProcess, False, False
+        checkAndKill NameProcess, False, False, False
         'MsgBox "You now have two instances of this utility running, they will conflict..."
     End If
     
@@ -5297,102 +5265,7 @@ adjustWindows10FormSize_Error:
     
 End Sub
 
-'---------------------------------------------------------------------------------------
-' Procedure : readWindowsTaskbarPosition
-' Author    : beededea
-' Date      : 08/04/2025
-' Purpose   : To Read BINARY values from the registry
-'---------------------------------------------------------------------------------------
-'
-Private Function readWindowsTaskbarPosition() As Integer
 
-    Dim binaryValue As Variant
-    Dim Value As Variant
-    Dim I As Long: I = 0
-
-    On Error GoTo readWindowsTaskbarPosition_Error
-    
-    'Binary values are returned as a variant of type byte array.
-    With CreateObject("WScript.Shell")
-        Value = .RegRead("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3\Settings")
-    End With
-    lDataSize = UBound(Value)
-    ReDim ByteasByte(0 To lDataSize - 1) As Byte
-    
-    For I = 0 To lDataSize - 1
-        ByteasByte(I) = Value(I)
-    Next
-
-'    03 for bottom (default).
-'    01 for top.
-'    00 for left.
-'    02 for right.
-
-    readWindowsTaskbarPosition = CInt(ByteasByte(12))
-      
-   On Error GoTo 0
-   Exit Function
-
-readWindowsTaskbarPosition_Error:
-
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure readWindowsTaskbarPosition of Form dockSettings"
-
-End Function
-
-
-
-'---------------------------------------------------------------------------------------
-' Procedure : setWindowsTaskbarPosition
-' Author    : beededea
-' Date      : 08/04/2025
-' Purpose   :
-'---------------------------------------------------------------------------------------
-'
- Function setWindowsTaskbarPosition(ByVal taskbarPosition As Integer) As Boolean
-
-    Dim bAns As Boolean: bAns = False
-    Dim keyhand As Long: keyhand = 0
-    Dim b As String: b = vbNullString
-    Dim hKey As REG_TOPLEVEL_KEYS
-    Dim strPath As String: strPath = vbNullString
-    Dim strvalue As String: strvalue = vbNullString
-       
-    On Error GoTo setWindowsTaskbarPosition_Error
-    
-    hKey = HKEY_CURRENT_USER
-    strPath = "Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3"
-    strvalue = "Settings"
-
-    b = ByteasByte(12)
-    
-'    03 for bottom (default).
-'    01 for top.
-'    00 for left.
-'    02 for right.
-
-    ByteasByte(12) = CByte(taskbarPosition)
-      
-    Dim R As Long
-    R = RegCreateKey(hKey, strPath, keyhand)
-    If R = 0 Then
-        R = RegSetValueEx(keyhand, strvalue, 0, _
-           REG_BINARY, ByteasByte(0), lDataSize + 1)
-        R = RegCloseKey(keyhand)
-    End If
-    
-    setWindowsTaskbarPosition = (R = 0)
-
-   On Error GoTo 0
-   Exit Function
-   
-setWindowsTaskbarPosition_Error:
-
-    setWindowsTaskbarPosition = False
-    
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setWindowsTaskbarPosition of Form dockSettings"
-    
-   Exit Function
-End Function
 
 '---------------------------------------------------------------------------------------
 ' Procedure : btnApplyWallpaper_MouseDown
@@ -7114,7 +6987,7 @@ Private Sub btnApply_Click()
     itis = IsRunning(NameProcess, vbNull) ' this is the check to see if the process is running
     ' kill the rocketdock /steamydock process first
     If itis = True Then
-        ans = checkAndKill(NameProcess, False, False)
+        ans = checkAndKill(NameProcess, False, False, False)
         If ans = True Then ' only proceed if the kill has succeeded
             
             ' restart steamydock
@@ -7133,6 +7006,8 @@ Private Sub btnApply_Click()
             Call ShellExecute(hWnd, "Open", NameProcess, vbNullString, App.Path, 1)
         End If
     End If
+    
+    Call repositionWindowsTaskbar(rDSide, rDSide)
 
    On Error GoTo 0
    Exit Sub
@@ -8475,14 +8350,19 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub cmbPositionScreen_Click()
-    Dim taskbarPosition As Integer: taskbarPosition = 0
-    Dim triggerTaskbarChange As Boolean: triggerTaskbarChange = False
-    Dim rmessage As String: rmessage = ""
-    Dim answer As VbMsgBoxResult: answer = vbNo
+'    Dim taskbarPosition As Integer: taskbarPosition = 0
+'    Dim triggerTaskbarChange As Boolean: triggerTaskbarChange = False
+'    Dim rmessage As String: rmessage = ""
+'    Dim answer As VbMsgBoxResult: answer = vbNo
    
     On Error GoTo cmbPositionScreen_Click_Error
     If debugflg = 1 Then Debug.Print "%cmbPositionScreen_Click"
-
+    
+    If startupFlg = True Then '
+        ' don't do this on the first startup run
+        Exit Sub
+    End If
+    
     rDSide = CStr(cmbPositionScreen.ListIndex)
     
     ' steamydock left and right positions unsupported
@@ -8490,54 +8370,8 @@ Private Sub cmbPositionScreen_Click()
         rDSide = "1"
         cmbPositionScreen.ListIndex = 1
     End If
-    
-    ' steamydock avoids taskbar/dock position conflict.
-    If rDMoveWinTaskbar = "1" Then
+
    
-        taskbarPosition = readWindowsTaskbarPosition
-    
-    '   Windows taskbar position values
-    '    03 for bottom (default).
-    '    01 for top.
-    '    00 for left.
-    '    02 for right.
-       
-    '   Steamydock position values (left over from Rocketdock) Enum TASKBAR_POSITION
-    '    0 for top (default) vbtop
-    '    1 for bottom vbBottom
-    '    2 for left vbLeft
-    '    3 for right vbRight
-    '
-        'if the dock is at the bottom (1) and the windows taskbar is bottom (3) we have a conflict
-        
-        If rDSide = "1" And taskbarPosition = 3 Then
-            taskbarPosition = 1
-            triggerTaskbarChange = True
-        End If
-        
-        If rDSide = "0" And taskbarPosition = 1 Then
-            taskbarPosition = 3
-            triggerTaskbarChange = True
-        End If
-       
-        If triggerTaskbarChange = True Then
-            Call setWindowsTaskbarPosition(taskbarPosition)
-            
-            ' ask and then restart explorer
-            rmessage = "Steamydock is in the same l;ocation as the Windows taskbar. In order to move the Windows taskbar we need to kill Explorer.exe. It will restart automatically but in the process will flicker the desktop once or twice." & vbCrLf & vbCrLf & "Confirm now that you are happy to kill Explorer? "
-            answer = msgBoxA(rmessage, vbYesNo, "Killing explorer", True, "cmbPositionScreen_Click")
-    
-            If answer = vbYes Then
-                ' here we kill explorer.exe
-                Exit Sub
-            End If
-            
-            rmessage = "In order to move the Windows taskbar you will need to log off and then log back on again. The Windows taskbar will then appear in the chosen location. Press the Save && Restart button now to move Steamydock."
-            answer = msgBoxA(rmessage, vbOKOnly, "Information about the next logoff/on", True, "cmbPositionScreen_Click2")
-            
-        End If
-    End If
-    
    On Error GoTo 0
    Exit Sub
 
@@ -12733,7 +12567,7 @@ Private Sub setToolTips()
         gcmbBehaviourSoundSelectionBalloonTooltip = "Select a sound to play when an icon in the dock is clicked."
         gcmbStyleThemeBalloonTooltip = "The dock background theme can be selected here. The themes roughly match those available in Rocketdock."
         gcmbPositionMonitorBalloonTooltip = "Here you can determine upon which monitor the dock will appear."
-        gcmbPositionScreenBalloonTooltip = "Place the dock at your preferred location. Steamydock currently only supports top and bottom positions. In windows 11 it is not possible to move Windows standard taskbar to the top programmatically nor via configuration, you have to make a registry change and reboot! "
+        gcmbPositionScreenBalloonTooltip = "Place the dock at your preferred location. Steamydock currently only supports top and bottom positions." & vbCrLf & vbCrLf & "WARNING: In windows 10 it is not easy to move the taskbar, Windows 11 is even harder as it does not even give you the choice. However, we can do it programatically by changing the registry setting and then restarting explorer.exe. When you press save and restart, you will notice some flickering of the background as this change is made. "
         gcmbPositionLayeringBalloonTooltip = "This determines whether the dock should appear on top of other windows or underneath."
         gcmbIconsQualityBalloonTooltip = "Technically, lower power single/dual core machines from the XP era will benefit from the lower quality setting but in reality, the fast machines we have these days can run with high quality enabled and suffer no degradation whatsoever."
         gcmbIconsHoverFXBalloonTooltip = "The zoom effect to apply. At the moment the only effect in operation is bubble. The other animations types still need to be coded."

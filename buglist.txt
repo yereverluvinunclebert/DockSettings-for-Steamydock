@@ -71,6 +71,9 @@ Resizing changes
 ' Status/Bugs/Tasks:
 ' ==================
 
+' set a semaphore to indicate that the registry is already open when writing.
+' add a timestamp to prevent registry changes during dock position change
+
 ' fix the drag corner position on form_load
 
 ' update the help files WIP
