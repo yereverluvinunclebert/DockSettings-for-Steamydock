@@ -660,12 +660,53 @@ selectIconSettingsVBPFile_Error:
 
 End Sub
 
+'---------------------------------------------------------------------------------------
+' Procedure : locateiconSettingsToolFile
+' Author    : beededea
+' Date      : 18/05/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
 Public Sub locateiconSettingsToolFile()
-
 
     Dim iconSettingsToolDir As String: iconSettingsToolDir = vbNullString
     
     ' icon Settings tool own settings.ini
+    On Error GoTo locateiconSettingsToolFile_Error
+
     iconSettingsToolDir = SpecialFolder(SpecialFolder_AppData) & "\rocketdockEnhancedSettings"
     iconSettingsToolFile = iconSettingsToolDir & "\settings.ini"
+
+   On Error GoTo 0
+   Exit Sub
+
+locateiconSettingsToolFile_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure locateiconSettingsToolFile of Module mdlMain"
 End Sub
+
+
+
+
+'---------------------------------------------------------------------------------------
+' Procedure : executeSettings
+' Author    : beededea
+' Date      : 18/05/2025
+' Purpose   : A routine of the same name exists in two places, mdlSDMain.bas and mdlMain.bas, called from repositionWindowsTaskbar in common2.bas
+'             The difference is the window handle name (hwnd) specific to the calling module
+'---------------------------------------------------------------------------------------
+'
+Public Function executeSettings() As Long
+   On Error GoTo executeSettings_Error
+
+    executeSettings = ShellExecute(dockSettings.hWnd, "runas", "c:\windows\explorer.exe", vbNullString, vbNullString, 1)
+
+   On Error GoTo 0
+   Exit Function
+
+executeSettings_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure executeSettings of Module mdlMain"
+End Function
+    
+
