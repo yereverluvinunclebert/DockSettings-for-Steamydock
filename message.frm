@@ -154,16 +154,16 @@ Public Property Let propMessage(ByVal strMessage As String)
     Me.Height = Me.Height + intDiff
     
     fraMessage.Height = fraMessage.Height + intDiff
-    fraPicVB.Top = fraPicVB.Top + (intDiff / 2)
+    fraPicVB.top = fraPicVB.top + (intDiff / 2)
         
-    chkShowAgain.Top = chkShowAgain.Top + intDiff
-    btnButtonOne.Top = btnButtonOne.Top + intDiff
-    btnButtonTwo.Top = btnButtonTwo.Top + intDiff
+    chkShowAgain.top = chkShowAgain.top + intDiff
+    btnButtonOne.top = btnButtonOne.top + intDiff
+    btnButtonTwo.top = btnButtonTwo.top + intDiff
 
 End Property
 
 Public Property Let propTitle(ByVal strTitle As String)
-    If strTitle = "" Then
+    If strTitle = vbNullString Then
         frmMessage.Caption = "SteamyDock Icon Enhanced Settings"
     Else
         frmMessage.Caption = strTitle
@@ -245,7 +245,7 @@ Public Property Let propButtonVal(ByVal buttonVal As Integer)
     If buttonVal = 2 Then '    vbCancel 2
         btnButtonOne.Visible = False
         btnButtonTwo.Visible = True
-        btnButtonOne.Caption = ""
+        btnButtonOne.Caption = vbNullString
         btnButtonTwo.Caption = "Cancel"
         picVBInformation.Visible = True
     End If

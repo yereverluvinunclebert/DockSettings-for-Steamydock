@@ -12,6 +12,25 @@ Begin VB.Form dockSettings
    MaxButton       =   0   'False
    ScaleHeight     =   9645
    ScaleWidth      =   8790
+   Begin VB.CommandButton btnSave 
+      Caption         =   "&Save"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   405
+      Left            =   5520
+      Style           =   1  'Graphical
+      TabIndex        =   256
+      ToolTipText     =   "This will save your changes and restart the dock."
+      Top             =   9030
+      Width           =   780
+   End
    Begin VB.Timer positionTimer 
       Interval        =   3000
       Left            =   1455
@@ -52,7 +71,7 @@ Begin VB.Form dockSettings
       BorderStyle     =   0  'None
       ForeColor       =   &H80000008&
       Height          =   795
-      Left            =   4785
+      Left            =   4635
       Picture         =   "dockSettings.frx":058A
       ScaleHeight     =   795
       ScaleWidth      =   825
@@ -65,8 +84,8 @@ Begin VB.Form dockSettings
    Begin VB.Timer busyTimer 
       Enabled         =   0   'False
       Interval        =   50
-      Left            =   4425
-      Top             =   9060
+      Left            =   990
+      Top             =   8910
    End
    Begin VB.Timer themeTimer 
       Enabled         =   0   'False
@@ -91,15 +110,15 @@ Begin VB.Form dockSettings
          Strikethrough   =   0   'False
       EndProperty
       Height          =   405
-      Left            =   7530
+      Left            =   7665
       Style           =   1  'Graphical
       TabIndex        =   8
       ToolTipText     =   "Exit this utility"
       Top             =   9030
-      Width           =   1065
+      Width           =   900
    End
-   Begin VB.CommandButton btnApply 
-      Caption         =   "&Save && Restart"
+   Begin VB.CommandButton btnSaveRestart 
+      Caption         =   "Save+&Restart"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   8.25
@@ -110,12 +129,12 @@ Begin VB.Form dockSettings
          Strikethrough   =   0   'False
       EndProperty
       Height          =   405
-      Left            =   6120
+      Left            =   6345
       Style           =   1  'Graphical
       TabIndex        =   7
       ToolTipText     =   "This will save your changes and restart the dock."
       Top             =   9030
-      Width           =   1335
+      Width           =   1260
    End
    Begin VB.PictureBox iconBox 
       BackColor       =   &H00FFFFFF&
@@ -538,7 +557,7 @@ Begin VB.Form dockSettings
          Width           =   3360
       End
       Begin VB.CommandButton btnApplyWallpaper 
-         Caption         =   "&Change"
+         Caption         =   "&Change  *"
          Enabled         =   0   'False
          BeginProperty Font 
             Name            =   "Arial"
@@ -699,7 +718,7 @@ Begin VB.Form dockSettings
          Top             =   5610
          Width           =   4455
       End
-      Begin VB.CheckBox chkGenLock 
+      Begin VB.CheckBox chkLockIcons 
          Caption         =   "Disable Drag/Drop and Icon Deletion"
          BeginProperty Font 
             Name            =   "Arial"
@@ -842,7 +861,7 @@ Begin VB.Form dockSettings
          TabIndex        =   192
          Top             =   465
          Width           =   5325
-         Begin VB.ComboBox cmbBehaviourAutoHideType 
+         Begin VB.ComboBox cmbAutoHideType 
             Enabled         =   0   'False
             BeginProperty Font 
                Name            =   "Arial"
@@ -863,7 +882,7 @@ Begin VB.Form dockSettings
             Top             =   510
             Width           =   2620
          End
-         Begin VB.CheckBox chkBehaviourAutoHide 
+         Begin VB.CheckBox chkAutoHide 
             Caption         =   "On/Off"
             BeginProperty Font 
                Name            =   "Arial"
@@ -881,7 +900,7 @@ Begin VB.Form dockSettings
             Top             =   480
             Width           =   2235
          End
-         Begin VB.ComboBox cmbBehaviourActivationFX 
+         Begin VB.ComboBox cmbIconActivationFX 
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   8.25
@@ -929,7 +948,7 @@ Begin VB.Form dockSettings
          TabIndex        =   186
          Top             =   1500
          Width           =   6180
-         Begin CCRSlider.Slider sliBehaviourAutoHideDuration 
+         Begin CCRSlider.Slider sliAutoHideDuration 
             Height          =   315
             Left            =   1590
             TabIndex        =   187
@@ -1260,7 +1279,6 @@ Begin VB.Form dockSettings
             Width           =   2775
             _ExtentX        =   4895
             _ExtentY        =   556
-            Enabled         =   0   'False
             Min             =   1
             Max             =   20
             Value           =   10
@@ -1269,7 +1287,6 @@ Begin VB.Form dockSettings
          End
          Begin VB.Label lblAnimationIntervalMsLow 
             Caption         =   "1ms"
-            Enabled         =   0   'False
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   8.25
@@ -1288,7 +1305,6 @@ Begin VB.Form dockSettings
          End
          Begin VB.Label lblAnimationIntervalMsHigh 
             Caption         =   "20ms"
-            Enabled         =   0   'False
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   8.25
@@ -1307,7 +1323,6 @@ Begin VB.Form dockSettings
          End
          Begin VB.Label lblAnimationIntervalMsCurrent 
             Caption         =   "(20)"
-            Enabled         =   0   'False
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   8.25
@@ -1326,7 +1341,6 @@ Begin VB.Form dockSettings
          End
          Begin VB.Label lblBehaviourLabel 
             Caption         =   "Animation Interval"
-            Enabled         =   0   'False
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   8.25
@@ -3794,7 +3808,7 @@ Begin VB.Form dockSettings
             Width           =   1530
          End
       End
-      Begin VB.CheckBox genChkShowIconSettings 
+      Begin VB.CheckBox chkShowIconSettings 
          Caption         =   "Automatically display Icon Settings after adding an icon to the dock"
          BeginProperty Font 
             Name            =   "Arial"
@@ -3836,7 +3850,7 @@ Begin VB.Form dockSettings
          TabIndex        =   126
          Top             =   3210
          Width           =   5955
-         Begin CCRSlider.Slider sliGenRunAppInterval 
+         Begin CCRSlider.Slider sliRunAppInterval 
             Height          =   315
             Left            =   1020
             TabIndex        =   127
@@ -3939,7 +3953,7 @@ Begin VB.Form dockSettings
          Visible         =   0   'False
          Width           =   300
       End
-      Begin VB.CheckBox chkGenRun 
+      Begin VB.CheckBox chkShowRunning 
          Caption         =   "Running Application Indicators"
          BeginProperty Font 
             Name            =   "Arial"
@@ -3978,7 +3992,7 @@ Begin VB.Form dockSettings
          Visible         =   0   'False
          Width           =   2520
       End
-      Begin VB.CheckBox chkGenOpen 
+      Begin VB.CheckBox chkOpenRunning 
          Caption         =   "Open Running Application Instance"
          BeginProperty Font 
             Name            =   "Arial"
@@ -3996,7 +4010,7 @@ Begin VB.Form dockSettings
          Top             =   4185
          Width           =   3030
       End
-      Begin VB.TextBox txtGeneralRdLocation 
+      Begin VB.TextBox txtAppPath 
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -4056,7 +4070,7 @@ Begin VB.Form dockSettings
          Visible         =   0   'False
          Width           =   3075
       End
-      Begin VB.CheckBox chkGenWinStartup 
+      Begin VB.CheckBox chkStartupRun 
          Caption         =   "Run at Startup"
          BeginProperty Font 
             Name            =   "Arial"
@@ -4467,7 +4481,7 @@ Private Declare Function GetCapture Lib "user32" () As Long
 Private Declare Function IsUserAnAdmin Lib "Shell32" Alias "#680" () As Integer
 
 Private busyCounter As Integer
-Private totalBusyCounter As Integer
+Private totalBusyMaximum As Integer
 
 Private Const COLOR_BTNFACE As Long = 15
 
@@ -4514,7 +4528,7 @@ Private Const HTBOTTOMRIGHT = 17
 '------------------------------------------------------ ENDS
 
 '------------------------------------------------------ STARTS
-' Private Types for determining prefs sizing
+' Private Types for determining Form sizing
 
 Private pvtLastFormHeight As Long
 Private pvtFormResizedByDrag As Boolean
@@ -4543,8 +4557,7 @@ Private Declare Function SetProcessDpiAwareness Lib "shcore.dll" (ByVal Value As
 
 '------------------------------------------------------ ENDS
 
-
-
+Private busyTimerCount As Integer
 
 
 
@@ -4590,7 +4603,7 @@ End Sub
 Private Sub btnNextWallpaper_Click()
     Dim cmbWallpaperIndex As Integer: cmbWallpaperIndex = 0
     
-   On Error GoTo btnNextWallpaper_Click_Error
+    On Error GoTo btnNextWallpaper_Click_Error
 
     cmbWallpaperIndex = cmbWallpaper.ListIndex
     cmbWallpaperIndex = cmbWallpaperIndex + 1
@@ -4627,6 +4640,26 @@ Private Sub btnPreviousWallpaper_MouseMove(Button As Integer, Shift As Integer, 
 End Sub
 
 '---------------------------------------------------------------------------------------
+' Procedure : btnSave_Click
+' Author    : beededea
+' Date      : 24/05/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub btnSave_Click()
+   On Error GoTo btnSave_Click_Error
+
+    Call saveOrRestart(False)
+
+   On Error GoTo 0
+   Exit Sub
+
+btnSave_Click_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnSave_Click of Form dockSettings"
+End Sub
+
+'---------------------------------------------------------------------------------------
 ' Procedure : chkMoveWinTaskbar_Click
 ' Author    : beededea
 ' Date      : 10/04/2025
@@ -4656,6 +4689,10 @@ End Sub
 
 
 
+
+
+
+
 '---------------------------------------------------------------------------------------
 ' Procedure : fmeBehaviour_MouseMove
 ' Author    : beededea
@@ -4664,8 +4701,8 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub fmeBehaviour_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    Dim descriptiveText As String: descriptiveText = ""
-    Dim titleText As String: titleText = ""
+    Dim descriptiveText As String: descriptiveText = vbNullString
+    Dim titleText As String: titleText = vbNullString
 
     On Error GoTo fmeBehaviour_MouseMove_Error
 
@@ -4699,8 +4736,8 @@ End Sub
 '
 Private Sub fmeStyle_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 
-    Dim descriptiveText As String: descriptiveText = ""
-    Dim titleText As String: titleText = ""
+    Dim descriptiveText As String: descriptiveText = vbNullString
+    Dim titleText As String: titleText = vbNullString
 
     On Error GoTo fmeStyle_MouseMove_Error
 
@@ -4727,8 +4764,8 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub fmeWallpaper_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    Dim descriptiveText As String: descriptiveText = ""
-    Dim titleText As String: titleText = ""
+    Dim descriptiveText As String: descriptiveText = vbNullString
+    Dim titleText As String: titleText = vbNullString
 
    On Error GoTo fmeWallpaper_MouseMove_Error
 
@@ -4757,8 +4794,8 @@ End Sub
 Private Sub Form_Initialize()
    On Error GoTo Form_Initialize_Error
 
-    dockSettingsYPos = ""
-    dockSettingsXPos = ""
+    dockSettingsYPos = vbNullString
+    dockSettingsXPos = vbNullString
 
    On Error GoTo 0
    Exit Sub
@@ -4790,9 +4827,9 @@ Private Sub Form_Load()
     defaultDock = 0
     debugflg = 0
     startupFlg = True
-    rdAppPath = ""
+    rdAppPath = vbNullString
     busyCounter = 1
-    totalBusyCounter = 1
+    'totalBusyCounter = 1
     rDEnableBalloonTooltips = "1"
     
     sDDockSettingsDefaultEditor = vbNullString ' "E:\vb6\rocketdock\docksettings.vbp"
@@ -4824,6 +4861,9 @@ Private Sub Form_Load()
         checkAndKill NameProcess, False, False, False
         'MsgBox "You now have two instances of this utility running, they will conflict..."
     End If
+        
+    ' check the Windows version
+    Call testWindowsVersion(classicThemeCapable)
     
     ' set form resizing variables
     Call setFormResizingVarsAndProperties
@@ -4839,9 +4879,6 @@ Private Sub Form_Load()
     
     'load the highlighted images onto the pressed icons
     Call loadHighlightedImages
-    
-    ' check the Windows version
-    Call testWindowsVersion(classicThemeCapable)
     
     'MsgBox ProgramFilesDir
     ' turn on the timer that tests every 10 secs whether the visual theme has changed
@@ -4864,7 +4901,7 @@ Private Sub Form_Load()
     Call checkRocketdockInstallation
     'If rocketDockInstalled = True Then
         'dockAppPath = rdAppPath
-        'txtGeneralRdLocation.Text = rdAppPath
+        'txtAppPath.Text = rdAppPath
         'defaultDock = 0
     'End If
     
@@ -4876,7 +4913,7 @@ Private Sub Form_Load()
     Call checkSteamyDockInstallation
     
     'update a filed with the installation details
-    txtGeneralRdLocation.Text = dockAppPath
+    txtAppPath.Text = dockAppPath
     
     ' if both docks are installed we need to determine which is the default
     Call checkDefaultDock
@@ -4890,7 +4927,7 @@ Private Sub Form_Load()
     'read the correct config location according to the default selection
     Call readDockConfiguration
     
-    ' read the dock settings from the new configuration file  - currently barely used
+    ' read the dock settings from the new configuration file  - currently barely used, it is all in above readDockConfiguration
     Call readSettingsFile
     
     ' RD can use the different monitors, SD cannot yet.
@@ -4910,7 +4947,7 @@ Private Sub Form_Load()
     
     sdChkToggleDialogs = GetINISetting("Software\DockSettings", "sdChkToggleDialogs", toolSettingsFile)
     
-    If sdChkToggleDialogs = "" Then sdChkToggleDialogs = "1" ' validate
+    If sdChkToggleDialogs = vbNullString Then sdChkToggleDialogs = "1" ' validate
     If sdChkToggleDialogs = "1" Then ' set
         chkToggleDialogs.Value = 1
     Else
@@ -4930,7 +4967,10 @@ Private Sub Form_Load()
     Call adjustMainControls
     
     ' save the initial positions of ALL the controls on the form
-    Call saveControlSizes(dockSettings, gblFormControlPositions(), gblAdjustedFormWidth, gblAdjustedFormHeight)
+    'MsgBox "1 " & gblCurrentFormHeight
+    Call saveControlSizes(dockSettings, gblFormControlPositions(), gblCurrentFormWidth, gblCurrentFormHeight)
+        
+    Call setFormHeight
     
     startupFlg = False ' now negate the startup flag
 
@@ -4943,7 +4983,102 @@ Form_Load_Error:
      
 End Sub
 
+'---------------------------------------------------------------------------------------
+' Procedure : initialiseVars
+' Author    : beededea
+' Date      : 24/05/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub initialiseVars()
 
+   On Error GoTo initialiseVars_Error
+
+    rDGeneralReadConfig = vbNullString 'GeneralReadConfig", dockSettingsFile)
+    rDGeneralWriteConfig = vbNullString 'GeneralWriteConfig", dockSettingsFile)
+    rDRunAppInterval = vbNullString 'RunAppInterval", dockSettingsFile)
+    rDDefaultDock = vbNullString 'DefaultDock", dockSettingsFile)
+    rDAnimationInterval = vbNullString 'AnimationInterval", dockSettingsFile)
+    rDSkinSize = vbNullString 'SkinSize", dockSettingsFile)
+    sDSplashStatus = vbNullString 'SplashStatus", dockSettingsFile)
+    sDShowIconSettings = vbNullString 'ShowIconSettings", dockSettingsFile) '' .14 DAEB 01/05/2021 docksettings added checkbox and values to show icon settings utility when adding an icon to the dock
+    
+    sDFontOpacity = vbNullString 'FontOpacity", settingsFile)
+    sDAutoHideType = vbNullString 'AutoHideType", settingsFile)
+    sDShowLblBacks = vbNullString 'ShowLblBacks", settingsFile) ' 25/10/2020 docksettings .02 DAEB add the logic for saving/reading icon label background string to configuration files
+    sDContinuousHide = vbNullString 'ContinuousHide", settingsFile) ' 25/10/2020 docksettings .02 DAEB add the logic for saving/reading icon label background string to configuration files ' nn
+    sDBounceZone = vbNullString 'BounceZone", settingsFile) ' .05 DAEB 12/07/2021 common2.bas Add the BounceZone as a configurable variable.
+
+    ' development
+    sDDefaultEditor = vbNullString 'dockDefaultEditor", settingsFile)
+    sDDebugFlg = vbNullString 'debugFlg", settingsFile)
+
+    'RocketDock compatible settings only
+    rDVersion = vbNullString 'Version", settingsFile)
+    rDHotKeyToggle = vbNullString 'HotKey-Toggle", settingsFile)
+            
+    rDtheme = vbNullString 'Theme", settingsFile)
+    rDWallpaper = vbNullString 'Wallpaper", settingsFile)
+    rDWallpaperStyle = vbNullString 'WallpaperStyle", settingsFile)
+    rDAutomaticWallpaperChange = vbNullString 'AutomaticWallpaperChange", settingsFile)
+    rDWallpaperTimerIntervalIndex = vbNullString 'WallpaperTimerIntervalIndex", settingsFile)
+    rDWallpaperTimerInterval = vbNullString 'WallpaperTimerInterval", settingsFile)
+    rDWallpaperLastTimeChanged = vbNullString 'WallpaperLastTimeChanged", settingsFile)
+    rDTaskbarLastTimeChanged = vbNullString 'TaskbarLastTimeChanged", settingsFile)
+    
+    rDMoveWinTaskbar = vbNullString 'MoveWinTaskbar", settingsFile)
+    
+    rDThemeOpacity = vbNullString 'ThemeOpacity", settingsFile)
+    rDIconOpacity = vbNullString 'IconOpacity", settingsFile)
+    rDFontSize = vbNullString 'FontSize", settingsFile)
+    rDFontFlags = vbNullString 'FontFlags", settingsFile)
+    rDFontName = vbNullString 'FontName", settingsFile)
+    rDFontColor = vbNullString 'FontColor", settingsFile)
+    rDFontCharSet = vbNullString 'FontCharSet", settingsFile)
+    rDFontOutlineColor = vbNullString 'FontOutlineColor", settingsFile)
+    rDFontOutlineOpacity = vbNullString 'FontOutlineOpacity", settingsFile)
+    rDFontShadowColor = vbNullString 'FontShadowColor", settingsFile)
+    rDFontShadowOpacity = vbNullString 'FontShadowOpacity", settingsFile)
+    rDIconMin = vbNullString 'IconMin", settingsFile)
+    rdIconMax = vbNullString 'IconMax", settingsFile)
+    rDZoomWidth = vbNullString 'ZoomWidth", settingsFile)
+    rDZoomTicks = vbNullString 'ZoomTicks", settingsFile)
+    rDAutoHide = vbNullString 'AutoHide", settingsFile) '  26/10/2020 docksettings .03 DAEB fixed a previous find/replace bug causing the autohide setting to fail to both save and read
+    rDAutoHideDuration = vbNullString 'AutoHideTicks", settingsFile)
+    rDAutoHideDelay = vbNullString 'AutoHideDelay", settingsFile)
+    rDPopupDelay = vbNullString 'PopupDelay", settingsFile)
+    rDIconQuality = vbNullString 'IconQuality", settingsFile)
+    rDLangID = vbNullString 'LangID", settingsFile)
+    rDHideLabels = vbNullString 'HideLabels", settingsFile)
+    rDZoomOpaque = vbNullString 'ZoomOpaque", settingsFile)
+    rDLockIcons = vbNullString 'LockIcons", settingsFile)
+    rDRetainIcons = vbNullString 'RetainIcons", settingsFile) ' .18 DAEB 07/09/2022 docksettings save and restore the chkRetainIcons checkbox value
+    
+    rDManageWindows = vbNullString 'ManageWindows", settingsFile)
+    rDDisableMinAnimation = vbNullString 'DisableMinAnimation", settingsFile)
+    rDShowRunning = vbNullString 'ShowRunning", settingsFile)
+    rDOpenRunning = vbNullString 'OpenRunning", settingsFile)
+    rDHoverFX = vbNullString 'HoverFX", settingsFile)
+    rDzOrderMode = vbNullString 'zOrderMode", settingsFile)
+    rDMouseActivate = vbNullString 'MouseActivate", settingsFile)
+    rDIconActivationFX = vbNullString 'IconActivationFX", settingsFile)
+    rDSoundSelection = vbNullString 'SoundSelection", settingsFile)
+    
+    rDMonitor = vbNullString 'Monitor", settingsFile)
+    rDSide = vbNullString 'Side", settingsFile)
+    rDOffset = vbNullString 'Offset", settingsFile)
+    rDvOffset = vbNullString 'vOffset", settingsFile)
+    rDOptionsTabIndex = vbNullString
+    
+    'gblPrefsPrimaryHeightTwips = vbNullString
+
+   On Error GoTo 0
+   Exit Sub
+
+initialiseVars_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure initialiseVars of Form dockSettings"
+End Sub
 
 '---------------------------------------------------------------------------------------
 ' Procedure : Form_Resize
@@ -5050,7 +5185,7 @@ End Sub
 Public Sub unloadAllForms(ByVal endItAll As Boolean)
     
     Dim ofrm As Form
-    Dim NameProcess As String: NameProcess = ""
+    Dim NameProcess As String: NameProcess = vbNullString
     Dim fcount As Integer: fcount = 0
     Dim useloop As Integer: useloop = 0
        
@@ -5093,40 +5228,40 @@ unloadAllForms_Error:
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure unloadAllForms of Form dockSettings"
 End Sub
 '---------------------------------------------------------------------------------------
-' Procedure : loadHigherResPrefsImages
+' Procedure : loadHigherResFormImages
 ' Author    : beededea
 ' Date      : 18/06/2023
 ' Purpose   : load the images for the classic or high brightness themes
 '---------------------------------------------------------------------------------------
 '
-Private Sub loadHigherResPrefsImages()
+Private Sub loadHigherResFormImages()
     
-    On Error GoTo loadHigherResPrefsImages_Error
+    On Error GoTo loadHigherResFormImages_Error
       
     If Me.WindowState = vbMinimized Then Exit Sub
         
-    Call setPrefsIconImages
+    Call setFormIconImages
     
    On Error GoTo 0
    Exit Sub
 
-loadHigherResPrefsImages_Error:
+loadHigherResFormImages_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadHigherResPrefsImages of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadHigherResFormImages of Form dockSettings"
 End Sub
 
 
 
 '---------------------------------------------------------------------------------------
-' Procedure : setPrefsIconImages
+' Procedure : setFormIconImages
 ' Author    : beededea
 ' Date      : 22/06/2023
 ' Purpose   : here we load the images for the icons at a set size, here we can test the size and load larger size icons if required.
 '---------------------------------------------------------------------------------------
 '
-Private Sub setPrefsIconImages()
+Private Sub setFormIconImages()
     
-    On Error GoTo setPrefsIconImages_Error
+    On Error GoTo setFormIconImages_Error
     
     If Val(gblResizeRatio) < 1.25 Then
         imgIcon(0).Picture = LoadPicture(App.Path & "\resources\images\general.jpg")
@@ -5149,9 +5284,9 @@ Private Sub setPrefsIconImages()
    On Error GoTo 0
    Exit Sub
 
-setPrefsIconImages_Error:
+setFormIconImages_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setPrefsIconImages of Form widgetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setFormIconImages of Form dockSettings"
 
 End Sub
 
@@ -5238,18 +5373,20 @@ Private Sub adjustWindows10FormSize()
         windowBorderHeight = (Me.Height - Me.ScaleHeight) / 4
         
         gblDoNotResize = True
-        gblAdjustedFormHeight = windowBorderHeight + desiredClientHeight
-        'gblAdjustedFormHeight = desiredClientHeight
-        Me.Height = gblAdjustedFormHeight
+        gblCurrentFormHeight = windowBorderHeight + desiredClientHeight
+        'gblCurrentFormHeight = desiredClientHeight
+        
+        'MsgBox "2 adjustWindows10FormSize " & gblCurrentFormHeight
+        Me.Height = gblCurrentFormHeight
         
         gblDoNotResize = True
-        gblAdjustedFormWidth = windowBorderWidth + desiredClientWidth
-        'gblAdjustedFormWidth = desiredClientWidth
-        Me.Width = gblAdjustedFormWidth
+        gblCurrentFormWidth = windowBorderWidth + desiredClientWidth
+        'gblCurrentFormWidth = desiredClientWidth
+        Me.Width = gblCurrentFormWidth
         
     Else
-         gblAdjustedFormHeight = desiredClientHeight
-         gblAdjustedFormWidth = desiredClientWidth
+         gblCurrentFormHeight = desiredClientHeight
+         gblCurrentFormWidth = desiredClientWidth
          
     End If
     
@@ -5261,7 +5398,7 @@ Private Sub adjustWindows10FormSize()
 
 adjustWindows10FormSize_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustWindows10FormSize of Form rDIconConfigForm"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustWindows10FormSize of Form dockSettings"
     
 End Sub
 
@@ -5355,6 +5492,8 @@ End Sub
 '
 Private Sub cmbWallpaperTimerInterval_Click()
    On Error GoTo cmbWallpaperTimerInterval_Click_Error
+   
+   If startupFlg = True Then Exit Sub
 
     rDWallpaperTimerIntervalIndex = CStr(cmbWallpaperTimerInterval.ListIndex)
 
@@ -5398,8 +5537,11 @@ End Sub
 ' Procedure : Form_Resize_Event
 ' Author    : beededea
 ' Date      : 30/05/2023
-' Purpose   : Called mostly by WM_EXITSIZEMOVE. If the form is NOT to be resized then restrain the height/width. Otherwise,
-'             maintain the aspect ratio. When minimised and a resize is called then simply exit.
+' Purpose   : Called mostly by WM_EXITSIZEMOVE, the subclassed (intercepted) message that indicates that the window has just been moved.
+'             (and on a mouseUp during a bottom-right drag of the additional corner indicator). Also, in code as specifcally required with an indicator flag.
+'             This prevents a resize occurring during every twip movement and the controls resizing themselves continuously.
+'             They now only resize when the form resize has completed.
+'
 '---------------------------------------------------------------------------------------
 '
 Private Sub Form_Resize_Event()
@@ -5409,28 +5551,29 @@ Private Sub Form_Resize_Event()
     
     On Error GoTo Form_Resize_Event_Error
     
+    ' When minimised and a resize is called then simply exit.
     If Me.WindowState = vbMinimized Then Exit Sub
+             
+    ' move the drag corner label along with the form's bottom right corner
+    lblDragCorner.Move Me.ScaleLeft + Me.ScaleWidth - (lblDragCorner.Width + 40), _
+           Me.ScaleTop + Me.ScaleHeight - (lblDragCorner.Height + 40)
+        
+    ' constrain the height/width ratio
+    constraintRatio = pvtCFormHeight / pvtCFormWidth
     
     If pvtFormResizedByDrag = True Then
-    
-        ' constrain the height/width ratio
-        constraintRatio = gblAdjustedFormHeight / gblAdjustedFormWidth
-            
+
         ' maintain the aspect ratio, note: this change calls this routine again...
-        'gblDoNotResize = True
         dockSettings.Width = dockSettings.Height / constraintRatio
         
-        If gblSuppliedFontSize = "" Then gblSuppliedFontSize = GetINISetting("Software\DockSettings", "", toolSettingsFile)
+        If gblSuppliedFontSize = vbNullString Then gblSuppliedFontSize = GetINISetting("Software\DockSettings", vbNullString, toolSettingsFile)
         currentFontSize = CSng(Val(gblSuppliedFontSize))
         
+        'MsgBox "3 " & gblCurrentFormHeight
         ' resize all controls on the form
-        Call resizeControls(Me, gblFormControlPositions(), gblAdjustedFormWidth, gblAdjustedFormHeight, currentFontSize)
-             
-        ' move the drag corner label along with the form's bottom right corner
-        lblDragCorner.Move Me.ScaleLeft + Me.ScaleWidth - (lblDragCorner.Width + 40), _
-               Me.ScaleTop + Me.ScaleHeight - (lblDragCorner.Height + 40)
-               
-        Call loadHigherResPrefsImages
+        Call resizeControls(Me, gblFormControlPositions(), gblCurrentFormWidth, gblCurrentFormHeight, currentFontSize)
+
+        Call loadHigherResFormImages
         
     Else
         If Me.WindowState = 0 Then ' normal
@@ -5446,7 +5589,9 @@ Private Sub Form_Resize_Event()
     gblFormResizedInCode = False
     pvtFormResizedByDrag = False
     
-    'Call writePrefsPosition
+    Call writeFormHeight
+    
+    'MsgBox "4 " & gblCurrentFormHeight
                 
     On Error GoTo 0
     Exit Sub
@@ -5514,8 +5659,8 @@ Private Sub btnAboutDebugInfo_MouseMove(Button As Integer, Shift As Integer, X A
                   TTIconInfo, "Help on the About Button", , , , True
 End Sub
 
-Private Sub btnApply_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnApply.hWnd, "Apply your recent changes to the settings and save them.", _
+Private Sub btnSaveRestart_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip btnSaveRestart.hWnd, "Apply your recent changes to the settings and save them.", _
                   TTIconInfo, "Help on the Apply Button", , , , True
 End Sub
 
@@ -5604,8 +5749,8 @@ Private Sub btnUpdate_MouseMove(Button As Integer, Shift As Integer, X As Single
                   TTIconInfo, "Help on the Update Button", , , , True
 End Sub
 
-Private Sub chkBehaviourAutoHide_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkBehaviourAutoHide.hWnd, "This checkbox acts as a toggle. You can determine whether the dock will auto-hide or not and the type of hide that is implemented. using Rocketdock  only supports one type of hide and that is the slide type. Steamydock gives you an additional fade or an instant disappear. The latter is lighter on CPU usage whilst the former two are animated and require a little cpu during the transition.", _
+Private Sub chkAutoHide_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkAutoHide.hWnd, "This checkbox acts as a toggle. You can determine whether the dock will auto-hide or not and the type of hide that is implemented. using Rocketdock  only supports one type of hide and that is the slide type. Steamydock gives you an additional fade or an instant disappear. The latter is lighter on CPU usage whilst the former two are animated and require a little cpu during the transition.", _
                   TTIconInfo, "Help on the AutoHide Checkbox.", , , , True
 End Sub
 '
@@ -5619,8 +5764,8 @@ Private Sub chkGenDisableAnim_MouseMove(Button As Integer, Shift As Integer, X A
                   TTIconInfo, "Help on disabling the minimise animation.", , , , True
 End Sub
 
-Private Sub chkGenLock_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenLock.hWnd, "This is an essential option that stops you accidentally deleting your dock icons, click it!. ", _
+Private Sub chkLockIcons_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkLockIcons.hWnd, "This is an essential option that stops you accidentally deleting your dock icons, click it!. ", _
                   TTIconInfo, "Help on Dragging, dropping to or from the dock.", , , , True
                   
 End Sub
@@ -5630,18 +5775,18 @@ Private Sub chkGenMin_MouseMove(Button As Integer, Shift As Integer, X As Single
                   TTIconInfo, "Help on mimising apps to the dock.", , , , True
 End Sub
 
-Private Sub chkGenOpen_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenOpen.hWnd, "If you click on an icon that is already running then it can open it or fire up another instance. ", _
+Private Sub chkOpenRunning_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkOpenRunning.hWnd, "If you click on an icon that is already running then it can open it or fire up another instance. ", _
                   TTIconInfo, "Help on the Running Application Indicators.", , , , True
 End Sub
 
-Private Sub chkGenRun_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenRun.hWnd, "After a short delay, small application indicators appear above the icon of a running program, this uses a little cpu every few seconds, frequency set below. ", _
+Private Sub chkShowRunning_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkShowRunning.hWnd, "After a short delay, small application indicators appear above the icon of a running program, this uses a little cpu every few seconds, frequency set below. ", _
                   TTIconInfo, "Help on Showing Running Applications .", , , , True
 End Sub
 
-Private Sub chkGenWinStartup_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkGenWinStartup.hWnd, "When this checkbox is ticked it will cause the selected dock to run when Windows starts. ", _
+Private Sub chkStartupRun_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkStartupRun.hWnd, "When this checkbox is ticked it will cause the selected dock to run when Windows starts. ", _
                   TTIconInfo, "Help on the Start with Windows Checkbox", , , , True
 End Sub
 
@@ -5791,8 +5936,8 @@ Private Sub fmeMain_MouseMove(Index As Integer, Button As Integer, Shift As Inte
     
    On Error GoTo fmeMain_MouseMove_Error
 
-    descriptiveText = ""
-    titleText = ""
+    descriptiveText = vbNullString
+    titleText = vbNullString
     
     If rDEnableBalloonTooltips = "1" Then
         If Index = 0 Then
@@ -5895,22 +6040,22 @@ chkSplashStatus_Click_Error:
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : cmbBehaviourAutoHideType_Click
+' Procedure : cmbAutoHideType_Click
 ' Author    : beededea
 ' Date      : 25/09/2020
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub cmbBehaviourAutoHideType_Click()
+Private Sub cmbAutoHideType_Click()
 
-   On Error GoTo cmbBehaviourAutoHideType_Click_Error
+   On Error GoTo cmbAutoHideType_Click_Error
 
-    sDAutoHideType = cmbBehaviourAutoHideType.ListIndex
+    sDAutoHideType = cmbAutoHideType.ListIndex
     
-    If cmbBehaviourAutoHideType.ListIndex = 2 Then
+    If cmbAutoHideType.ListIndex = 2 Then
         lblBehaviourLabel(2).Enabled = False
         lblBehaviourLabel(8).Enabled = False
-        sliBehaviourAutoHideDuration.Enabled = False
+        sliAutoHideDuration.Enabled = False
         lblAutoHideDurationMsHigh.Enabled = False
         lblAutoHideDurationMsCurrent.Enabled = False
         
@@ -5923,7 +6068,7 @@ Private Sub cmbBehaviourAutoHideType_Click()
     Else
         lblBehaviourLabel(2).Enabled = True
         lblBehaviourLabel(8).Enabled = True
-        sliBehaviourAutoHideDuration.Enabled = True
+        sliAutoHideDuration.Enabled = True
         lblAutoHideDurationMsHigh.Enabled = True
         lblAutoHideDurationMsCurrent.Enabled = True
         
@@ -5942,9 +6087,9 @@ Private Sub cmbBehaviourAutoHideType_Click()
    On Error GoTo 0
    Exit Sub
 
-cmbBehaviourAutoHideType_Click_Error:
+cmbAutoHideType_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbBehaviourAutoHideType_Click of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbAutoHideType_Click of Form dockSettings"
 
 End Sub
 
@@ -6070,11 +6215,12 @@ End Sub
 Private Sub busyTimer_Timer()
         Dim thisWindow As Long: thisWindow = 0
         Dim busyFilename As String: busyFilename = vbNullString
+        Static totalBusyCounter As Integer
         
         On Error GoTo busyTimer_Timer_Error
 
         thisWindow = FindWindowHandle("SteamyDock")
-        busyFilename = ""
+        busyFilename = vbNullString
         
         ' do the hourglass timer
         'the timer busy display moved from the non-functional timer to here where it works
@@ -6088,7 +6234,7 @@ Private Sub busyTimer_Timer()
         End If
         picBusy.Picture = LoadPicture(busyFilename)
         
-        If thisWindow <> 0 And totalBusyCounter >= 50 Then
+        If thisWindow <> 0 And totalBusyCounter >= totalBusyMaximum Then
             busyTimer.Enabled = False
             busyCounter = 1
             totalBusyCounter = 1
@@ -6138,17 +6284,17 @@ Private Sub fraScrollbarCover_MouseMove(Button As Integer, Shift As Integer, X A
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : genChkShowIconSettings_Click
+' Procedure : chkShowIconSettings_Click
 ' Author    : beededea
 ' Date      : 01/05/2021
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub genChkShowIconSettings_Click()
+Private Sub chkShowIconSettings_Click()
 
-    On Error GoTo genChkShowIconSettings_Click_Error
+    On Error GoTo chkShowIconSettings_Click_Error
     
-    If genChkShowIconSettings.Value = 1 Then
+    If chkShowIconSettings.Value = 1 Then
         sDShowIconSettings = "1"
     Else
         sDShowIconSettings = "0"
@@ -6157,15 +6303,15 @@ Private Sub genChkShowIconSettings_Click()
     On Error GoTo 0
     Exit Sub
 
-genChkShowIconSettings_Click_Error:
+chkShowIconSettings_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure genChkShowIconSettings_Click of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkShowIconSettings_Click of Form dockSettings"
 End Sub
 
 
 
-Private Sub genChkShowIconSettings_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip genChkShowIconSettings.hWnd, "When you drag or add an item to the dock it will always show the icon settings utility unless you disable it here.", _
+Private Sub chkShowIconSettings_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip chkShowIconSettings.hWnd, "When you drag or add an item to the dock it will always show the icon settings utility unless you disable it here.", _
                   TTIconInfo, "Help on the automatic icon Settings Startup", , , , True
 End Sub
 
@@ -6347,10 +6493,10 @@ Private Sub optGeneralReadConfig_Click()
 
     End If
     
-    If chkGenRun.Value = 1 Then
+    If chkShowRunning.Value = 1 Then
 '        lblGenLabel(0).Enabled = True
 '        lblGenLabel(1).Enabled = True
-        sliGenRunAppInterval.Enabled = True
+        sliRunAppInterval.Enabled = True
         lblGenLabel(2).Enabled = True
         lblGenRunAppIntervalCur.Enabled = True
     End If
@@ -6360,7 +6506,7 @@ Private Sub optGeneralReadConfig_Click()
 '        'lblChkAlwaysConfirm.Enabled = True
 '    End If
     
-    rDGeneralReadConfig = optGeneralReadConfig.Value ' this is the nub
+    rDGeneralReadConfig = CStr(optGeneralReadConfig.Value) ' this is the nub
     
     'Call locateDockSettingsFile
 
@@ -6393,13 +6539,13 @@ Private Sub optGeneralReadRegistry_Click()
         'If defaultDock = 0 Then optGeneralWriteRegistry.Value = True ' if running Rocketdock the two must be kept in sync
 '        lblGenLabel(0).Enabled = False
 '        lblGenLabel(1).Enabled = False
-        sliGenRunAppInterval.Enabled = False
+        sliRunAppInterval.Enabled = False
         lblGenLabel(2).Enabled = False
         lblGenRunAppIntervalCur.Enabled = False
         'chkGenAlwaysAsk.Enabled = False
         'lblChkAlwaysConfirm.Enabled = False
         
-        rDGeneralReadConfig = optGeneralReadConfig.Value ' turns off the reading from the new location
+        rDGeneralReadConfig = CStr(optGeneralReadConfig.Value) ' turns off the reading from the new location
 
    On Error GoTo 0
    Exit Sub
@@ -6455,13 +6601,13 @@ Private Sub optGeneralReadSettings_Click()
         
 '    lblGenLabel(0).Enabled = False
 '    lblGenLabel(1).Enabled = False
-    sliGenRunAppInterval.Enabled = False
+    sliRunAppInterval.Enabled = False
     lblGenLabel(2).Enabled = False
     lblGenRunAppIntervalCur.Enabled = False
     'chkGenAlwaysAsk.Enabled = False
     'lblChkAlwaysConfirm.Enabled = False
     
-    rDGeneralReadConfig = optGeneralReadConfig.Value ' turns off the reading from the new location
+    rDGeneralReadConfig = CStr(optGeneralReadConfig.Value) ' turns off the reading from the new location
 
    On Error GoTo 0
    Exit Sub
@@ -6487,7 +6633,7 @@ Private Sub readIconsWriteSettings(location As String, settingsFile As String)
     
     ' initial values assigned
      useloop = 0
-     regRocketdockSection = ""
+     regRocketdockSection = vbNullString
      theCount = 0
     
     On Error GoTo readIconsWriteSettings_Error
@@ -6495,7 +6641,7 @@ Private Sub readIconsWriteSettings(location As String, settingsFile As String)
     
     'initialise the dimensioned variables
     useloop = 0
-    regRocketdockSection = ""
+    regRocketdockSection = vbNullString
     theCount = 0
         
     ' get items from the registry that are required to 'default' the dock but aren't controlled by the dock settings utility
@@ -6608,8 +6754,8 @@ Private Sub checkDefaultDock()
         rDDefaultDock = GetINISetting("Software\SteamyDock\DockSettings", "DefaultDock", dockSettingsFile)
         rDGeneralReadConfig = GetINISetting("Software\SteamyDock\DockSettings", "GeneralReadConfig", dockSettingsFile)
         rDGeneralWriteConfig = GetINISetting("Software\SteamyDock\DockSettings", "GeneralWriteConfig", dockSettingsFile)
-        If rDGeneralReadConfig <> "" Then
-            optGeneralReadConfig.Value = rDGeneralReadConfig
+        If rDGeneralReadConfig <> vbNullString Then
+            optGeneralReadConfig.Value = CBool(rDGeneralReadConfig)
         Else
             optGeneralReadConfig.Value = False
         End If
@@ -6618,7 +6764,7 @@ Private Sub checkDefaultDock()
     'cmbDefaultDock.ListIndex = 1
     
     dockAppPath = sdAppPath
-    txtGeneralRdLocation.Text = dockAppPath
+    txtAppPath.Text = dockAppPath
     defaultDock = 1
     ' write the default dock to the SteamyDock settings file
     PutINISetting "Software\DockSettings", "defaultDock", defaultDock, toolSettingsFile
@@ -6629,12 +6775,12 @@ Private Sub checkDefaultDock()
 '            If answer = vbYes Then
 '                'cmbDefaultDock.ListIndex = 1 ' steamy dock
 '                dockAppPath = sdAppPath
-'                txtGeneralRdLocation.Text = sdAppPath
+'                txtAppPath.Text = sdAppPath
 '                defaultDock = 1
 '            Else
 '                'cmbDefaultDock.ListIndex = 0 ' rocket dock
 '                dockAppPath = rdAppPath
-'                txtGeneralRdLocation.Text = rdAppPath
+'                txtAppPath.Text = rdAppPath
 '                defaultDock = 0
 '            End If
 '        Else
@@ -6642,22 +6788,22 @@ Private Sub checkDefaultDock()
 '            If rDDefaultDock = "steamydock" Then
 '                'cmbDefaultDock.ListIndex = 1
 '                dockAppPath = sdAppPath
-'                txtGeneralRdLocation.Text = dockAppPath
+'                txtAppPath.Text = dockAppPath
 '                defaultDock = 1
 '            ElseIf rDDefaultDock = "rocketdock" Then
 '                'cmbDefaultDock.ListIndex = 0 ' rocket dock
 '                dockAppPath = rdAppPath
-'                txtGeneralRdLocation.Text = rdAppPath
+'                txtAppPath.Text = rdAppPath
 '                defaultDock = 0
 '            Else
 ''                If cmbDefaultDock.ListIndex = 1 Then  ' depends upon being able to read the new configuration file in the user data area
 ''                    dockAppPath = sdAppPath
-''                    txtGeneralRdLocation.Text = dockAppPath
+''                    txtAppPath.Text = dockAppPath
 ''                    defaultDock = 1
 ''                Else
 ''                    cmbDefaultDock.ListIndex = 0 ' rocket dock
 ''                    dockAppPath = rdAppPath
-''                    txtGeneralRdLocation.Text = rdAppPath
+''                    txtAppPath.Text = rdAppPath
 ''                    defaultDock = 0
 ''                End If
 '            End If
@@ -6667,7 +6813,7 @@ Private Sub checkDefaultDock()
 '            cmbDefaultDock.Enabled = False ' .11 DAEB 26/04/2021 docksettings Disable the dock select dropdown when only steamydock is present
 '
 '            dockAppPath = sdAppPath
-'            txtGeneralRdLocation.Text = dockAppPath
+'            txtAppPath.Text = dockAppPath
 '            defaultDock = 1
 '            ' write the default dock to the SteamyDock settings file
 '            PutINISetting "Software\SteamyDockSettings", "defaultDock", defaultDock, toolSettingsFile
@@ -6677,7 +6823,7 @@ Private Sub checkDefaultDock()
 '            cmbDefaultDock.Enabled = False ' .11 DAEB 26/04/2021 docksettings Disable the dock select dropdown when only steamydock is present
 '
 '            dockAppPath = rdAppPath
-'            txtGeneralRdLocation.Text = rdAppPath
+'            txtAppPath.Text = rdAppPath
 '            defaultDock = 0
 '    End If
     
@@ -6721,6 +6867,7 @@ Private Sub readDockConfiguration()
 
     If steamyDockInstalled = True And defaultDock = 1 And optGeneralReadConfig.Value = True Then ' it will always exist even if not used
         ' read the dock settings from the new configuration file
+        Call initialiseVars
         Call readDockSettingsFile("Software\SteamyDock\DockSettings", dockSettingsFile)
         Call validateInputs
         Call adjustControls
@@ -6743,13 +6890,13 @@ Private Sub readDockConfiguration()
 '        rdStartupRunString = getstring(HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", "RocketDock")
 '        If rdStartupRunString <> "" Then
 '            rDStartupRun = "1"
-'            chkGenWinStartup.Value = 1
+'            chkStartupRun.Value = 1
 '        End If
 '    ElseIf defaultDock = 1 Then 'if rocketdock set the automatic startup string to Steamydock
         rdStartupRunString = getstring(HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", "SteamyDock")
-        If rdStartupRunString <> "" Then
+        If rdStartupRunString <> vbNullString Then
             rDStartupRun = "1"
-            chkGenWinStartup.Value = 1
+            chkStartupRun.Value = 1
         End If
 '    End If
 
@@ -6876,14 +7023,34 @@ InDebugMode_Error:
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure InDebugMode of Form dockSettings"
 End Function
 '---------------------------------------------------------------------------------------
-' Procedure : btnApply_Click
+' Procedure : btnSaveRestart_Click
 ' Author    : beededea
 ' Date      : 01/03/2020
 ' Purpose   : Apply the registry or settings.ini
 '---------------------------------------------------------------------------------------
 '
-Private Sub btnApply_Click()
+Private Sub btnSaveRestart_Click()
     
+    Call saveOrRestart(True)
+
+   On Error GoTo 0
+   Exit Sub
+
+btnSaveRestart_Click_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") " & " in procedure btnSaveRestart_Click of Form dockSettings"
+End Sub
+
+
+'---------------------------------------------------------------------------------------
+' Procedure : saveOrRestart
+' Author    : beededea
+' Date      : 24/05/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub saveOrRestart(ByVal restart As Boolean)
+
     ' variables declared
     Dim NameProcess As String
     Dim ans As Boolean
@@ -6893,17 +7060,19 @@ Private Sub btnApply_Click()
     Dim debugPoint As Integer
     Dim itis As Boolean: itis = False
 
+    On Error GoTo saveOrRestart_Error
 
-    On Error GoTo btnApply_Click_Error
-    If debugflg = 1 Then Debug.Print "%btnApply_Click"
+    If debugflg = 1 Then Debug.Print "%btnSaveRestart_Click"
    
    'initialise the dimensioned variables
-    NameProcess = ""
+    NameProcess = vbNullString
     ans = False
     answer = vbNo
     positionZeroFail = False
     positionThreeFail = False
     debugPoint = 0
+    
+    picBusy.Visible = True
    
     If InIDE = True Then
         If optGeneralReadRegistry.Value = True Then
@@ -6951,13 +7120,13 @@ Private Sub btnApply_Click()
     sFilename = GetINISetting("Software\SteamyDock\IconSettings\Icons", "0-FileName", dockSettingsFile)
     sTitle = GetINISetting("Software\SteamyDock\IconSettings\Icons", "0-Title", dockSettingsFile)
     sCommand = GetINISetting("Software\SteamyDock\IconSettings\Icons", "0-Command", dockSettingsFile)
-    If sFilename = "" And sTitle = "" And sCommand = "" Then positionZeroFail = True
+    If sFilename = vbNullString And sTitle = vbNullString And sCommand = vbNullString Then positionZeroFail = True
 
     'test the third record - it assumes all docks will have at least three elements and therfore three records
     sFilename = GetINISetting("Software\SteamyDock\IconSettings\Icons", "3-FileName", dockSettingsFile)
     sTitle = GetINISetting("Software\SteamyDock\IconSettings\Icons", "3-Title", dockSettingsFile)
     sCommand = GetINISetting("Software\SteamyDock\IconSettings\Icons", "3-Command", dockSettingsFile)
-    If sFilename = "" And sTitle = "" And sCommand = "" Then positionThreeFail = True
+    If sFilename = vbNullString And sTitle = vbNullString And sCommand = vbNullString Then positionThreeFail = True
     
     ' the dock icon settings are empty? deanieboy
     If positionZeroFail = True And positionThreeFail = True Then
@@ -6967,43 +7136,46 @@ Private Sub btnApply_Click()
         End If
     End If
 
-    picBusy.Visible = True
-    busyTimer.Enabled = True
-    
     If rDStartupRun = "1" Then
         If defaultDock = 1 Then ' steamydock
-            Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "SteamyDock", """" & txtGeneralRdLocation.Text & "\" & "SteamyDock.exe""")
+            Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "SteamyDock", """" & txtAppPath.Text & "\" & "SteamyDock.exe""")
         End If
     Else
         If defaultDock = 1 Then ' steamydock
-            Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "SteamyDock", "")
+            Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "SteamyDock", vbNullString)
         End If
     End If
     
-    ' kill the steamydock process first
-
-    NameProcess = dockAppPath & "\" & "SteamyDock.exe" ' .07 DAEB 01/02/2021 dockSettings.frm Modified the parameter passed to isRunning to include the full path, otherwise it does not correlate with the found processes' folder
-
-    itis = IsRunning(NameProcess, vbNull) ' this is the check to see if the process is running
-    ' kill the rocketdock /steamydock process first
-    If itis = True Then
-        ans = checkAndKill(NameProcess, False, False, False)
-        If ans = True Then ' only proceed if the kill has succeeded
-            
-            ' restart steamydock
-            If fFExists(NameProcess) Then ' .09 DAEB 07/02/2021 dockSettings.frm use the fullprocess variable without adding path again - duh!
-                ans = ShellExecute(hWnd, "Open", NameProcess, vbNullString, App.Path, 1)
+    totalBusyMaximum = 20
+    busyTimer.Enabled = True
+    
+    ' only restart if reuired
+    If restart = True Then
+        totalBusyMaximum = 50
+        ' kill the steamydock process first
+        NameProcess = dockAppPath & "\" & "SteamyDock.exe" ' .07 DAEB 01/02/2021 dockSettings.frm Modified the parameter passed to isRunning to include the full path, otherwise it does not correlate with the found processes' folder
+    
+        itis = IsRunning(NameProcess, vbNull) ' this is the check to see if the process is running
+        ' kill the rocketdock /steamydock process first
+        If itis = True Then
+            ans = checkAndKill(NameProcess, False, False, False)
+            If ans = True Then ' only proceed if the kill has succeeded
+                
+                ' restart steamydock
+                If fFExists(NameProcess) Then ' .09 DAEB 07/02/2021 dockSettings.frm use the fullprocess variable without adding path again - duh!
+                    ans = ShellExecute(hWnd, "Open", NameProcess, vbNullString, App.Path, 1)
+                End If
             End If
-        End If
-    Else
-        answer = MsgBox("Could not find a " & NameProcess & " process, would you like me to restart " & NameProcess & "?", vbYesNo)
-        If answer = vbNo Then
-            Exit Sub
-        End If
-
-        ' restart Rocketdock
-        If fFExists(NameProcess) Then
-            Call ShellExecute(hWnd, "Open", NameProcess, vbNullString, App.Path, 1)
+        Else
+            answer = MsgBox("Could not find a " & NameProcess & " process, would you like me to restart " & NameProcess & "?", vbYesNo)
+            If answer = vbNo Then
+                Exit Sub
+            End If
+    
+            ' restart Rocketdock
+            If fFExists(NameProcess) Then
+                Call ShellExecute(hWnd, "Open", NameProcess, vbNullString, App.Path, 1)
+            End If
         End If
     End If
     
@@ -7012,11 +7184,11 @@ Private Sub btnApply_Click()
    On Error GoTo 0
    Exit Sub
 
-btnApply_Click_Error:
+saveOrRestart_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") " & debugPoint & " in procedure btnApply_Click of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure saveOrRestart of Form dockSettings"
+
 End Sub
-
 '---------------------------------------------------------------------------------------
 ' Procedure : btnClose_Click
 ' Author    : beededea
@@ -7059,7 +7231,7 @@ Private Sub btnDefaults_Click()
    If debugflg = 1 Then Debug.Print "%btnDefaults_Click"
 
    'initialise the dimensioned variables
-    NameProcess = ""
+    NameProcess = vbNullString
     ans = False
     answer = vbNo
     
@@ -7097,7 +7269,7 @@ Private Sub btnDefaults_Click()
         rDVersion = App.Major & "." & App.Minor & "." & App.Revision
 '    End If
     
-    rDCustomIconFolder = ""
+    rDCustomIconFolder = vbNullString
     
 '    If defaultDock = 0 Then ' .08 DAEB 01/02/2021 docksettings Added support for the default hiding key plus others for the two dock
 '        rDHotKeyToggle = "Control+Alt+R"
@@ -7123,7 +7295,7 @@ Private Sub btnDefaults_Click()
     rDWallpaperStyle = "Centre"
     rDAutomaticWallpaperChange = "0"
     rDWallpaperTimerIntervalIndex = "5"
-    rDWallpaperTimerInterval = "120"
+    rDWallpaperTimerInterval = "60"
     
     rDMoveWinTaskbar = "1"
 
@@ -7217,8 +7389,8 @@ Private Sub btnDefaults_Click()
     rDZoomTicks = "199"
     sliIconsDuration.Value = Val(rDZoomTicks)
     
-    rDAutoHideTicks = "186"
-    sliBehaviourAutoHideDuration.Value = Val(rDAutoHideTicks)
+    rDAutoHideDuration = "186"
+    sliAutoHideDuration.Value = Val(rDAutoHideDuration)
     
     rDAnimationInterval = "10"
     sliAnimationInterval.Value = Val(rDAnimationInterval)
@@ -7230,7 +7402,7 @@ Private Sub btnDefaults_Click()
     chkSplashStatus.Value = Val(sDSplashStatus)
     
     sDShowIconSettings = "1"
-    genChkShowIconSettings.Value = Val(sDShowIconSettings) ' .14 DAEB 01/05/2021 docksettings added checkbox and values to show icon settings utility when adding an icon to the dock
+    chkShowIconSettings.Value = Val(sDShowIconSettings) ' .14 DAEB 01/05/2021 docksettings added checkbox and values to show icon settings utility when adding an icon to the dock
     
     rDAutoHideDelay = "174"
     sliBehaviourAutoHideDelay.Value = Val(rDAutoHideDelay)
@@ -7261,18 +7433,18 @@ Private Sub btnDefaults_Click()
     chkIconsZoomOpaque.Value = Val(rDZoomOpaque)
     
     rDLockIcons = "1"
-    chkGenLock.Value = Val(rDLockIcons)
+    chkLockIcons.Value = Val(rDLockIcons)
     
     ' .18 DAEB 07/09/2022 docksettings save and restore the chkRetainIcons checkbox value
     rDRetainIcons = "0"
     chkRetainIcons.Value = Val(rDRetainIcons)
     
     rDAutoHide = "1"
-    chkBehaviourAutoHide.Value = Val(rDAutoHide)
+    chkAutoHide.Value = Val(rDAutoHide)
 ' 26/10/2020 docksettings .05 DAEB  added a manual click to the autohide toggle checkbox
 ' a checkbox value assignment does not trigger a checkbox click for this checkbox (in a frame) as normally occurs and there is no equivalent 'change event' for a checkbox
 ' so to force it to trigger we need a call to the click event
-    Call chkBehaviourAutoHide_Click
+    Call chkAutoHide_Click
     
     rDManageWindows = "0"
     chkGenMin.Value = Val(rDManageWindows)
@@ -7281,10 +7453,10 @@ Private Sub btnDefaults_Click()
     chkGenDisableAnim.Value = Val(rDDisableMinAnimation)
     
     rDShowRunning = "1"
-    chkGenRun.Value = Val(rDShowRunning)
+    chkShowRunning.Value = Val(rDShowRunning)
     
     rDOpenRunning = "1"
-    chkGenOpen.Value = Val(rDOpenRunning)
+    chkOpenRunning.Value = Val(rDOpenRunning)
     
     rDHoverFX = "1"
     cmbIconsHoverFX.ListIndex = Val(rDHoverFX)
@@ -7296,13 +7468,13 @@ Private Sub btnDefaults_Click()
     chkBehaviourMouseActivate.Value = Val(rDMouseActivate)
     
     rDIconActivationFX = "2"
-    cmbBehaviourActivationFX.ListIndex = Val(rDIconActivationFX)
+    cmbIconActivationFX.ListIndex = Val(rDIconActivationFX)
     
     rDSoundSelection = "0"
     cmbBehaviourSoundSelection.ListIndex = Val(rDSoundSelection)
     
     sDAutoHideType = "0"
-    cmbBehaviourAutoHideType.ListIndex = Val(sDAutoHideType)
+    cmbAutoHideType.ListIndex = Val(sDAutoHideType)
     
     rDMonitor = "0" ' ie. monitor 1
     cmbPositionMonitor.ListIndex = Val(rDMonitor)
@@ -7423,12 +7595,12 @@ Private Sub btnGeneralRdFolder_Click()
     If debugflg = 1 Then Debug.Print "%btnGeneralRdFolder_Click"
     
    'initialise the dimensioned variables
-    getFolder = ""
-    dialogInitDir = ""
+    getFolder = vbNullString
+    dialogInitDir = vbNullString
     
-    If txtGeneralRdLocation.Text <> vbNullString Then
-        If fDirExists(txtGeneralRdLocation.Text) Then
-            dialogInitDir = txtGeneralRdLocation.Text 'start dir, might be "C:\" or so also
+    If txtAppPath.Text <> vbNullString Then
+        If fDirExists(txtAppPath.Text) Then
+            dialogInitDir = txtAppPath.Text 'start dir, might be "C:\" or so also
         Else
             dialogInitDir = rdAppPath 'start dir, might be "C:\" or so also
         End If
@@ -7436,7 +7608,7 @@ Private Sub btnGeneralRdFolder_Click()
 
     getFolder = BrowseFolder(hWnd, dialogInitDir) ' show the dialog box to select a folder
     'getFolder = ChooseDir_Click ' old method to show the dialog box to select a folder
-    If getFolder <> vbNullString Then txtGeneralRdLocation.Text = getFolder
+    If getFolder <> vbNullString Then txtAppPath.Text = getFolder
 
    On Error GoTo 0
    Exit Sub
@@ -7472,7 +7644,7 @@ Private Sub btnStyleFont_Click()
     If debugflg = 1 Then Debug.Print "%btnStyleFont_Click"
    
    'initialise the dimensioned variables
-    suppliedFont = ""
+    suppliedFont = vbNullString
     suppliedSize = 0
     suppliedWeight = 0
     suppliedBold = False
@@ -7790,19 +7962,19 @@ End Sub
 
 
 '---------------------------------------------------------------------------------------
-' Procedure : chkBehaviourAutoHide_Click
+' Procedure : chkAutoHide_Click
 ' Author    : beededea
 ' Date      : 29/02/2020
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub chkBehaviourAutoHide_Click()
-   On Error GoTo chkBehaviourAutoHide_Click_Error
-   If debugflg = 1 Then Debug.Print "%chkBehaviourAutoHide_Click"
+Private Sub chkAutoHide_Click()
+   On Error GoTo chkAutoHide_Click_Error
+   If debugflg = 1 Then Debug.Print "%chkAutoHide_Click"
 
-    If chkBehaviourAutoHide.Value = 1 Then
-        chkBehaviourAutoHide.Caption = "Autohide Enabled"
-        sliBehaviourAutoHideDuration.Enabled = True
+    If chkAutoHide.Value = 1 Then
+        chkAutoHide.Caption = "Autohide Enabled"
+        sliAutoHideDuration.Enabled = True
   
         lblBehaviourLabel(2).Enabled = True
 
@@ -7823,11 +7995,11 @@ Private Sub chkBehaviourAutoHide_Click()
         
         lblBehaviourPopUpDelayMsCurrrent.Enabled = True
         
-        cmbBehaviourAutoHideType.Enabled = True
+        cmbAutoHideType.Enabled = True
         
     Else
-        chkBehaviourAutoHide.Caption = "Autohide Disabled"
-        sliBehaviourAutoHideDuration.Enabled = False
+        chkAutoHide.Caption = "Autohide Disabled"
+        sliAutoHideDuration.Enabled = False
 
         lblBehaviourLabel(2).Enabled = False
 
@@ -7848,19 +8020,19 @@ Private Sub chkBehaviourAutoHide_Click()
         lblAutoRevealDurationMsHigh.Enabled = False
         lblBehaviourPopUpDelayMsCurrrent.Enabled = False
         
-        cmbBehaviourAutoHideType.Enabled = False
+        cmbAutoHideType.Enabled = False
     
     End If
     
-    rDAutoHide = chkBehaviourAutoHide.Value
+    rDAutoHide = chkAutoHide.Value
     
 
    On Error GoTo 0
    Exit Sub
 
-chkBehaviourAutoHide_Click_Error:
+chkAutoHide_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkBehaviourAutoHide_Click of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkAutoHide_Click of Form dockSettings"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -7909,25 +8081,25 @@ chkGenDisableAnim_Click_Error:
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : chkGenLock_Click
+' Procedure : chkLockIcons_Click
 ' Author    : beededea
 ' Date      : 01/03/2020
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub chkGenLock_Click()
+Private Sub chkLockIcons_Click()
 
-   On Error GoTo chkGenLock_Click_Error
-   If debugflg = 1 Then Debug.Print "%chkGenLock_Click"
+   On Error GoTo chkLockIcons_Click_Error
+   If debugflg = 1 Then Debug.Print "%chkLockIcons_Click"
 
-    rDLockIcons = chkGenLock.Value
+    rDLockIcons = chkLockIcons.Value
 
    On Error GoTo 0
    Exit Sub
 
-chkGenLock_Click_Error:
+chkLockIcons_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkGenLock_Click of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkLockIcons_Click of Form dockSettings"
 
 End Sub
 
@@ -7959,43 +8131,43 @@ chkGenMin_Click_Error:
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : chkGenOpen_Click
+' Procedure : chkOpenRunning_Click
 ' Author    : beededea
 ' Date      : 01/03/2020
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub chkGenOpen_Click()
-   On Error GoTo chkGenOpen_Click_Error
-   If debugflg = 1 Then Debug.Print "%chkGenOpen_Click"
+Private Sub chkOpenRunning_Click()
+   On Error GoTo chkOpenRunning_Click_Error
+   If debugflg = 1 Then Debug.Print "%chkOpenRunning_Click"
 
-    rDOpenRunning = chkGenOpen.Value
+    rDOpenRunning = chkOpenRunning.Value
 
    On Error GoTo 0
    Exit Sub
 
-chkGenOpen_Click_Error:
+chkOpenRunning_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkGenOpen_Click of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkOpenRunning_Click of Form dockSettings"
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : chkGenRun_Click
+' Procedure : chkShowRunning_Click
 ' Author    : beededea
 ' Date      : 11/03/2020
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub chkGenRun_Click()
-   On Error GoTo chkGenRun_Click_Error
-   If debugflg = 1 Then Debug.Print "%chkGenRun_Click"
+Private Sub chkShowRunning_Click()
+   On Error GoTo chkShowRunning_Click_Error
+   If debugflg = 1 Then Debug.Print "%chkShowRunning_Click"
 
-    rDShowRunning = chkGenRun.Value
+    rDShowRunning = chkShowRunning.Value
     
-    If chkGenRun.Value = 0 Then
+    If chkShowRunning.Value = 0 Then
 '        lblGenLabel(0).Enabled = False
 '        lblGenLabel(1).Enabled = False
-        sliGenRunAppInterval.Enabled = False
+        sliRunAppInterval.Enabled = False
         lblGenLabel(2).Enabled = False
         lblGenRunAppIntervalCur.Enabled = False
     Else
@@ -8003,7 +8175,7 @@ Private Sub chkGenRun_Click()
         If optGeneralReadConfig.Value = True Then ' steamydock
 '            lblGenLabel(0).Enabled = True
 '            lblGenLabel(1).Enabled = True
-            sliGenRunAppInterval.Enabled = True
+            sliRunAppInterval.Enabled = True
             lblGenLabel(2).Enabled = True
             lblGenRunAppIntervalCur.Enabled = True
         End If
@@ -8012,31 +8184,31 @@ Private Sub chkGenRun_Click()
    On Error GoTo 0
    Exit Sub
 
-chkGenRun_Click_Error:
+chkShowRunning_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkGenRun_Click of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkShowRunning_Click of Form dockSettings"
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : chkGenWinStartup_Click
+' Procedure : chkStartupRun_Click
 ' Author    : beededea
 ' Date      : 01/03/2020
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub chkGenWinStartup_Click()
+Private Sub chkStartupRun_Click()
 
-   On Error GoTo chkGenWinStartup_Click_Error
-   If debugflg = 1 Then Debug.Print "%chkGenWinStartup_Click"
+   On Error GoTo chkStartupRun_Click_Error
+   If debugflg = 1 Then Debug.Print "%chkStartupRun_Click"
 
-    rDStartupRun = chkGenWinStartup.Value
+    rDStartupRun = chkStartupRun.Value
 
    On Error GoTo 0
    Exit Sub
 
-chkGenWinStartup_Click_Error:
+chkStartupRun_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkGenWinStartup_Click of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkStartupRun_Click of Form dockSettings"
 End Sub
 
 
@@ -8153,25 +8325,25 @@ chkStyleDisable_Click_Error:
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : cmbBehaviourActivationFX_Click
+' Procedure : cmbIconActivationFX_Click
 ' Author    : beededea
 ' Date      : 01/03/2020
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub cmbBehaviourActivationFX_Click()
+Private Sub cmbIconActivationFX_Click()
 
-   On Error GoTo cmbBehaviourActivationFX_Click_Error
-   If debugflg = 1 Then Debug.Print "%cmbBehaviourActivationFX_Click"
+   On Error GoTo cmbIconActivationFX_Click_Error
+   If debugflg = 1 Then Debug.Print "%cmbIconActivationFX_Click"
 
-    rDIconActivationFX = cmbBehaviourActivationFX.ListIndex
+    rDIconActivationFX = cmbIconActivationFX.ListIndex
 
    On Error GoTo 0
    Exit Sub
 
-cmbBehaviourActivationFX_Click_Error:
+cmbIconActivationFX_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbBehaviourActivationFX_Click of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbIconActivationFX_Click of Form dockSettings"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -8249,14 +8421,14 @@ Private Sub setMinimumHoverFX()
         If chkToggleDialogs.Value = 0 Then
             sliIconsZoom.ToolTipText = "The maximum size after a zoom can be no smaller than 85 pixels when Zoom:Bumpy is chosen"
         Else
-            sliIconsZoom.ToolTipText = ""
+            sliIconsZoom.ToolTipText = vbNullString
         End If
     Else
         
         If chkToggleDialogs.Value = 0 Then
             sliIconsZoom.ToolTipText = "The maximum size after a zoom"
         Else
-            sliIconsZoom.ToolTipText = ""
+            sliIconsZoom.ToolTipText = vbNullString
         End If
     End If
 
@@ -8427,6 +8599,8 @@ Private Sub cmbWallpaper_Click()
     On Error GoTo cmbWallpaper_Change_Error
     If debugflg = 1 Then Debug.Print "%cmbWallpaper_Change"
     
+    If startupFlg = True Then Exit Sub
+    
     rDWallpaper = cmbWallpaper.List(cmbWallpaper.ListIndex)
     
     ' disable the apply button if no wallpaper choice
@@ -8436,14 +8610,12 @@ Private Sub cmbWallpaper_Click()
         btnApplyWallpaper.Enabled = False
     End If
     
-    ' .09 DAEB 01/02/2021 docksettings Make the sample image functionality disabled for rocketdock
-    If defaultDock = 1 Then
-        wallpaperPic = sdAppPath & "\wallpapers\" & rDWallpaper
-        
-        If fFExists(wallpaperPic) Then
-            imgWallpaperPreview.Picture = LoadPicture(sdAppPath & "\wallpapers\" & rDWallpaper)
-        End If
+    wallpaperPic = sdAppPath & "\wallpapers\" & rDWallpaper
+    
+    If fFExists(wallpaperPic) Then
+        imgWallpaperPreview.Picture = LoadPicture(sdAppPath & "\wallpapers\" & rDWallpaper)
     End If
+
     
     On Error GoTo 0
     Exit Sub
@@ -8471,7 +8643,7 @@ Private Sub cmbDefaultDock_Click()
 '
 '        ' .17 DAEB 07/09/2022 docksettings the dock folder location now changes as it is switched between Rocketdock and Steamy Dock
 '        dockAppPath = rdAppPath
-'        txtGeneralRdLocation.Text = rdAppPath
+'        txtAppPath.Text = rdAppPath
 '
 '        If fFExists(origSettingsFile) Then ' does the original settings.ini exist?
 '            optGeneralReadSettings.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
@@ -8520,7 +8692,7 @@ Private Sub cmbDefaultDock_Click()
 ''        Call setZoomTypes ' .14 DAEB 29/04/2021 docksettings Set the default zoom types available to the type of dock selected
 ''        Call setBounceTypes
 '
-'        sliBehaviourAutoHideDuration.Enabled = True
+'        sliAutoHideDuration.Enabled = True
 '        sliAnimationInterval.Enabled = True
 '
 '        ' 30/10/2020 docksettings .06 DAEB fraZoomConfigs containing sliIconsZoomWidth made visible by default using the IDE and the references to make them otherwise removed.
@@ -8535,7 +8707,7 @@ Private Sub cmbDefaultDock_Click()
 '
 ''        lblGenLabel(0).Enabled = False
 ''        lblGenLabel(1).Enabled = False
-'        sliGenRunAppInterval.Enabled = False
+'        sliRunAppInterval.Enabled = False
 '        lblGenLabel(2).Enabled = False
 '        lblGenRunAppIntervalCur.Enabled = False
 '
@@ -8548,7 +8720,7 @@ Private Sub cmbDefaultDock_Click()
 '        lblAnimationIntervalMsCurrent.Enabled = False
 '        lblBehaviourLabel(12).Enabled = False
 '
-'        cmbBehaviourAutoHideType.Enabled = False
+'        cmbAutoHideType.Enabled = False
 '
 '        ' .10 STARTS DAEB 01/02/2021 docksettings Remove some functionality not available to rocketdock
 '
@@ -8595,8 +8767,8 @@ Private Sub cmbDefaultDock_Click()
 '        lblChkSplashStatus.Enabled = False ' ensure the associated label stays disabled, it should always be disabled
 '
 '        ' allows the greying out of the checkbox label without showing a crinkly text on those fonts with serifs
-'        genChkShowIconSettings.Enabled = False ' RD does not support storing the configs at the correct location
-'        genChkShowIconSettings.Width = 192  ' set the width to just show the check box itself and hide its intrinsic label that then goes 'crinkly'.
+'        chkShowIconSettings.Enabled = False ' RD does not support storing the configs at the correct location
+'        chkShowIconSettings.Width = 192  ' set the width to just show the check box itself and hide its intrinsic label that then goes 'crinkly'.
 '        lblGenChkShowIconSettings.Visible = True ' make the associated duplicate label visible, greyed out looks just like any other greyed out text
 '        lblGenChkShowIconSettings.Enabled = False ' ensure the associated label stays disabled, it should always be disabled
 '
@@ -8617,7 +8789,7 @@ Private Sub cmbDefaultDock_Click()
         
         ' .17 DAEB 07/09/2022 docksettings the dock folder location now changes as it is switched between Rocketdock and Steamy Dock
         dockAppPath = sdAppPath
-        txtGeneralRdLocation.Text = sdAppPath
+        txtAppPath.Text = sdAppPath
         
         ' .19 DAEB 07/09/2022 docksettings when you select rocketdock it reverts to the registry but when you select steamydock it does not revert to the dock settings file.
         optGeneralReadConfig.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
@@ -8634,7 +8806,7 @@ Private Sub cmbDefaultDock_Click()
         
         
         'lblChkMinimise.Enabled = False
-        'cmbBehaviourActivationFX.Enabled = False
+        'cmbIconActivationFX.Enabled = False
         'cmbStyleTheme.Enabled = False ' does not support themes yet
         'cmbPositionMonitor.Enabled = False
         'cmbIconsQuality.Enabled = False '  does not support enhanced or lower quality icons
@@ -8646,7 +8818,7 @@ Private Sub cmbDefaultDock_Click()
         lblIconsDurationMsCurrent.Enabled = False
         
         
-        'chkGenOpen.Enabled = False ' does not support showing opening running applications, always opens new apps.
+        'chkOpenRunning.Enabled = False ' does not support showing opening running applications, always opens new apps.
         'lblChkOpenRunning.Enabled = False
         
         ' 30/10/2020 docksettings .06 DAEB fraZoomConfigs containing sliIconsZoomWidth made visible by default using the IDE and the references to make them otherwise removed.
@@ -8654,7 +8826,7 @@ Private Sub cmbDefaultDock_Click()
 '        sliIconsDuration.Enabled = False ' does not support animations at all
 
         '.nn cmbIconsHoverFX.Enabled = False ' does not support hover effects other than the default
-        '.nn sliBehaviourAutoHideDuration.Enabled = False ' does not support animation at all
+        '.nn sliAutoHideDuration.Enabled = False ' does not support animation at all
         'sliAnimationInterval.Enabled = False ' does not support animation at all
                 
         ' allows the greying out of the checkbox label without showing a crinkly text on those fonts with serifs
@@ -8684,7 +8856,7 @@ Private Sub cmbDefaultDock_Click()
 
 '        lblGenLabel(0).Enabled = True
 '        lblGenLabel(1).Enabled = True
-        sliGenRunAppInterval.Enabled = True
+        sliRunAppInterval.Enabled = True
         lblGenLabel(2).Enabled = True
         lblGenRunAppIntervalCur.Enabled = True
         
@@ -8700,7 +8872,7 @@ Private Sub cmbDefaultDock_Click()
         lblAnimationIntervalMsCurrent.Enabled = True
         lblBehaviourLabel(12).Enabled = True
         
-        cmbBehaviourAutoHideType.Enabled = True
+        cmbAutoHideType.Enabled = True
         
         ' .10 STARTS DAEB 01/02/2021 docksettings Remove some functionality not available to rocketdock
         
@@ -8753,8 +8925,8 @@ Private Sub cmbDefaultDock_Click()
         'lblChkSplashStatus.Enabled = False ' ensure the associated label stays disabled, it should always be disabled
                 
         ' makes the checkbox label visible and able to support a balloon tooltip which the associated label cannot being a windowless control.
-        genChkShowIconSettings.Enabled = True ' RD does not support storing the configs at the correct location
-        genChkShowIconSettings.Width = 5820 ' set the width to show the full check box and its intrinsic label
+        chkShowIconSettings.Enabled = True ' RD does not support storing the configs at the correct location
+        chkShowIconSettings.Width = 5820 ' set the width to show the full check box and its intrinsic label
         'lblGenChkShowIconSettings.Visible = False ' make the associated duplicate label hidden
         'lblGenChkShowIconSettings.Enabled = False ' ensure the associated label stays disabled, it should always be disabled
         
@@ -8789,31 +8961,7 @@ cmbDefaultDock_Click_Error:
     
 End Sub
 
-'---------------------------------------------------------------------------------------
-' Procedure : setWallpaper
-' Author    : beededea
-' Date      : 31/03/2025
-' Purpose   :
-'---------------------------------------------------------------------------------------
-'
-Private Sub setWallpaper()
 
-   On Error GoTo setWallpaper_Error
-
-    cmbBehaviourActivationFX.Clear
-    cmbBehaviourActivationFX.AddItem "None", 0
-    cmbBehaviourActivationFX.AddItem "Bounce", 1
-    cmbBehaviourActivationFX.AddItem "Miserable", 2
-    cmbBehaviourActivationFX.ListIndex = Val(rDIconActivationFX)
-
-   On Error GoTo 0
-   Exit Sub
-
-setWallpaper_Error:
-
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setWallpaper of Form dockSettings"
-
-End Sub
 
 '---------------------------------------------------------------------------------------
 ' Procedure : btnFacebook_Click
@@ -9265,7 +9413,7 @@ Private Sub setThemeShade(redC As Integer, greenC As Integer, blueC As Integer)
 '    btnGeneralDockSettingsEditor.BackColor = RGB(redC, greenC, blueC)
 '    btnGeneralIconSettingsEditor.BackColor = RGB(redC, greenC, blueC)
     
-    sliBehaviourAutoHideDuration.BackColor = RGB(redC, greenC, blueC)
+    sliAutoHideDuration.BackColor = RGB(redC, greenC, blueC)
     sliAnimationInterval.BackColor = RGB(redC, greenC, blueC)
     sliBehaviourAutoHideDelay.BackColor = RGB(redC, greenC, blueC)
     sliBehaviourPopUpDelay.BackColor = RGB(redC, greenC, blueC)
@@ -9277,7 +9425,7 @@ Private Sub setThemeShade(redC As Integer, greenC As Integer, blueC As Integer)
     sliContinuousHide.BackColor = RGB(redC, greenC, blueC)
     
     'general tab slider
-    sliGenRunAppInterval.BackColor = RGB(redC, greenC, blueC)
+    sliRunAppInterval.BackColor = RGB(redC, greenC, blueC)
 
     
     'style tab sliders
@@ -9520,7 +9668,7 @@ Private Sub getToolSettingsFile()
     Dim toolSettingsDir As String
     
     'initialise the dimensioned variables
-    toolSettingsDir = ""
+    toolSettingsDir = vbNullString
     
     On Error GoTo getToolSettingsFile_Error
     If debugflg = 1 Then Debug.Print "%getToolSettingsFile"
@@ -9573,26 +9721,26 @@ Private Sub readDockSettings()
     
     On Error GoTo readDockSettings_Error
    
-    If rocketDockInstalled = True Then
-        If fFExists(origSettingsFile) Then ' does the original settings.ini exist?
-            If optGeneralReadConfig.Value = False Then
-'                optGeneralReadSettings.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
-'                optGeneralWriteSettings.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
-            End If
-            ' here we read from the settings file
-            readDockSettingsFile "Software\RocketDock", origSettingsFile
-            Call validateInputs
-        Else
-            If optGeneralReadConfig.Value = False Then
-                optGeneralReadRegistry.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
-                'optGeneralWriteRegistry.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
-            End If
-            
-            ' read the dock configuration from the registry into variables
-            Call readRegistry
-        End If
-        
-    End If
+'    If rocketDockInstalled = True Then
+'        If fFExists(origSettingsFile) Then ' does the original settings.ini exist?
+'            If optGeneralReadConfig.Value = False Then
+''                optGeneralReadSettings.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
+''                optGeneralWriteSettings.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
+'            End If
+'            ' here we read from the settings file
+'            readDockSettingsFile "Software\RocketDock", origSettingsFile
+'            Call validateInputs
+'        Else
+'            If optGeneralReadConfig.Value = False Then
+'                optGeneralReadRegistry.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
+'                'optGeneralWriteRegistry.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
+'            End If
+'
+'            ' read the dock configuration from the registry into variables
+'            Call readRegistry
+'        End If
+'
+'    End If
     
     On Error GoTo 0
     Exit Sub
@@ -9620,7 +9768,7 @@ Private Sub readAndSetUtilityFont()
     'Dim suppliedColour As Variant
     
     'initialise the dimensioned variables
-    suppliedFont = ""
+    suppliedFont = vbNullString
     suppliedSize = 0
     suppliedWeight = 0
     suppliedStyle = False
@@ -9639,7 +9787,7 @@ Private Sub readAndSetUtilityFont()
     gblSuppliedFont = suppliedFont
     gblSuppliedFontSize = suppliedSize
         
-    If Not suppliedFont = "" Then
+    If Not suppliedFont = vbNullString Then
         Call changeFont(suppliedFont, suppliedSize, suppliedWeight, CBool(LCase(suppliedStyle)))
     End If
 
@@ -9731,7 +9879,7 @@ End Sub
 '    'behaviour panel
 '    Call savestring(HKEY_CURRENT_USER, "Software\RocketDock", "IconActivationFX", rDIconActivationFX)
 '    Call savestring(HKEY_CURRENT_USER, "Software\RocketDock", "AutoHide", rDAutoHide) '  26/10/2020 docksettings .03 DAEB fixed a previous find/replace bug causing the autohide setting to fail to both save and read
-'    Call savestring(HKEY_CURRENT_USER, "Software\RocketDock", "AutoHideTicks", rDAutoHideTicks)
+'    Call savestring(HKEY_CURRENT_USER, "Software\RocketDock", "AutoHideTicks", rDAutoHideDuration)
 '    Call savestring(HKEY_CURRENT_USER, "Software\RocketDock", "AutoHideDelay", rDAutoHideDelay)
 '    Call savestring(HKEY_CURRENT_USER, "Software\RocketDock", "MouseActivate", rDMouseActivate)
 '    Call savestring(HKEY_CURRENT_USER, "Software\RocketDock", "PopupDelay", rDPopupDelay)
@@ -9919,8 +10067,8 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub fmeLblBehaviour_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    Dim descriptiveText As String: descriptiveText = ""
-    Dim titleText As String: titleText = ""
+    Dim descriptiveText As String: descriptiveText = vbNullString
+    Dim titleText As String: titleText = vbNullString
 
     On Error GoTo fmeLblBehaviour_MouseMove_Error
 
@@ -9946,8 +10094,8 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub fmeIcons_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    Dim descriptiveText As String: descriptiveText = ""
-    Dim titleText As String: titleText = ""
+    Dim descriptiveText As String: descriptiveText = vbNullString
+    Dim titleText As String: titleText = vbNullString
 
     On Error GoTo fmeIcons_MouseMove_Error
 
@@ -9974,8 +10122,8 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub fmeGeneral_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    Dim descriptiveText As String: descriptiveText = ""
-    Dim titleText As String: titleText = ""
+    Dim descriptiveText As String: descriptiveText = vbNullString
+    Dim titleText As String: titleText = vbNullString
 
     On Error GoTo fmeGeneral_MouseMove_Error
 
@@ -10002,8 +10150,8 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub fmeLblGeneral_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    Dim descriptiveText As String: descriptiveText = ""
-    Dim titleText As String: titleText = ""
+    Dim descriptiveText As String: descriptiveText = vbNullString
+    Dim titleText As String: titleText = vbNullString
 
     On Error GoTo fmeLblGeneral_MouseMove_Error
 
@@ -10029,8 +10177,8 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub fmePosition_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    Dim descriptiveText As String: descriptiveText = ""
-    Dim titleText As String: titleText = ""
+    Dim descriptiveText As String: descriptiveText = vbNullString
+    Dim titleText As String: titleText = vbNullString
 
     On Error GoTo fmePosition_MouseMove_Error
 
@@ -10057,8 +10205,8 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 Private Sub fmeAbout_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    Dim descriptiveText As String: descriptiveText = ""
-    Dim titleText As String: titleText = ""
+    Dim descriptiveText As String: descriptiveText = vbNullString
+    Dim titleText As String: titleText = vbNullString
 
     On Error GoTo fmeAbout_MouseMove_Error
 
@@ -10236,30 +10384,30 @@ Private Sub sliBehaviourAutoHideDelay_MouseMove(Button As Integer, Shift As Inte
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : sliBehaviourAutoHideDuration_Change
+' Procedure : sliAutoHideDuration_Change
 ' Author    : beededea
 ' Date      : 28/02/2020
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub sliBehaviourAutoHideDuration_Change()
-   On Error GoTo sliBehaviourAutoHideDuration_Change_Error
-   If debugflg = 1 Then Debug.Print "%sliBehaviourAutoHideDuration_Change"
+Private Sub sliAutoHideDuration_Change()
+   On Error GoTo sliAutoHideDuration_Change_Error
+   If debugflg = 1 Then Debug.Print "%sliAutoHideDuration_Change"
 
-    lblAutoHideDurationMsCurrent.Caption = "(" & sliBehaviourAutoHideDuration.Value & ")"
+    lblAutoHideDurationMsCurrent.Caption = "(" & sliAutoHideDuration.Value & ")"
 
-    rDAutoHideTicks = sliBehaviourAutoHideDuration.Value
+    rDAutoHideDuration = sliAutoHideDuration.Value
 
    On Error GoTo 0
    Exit Sub
 
-sliBehaviourAutoHideDuration_Change_Error:
+sliAutoHideDuration_Change_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure sliBehaviourAutoHideDuration_Change of Form Form1"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure sliAutoHideDuration_Change of Form Form1"
 End Sub
 
-Private Sub sliBehaviourAutoHideDuration_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliBehaviourAutoHideDuration.hWnd, "The speed at which the dock auto-hide animation will occur.", _
+Private Sub sliAutoHideDuration_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliAutoHideDuration.hWnd, "The speed at which the dock auto-hide animation will occur.", _
                   TTIconInfo, "Help on the AutoHide Duration Slider.", , , , True
 End Sub
 
@@ -10326,30 +10474,30 @@ If rDEnableBalloonTooltips = "1" Then CreateToolTip sliContinuousHide.hWnd, "Det
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : sliGenRunAppInterval_Change
+' Procedure : sliRunAppInterval_Change
 ' Author    : beededea
 ' Date      : 13/06/2020
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub sliGenRunAppInterval_Change()
+Private Sub sliRunAppInterval_Change()
 
-   On Error GoTo sliGenRunAppInterval_Change_Error
+   On Error GoTo sliRunAppInterval_Change_Error
 
-    lblGenRunAppIntervalCur.Caption = "(" & sliGenRunAppInterval.Value & " seconds)"
-    rDRunAppInterval = sliGenRunAppInterval.Value
+    lblGenRunAppIntervalCur.Caption = "(" & sliRunAppInterval.Value & " seconds)"
+    rDRunAppInterval = sliRunAppInterval.Value
 
    On Error GoTo 0
    Exit Sub
 
-sliGenRunAppInterval_Change_Error:
+sliRunAppInterval_Change_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure sliGenRunAppInterval_Change of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure sliRunAppInterval_Change of Form dockSettings"
     
 End Sub
 
-Private Sub sliGenRunAppInterval_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliGenRunAppInterval.hWnd, "After a short delay, small application indicators appear above the icon of a running program, this uses a little cpu every few seconds, frequency set here. The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds. ", _
+Private Sub sliRunAppInterval_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip sliRunAppInterval.hWnd, "After a short delay, small application indicators appear above the icon of a running program, this uses a little cpu every few seconds, frequency set here. The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds. ", _
                   TTIconInfo, "Help on the Running Application Timer.", , , , True
 End Sub
 
@@ -10777,7 +10925,7 @@ Private Sub mnuFont_Click()
         
     'initialise the dimensioned variables
     
-    suppliedFont = ""
+    suppliedFont = vbNullString
     suppliedSize = 0
     suppliedWeight = 0
     suppliedStyle = False
@@ -10842,7 +10990,7 @@ Private Sub changeFont(suppliedFont As String, suppliedSize As Integer, supplied
     For Each Ctrl In dockSettings.Controls
          If (TypeOf Ctrl Is CommandButton) Or (TypeOf Ctrl Is TextBox) Or (TypeOf Ctrl Is FileListBox) Or (TypeOf Ctrl Is Label) Or (TypeOf Ctrl Is ComboBox) Or (TypeOf Ctrl Is CheckBox) Or (TypeOf Ctrl Is OptionButton) Or (TypeOf Ctrl Is Frame) Then
             If Ctrl.Name <> "lblDragCorner" Then
-                If suppliedFont <> "" Then Ctrl.Font.Name = suppliedFont
+                If suppliedFont <> vbNullString Then Ctrl.Font.Name = suppliedFont
                 If suppliedSize > 0 Then Ctrl.Font.Size = suppliedSize
                 'Ctrl.Font.Italic = fntItalics
             End If
@@ -10856,13 +11004,13 @@ Private Sub changeFont(suppliedFont As String, suppliedSize As Integer, supplied
     'cmbDefaultDock.SelLength = 0
     cmbHidingKey.SelLength = 0
     cmbDefaultDock.SelLength = 0
-    cmbBehaviourActivationFX.SelLength = 0
+    cmbIconActivationFX.SelLength = 0
     cmbBehaviourSoundSelection.SelLength = 0
     cmbStyleTheme.SelLength = 0
     cmbPositionMonitor.SelLength = 0
     cmbPositionScreen.SelLength = 0
     cmbPositionLayering.SelLength = 0
-    cmbBehaviourAutoHideType.SelLength = 0
+    cmbAutoHideType.SelLength = 0
     cmbWallpaper.SelLength = 0
     cmbWallpaperStyle.SelLength = 0
     cmbWallpaperTimerInterval.SelLength = 0
@@ -10910,8 +11058,8 @@ Private Sub displayFontSelector(Optional ByRef currFont As String, Optional ByRe
     If fontResult = False Then Exit Sub
     
     ' some fonts have naming problems and the result is an empty font name field on the font selector
-    If f.Name = "" Then f.Name = "times new roman"
-    If f.Name = "" Then Exit Sub
+    If f.Name = vbNullString Then f.Name = "times new roman"
+    If f.Name = vbNullString Then Exit Sub
     
     With f
         currFont = .Name
@@ -11685,7 +11833,7 @@ Private Sub writeDockSettings(location As String, settingsFile As String)
     PutINISetting location, "ZoomWidth", rDZoomWidth, settingsFile
     PutINISetting location, "ZoomTicks", rDZoomTicks, settingsFile
     PutINISetting location, "AutoHide", rDAutoHide, settingsFile '  26/10/2020 docksettings .03 DAEB fixed a previous find/replace bug causing the autohide setting to fail to both save and read
-    PutINISetting location, "AutoHideTicks", rDAutoHideTicks, settingsFile
+    PutINISetting location, "AutoHideTicks", rDAutoHideDuration, settingsFile
     PutINISetting location, "AutoHideDelay", rDAutoHideDelay, settingsFile
     PutINISetting location, "PopupDelay", rDPopupDelay, settingsFile
     PutINISetting location, "IconQuality", rDIconQuality, settingsFile
@@ -11756,22 +11904,29 @@ Private Sub adjustControls()
 
     
     'initialise the dimensioned variables
-    rgbRdFontShadowColor = ""
-    rgbRdFontOutlineColor = ""
+    rgbRdFontShadowColor = vbNullString
+    rgbRdFontOutlineColor = vbNullString
     suppliedFontSize = 0
     suppliedWeight = 0
     suppliedBold = False
     suppliedItalics = False
     suppliedUnderline = False
 
-    
     On Error GoTo adjustControls_Error
     If debugflg = 1 Then Debug.Print "%adjustControls"
     
-    Call populateThemes
+    ' wallpaper controls
+    
     Call populateWallpapers
+    Call populateWallpaperStyleDropDown
+    Call populateWallpaperTimerIntervalDropDown
+    
+    chkAutomaticWallpaperChange.Value = CInt(rDAutomaticWallpaperChange)
+    cmbWallpaperTimerInterval.ListIndex = CInt(rDWallpaperTimerIntervalIndex)
+    
+    Call populateThemes
 
-    'optGeneralReadConfig.Value = CBool(LCase(rDGeneralReadConfig))
+    optGeneralReadConfig.Value = CBool(rDGeneralReadConfig)
       If rDGeneralReadConfig = "True" Then
         optGeneralReadConfig.Value = True
 
@@ -11792,18 +11947,18 @@ Private Sub adjustControls()
 
     ' controls for values that do not appear in Rocketdock
     If defaultDock = 1 Then
-        sliGenRunAppInterval.Value = Val(rDRunAppInterval)
+        sliRunAppInterval.Value = Val(rDRunAppInterval)
 '        chkGenAlwaysAsk.Value = Val(rDAlwaysAsk)
     End If
 
     'Rocketdock values also used by Steamydock
     
     ' .18 DAEB 07/09/2022 docksettings save and restore the chkRetainIcons checkbox value
-    chkGenLock.Value = Val(rDLockIcons)
+    chkLockIcons.Value = Val(rDLockIcons)
     chkRetainIcons.Value = Val(rDRetainIcons)
 
-    chkGenOpen.Value = Val(rDOpenRunning)
-    chkGenRun.Value = Val(rDShowRunning)
+    chkOpenRunning.Value = Val(rDOpenRunning)
+    chkShowRunning.Value = Val(rDShowRunning)
     chkGenMin.Value = Val(rDManageWindows)
     chkGenDisableAnim.Value = Val(rDDisableMinAnimation)
 
@@ -11813,16 +11968,16 @@ Private Sub adjustControls()
         chkGenDisableAnim.Enabled = True
     End If
     
-    If chkGenRun.Value = 0 Then
+    If chkShowRunning.Value = 0 Then
 '        lblGenLabel(0).Enabled = False
 '        lblGenLabel(1).Enabled = False
-        sliGenRunAppInterval.Enabled = False
+        sliRunAppInterval.Enabled = False
         lblGenLabel(2).Enabled = False
         lblGenRunAppIntervalCur.Enabled = False
     Else
 '        lblGenLabel(0).Enabled = True
 '        lblGenLabel(1).Enabled = True
-        sliGenRunAppInterval.Enabled = True
+        sliRunAppInterval.Enabled = True
         lblGenLabel(2).Enabled = True
         lblGenRunAppIntervalCur.Enabled = True
     End If
@@ -11832,12 +11987,9 @@ Private Sub adjustControls()
     Call setZoomTypes ' .14 DAEB 29/04/2021 docksettings Set the default zoom types available to the type of dock selected
     Call setBounceTypes
     Call populateSoundSelectionDropDown
-    Call populateWallpaperStyleDropDown
-    Call populateWallpaperTimerIntervalDropDown
+
     
-    chkAutomaticWallpaperChange.Value = CInt(rDAutomaticWallpaperChange)
     chkMoveWinTaskbar.Value = CInt(rDMoveWinTaskbar)
-    cmbWallpaperTimerInterval.ListIndex = CInt(rDWallpaperTimerIntervalIndex)
     
     cmbIconsQuality.ListIndex = Val(rDIconQuality)
     sliIconsOpacity.Value = Val(rDIconOpacity)
@@ -11890,13 +12042,13 @@ Private Sub adjustControls()
 
     ' behaviour
     
-    chkBehaviourAutoHide.Value = Val(rDAutoHide)
+    chkAutoHide.Value = Val(rDAutoHide)
 ' 226/10/2020 docksettings .05 DAEB  added a manual click to the autohide toggle checkbox
 ' a checkbox value assignment does not trigger a checkbox click for this checkbox (in a frame) as normally occurs and there is no equivalent 'change event' for a checkbox
 ' so to force it to trigger we need a call to the click event
-    Call chkBehaviourAutoHide_Click
+    Call chkAutoHide_Click
     
-    sliBehaviourAutoHideDuration.Value = Val(rDAutoHideTicks)
+    sliAutoHideDuration.Value = Val(rDAutoHideDuration)
     
     sliContinuousHide.Value = Val(sDContinuousHide) ' .08 DAEB 01/02/2021 docksettings Added support for the default hiding key plus others for the two dock
     
@@ -11906,12 +12058,12 @@ Private Sub adjustControls()
     sliStyleThemeSize.Value = Val(rDSkinSize)
     chkSplashStatus.Value = Val(sDSplashStatus)
     
-    genChkShowIconSettings.Value = Val(sDShowIconSettings) ' .14 DAEB 01/05/2021 docksettings added checkbox and values to show icon settings utility when adding an icon to the dock
+    chkShowIconSettings.Value = Val(sDShowIconSettings) ' .14 DAEB 01/05/2021 docksettings added checkbox and values to show icon settings utility when adding an icon to the dock
 
     
     sliBehaviourAutoHideDelay.Value = Val(rDAutoHideDelay)
     
-    cmbBehaviourAutoHideType.ListIndex = Val(sDAutoHideType)
+    cmbAutoHideType.ListIndex = Val(sDAutoHideType)
 
     chkBehaviourMouseActivate.Value = Val(rDMouseActivate)
     sliBehaviourPopUpDelay.Value = Val(rDPopupDelay)
@@ -11973,7 +12125,7 @@ Private Sub populateThemes()
     End If
     
     myName = Dir(MyPath, vbDirectory)   ' Retrieve the first entry.
-    Do While myName <> ""   ' Start the loop.
+    Do While myName <> vbNullString   ' Start the loop.
        ' Ignore the current directory and the encompassing directory.
        If myName <> "." And myName <> ".." Then
           ' Use bitwise comparison to make sure MyName is a directory.
@@ -11982,7 +12134,7 @@ Private Sub populateThemes()
           End If   ' it represents a directory.
        End If
        myName = Dir   ' Get next entry.
-       If myName <> "." And myName <> ".." And myName <> "" Then
+       If myName <> "." And myName <> ".." And myName <> vbNullString Then
         cmbStyleTheme.AddItem myName
         'MsgBox MyName
         Debug.Print myName   ' Display entry only if it
@@ -11993,7 +12145,7 @@ Private Sub populateThemes()
     ' if the theme is not in the list then make it none to ensure no corruption *1
     If themePresent = False Then rDtheme = "blank"
 
-    If rDtheme = "Program Files" Or rDtheme = "" Then
+    If rDtheme = "Program Files" Or rDtheme = vbNullString Then
         cmbStyleTheme.Text = "blank"
     Else
         cmbStyleTheme.Text = rDtheme
@@ -12033,7 +12185,7 @@ Private Sub populateWallpapers()
     cmbWallpaper.AddItem "none selected"
     
     myName = Dir(MyPath, vbDirectory)   ' Retrieve the first entry.
-    Do While myName <> ""   ' Start the loop.
+    Do While myName <> vbNullString   ' Start the loop.
        ' Ignore the current directory and the encompassing directory.
        If myName <> "." And myName <> ".." Then
           ' Use bitwise comparison to make sure MyName is a directory.
@@ -12042,7 +12194,7 @@ Private Sub populateWallpapers()
           End If   ' it represents a directory.
        End If
        myName = Dir   ' Get next entry.
-       If myName <> "." And myName <> ".." And myName <> "" Then
+       If myName <> "." And myName <> ".." And myName <> vbNullString Then
             match = LCase$(Right$(myName, 4))
             If match = ".jpg" Or match = ".jpeg" Then
                 cmbWallpaper.AddItem myName
@@ -12055,7 +12207,7 @@ Private Sub populateWallpapers()
     ' if the wallpaper is not in the list then make it none to ensure no corruption *1
     If wallpaperPresent = False Then rDWallpaper = "none selected"
 
-    If rDWallpaper = "Program Files" Or rDWallpaper = "" Then
+    If rDWallpaper = "Program Files" Or rDWallpaper = vbNullString Then
         cmbWallpaper.Text = "none selected"
     Else
         cmbWallpaper.Text = rDWallpaper
@@ -12084,22 +12236,22 @@ Private Sub setBounceTypes()
 
    On Error GoTo setBounceTypes_Error
 
-    cmbBehaviourActivationFX.Clear
+    cmbIconActivationFX.Clear
 
 '    If defaultDock = 0 Then
-'        cmbBehaviourActivationFX.AddItem "None", 0
-'        cmbBehaviourActivationFX.AddItem "UberIcon Effects", 1
-'        cmbBehaviourActivationFX.AddItem "Bounce", 2
+'        cmbIconActivationFX.AddItem "None", 0
+'        cmbIconActivationFX.AddItem "UberIcon Effects", 1
+'        cmbIconActivationFX.AddItem "Bounce", 2
 '        'rDIconActivationFX = "2"
 '
 '    Else
-        cmbBehaviourActivationFX.AddItem "None", 0
-        cmbBehaviourActivationFX.AddItem "Bounce", 1
-        cmbBehaviourActivationFX.AddItem "Miserable", 2
+        cmbIconActivationFX.AddItem "None", 0
+        cmbIconActivationFX.AddItem "Bounce", 1
+        cmbIconActivationFX.AddItem "Miserable", 2
         'rDIconActivationFX = "1"
 '    End If
     
-    cmbBehaviourActivationFX.ListIndex = Val(rDIconActivationFX)
+    cmbIconActivationFX.ListIndex = Val(rDIconActivationFX)
     
 
    On Error GoTo 0
@@ -12177,7 +12329,6 @@ End Sub
 '
 Private Sub populateWallpaperTimerIntervalDropDown()
     Dim useloop As Integer: useloop = 0
-    Dim thisTime As String: thisTime = vbNullString
     
     On Error GoTo populateWallpaperTimerIntervalDropDown_Error
 
@@ -12212,10 +12363,9 @@ Private Sub populateWallpaperTimerIntervalDropDown()
     cmbWallpaperTimerInterval.AddItem "7 days", 13
     cmbWallpaperTimerInterval.ItemData(13) = 10080 ' number of minutes stored in itemData array
         
-    thisTime = CInt(rDWallpaperTimerIntervalIndex)
+    'rDWallpaperTimerInterval = cmbWallpaperTimerInterval.List(CStr(rDWallpaperTimerIntervalIndex))
+    rDWallpaperTimerInterval = cmbWallpaperTimerInterval.ItemData(rDWallpaperTimerIntervalIndex)
     
-    cmbWallpaperTimerInterval.ListIndex = thisTime
-
    On Error GoTo 0
    Exit Sub
 
@@ -12338,7 +12488,7 @@ Private Sub setToolTips()
         picBusy.ToolTipText = "The program is doing something..."
         btnClose.ToolTipText = "Exit this utility"
         btnApplyWallpaper.ToolTipText = "Display the selected wallpaper on the desktop"
-        btnApply.ToolTipText = "This will save your changes and restart the dock."
+        btnSaveRestart.ToolTipText = "This will save your changes and restart the dock."
         lblText(0).ToolTipText = "General Configuration Options"
         
         imgIcon(0).ToolTipText = "General Configuration Options"
@@ -12349,7 +12499,7 @@ Private Sub setToolTips()
         imgIcon(5).ToolTipText = "Desktop Wallpaper settings"
         imgIcon(6).ToolTipText = "About this program"
         
-        genChkShowIconSettings.ToolTipText = "When you drag or add an item to the dock it will always show the icon settings utility unless you disable it here"
+        chkShowIconSettings.ToolTipText = "When you drag or add an item to the dock it will always show the icon settings utility unless you disable it here"
         chkSplashStatus.ToolTipText = "Show Splash Screen on Start-up"
         
         btnGeneralDockEditor.ToolTipText = "Select the VB6 project file to allow editing of the dock itself from the developer menu."
@@ -12360,25 +12510,25 @@ Private Sub setToolTips()
         optGeneralReadRegistry.ToolTipText = "Stores the configuration where Rocketdock stores it, in the Registry, increasingly incompatible with Windows new standards, causes some security problems and requires admin rights to operate."
         optGeneralReadConfig.ToolTipText = "This stores ALL configuration within the user data area retaining future compatibility in Windows. The trouble is, only SteamyDock can access it."
         
-        sliGenRunAppInterval.ToolTipText = "The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds"
+        sliRunAppInterval.ToolTipText = "The maximum time a basic VB6 timer can extend to is 65,536 ms or 65 seconds"
         lblGenRunAppInterval2.ToolTipText = "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
         lblGenRunAppInterval3.ToolTipText = "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
         lblGenRunAppIntervalCur.ToolTipText = "The maximum time a VB6 timer can extend to is 65,536 ms or 65 seconds"
         lblGenLabel(0).ToolTipText = "This function consumes cpu on  low power computers so keep it above 15 secs, preferably 30."
 '        chkGenAlwaysAsk.ToolTipText = "If both docks are installed then it will ask you which you would prefer to configure and operate, otherwise it will use the default dock as above"
         btnGeneralRdFolder.ToolTipText = "Select the folder location of Rocketdock here"
-        chkGenRun.ToolTipText = "After a short delay, small application indicators appear above the icon of a running program, this uses a little cpu every few seconds, frequency below"
+        chkShowRunning.ToolTipText = "After a short delay, small application indicators appear above the icon of a running program, this uses a little cpu every few seconds, frequency below"
         chkGenDisableAnim.ToolTipText = "If you dislike the minimise animation, click this"
-        chkGenOpen.ToolTipText = "If you click on an icon that is already running then it can open it or fire up another instance"
-        txtGeneralRdLocation.ToolTipText = "This is the extrapolated location of the currently selected dock. This is for information only."
+        chkOpenRunning.ToolTipText = "If you click on an icon that is already running then it can open it or fire up another instance"
+        txtAppPath.ToolTipText = "This is the extrapolated location of the currently selected dock. This is for information only."
         'cmbDefaultDock.ToolTipText = "Choose which dock you are using Rocketdock or SteamyDock, these utilities are compatible with both"
-        chkGenLock.ToolTipText = "This is an essential option that stops you accidentally deleting your dock icons, click it!"
+        chkLockIcons.ToolTipText = "This is an essential option that stops you accidentally deleting your dock icons, click it!"
         
         ' .18 DAEB 07/09/2022 docksettings save and restore the chkRetainIcons checkbox value
         chkRetainIcons.ToolTipText = "Dragging a program binary to the dock can take an automatically selected icon or you can retain the embedded icon."
         
         chkGenMin.ToolTipText = "This allows running applications to appear in the dock"
-        chkGenWinStartup.ToolTipText = "This will cause the current dock to run when Windows starts"
+        chkStartupRun.ToolTipText = "This will cause the current dock to run when Windows starts"
         
 '        optGeneralWriteSettings.ToolTipText = "Store configuration in Rocketdock's program files folder, causes security issues and requires admin access,"
         'optGeneralWriteRegistry.ToolTipText = "Stores the configuration where Rocketdock stores it, in the Registry, increasingly incompatible with Windows new standards, causes some security problems and requires admin rights to operate."
@@ -12393,9 +12543,9 @@ Private Sub setToolTips()
         cmbHidingKey.ToolTipText = "This is the key sequence that is used to hide or restore Steamydock"
         sliContinuousHide.ToolTipText = "Determine how long Steamydock will disappear when told to hide using F11"
         
-        cmbBehaviourActivationFX.ToolTipText = "Set which type of animation you want to occur on an icon mouseover. Note SteamyDock will NOT support the Ubericon effects where Rocketdock does."
-        chkBehaviourAutoHide.ToolTipText = "You can determine whether the dock will auto-hide or not"
-        sliBehaviourAutoHideDuration.ToolTipText = "The speed at which the dock auto-hide animation will occur"
+        cmbIconActivationFX.ToolTipText = "Set which type of animation you want to occur on an icon mouseover. Note SteamyDock will NOT support the Ubericon effects where Rocketdock does."
+        chkAutoHide.ToolTipText = "You can determine whether the dock will auto-hide or not"
+        sliAutoHideDuration.ToolTipText = "The speed at which the dock auto-hide animation will occur"
         sliBehaviourPopUpDelay.ToolTipText = "The dock mouse-over delay period"
         lblBehaviourPopUpDelayMsCurrrent.ToolTipText = "The dock mouse-over delay period"
         sliBehaviourAutoHideDelay.ToolTipText = "Determine the delay between the last usage of the dock and when it will auto-hide"
@@ -12576,8 +12726,8 @@ Private Sub setToolTips()
         gcmbWallpaperStyleBalloonTooltip = "Select the wallpaper style, centred, tiled or stretched."
         gcmbWallpaperTimerIntervalBalloonTooltip = "Select the interval at which the wallpaper will automatically change."
 
-        cmbBehaviourActivationFX.ToolTipText = vbNullString
-        cmbBehaviourAutoHideType.ToolTipText = vbNullString
+        cmbIconActivationFX.ToolTipText = vbNullString
+        cmbAutoHideType.ToolTipText = vbNullString
         cmbHidingKey.ToolTipText = vbNullString
         cmbBehaviourSoundSelection.ToolTipText = vbNullString
         cmbStyleTheme.ToolTipText = vbNullString
@@ -12594,7 +12744,7 @@ Private Sub setToolTips()
         picBusy.ToolTipText = vbNullString
         btnClose.ToolTipText = vbNullString
         btnApplyWallpaper.ToolTipText = vbNullString
-        btnApply.ToolTipText = vbNullString
+        btnSaveRestart.ToolTipText = vbNullString
         lblText(0).ToolTipText = vbNullString
         imgIcon(0).ToolTipText = vbNullString
         imgIcon(1).ToolTipText = vbNullString
@@ -12603,7 +12753,7 @@ Private Sub setToolTips()
         imgIcon(4).ToolTipText = vbNullString
         imgIcon(5).ToolTipText = vbNullString
         imgIcon(6).ToolTipText = vbNullString
-        genChkShowIconSettings.ToolTipText = vbNullString
+        chkShowIconSettings.ToolTipText = vbNullString
         chkSplashStatus.ToolTipText = vbNullString
         
         
@@ -12614,20 +12764,20 @@ Private Sub setToolTips()
         optGeneralReadRegistry.ToolTipText = vbNullString
         optGeneralReadConfig.ToolTipText = vbNullString
         
-        sliGenRunAppInterval.ToolTipText = vbNullString
+        sliRunAppInterval.ToolTipText = vbNullString
         lblGenRunAppInterval2.ToolTipText = vbNullString
         lblGenRunAppInterval3.ToolTipText = vbNullString
         lblGenRunAppIntervalCur.ToolTipText = vbNullString
         'lblGenLabel(0).ToolTipText = vbNullString
         btnGeneralRdFolder.ToolTipText = vbNullString
-        chkGenRun.ToolTipText = vbNullString
+        chkShowRunning.ToolTipText = vbNullString
         chkGenDisableAnim.ToolTipText = vbNullString
-        chkGenOpen.ToolTipText = vbNullString
-        txtGeneralRdLocation.ToolTipText = vbNullString
-        chkGenLock.ToolTipText = vbNullString
+        chkOpenRunning.ToolTipText = vbNullString
+        txtAppPath.ToolTipText = vbNullString
+        chkLockIcons.ToolTipText = vbNullString
         chkRetainIcons.ToolTipText = vbNullString         ' .18 DAEB 07/09/2022 docksettings save and restore the chkRetainIcons checkbox value
         chkGenMin.ToolTipText = vbNullString
-        chkGenWinStartup.ToolTipText = vbNullString
+        chkStartupRun.ToolTipText = vbNullString
 
         optGeneralWriteConfig.ToolTipText = vbNullString
 
@@ -12635,9 +12785,9 @@ Private Sub setToolTips()
         lblContinuousHideMsCurrent.ToolTipText = vbNullString
         lblContinuousHideMsHigh.ToolTipText = vbNullString
         fraAutoHideType.ToolTipText = vbNullString
-        chkBehaviourAutoHide.ToolTipText = vbNullString
+        chkAutoHide.ToolTipText = vbNullString
 
-        sliBehaviourAutoHideDuration.ToolTipText = vbNullString
+        sliAutoHideDuration.ToolTipText = vbNullString
         lblAutoHideDurationMsHigh.ToolTipText = vbNullString
         lblAutoHideDurationMsCurrent.ToolTipText = vbNullString
         lblBehaviourPopUpDelayMsCurrrent.ToolTipText = vbNullString
@@ -12858,8 +13008,8 @@ End Sub
 
 
 
-Private Sub txtGeneralRdLocation_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If rDEnableBalloonTooltips = "1" Then CreateToolTip txtGeneralRdLocation.hWnd, "This is the extrapolated location of the currently selected dock. This is for information only.", _
+Private Sub txtAppPath_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If rDEnableBalloonTooltips = "1" Then CreateToolTip txtAppPath.hWnd, "This is the extrapolated location of the currently selected dock. This is for information only.", _
                   TTIconInfo, "Help on the Running Application Indicators.", , , , True
 End Sub
 Private Sub positionTimer_Timer()
@@ -12995,16 +13145,22 @@ End Sub
 Private Sub selectStoredWallpaper()
     
     Dim useloop As Integer: useloop = 0
-    Dim thisWallpaper As String: thisWallpaper = vbNullString
+    Dim wallpaperPic As String: wallpaperPic = vbNullString
     
-   On Error GoTo selectStoredWallpaper_Error
-
-    thisWallpaper = rDWallpaper
-
+    On Error GoTo selectStoredWallpaper_Error
+    
+    wallpaperPic = sdAppPath & "\wallpapers\" & rDWallpaper
+    
+    If fFExists(wallpaperPic) Then
+        imgWallpaperPreview.Picture = LoadPicture(wallpaperPic)
+    End If
+    
+    'cmbWallpaper.List = cmbWallpaper.List(Val(rDWallpaperTimerIntervalIndex))
+    
     'Iterate through items.
     For useloop = 0 To cmbWallpaper.ListCount - 1
         'Compare value.
-        If cmbWallpaper.List(useloop) = thisWallpaper Then
+        If cmbWallpaper.List(useloop) = rDWallpaper Then
             'Select it and leave loop.
             cmbWallpaper.ListIndex = useloop
             Exit For
@@ -13176,8 +13332,8 @@ Private Sub subClassControls()
         Call SubclassForm(dockSettings.hWnd, ObjPtr(dockSettings))
         
         ' sub classing code to intercept messages to the comboboxes frame to provide missing balloon tooltips functionality
-        Call SubclassComboBox(cmbBehaviourActivationFX.hWnd, ObjPtr(cmbBehaviourActivationFX))
-        Call SubclassComboBox(cmbBehaviourAutoHideType.hWnd, ObjPtr(cmbBehaviourAutoHideType))
+        Call SubclassComboBox(cmbIconActivationFX.hWnd, ObjPtr(cmbIconActivationFX))
+        Call SubclassComboBox(cmbAutoHideType.hWnd, ObjPtr(cmbAutoHideType))
         Call SubclassComboBox(cmbHidingKey.hWnd, ObjPtr(cmbHidingKey))
         Call SubclassComboBox(cmbBehaviourSoundSelection.hWnd, ObjPtr(cmbBehaviourSoundSelection))
         Call SubclassComboBox(cmbStyleTheme.hWnd, ObjPtr(cmbStyleTheme))
@@ -13219,14 +13375,14 @@ Public Sub MouseMoveOnComboText(sComboName As String)
    On Error GoTo MouseMoveOnComboText_Error
 
     Select Case sComboName
-    Case "cmbBehaviourActivationFX"
+    Case "cmbIconActivationFX"
         sTitle = "Help on Window Mode Selection."
         sText = gcmbBehaviourActivationFXBalloonTooltip
-        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbBehaviourActivationFX.hWnd), sText, , sTitle, , , , True
-    Case "cmbBehaviourAutoHideType"
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbIconActivationFX.hWnd), sText, , sTitle, , , , True
+    Case "cmbAutoHideType"
         sTitle = "Help on Open Running Behaviour."
         sText = gcmbBehaviourAutoHideTypeBalloonTooltip
-        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbBehaviourAutoHideType.hWnd), sText, , sTitle, , , , True
+        If rDEnableBalloonTooltips = "1" Then CreateToolTip cboEditHwndFromHwnd(cmbAutoHideType.hWnd), sText, , sTitle, , , , True
     Case "cmbHidingKey"
         sTitle = "Help on the Hiding Key Selection"
         sText = gcmbHidingKeyBalloonTooltip
@@ -13338,6 +13494,70 @@ Private Sub setDPIAware()
 
 setDPIAware_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setDPIAware of Form rDIconConfigForm"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setDPIAware of Form dockSettings"
 End Sub
 
+'---------------------------------------------------------------------------------------
+' Procedure : setFormHeight
+' Author    : beededea
+' Date      : 20/02/2025
+' Purpose   : set the height of the whole form not higher than the screen size, cause a form_resize event
+'---------------------------------------------------------------------------------------
+
+Private Sub setFormHeight()
+
+   On Error GoTo setFormHeight_Error
+'
+    gblFormResizedInCode = True
+    'dockSettings.Height = CLng(gblFormPrimaryHeightTwips)
+     
+'    If gblCurrentFormHeight < gblPhysicalScreenHeightTwips Then
+'       dockSettings.Height = CLng(gblCurrentFormHeight)
+'    Else
+'        dockSettings.Height = CLng(gblFormPrimaryHeightTwips) - 1000
+'    End If
+
+   On Error GoTo 0
+   Exit Sub
+
+setFormHeight_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setFormHeight of Form dockSettings"
+End Sub
+
+
+    'gblFormPrimaryHeightTwips = GetINISetting("Software\DockSettings", "formPrimaryHeightTwips", dockSettingsFile)
+
+    
+
+
+'---------------------------------------------------------------------------------------
+' Procedure : writeFormHeight
+' Author    : beededea
+' Date      : 21/05/2025
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
+Private Sub writeFormHeight()
+   On Error GoTo writeFormHeight_Error
+
+    gblCurrentFormHeight = dockSettings.Height
+    'MsgBox "5 " & gblCurrentFormHeight & " " & dockSettings.Height
+    PutINISetting "Software\DockSettings", "currentFormHeight", CStr(gblCurrentFormHeight), dockSettingsFile
+    
+        'If prefsMonitorStruct.IsPrimary = True Then
+            'gblFormPrimaryHeightTwips = Trim$(CStr(dockSettings.Height))
+            'sPutINISetting "Software\DockSettings", "formPrimaryHeightTwips", gblFormPrimaryHeightTwips, dockSettingsFile
+'        Else
+'            gblPrefsSecondaryHeightTwips = Trim$(CStr(widgetPrefs.Height))
+'            sPutINISetting "Software\SteampunkClockCalendar", "prefsSecondaryHeightTwips", gblPrefsSecondaryHeightTwips, gblSettingsFile
+'        End If
+
+   On Error GoTo 0
+   Exit Sub
+
+writeFormHeight_Error:
+
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure writeFormHeight of Form dockSettings"
+
+End Sub

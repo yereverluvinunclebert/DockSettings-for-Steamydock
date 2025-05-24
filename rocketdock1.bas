@@ -157,8 +157,8 @@ Public gblResizeRatio As Double
 Public gblFormResizedInCode As Boolean
 'Public gblDoNotResize As Boolean
 
-Public gblAdjustedFormHeight As Long
-Public gblAdjustedFormWidth  As Long
+Public gblCurrentFormHeight As Long
+Public gblCurrentFormWidth  As Long
 
 Public gblDockSettingsFormOldHeight As Long
 Public gblDockSettingsFormOldWidth As Long
@@ -517,7 +517,7 @@ Public Sub selectDockSettingsVBPFile(ByVal runAfter As Boolean)
         MsgBox "Select the .VBP file that is associated with this Dock Settings VB6 program."
     End If
     
-    sDDockSettingsDefaultEditor = addTargetProgram("")
+    sDDockSettingsDefaultEditor = addTargetProgram(vbNullString)
     If LTrim$(sDDockSettingsDefaultEditor) = vbNullString Then Exit Sub
     
     
@@ -599,7 +599,7 @@ Public Sub selectDockVBPFile()
         MsgBox "Select the .VBP file that is associated with the SteamyDock VB6 program."
     End If
     
-    dockEditor = addTargetProgram("")
+    dockEditor = addTargetProgram(vbNullString)
     If LTrim$(dockEditor) = vbNullString Then Exit Sub
     
     If fFExists(dockEditor) Then
@@ -637,7 +637,7 @@ Public Sub selectIconSettingsVBPFile()
         MsgBox "Select the .VBP file that is associated with the Icon Settings VB6 program."
     End If
     
-    dockEditor = addTargetProgram("")
+    dockEditor = addTargetProgram(vbNullString)
     If LTrim$(dockEditor) = vbNullString Then Exit Sub
     
     If fFExists(dockEditor) Then
@@ -693,7 +693,7 @@ End Sub
 ' Author    : beededea
 ' Date      : 18/05/2025
 ' Purpose   : A routine of the same name exists in two places, mdlSDMain.bas and mdlMain.bas, called from repositionWindowsTaskbar in common2.bas
-'             The difference is the window handle name (hwnd) specific to the calling module
+'             The difference is the window handle name (hwnd) specific to the calling form, in this case, the docksettings utility.
 '---------------------------------------------------------------------------------------
 '
 Public Function executeSettings() As Long
