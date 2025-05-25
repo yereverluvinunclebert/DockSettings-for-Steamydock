@@ -65,28 +65,41 @@ moved a resizing variable from local to global for all three programs
 set DPI aware
 Resizing changes
 
+' set a semaphore to indicate that the registry is already open when writing.
+' add a timestamp to prevent registry changes during dock position change
 
+' changes to make the explorer restart code usable from both docksettings and the dock, same named procedure in each
 
+o a rewrite of the variable initialisation/validation prior to resizing changes
+o some resizing changes, not yet working, WIP
+o added comments
+o add new initialisation routine
+o renamed the validation subs removing the registry part of the name
+o each of the validation subs added missing variable validations for the each tab
+o moved the validation tabs to sit one above the other
+o created a new wallpaper validation tab and filled it
+o animation interval re-enabled
+o added new save button that does not restart the dock
+o changed lots of "" to vbnullstring
+o new function with boolean to save or not
+o rename a lot of controls to remove the tab name
+o timer count for the busy timer
+o fixed the value for the wallpaper timer to be an numeric only
+o fixed the wallpaper display panel
 
 ' Status/Bugs/Tasks:
 ' ==================
-
-' set a semaphore to indicate that the registry is already open when writing.
-' add a timestamp to prevent registry changes during dock position change
 
 ' fix the drag corner position on form_load
 
 ' update the help files WIP
 
 ' save the form size on setting and when saving
-
 ' resize the form on startup if a form size has been saved
 
-' theme skin images, higher res. versions create
+' theme skin images, create higher res. versions
 
 ' frmMessage msgbox error during compilation as per steamydock
-
-' separate common.bas and common2.bas to make it easier to compile just the one utility on its own.
 
 ' resource file for the ocx as per rocketdock
 '

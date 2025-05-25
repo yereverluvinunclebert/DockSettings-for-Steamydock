@@ -157,11 +157,14 @@ Public gblResizeRatio As Double
 Public gblFormResizedInCode As Boolean
 'Public gblDoNotResize As Boolean
 
-Public gblCurrentFormHeight As Long
-Public gblCurrentFormWidth  As Long
+Public gblStartFormHeight As Long
+Public gblStartFormWidth  As Long
 
 Public gblDockSettingsFormOldHeight As Long
 Public gblDockSettingsFormOldWidth As Long
+
+Public gblFormPrimaryHeightTwips As String
+
 '------------------------------------------------------ ENDS
 
 

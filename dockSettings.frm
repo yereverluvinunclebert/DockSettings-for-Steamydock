@@ -4558,7 +4558,7 @@ Private Declare Function SetProcessDpiAwareness Lib "shcore.dll" (ByVal Value As
 '------------------------------------------------------ ENDS
 
 Private busyTimerCount As Integer
-
+Private gblConstraintRatio As Double
 
 
 
@@ -4829,20 +4829,18 @@ Private Sub Form_Load()
     startupFlg = True
     rdAppPath = vbNullString
     busyCounter = 1
-    'totalBusyCounter = 1
     rDEnableBalloonTooltips = "1"
     
     sDDockSettingsDefaultEditor = vbNullString ' "E:\vb6\rocketdock\docksettings.vbp"
     gblSdIconSettingsDefaultEditor = vbNullString
     sDDockDefaultEditor = vbNullString
-    
     gblRdDebugFlg = vbNullString
-    
     pvtFormResizedByDrag = False
 
     mnupopmenu.Visible = False
 
     On Error GoTo Form_Load_Error
+    
     If debugflg = 1 Then Debug.Print "%Form_Load"
     
     ' set the application to be DPI aware using the 'forbidden' API.
@@ -4879,8 +4877,7 @@ Private Sub Form_Load()
     
     'load the highlighted images onto the pressed icons
     Call loadHighlightedImages
-    
-    'MsgBox ProgramFilesDir
+
     ' turn on the timer that tests every 10 secs whether the visual theme has changed
     ' only on those o/s versions that need it
     
@@ -4891,23 +4888,9 @@ Private Sub Form_Load()
         dockSettings.mnuAuto.Caption = "Auto Theme Selection Cannot be Enabled"
         dockSettings.themeTimer.Enabled = False
     End If
-    
-    ' admin is required to read the registry and access the settings.ini in RD's program folder
-'    If IsUserAnAdmin() = 0 Then
-'        MsgBox "This tool requires to be run as administrator on Windows 7 and above in order to function. Admin access is NOT required on Win7 and below. If you aren't entirely happy with that then you'll need to remove the software now. This is a limitation imposed by Windows itself. To enable administrator access find this tool's exe and right-click properties, compatibility - run as administrator. YOU have to do this manually, I can't do it for you."
-'    End If
 
     ' check where rocketdock is installed
     Call checkRocketdockInstallation
-    'If rocketDockInstalled = True Then
-        'dockAppPath = rdAppPath
-        'txtAppPath.Text = rdAppPath
-        'defaultDock = 0
-    'End If
-    
-    ' we check to see if rocketdock is installed in order to know the location of the settings.ini file used by Rocketdock
-    'If rocketdock Is Not installed Then test the registry read
-    ' if the registry settings are located then offer them as a choice.
         
     ' check where steamyDock is installed
     Call checkSteamyDockInstallation
@@ -4966,12 +4949,13 @@ Private Sub Form_Load()
     ' sets other characteristics of the form and menus
     Call adjustMainControls
     
-    ' save the initial positions of ALL the controls on the form
-    'MsgBox "1 " & gblCurrentFormHeight
-    Call saveControlSizes(dockSettings, gblFormControlPositions(), gblCurrentFormWidth, gblCurrentFormHeight)
+    ' save the initial anchor positions of ALL the controls on the form, TwinBasic has anchors but VB6 does not.
+    Call saveControlSizes(dockSettings, gblFormControlPositions(), gblStartFormWidth, gblStartFormHeight)
         
+    ' set the height of the whole form according to previously saved values but not higher than the screen size
     Call setFormHeight
     
+    ' note: the final act in startup is the form_resize_event that is triggered by the subclassed WM_EXITSIZEMOVE when the form is finally revealed
     startupFlg = False ' now negate the startup flag
 
    On Error GoTo 0
@@ -5070,7 +5054,7 @@ Private Sub initialiseVars()
     rDvOffset = vbNullString 'vOffset", settingsFile)
     rDOptionsTabIndex = vbNullString
     
-    'gblPrefsPrimaryHeightTwips = vbNullString
+    gblFormPrimaryHeightTwips = vbNullString
 
    On Error GoTo 0
    Exit Sub
@@ -5373,20 +5357,20 @@ Private Sub adjustWindows10FormSize()
         windowBorderHeight = (Me.Height - Me.ScaleHeight) / 4
         
         gblDoNotResize = True
-        gblCurrentFormHeight = windowBorderHeight + desiredClientHeight
-        'gblCurrentFormHeight = desiredClientHeight
+        gblStartFormHeight = windowBorderHeight + desiredClientHeight
+        'gblStartFormHeight = desiredClientHeight
         
-        'MsgBox "2 adjustWindows10FormSize " & gblCurrentFormHeight
-        Me.Height = gblCurrentFormHeight
+        'MsgBox "2 adjustWindows10FormSize " & gblStartFormHeight
+        Me.Height = gblStartFormHeight
         
         gblDoNotResize = True
-        gblCurrentFormWidth = windowBorderWidth + desiredClientWidth
-        'gblCurrentFormWidth = desiredClientWidth
-        Me.Width = gblCurrentFormWidth
+        gblStartFormWidth = windowBorderWidth + desiredClientWidth
+        'gblStartFormWidth = desiredClientWidth
+        Me.Width = gblStartFormWidth
         
     Else
-         gblCurrentFormHeight = desiredClientHeight
-         gblCurrentFormWidth = desiredClientWidth
+         gblStartFormHeight = desiredClientHeight
+         gblStartFormWidth = desiredClientWidth
          
     End If
     
@@ -5546,7 +5530,6 @@ End Sub
 '
 Private Sub Form_Resize_Event()
 
-    Dim constraintRatio As Double: constraintRatio = 0
     Dim currentFontSize As Single: currentFontSize = 0
     
     On Error GoTo Form_Resize_Event_Error
@@ -5557,21 +5540,18 @@ Private Sub Form_Resize_Event()
     ' move the drag corner label along with the form's bottom right corner
     lblDragCorner.Move Me.ScaleLeft + Me.ScaleWidth - (lblDragCorner.Width + 40), _
            Me.ScaleTop + Me.ScaleHeight - (lblDragCorner.Height + 40)
-        
-    ' constrain the height/width ratio
-    constraintRatio = pvtCFormHeight / pvtCFormWidth
     
     If pvtFormResizedByDrag = True Then
 
         ' maintain the aspect ratio, note: this change calls this routine again...
-        dockSettings.Width = dockSettings.Height / constraintRatio
+        dockSettings.Width = dockSettings.Height / gblConstraintRatio
         
         If gblSuppliedFontSize = vbNullString Then gblSuppliedFontSize = GetINISetting("Software\DockSettings", vbNullString, toolSettingsFile)
         currentFontSize = CSng(Val(gblSuppliedFontSize))
         
-        'MsgBox "3 " & gblCurrentFormHeight
+        'MsgBox "3 " & gblStartFormHeight
         ' resize all controls on the form
-        Call resizeControls(Me, gblFormControlPositions(), gblCurrentFormWidth, gblCurrentFormHeight, currentFontSize)
+        Call resizeControls(Me, gblFormControlPositions(), gblStartFormWidth, gblStartFormHeight, currentFontSize)
 
         Call loadHigherResFormImages
         
@@ -5590,8 +5570,6 @@ Private Sub Form_Resize_Event()
     pvtFormResizedByDrag = False
     
     Call writeFormHeight
-    
-    'MsgBox "4 " & gblCurrentFormHeight
                 
     On Error GoTo 0
     Exit Sub
@@ -6862,7 +6840,6 @@ Private Sub readDockConfiguration()
     If rocketDockInstalled = False And RDregistryPresent = False Then
         rDGeneralReadConfig = True
         optGeneralReadConfig.Value = True
-
     End If
 
     If steamyDockInstalled = True And defaultDock = 1 And optGeneralReadConfig.Value = True Then ' it will always exist even if not used
@@ -6871,34 +6848,23 @@ Private Sub readDockConfiguration()
         Call readDockSettingsFile("Software\SteamyDock\DockSettings", dockSettingsFile)
         Call validateInputs
         Call adjustControls
-                            
-'        If defaultDock = 0 Then
-'            rDVersion = "1.3.5"
-'        Else
-            rDVersion = App.Major & "." & App.Minor & "." & App.Revision
-'        End If
+
+        rDVersion = App.Major & "." & App.Minor & "." & App.Revision
+
     End If
     
-    If optGeneralReadConfig.Value = False Then
+    If optGeneralReadConfig.Value = False And rocketDockInstalled = True Then
         ' read the dock settings from INI or from registry
-        Call readDockSettings
+        Call readRocketdockSettings
         Call adjustControls
     End If
     
-    'if rocketdock set the automatic startup string to Rocketdock
-'    If defaultDock = 0 Then ' rocketdock
-'        rdStartupRunString = getstring(HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", "RocketDock")
-'        If rdStartupRunString <> "" Then
-'            rDStartupRun = "1"
-'            chkStartupRun.Value = 1
-'        End If
-'    ElseIf defaultDock = 1 Then 'if rocketdock set the automatic startup string to Steamydock
-        rdStartupRunString = getstring(HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", "SteamyDock")
-        If rdStartupRunString <> vbNullString Then
-            rDStartupRun = "1"
-            chkStartupRun.Value = 1
-        End If
-'    End If
+    'if rocketdock set the automatic startup string to Steamydock
+    rdStartupRunString = getstring(HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", "SteamyDock")
+    If rdStartupRunString <> vbNullString Then
+        rDStartupRun = "1"
+        chkStartupRun.Value = 1
+    End If
 
    On Error GoTo 0
    Exit Sub
@@ -9704,13 +9670,13 @@ End Sub
 
 
 '---------------------------------------------------------------------------------------
-' Procedure : readDockSettings
+' Procedure : readRocketdockSettings
 ' Author    : beededea
 ' Date      : 20/06/2019
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub readDockSettings()
+Private Sub readRocketdockSettings()
 
 '    origSettingsFile = rdAppPath & "\settings.ini" ' Rocketdock 's settings file
     
@@ -9719,35 +9685,35 @@ Private Sub readDockSettings()
         
     ' check to see if the first settings file exists
     
-    On Error GoTo readDockSettings_Error
+    On Error GoTo readRocketdockSettings_Error
    
-'    If rocketDockInstalled = True Then
-'        If fFExists(origSettingsFile) Then ' does the original settings.ini exist?
-'            If optGeneralReadConfig.Value = False Then
-''                optGeneralReadSettings.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
-''                optGeneralWriteSettings.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
-'            End If
-'            ' here we read from the settings file
-'            readDockSettingsFile "Software\RocketDock", origSettingsFile
-'            Call validateInputs
-'        Else
-'            If optGeneralReadConfig.Value = False Then
-'                optGeneralReadRegistry.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
-'                'optGeneralWriteRegistry.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
-'            End If
-'
-'            ' read the dock configuration from the registry into variables
-'            Call readRegistry
-'        End If
-'
-'    End If
+
+    If fFExists(origSettingsFile) Then ' does the original settings.ini exist?
+        If optGeneralReadConfig.Value = False Then
+'                optGeneralReadSettings.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
+'                optGeneralWriteSettings.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
+        End If
+        ' here we read from the settings file
+        readDockSettingsFile "Software\RocketDock", origSettingsFile
+        Call validateInputs
+    Else
+        If optGeneralReadConfig.Value = False Then
+            optGeneralReadRegistry.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
+            'optGeneralWriteRegistry.Value = True ' we just want to set this checkbox but we don't want this to trigger a click
+        End If
+
+        ' read the dock configuration from the registry into variables
+        Call readRegistry
+    End If
+
+
     
     On Error GoTo 0
     Exit Sub
 
-readDockSettings_Error:
+readRocketdockSettings_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure readDockSettings of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure readRocketdockSettings of Form dockSettings"
 End Sub
 
 
@@ -13501,18 +13467,23 @@ End Sub
 ' Procedure : setFormHeight
 ' Author    : beededea
 ' Date      : 20/02/2025
-' Purpose   : set the height of the whole form not higher than the screen size, cause a form_resize event
+' Purpose   : set the height of the whole form, only the form height is needed to proportion the form
+'             constrain to not higher than the screen size, a resize causes a form_resize event
 '---------------------------------------------------------------------------------------
 
 Private Sub setFormHeight()
 
-   On Error GoTo setFormHeight_Error
-'
-    gblFormResizedInCode = True
-    'dockSettings.Height = CLng(gblFormPrimaryHeightTwips)
+    On Error GoTo setFormHeight_Error
+    
+    ' constrain the height/width ratio
+    gblConstraintRatio = pvtCFormHeight / pvtCFormWidth
      
-'    If gblCurrentFormHeight < gblPhysicalScreenHeightTwips Then
-'       dockSettings.Height = CLng(gblCurrentFormHeight)
+    ' flag to cause a form's elements to all resize according to the new size set below
+    gblFormResizedInCode = True
+    
+    ' set the form height using variables ready to test form height, not yet implemented
+'    If  gblCurrentFormHeight < gblPhysicalScreenHeightTwips Then
+       dockSettings.Height = CLng(gblFormPrimaryHeightTwips)
 '    Else
 '        dockSettings.Height = CLng(gblFormPrimaryHeightTwips) - 1000
 '    End If
@@ -13526,7 +13497,6 @@ setFormHeight_Error:
 End Sub
 
 
-    'gblFormPrimaryHeightTwips = GetINISetting("Software\DockSettings", "formPrimaryHeightTwips", dockSettingsFile)
 
     
 
@@ -13535,23 +13505,20 @@ End Sub
 ' Procedure : writeFormHeight
 ' Author    : beededea
 ' Date      : 21/05/2025
-' Purpose   :
+' Purpose   : write the form height to the settings file, only the form height is needed to proportion the form
 '---------------------------------------------------------------------------------------
 '
 Private Sub writeFormHeight()
    On Error GoTo writeFormHeight_Error
-
-    gblCurrentFormHeight = dockSettings.Height
-    'MsgBox "5 " & gblCurrentFormHeight & " " & dockSettings.Height
-    PutINISetting "Software\DockSettings", "currentFormHeight", CStr(gblCurrentFormHeight), dockSettingsFile
-    
-        'If prefsMonitorStruct.IsPrimary = True Then
-            'gblFormPrimaryHeightTwips = Trim$(CStr(dockSettings.Height))
-            'sPutINISetting "Software\DockSettings", "formPrimaryHeightTwips", gblFormPrimaryHeightTwips, dockSettingsFile
-'        Else
-'            gblPrefsSecondaryHeightTwips = Trim$(CStr(widgetPrefs.Height))
-'            sPutINISetting "Software\SteampunkClockCalendar", "prefsSecondaryHeightTwips", gblPrefsSecondaryHeightTwips, gblSettingsFile
-'        End If
+   
+    ' write the form height using variables ready to test dual monitors, that bit not yet implemented
+    'If prefsMonitorStruct.IsPrimary = True Then
+        gblFormPrimaryHeightTwips = Trim$(CStr(dockSettings.Height))
+        PutINISetting "Software\DockSettings", "formPrimaryHeightTwips", gblFormPrimaryHeightTwips, dockSettingsFile
+'    Else
+'        gblPrefsSecondaryHeightTwips = Trim$(CStr(widgetPrefs.Height))
+'        sPutINISetting "Software\SteampunkClockCalendar", "prefsSecondaryHeightTwips", gblPrefsSecondaryHeightTwips, gblSettingsFile
+'    End If
 
    On Error GoTo 0
    Exit Sub
