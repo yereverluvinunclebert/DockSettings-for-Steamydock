@@ -4846,6 +4846,9 @@ Private Sub Form_Load()
     ' set the application to be DPI aware using the 'forbidden' API.
     If IsProcessDPIAware() = False Then Call setDPIAware
     
+    ' initialise local vars
+    gblFormPrimaryHeightTwips = vbNullString
+    
     ' subclass controls that need additional functionality that VB6 does not provide (balloon tooltips on comboboxes)
     Call subClassControls
     
@@ -4913,6 +4916,8 @@ Private Sub Form_Load()
     ' read the dock settings from the new configuration file  - currently barely used, it is all in above readDockConfiguration
     Call readSettingsFile
     
+    If gblFormPrimaryHeightTwips = vbNullString Then gblFormPrimaryHeightTwips = CStr(gblStartFormHeight)
+
     ' RD can use the different monitors, SD cannot yet.
     Call GetMonitorCount
     
@@ -4968,15 +4973,15 @@ Form_Load_Error:
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : initialiseVars
+' Procedure : initialiseCommonVars
 ' Author    : beededea
 ' Date      : 24/05/2025
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub initialiseVars()
+Private Sub initialiseCommonVars()
 
-   On Error GoTo initialiseVars_Error
+   On Error GoTo initialiseCommonVars_Error
 
     rDGeneralReadConfig = vbNullString 'GeneralReadConfig", dockSettingsFile)
     rDGeneralWriteConfig = vbNullString 'GeneralWriteConfig", dockSettingsFile)
@@ -5053,15 +5058,13 @@ Private Sub initialiseVars()
     rDOffset = vbNullString 'Offset", settingsFile)
     rDvOffset = vbNullString 'vOffset", settingsFile)
     rDOptionsTabIndex = vbNullString
-    
-    gblFormPrimaryHeightTwips = vbNullString
 
    On Error GoTo 0
    Exit Sub
 
-initialiseVars_Error:
+initialiseCommonVars_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure initialiseVars of Form dockSettings"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure initialiseCommonVars of Form dockSettings"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -6844,7 +6847,7 @@ Private Sub readDockConfiguration()
 
     If steamyDockInstalled = True And defaultDock = 1 And optGeneralReadConfig.Value = True Then ' it will always exist even if not used
         ' read the dock settings from the new configuration file
-        Call initialiseVars
+        Call initialiseCommonVars
         Call readDockSettingsFile("Software\SteamyDock\DockSettings", dockSettingsFile)
         Call validateInputs
         Call adjustControls
@@ -13267,7 +13270,7 @@ Public Sub readSettingsFile() '(ByVal location As String, ByVal PzGSettingsFile 
     gblRdDebugFlg = GetINISetting("Software\DockSettings", "debugFlg", toolSettingsFile)
     debugflg = Val(gblRdDebugFlg)
 
-
+    gblFormPrimaryHeightTwips = GetINISetting("Software\DockSettings", "formPrimaryHeightTwips", dockSettingsFile)
 
    On Error GoTo 0
    Exit Sub
