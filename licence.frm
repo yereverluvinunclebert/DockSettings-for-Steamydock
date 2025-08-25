@@ -135,6 +135,8 @@ declineLabel_Click_Error:
     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure declineLabel_Click of Form licence"
 End Sub
 
+
+
 '---------------------------------------------------------------------------------------
 ' Procedure : Label2_Click
 ' Author    : beededea
