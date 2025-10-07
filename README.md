@@ -94,12 +94,11 @@ No need to do the above at runtime. At runtime these OCX will reside in the prog
 files is compiled into the binary. As long as the OCX is in the same folder as the binary
 the program will run without the need to register the OCX manually.
 
-o In the VB6 IDE - project - references - browse - select the OLEEXP.tlb
-
 Project References:
 VisualBasic for Applications  
 VisualBasic Runtime Objects and Procedures  
 VisualBasic Objects and Procedures  
+OLE Automation (stdole2.tlb)
 
 Credits:
 
@@ -142,4 +141,5 @@ licence would need to be obtained from the original owner and creator, ie. me.
 
 
 ![crystal](https://github.com/yereverluvinunclebert/dockSettings/assets/2788342/0f7e336d-d360-4813-8498-ce79dafd4f3f)
+
 
