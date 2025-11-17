@@ -11186,22 +11186,22 @@ End Sub
 Private Sub mnuHelpPdf_click()
        
     ' variables declared
-    Dim answer As VbMsgBoxResult
+    'Dim answer As VbMsgBoxResult
     
     'initialise the dimensioned variables
-    answer = vbNo
+    'answer = vbNo
     
    On Error GoTo mnuHelpPdf_click_Error
    If debugflg = 1 Then Debug.Print "%mnuHelpPdf_click"
 
-    answer = MsgBox("This option opens a browser window and displays this tool's help. Proceed?", vbExclamation + vbYesNo)
-    If answer = vbYes Then
-        If fFExists(App.Path & "\help\SteamyDockSettings.html") Then
-            Call ShellExecute(Me.hWnd, "Open", App.Path & "\help\SteamyDockSettings.html", vbNullString, App.Path, 1)
+'    answer = MsgBox("This option opens a browser window and displays this tool's help. Proceed?", vbExclamation + vbYesNo)
+'    If answer = vbYes Then
+        If fFExists(App.Path & "\help\help.chm") Then
+            Call ShellExecute(Me.hWnd, "Open", App.Path & "\help\help.chm", vbNullString, App.Path, 1)
         Else
-            MsgBox ("The help file - SteamyDockSettings.html- is missing from the help folder.")
+            MsgBox ("The help file - help.chm - is missing from the help folder.")
         End If
-    End If
+'    End If
 
    On Error GoTo 0
    Exit Sub
