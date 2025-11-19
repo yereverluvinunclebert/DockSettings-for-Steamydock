@@ -86,15 +86,14 @@ Register these using regsvr32, ie. in a CMD window with administrator privileges
 	
 	c:                          ! set device to boot drive with Windows
 	cd \windows\syswow64s	    ! change default folder to syswow64
-	regsvr32 CCRImageList.ocx	! register the ocx
+	regsvr32 CCRSlider.ocx	    ! register the ocx
 
 
 This will allow the custom controls to be accessible to the VB6 IDE
 at design time and the sliders will function as intended (if this ocx is
 not registered correctly then the relevant controls will be replaced by picture boxes).
 
-No need to do the above at runtime. At runtime these OCX will reside in the program folder. The program reference to this OCX is contained within the supplied resource file, dockSettings.RES. The reference to these 
-files is compiled into the binary. As long as the OCX is in the same folder as the binary
+No need to do the above at runtime. At runtime these OCX will reside in the program folder. The program reference to this OCX is contained within the supplied resource file, dockSettings.RES. The reference to these files is compiled into the binary. As long as the OCX is in the same folder as the binary
 the program will run without the need to register the OCX manually.
 
 Project References:
@@ -146,6 +145,7 @@ licence would need to be obtained from the original owner and creator, ie. me.
 
 
 ![crystal](https://github.com/yereverluvinunclebert/dockSettings/assets/2788342/0f7e336d-d360-4813-8498-ce79dafd4f3f)
+
 
 
 
