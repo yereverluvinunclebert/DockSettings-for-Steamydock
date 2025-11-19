@@ -71,6 +71,9 @@ Example folder structure:
 	E:\VB6\docksettings ! this repo.
 	E:\VB6\rocketdock   ! from https://github.com/yereverluvinunclebert/rocketdock
 
+
+![components](https://github.com/user-attachments/assets/c9070f84-7db3-4d46-b0df-18f3349f0717)
+
 o Krool's replacement for the Microsoft Windows Common Controls found in
 mscomctl.ocx (slider) are replicated by the addition of one
 dedicated OCX file that are shipped with this package.
@@ -99,6 +102,8 @@ VisualBasic for Applications
 VisualBasic Runtime Objects and Procedures  
 VisualBasic Objects and Procedures  
 OLE Automation (stdole2.tlb)
+
+![references01](https://github.com/user-attachments/assets/dc81eb75-0470-48e5-80aa-b43834f2278d)
 
 Credits:
 
@@ -141,5 +146,6 @@ licence would need to be obtained from the original owner and creator, ie. me.
 
 
 ![crystal](https://github.com/yereverluvinunclebert/dockSettings/assets/2788342/0f7e336d-d360-4813-8498-ce79dafd4f3f)
+
 
 
