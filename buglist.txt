@@ -1,3 +1,35 @@
+
+
+' Status/Bugs/Tasks:
+' ==================
+
+' fix the drag corner position on form_load
+
+' update the help files WIP
+
+' save the form size on setting and when saving
+' resize the form on startup if a form size has been saved
+
+' theme skin images, create higher res. versions
+
+' frmMessage msgbox error during compilation as per steamydock
+
+' resource file for the ocx as per rocketdock
+'
+' Define any key to toggle hiding not just function keys - at the moment it is much more sensible to have a single key defined
+'   Using this code it can be done - https://www.developerfusion.com/code/271/create-a-hot-key/
+'   but this will require subclassing within steamydock. All the solutions I have found require sub-classing.
+'   Within the hotkey folder under vb6 there is code that will identify keypresses (dockSettings) and will respond
+'   via sub-classing (steamyDock).
+'
+'   test running with a blank tool settings file
+'
+'   test running with a blank dock settings file
+'
+'   add logging to a file as per FCW.
+'
+
+
 ' Changes:
 
 ' 25/10/2020 docksettings .01 DAEB added the greying out or enabling of the checkbox and label for the icon label background toggle
@@ -87,31 +119,5 @@ o timer count for the busy timer
 o fixed the value for the wallpaper timer to be an numeric only
 o fixed the wallpaper display panel
 
-' Status/Bugs/Tasks:
-' ==================
-
-' fix the drag corner position on form_load
-
-' update the help files WIP
-
-' save the form size on setting and when saving
-' resize the form on startup if a form size has been saved
-
-' theme skin images, create higher res. versions
-
-' frmMessage msgbox error during compilation as per steamydock
-
-' resource file for the ocx as per rocketdock
-'
-' Define any key to toggle hiding not just function keys - at the moment it is much more sensible to have a single key defined
-'   Using this code it can be done - https://www.developerfusion.com/code/271/create-a-hot-key/
-'   but this will require subclassing within steamydock. All the solutions I have found require sub-classing.
-'   Within the hotkey folder under vb6 there is code that will identify keypresses (dockSettings) and will respond
-'   via sub-classing (steamyDock).
-'
-'   test running with a blank tool settings file
-'
-'   test running with a blank dock settings file
-'
-'   add logging to a file as per FCW.
-'
+' add messages when selecting the move taskbar option to prevent taskbar move operation on windows 7 and prior as 
+'     registry stuckrect does not exist
